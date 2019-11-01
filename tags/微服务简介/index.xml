@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>微服务简介 on Beyourself - a gopher</title>
+    <link>https://zhaojiaming110.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%AE%80%E4%BB%8B/</link>
+    <description>Recent content in 微服务简介 on Beyourself - a gopher</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 10 Oct 2019 22:02:23 +0800</lastBuildDate>
+    
+	<atom:link href="https://zhaojiaming110.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%AE%80%E4%BB%8B/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>1-1.使用net/http构建一个简单的web服务器</title>
+      <link>https://zhaojiaming110.github.io/post/1-1%E4%BD%BF%E7%94%A8nethttp%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Thu, 10 Oct 2019 22:02:23 +0800</pubDate>
+      
+      <guid>https://zhaojiaming110.github.io/post/1-1%E4%BD%BF%E7%94%A8nethttp%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description>net/http net/http包提供了编写http客户端和服务器所需的所有功能。它使我们能够向使用http协议进行通信的其他服务器发送请求，并使我们能够</description>
+    </item>
+    
+    <item>
+      <title>1-2.读写json</title>
+      <link>https://zhaojiaming110.github.io/post/1-2%E8%AF%BB%E5%86%99json/</link>
+      <pubDate>Thu, 10 Oct 2019 22:00:23 +0800</pubDate>
+      
+      <guid>https://zhaojiaming110.github.io/post/1-2%E8%AF%BB%E5%86%99json/</guid>
+      <description>感谢encoding/json包，它内置在标准库中，可轻松快速地对go类型的JSON进行编码和解码。它实现了简单的marshal和unmar</description>
+    </item>
+    
+  </channel>
+</rss>

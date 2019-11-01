@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>面向对象 on Beyourself - a gopher</title>
+    <link>https://zhaojiaming110.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</link>
+    <description>Recent content in 面向对象 on Beyourself - a gopher</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 20 Sep 2019 16:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="https://zhaojiaming110.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GOPATH及目录结构</title>
+      <link>https://zhaojiaming110.github.io/post/2019-09-22-gopath%E5%8F%8A%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/</link>
+      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
+      
+      <guid>https://zhaojiaming110.github.io/post/2019-09-22-gopath%E5%8F%8A%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/</guid>
+      <description>GOPATH环境变量： 默认在~/go(unix,linux)，%USERPROFIEL%\go(windows) 官方推荐：所有项目和第三方库</description>
+    </item>
+    
+    <item>
+      <title>包和封装</title>
+      <link>https://zhaojiaming110.github.io/post/2019-09-22-%E5%8C%85%E5%92%8C%E5%B0%81%E8%A3%85/</link>
+      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
+      
+      <guid>https://zhaojiaming110.github.io/post/2019-09-22-%E5%8C%85%E5%92%8C%E5%B0%81%E8%A3%85/</guid>
+      <description>封装 名字一般使用CamelCase 首字母大写：public 首字母小写：private 包 每个目录只能有一个包。 main包包含可执行入口。 为结构</description>
+    </item>
+    
+    <item>
+      <title>常用的系统接口</title>
+      <link>https://zhaojiaming110.github.io/post/2019-09-23-%E5%B8%B8%E7%94%A8%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%8E%A5%E5%8F%A3/</link>
+      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
+      
+      <guid>https://zhaojiaming110.github.io/post/2019-09-23-%E5%B8%B8%E7%94%A8%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%8E%A5%E5%8F%A3/</guid>
+      <description>Stringer Reader/Writer</description>
+    </item>
+    
+    <item>
+      <title>扩展已有类型</title>
+      <link>https://zhaojiaming110.github.io/post/2019-09-22-%E6%89%A9%E5%B1%95%E5%B7%B2%E6%9C%89%E7%B1%BB%E5%9E%8B/</link>
+      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
+      
+      <guid>https://zhaojiaming110.github.io/post/2019-09-22-%E6%89%A9%E5%B1%95%E5%B7%B2%E6%9C%89%E7%B1%BB%E5%9E%8B/</guid>
+      <description>扩充系统类型或者别人的类型 使用组合： 1 2 3 4 5 6 package tree type Node struct { value int Left, Right *Node } 1 2 3 4 package main type myTreeNode struct { node *tree.Node } 定义别名： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16</description>
+    </item>
+    
+    <item>
+      <title>接口的值类型</title>
+      <link>https://zhaojiaming110.github.io/post/2019-09-23-%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%80%BC%E7%B1%BB%E5%9E%8B/</link>
+      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
+      
+      <guid>https://zhaojiaming110.github.io/post/2019-09-23-%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%80%BC%E7%B1%BB%E5%9E%8B/</guid>
+      <description>接口变量里有什么？ 实现者的类型和实现者的值。 实现者的类型和指向实现者的指针。 接口变量自带指针。 接口变量同样采用值传递，由于接口变量可以带指针</description>
+    </item>
+    
+    <item>
+      <title>接口的定义和实现</title>
+      <link>https://zhaojiaming110.github.io/post/2019-09-23-%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
+      
+      <guid>https://zhaojiaming110.github.io/post/2019-09-23-%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%AE%9E%E7%8E%B0/</guid>
+      <description>接口的定义 1 2 3 4 5 6 7 type Retriver interface { Get(source string) string } func download(r Retriver) string { return r.Get(&amp;#34;www.baidu.com&amp;#34;) } 接口是由使用者定义的。 接口的实现 接口的实现是隐式的。 只要实现接口里的方法。</description>
+    </item>
+    
+    <item>
+      <title>接口的组合</title>
+      <link>https://zhaojiaming110.github.io/post/2019-09-23-%E6%8E%A5%E5%8F%A3%E7%9A%84%E7%BB%84%E5%90%88/</link>
+      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
+      
+      <guid>https://zhaojiaming110.github.io/post/2019-09-23-%E6%8E%A5%E5%8F%A3%E7%9A%84%E7%BB%84%E5%90%88/</guid>
+      <description>接口是一个或多个方法签名的集合 只要某个类型拥有了该接口所有方法签名，即算实现了该接口，无需显示声明实现了哪个接口，这称为Structural</description>
+    </item>
+    
+    <item>
+      <title>结构体和方法</title>
+      <link>https://zhaojiaming110.github.io/post/2019-09-22-%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8C%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
+      
+      <guid>https://zhaojiaming110.github.io/post/2019-09-22-%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8C%E6%96%B9%E6%B3%95/</guid>
+      <description>面向对象 Go语言仅支持封装，不支持继承和多态 Go语言没有class，只有struct struct 结构体是一种聚合的数据类型，是由零个或多个任意类型的值</description>
+    </item>
+    
+  </channel>
+</rss>

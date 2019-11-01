@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go Design Paterns on Beyourself - a gopher</title>
+    <link>https://zhaojiaming110.github.io/categories/go-design-paterns/</link>
+    <description>Recent content in Go Design Paterns on Beyourself - a gopher</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 14 Oct 2019 20:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="https://zhaojiaming110.github.io/categories/go-design-paterns/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>工厂方法-Factory Method</title>
+      <link>https://zhaojiaming110.github.io/post/factory_method/</link>
+      <pubDate>Mon, 14 Oct 2019 20:01:23 +0800</pubDate>
+      
+      <guid>https://zhaojiaming110.github.io/post/factory_method/</guid>
+      <description>工厂方法（Factory Method）属于创建型模式，它提供了一种创建对象的最佳方式。在工厂方法中，我们在创建对象时不会对客户端暴露创建逻辑</description>
+    </item>
+    
+    <item>
+      <title>建造者模式-Builder</title>
+      <link>https://zhaojiaming110.github.io/post/builder/</link>
+      <pubDate>Mon, 14 Oct 2019 20:01:23 +0800</pubDate>
+      
+      <guid>https://zhaojiaming110.github.io/post/builder/</guid>
+      <description>无论是在现实世界中还是在软件系统中，都存在一些复杂的对象，它们拥有多个组成部分，如汽车，它包括车轮、方向盘、发送机等各种部件。而对于大多数用</description>
+    </item>
+    
+  </channel>
+</rss>

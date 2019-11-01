@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>错误处理 on Beyourself - a gopher</title>
-    <link>https://zhaojiaming110.github.io/tags/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</link>
+    <link>http://beuself.xyz/tags/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</link>
     <description>Recent content in 错误处理 on Beyourself - a gopher</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 20 Sep 2019 16:01:23 +0800</lastBuildDate>
     
-	<atom:link href="https://zhaojiaming110.github.io/tags/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://beuself.xyz/tags/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>错误处理和资源管理</title>
-      <link>https://zhaojiaming110.github.io/post/2019-09-25-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E5%92%8C%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86/</link>
+      <link>http://beuself.xyz/post/2019-09-25-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E5%92%8C%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86/</link>
       <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
       
-      <guid>https://zhaojiaming110.github.io/post/2019-09-25-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E5%92%8C%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86/</guid>
+      <guid>http://beuself.xyz/post/2019-09-25-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E5%92%8C%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86/</guid>
       <description>defer defer调用： 确保调用在函数结束时发生。 参数在defer语句时计算。 defer列表为后进先出。 何时使用defer: Open/Close Lock/Unlock PrintHeader/PrintFooter 1 2 3 4 5 6 7 8</description>
     </item>
     

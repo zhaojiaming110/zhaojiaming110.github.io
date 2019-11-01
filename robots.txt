@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://zhaojiaming110.github.io/sitemap.xml
+Sitemap: http://beuself.xyz/sitemap.xml

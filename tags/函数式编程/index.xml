@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>函数式编程 on Beyourself - a gopher</title>
-    <link>https://zhaojiaming110.github.io/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</link>
+    <link>http://beuself.xyz/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</link>
     <description>Recent content in 函数式编程 on Beyourself - a gopher</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 20 Sep 2019 16:01:23 +0800</lastBuildDate>
     
-	<atom:link href="https://zhaojiaming110.github.io/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://beuself.xyz/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>函数与闭包</title>
-      <link>https://zhaojiaming110.github.io/post/2019-09-24-%E5%87%BD%E6%95%B0%E4%B8%8E%E9%97%AD%E5%8C%85/</link>
+      <link>http://beuself.xyz/post/2019-09-24-%E5%87%BD%E6%95%B0%E4%B8%8E%E9%97%AD%E5%8C%85/</link>
       <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
       
-      <guid>https://zhaojiaming110.github.io/post/2019-09-24-%E5%87%BD%E6%95%B0%E4%B8%8E%E9%97%AD%E5%8C%85/</guid>
+      <guid>http://beuself.xyz/post/2019-09-24-%E5%87%BD%E6%95%B0%E4%B8%8E%E9%97%AD%E5%8C%85/</guid>
       <description>函数可以作为一种类型使用 匿名函数 在Go里面，函数可以像普通变量一样被传递或使用。 Go语言支持随时在代码里定义匿名函数。 匿名函数由一个不带函数</description>
     </item>
     
     <item>
       <title>测试</title>
-      <link>https://zhaojiaming110.github.io/post/2019-09-26-%E6%B5%8B%E8%AF%95/</link>
+      <link>http://beuself.xyz/post/2019-09-26-%E6%B5%8B%E8%AF%95/</link>
       <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
       
-      <guid>https://zhaojiaming110.github.io/post/2019-09-26-%E6%B5%8B%E8%AF%95/</guid>
+      <guid>http://beuself.xyz/post/2019-09-26-%E6%B5%8B%E8%AF%95/</guid>
       <description>传统测试 vs 表格驱动测试 go语言采用表格驱动测试 传统测试： 1 2 3 4 5 6 7 @Test public void testAdd() { assertEquals(3, add(1, 2)); assertEquals(2, add(0, 2)); assertEquals(0, add(0, 0)); assertEquals(0, add(1, -1)); assertEqulas(Integer.MIN_VALUE, add(1, Integer.MAX_VALUE)); } 测试数据和测试逻辑混在一起 出</description>
     </item>
     
     <item>
       <title>闭包的应用</title>
-      <link>https://zhaojiaming110.github.io/post/2019-09-25-%E9%97%AD%E5%8C%85%E7%9A%84%E5%BA%94%E7%94%A8/</link>
+      <link>http://beuself.xyz/post/2019-09-25-%E9%97%AD%E5%8C%85%E7%9A%84%E5%BA%94%E7%94%A8/</link>
       <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
       
-      <guid>https://zhaojiaming110.github.io/post/2019-09-25-%E9%97%AD%E5%8C%85%E7%9A%84%E5%BA%94%E7%94%A8/</guid>
+      <guid>http://beuself.xyz/post/2019-09-25-%E9%97%AD%E5%8C%85%E7%9A%84%E5%BA%94%E7%94%A8/</guid>
       <description>1 菲波那切数列 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 package main import &amp;#34;fmt&amp;#34; //1, 1, 2, 3, 5, 7, 11, 18, 29 // a, b // a, b func feibonacee() func() int { a, b := 0, 1 return func() int { a, b = b,</description>
     </item>
     

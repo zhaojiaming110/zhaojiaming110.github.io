@@ -48,7 +48,7 @@
     </item>
     
     <item>
-      <title>删除排序数组中的重复项</title>
+      <title>1-2删除排序数组中的重复项</title>
       <link>http://beuself.xyz/post/2019-09-22-%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/</link>
       <pubDate>Sun, 13 Oct 2019 16:01:23 +0800</pubDate>
       
@@ -90,6 +90,24 @@
       
       <guid>http://beuself.xyz/post/%E6%90%AD%E5%BB%BAgolang%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid>
       <description>搭建Golang开发环境 1.Sublime Text3 + GoSublime + Goimports + Go build ​ 安装sublime text3和GoSublime插件 2.Sublime Text3、Goimports和GoSub</description>
+    </item>
+    
+    <item>
+      <title>1-1两数之和</title>
+      <link>http://beuself.xyz/post/2019-09-22-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</link>
+      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/2019-09-22-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</guid>
+      <description>题目： 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。 你可以假设每种输入只会对应</description>
+    </item>
+    
+    <item>
+      <title>1-3移除元素</title>
+      <link>http://beuself.xyz/post/2019-09-22-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/</link>
+      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/2019-09-22-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/</guid>
+      <description>题目： 给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。 不要使用额外的数组空间，你必须在原地修改输入</description>
     </item>
     
     <item>
@@ -138,15 +156,6 @@
     </item>
     
     <item>
-      <title>两数之和</title>
-      <link>http://beuself.xyz/post/2019-09-22-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</link>
-      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
-      
-      <guid>http://beuself.xyz/post/2019-09-22-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</guid>
-      <description>题目： 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。 你可以假设每种输入只会对应</description>
-    </item>
-    
-    <item>
       <title>其它标准库</title>
       <link>http://beuself.xyz/post/%E5%85%B6%E5%AE%83%E6%A0%87%E5%87%86%E5%BA%93/</link>
       <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
@@ -180,15 +189,6 @@
       
       <guid>http://beuself.xyz/post/2019-09-24-%E5%87%BD%E6%95%B0%E4%B8%8E%E9%97%AD%E5%8C%85/</guid>
       <description>函数可以作为一种类型使用 匿名函数 在Go里面，函数可以像普通变量一样被传递或使用。 Go语言支持随时在代码里定义匿名函数。 匿名函数由一个不带函数</description>
-    </item>
-    
-    <item>
-      <title>切片</title>
-      <link>http://beuself.xyz/post/2019-09-21-%E5%88%87%E7%89%87/</link>
-      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
-      
-      <guid>http://beuself.xyz/post/2019-09-21-%E5%88%87%E7%89%87/</guid>
-      <description>1 2 3 4 5 6 7 func main() { arr := [...]int{0, 1, 2, 3, 4, 5, 6, 7} fmt.Println(&amp;#34;arr[2:6] = &amp;#34;, arr[2:6]) fmt.Println(&amp;#34;arr[:6] = &amp;#34;, arr[:6]) fmt.Println(&amp;#34;arr[2:] = &amp;#34;, arr[2:]) fmt.Println(&amp;#34;arr[:] = &amp;#34;, arr[:]) } 运行结果 1 2 3 4 arr[2:6] = [2 3 4 5] arr[:6] = [0 1 2 3 4 5] arr[2:] = [2 3 4 5 6 7] arr[:] = [0</description>
     </item>
     
   </channel>

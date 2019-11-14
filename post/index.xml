@@ -39,6 +39,15 @@
     </item>
     
     <item>
+      <title>1-3单例模式-Singleton</title>
+      <link>http://beuself.xyz/post/singleton/</link>
+      <pubDate>Mon, 14 Oct 2019 20:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/singleton/</guid>
+      <description>单例设计模式-在整个程序中有一个类型的唯一实例 您是否曾经对软件工程师进行过采访？有趣的是，当您向他们询问设计模式时，超过80％的人会提及 Si</description>
+    </item>
+    
+    <item>
       <title>广度优先算法</title>
       <link>http://beuself.xyz/post/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E7%AE%97%E6%B3%95/</link>
       <pubDate>Mon, 14 Oct 2019 16:01:23 +0800</pubDate>
@@ -180,15 +189,6 @@
       
       <guid>http://beuself.xyz/post/2019-09-21-%E5%87%BD%E6%95%B0/</guid>
       <description>1 2 3 4 5 6 7 func Add(a int, b int) (ret int, err error) { if a &amp;lt; 0 || b &amp;lt; 0 { // 假设这个函数只支持两个非负数字的加法 err = errors.New(&amp;#34;Should be non-negative numbers!&amp;#34;) return } return a + b, nil // 支持多重返回值 } 函数定</description>
-    </item>
-    
-    <item>
-      <title>函数与闭包</title>
-      <link>http://beuself.xyz/post/2019-09-24-%E5%87%BD%E6%95%B0%E4%B8%8E%E9%97%AD%E5%8C%85/</link>
-      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
-      
-      <guid>http://beuself.xyz/post/2019-09-24-%E5%87%BD%E6%95%B0%E4%B8%8E%E9%97%AD%E5%8C%85/</guid>
-      <description>函数可以作为一种类型使用 匿名函数 在Go里面，函数可以像普通变量一样被传递或使用。 Go语言支持随时在代码里定义匿名函数。 匿名函数由一个不带函数</description>
     </item>
     
   </channel>

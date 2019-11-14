@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>测试与性能调优 · Beyourself - a gopher</title>
+  <title>1-3单例模式-Singleton - Beyourself - a gopher</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Beyourself" />
-  <meta name="description" content="Beyourself&#39;s blog." />
+  <meta name="description" content="单例设计模式-在整个程序中有一个类型的唯一实例 您是否曾经对软件工程师进行过采访？有趣的是，当您向他们询问设计模式时，超过80％的人会提及 Si" />
+
   <meta name="keywords" content="Beyourslef, go, golang" />
 
 
@@ -34,8 +35,7 @@
 <meta name="generator" content="Hugo 0.58.3" />
 
 
-<link rel="canonical" href="http://beuself.xyz/tags/%E6%B5%8B%E8%AF%95%E4%B8%8E%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/" />
-<link href="%7balternate%20%7bRSS%20application/rss&#43;xml%20%20index%20alternate%20%20false%20false%20true%20false%20false%200%7d%20/tags/%E6%B5%8B%E8%AF%95%E4%B8%8E%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/index.xml%20http://beuself.xyz/tags/%E6%B5%8B%E8%AF%95%E4%B8%8E%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/index.xml%7d" rel="alternate" type="application/rss+xml" title="Beyourself - a gopher" />
+<link rel="canonical" href="http://beuself.xyz/post/singleton/" />
 
 
 
@@ -57,18 +57,26 @@
 
 
 
-<meta property="og:title" content="测试与性能调优" />
-<meta property="og:description" content="Beyourself&#39;s blog." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://beuself.xyz/tags/%E6%B5%8B%E8%AF%95%E4%B8%8E%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/" />
+<meta property="og:title" content="1-3单例模式-Singleton" />
+<meta property="og:description" content="单例设计模式-在整个程序中有一个类型的唯一实例 您是否曾经对软件工程师进行过采访？有趣的是，当您向他们询问设计模式时，超过80％的人会提及 Si" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://beuself.xyz/post/singleton/" />
+<meta property="article:published_time" content="2019-10-14T20:01:23+08:00" />
+<meta property="article:modified_time" content="2019-10-14T20:01:23+08:00" />
+<meta itemprop="name" content="1-3单例模式-Singleton">
+<meta itemprop="description" content="单例设计模式-在整个程序中有一个类型的唯一实例 您是否曾经对软件工程师进行过采访？有趣的是，当您向他们询问设计模式时，超过80％的人会提及 Si">
 
-<meta property="og:updated_time" content="2019-09-20T16:01:23+08:00" />
-<meta itemprop="name" content="测试与性能调优">
-<meta itemprop="description" content="Beyourself&#39;s blog.">
 
+<meta itemprop="datePublished" content="2019-10-14T20:01:23&#43;08:00" />
+<meta itemprop="dateModified" content="2019-10-14T20:01:23&#43;08:00" />
+<meta itemprop="wordCount" content="121">
+
+
+
+<meta itemprop="keywords" content="创作模式," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="测试与性能调优"/>
-<meta name="twitter:description" content="Beyourself&#39;s blog."/>
+<meta name="twitter:title" content="1-3单例模式-Singleton"/>
+<meta name="twitter:description" content="单例设计模式-在整个程序中有一个类型的唯一实例 您是否曾经对软件工程师进行过采访？有趣的是，当您向他们询问设计模式时，超过80％的人会提及 Si"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -406,7 +414,7 @@ if (!doNotTrack) {
 
       </li>
     
-        <li class="menu-item">
+        <li class="menu-item active">
         
           
           <a class="menu-item-link menu-parent" href="https://beuself.xyz/categories/go-design-paterns/">Go Design Paterns</a>
@@ -444,55 +452,160 @@ if (!doNotTrack) {
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-
-<section id="archive" class="archive">
-  
+          <article class="post bg-white">
     
-      <div class="archive-title tag">
-        <h2 class="archive-name">Tag: 测试与性能调优</h2>
+    <header class="post-header">
+      <h1 class="post-title">1-3单例模式-Singleton</h1>
+      
+      <div class="post-meta">
+        <time datetime="2019-10-14" class="post-time">
+          2019-10-14
+        </time>
+        <div class="post-category">
+            <a href="http://beuself.xyz/categories/go-design-paterns/"> Go Design Paterns </a>
+            
+          </div>
+        <span class="more-meta"> 121 words </span>
+          <span class="more-meta"> 1 min read </span>
+
+        
+        
+
+        
+        
       </div>
+    </header>
+
     
-  
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    
+  </div>
+</div>
 
-  
-    <div class="archive-post">
-      <time datetime="2019-09-20" class="archive-post-time">
-        2019-09-20
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2019-09-26-%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/" class="archive-post-link">
-          性能调优
-        </a>
-      </span>
+    
+    <div class="post-content">
+      <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8dvkilb5yj313r0mbgmw.jpg" alt="" /></p>
+
+<p><code>单例设计模式-在整个程序中有一个类型的唯一实例</code></p>
+
+<p>您是否曾经对软件工程师进行过采访？有趣的是，当您向他们询问设计模式时，超过80％的人会提及 <strong>Singleton</strong>设计模式。这是为什么？也许是因为它是最常用的设计模式之一，还是最容易掌握的设计模式之一。</p>
+
     </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Beyourself</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2019-10-14
+      
+    </span>
+  </p>
   
-</section>
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
 
 
+    
+    
 
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://beuself.xyz/tags/%E5%88%9B%E4%BD%9C%E6%A8%A1%E5%BC%8F/">创作模式</a>
+          
+        </div>
 
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/factory_method/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
 
+            </i>
+            <span class="prev-text nav-default">1-2工厂方法-Factory Method</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E7%AE%97%E6%B3%95/">
+            <span class="next-text nav-default">广度优先算法</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
 
   
   
+
+  
+  
+
   
 
   
   
 
   
-  
 
   
+
+  <div class="disqus-comment">
+  <div class="disqus-button" id="load_disqus" onclick="load_disqus()">
+    Show Disqus Comments
+  </div>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_config = function () {
+      this.page.url = "http://beuself.xyz/post/singleton/";
+    };
+    function load_disqus() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'true';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+      $('#load_disqus').remove();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
   
+  </div>
+
+    
 
   
-  
-
-
-
-
 
         </div>
       </div>

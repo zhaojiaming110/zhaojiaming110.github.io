@@ -30,6 +30,15 @@
     </item>
     
     <item>
+      <title>1-4建造者模式-Builder</title>
+      <link>http://beuself.xyz/post/helloads/</link>
+      <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/helloads/</guid>
+      <description>fdfndkdmfnjfnmfaemj</description>
+    </item>
+    
+    <item>
       <title>1-2工厂方法-Factory Method</title>
       <link>http://beuself.xyz/post/factory_method/</link>
       <pubDate>Mon, 14 Oct 2019 22:01:23 +0800</pubDate>
@@ -180,15 +189,6 @@
       
       <guid>http://beuself.xyz/post/2019-09-20-%E5%86%85%E5%BB%BA%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/</guid>
       <description>bool, string int, (u)int8, (u)int16, (u)int32, (u)int64, uintptr(没有指定具体的bit大小但是足以容纳指针) byte(uint8等价类型)，byte类型一般用于强调数值是一个原</description>
-    </item>
-    
-    <item>
-      <title>函数</title>
-      <link>http://beuself.xyz/post/2019-09-21-%E5%87%BD%E6%95%B0/</link>
-      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
-      
-      <guid>http://beuself.xyz/post/2019-09-21-%E5%87%BD%E6%95%B0/</guid>
-      <description>1 2 3 4 5 6 7 func Add(a int, b int) (ret int, err error) { if a &amp;lt; 0 || b &amp;lt; 0 { // 假设这个函数只支持两个非负数字的加法 err = errors.New(&amp;#34;Should be non-negative numbers!&amp;#34;) return } return a + b, nil // 支持多重返回值 } 函数定</description>
     </item>
     
   </channel>

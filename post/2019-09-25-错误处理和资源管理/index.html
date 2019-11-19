@@ -917,20 +917,30 @@ func main<span class="o">()</span> <span class="o">{</span>
 
   
   
-    <div class="post bg-white">
-      <script src="https://utteranc.es/client.js"
-            repo= "zhaojiaming110"
-            issue-term="zhaojiaming110.github.io"
-            theme="github-light"
-            crossorigin="anonymous"
-            async>
+
+  
+
+  <div class="post bg-white">
+      <div id="comments-gitment"></div>
+      <link rel="stylesheet" href="/lib/gitment/gitment-0.0.3.min.css">
+        <script src="/lib/gitment/gitment-0.0.3.min.js"></script>
+      <script type="text/javascript">
+      const gitment = new Gitment({
+        id: '2019-09-25-错误处理和资源管理.md',
+        title: '错误处理和资源管理',
+        link: decodeURI(location.href),
+        desc: 'defer defer调用： 确保调用在函数结束时发生。 参数在defer语句时计算。 defer列表为后进先出。 何时使用defer: Open\/Close Lock\/Unlock PrintHeader\/PrintFooter 1 2 3 4 5 6 7 8',
+        owner: 'zhaojiaming110',
+        repo: 'zhaojiaming110.github.io',
+        oauth: {
+          client_id: 'e1a7980c3b49cf43b4d7',
+          client_secret: '7e69fa381edd9f56885f2e529a9a2c869a6f729d'
+        }
+      })
+      gitment.render('comments-gitment')
       </script>
+      <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
     </div>
-  
-
-  
-
-  
 
   <div class="disqus-comment">
   <div class="disqus-button" id="load_disqus" onclick="load_disqus()">

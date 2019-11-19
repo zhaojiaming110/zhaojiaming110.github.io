@@ -701,20 +701,30 @@ func main<span class="o">()</span> <span class="o">{</span>
 
   
   
-    <div class="post bg-white">
-      <script src="https://utteranc.es/client.js"
-            repo= "zhaojiaming110"
-            issue-term="zhaojiaming110.github.io"
-            theme="github-light"
-            crossorigin="anonymous"
-            async>
+
+  
+
+  <div class="post bg-white">
+      <div id="comments-gitment"></div>
+      <link rel="stylesheet" href="/lib/gitment/gitment-0.0.3.min.css">
+        <script src="/lib/gitment/gitment-0.0.3.min.js"></script>
+      <script type="text/javascript">
+      const gitment = new Gitment({
+        id: '2019-09-22-两数之和.md',
+        title: '1-1两数之和',
+        link: decodeURI(location.href),
+        desc: '题目： 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。 你可以假设每种输入只会对应',
+        owner: 'zhaojiaming110',
+        repo: 'zhaojiaming110.github.io',
+        oauth: {
+          client_id: 'e1a7980c3b49cf43b4d7',
+          client_secret: '7e69fa381edd9f56885f2e529a9a2c869a6f729d'
+        }
+      })
+      gitment.render('comments-gitment')
       </script>
+      <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
     </div>
-  
-
-  
-
-  
 
   <div class="disqus-comment">
   <div class="disqus-button" id="load_disqus" onclick="load_disqus()">

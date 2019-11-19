@@ -18,7 +18,9 @@
       
       <guid>http://beuself.xyz/about/</guid>
       
-        <description>&lt;p&gt;欢迎来到Beyourself的博客。&lt;/p&gt;
+        <description>&lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=370 height=86 src=&#34;//music.163.com/outchain/player?type=2&amp;id=22712173&amp;auto=1&amp;height=66&#34;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;欢迎来到Beyourself的博客。&lt;/p&gt;
 
 &lt;p&gt;我原来是位C开发师，现在正在转型为一名go开发工程师。&lt;/p&gt;
 

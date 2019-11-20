@@ -35,7 +35,7 @@
       <pubDate>Mon, 14 Oct 2019 22:01:23 +0800</pubDate>
       
       <guid>http://beuself.xyz/post/factory_method/</guid>
-      <description>2019 年 6 月，词汇量测试 工厂方法（Factory Method）属于创建型模式，它提供了一种创建对象的最佳方式。在工厂方法中，我们在创建对象时不会</description>
+      <description>&amp;gt; 工厂方法（Factory Method）属于创建型模式，它提供了一种创建对象的最佳方式。在工厂方法中，我们在创建对象时不会对客户端暴露创建逻</description>
     </item>
     
     <item>

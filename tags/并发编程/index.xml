@@ -29,5 +29,14 @@
       <description>并发concurrency 很多人都是冲着Go大肆宣扬的高并发而忍不住跃跃欲试，但其实从源码解析来看，goroutine只是由官方实现的超级“</description>
     </item>
     
+    <item>
+      <title>通道</title>
+      <link>http://beuself.xyz/post/%E9%80%9A%E9%81%93/</link>
+      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/%E9%80%9A%E9%81%93/</guid>
+      <description>无缓冲的通道(unbuffered channel)是指在接收前没有能力保存任何值的通道。这种类型的通 道要求发送 goroutine 和接收 goroutine 同时准备好，才能完成</description>
+    </item>
+    
   </channel>
 </rss>

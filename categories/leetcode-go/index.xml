@@ -38,5 +38,14 @@
       <description>题目： 给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。 不要使用额外的数组空间，你必须在原地修改输入</description>
     </item>
     
+    <item>
+      <title>LeetCode解题进度</title>
+      <link>http://beuself.xyz/post/leetcode%E8%A7%A3%E9%A2%98%E8%BF%9B%E5%BA%A6/</link>
+      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/leetcode%E8%A7%A3%E9%A2%98%E8%BF%9B%E5%BA%A6/</guid>
+      <description>分类 array 题号 题目 等级 解答 LeetCode 1011 Two Sum Easy Go</description>
+    </item>
+    
   </channel>
 </rss>

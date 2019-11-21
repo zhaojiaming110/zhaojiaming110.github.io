@@ -13,37 +13,37 @@
     
     <item>
       <title>map</title>
-      <link>http://beuself.xyz/post/2019-09-21-map/</link>
+      <link>http://beuself.xyz/post/go-basic-knowledge/2019-09-21-map/</link>
       <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
       
-      <guid>http://beuself.xyz/post/2019-09-21-map/</guid>
+      <guid>http://beuself.xyz/post/go-basic-knowledge/2019-09-21-map/</guid>
       <description>map是一堆键值对的未排序集合。 创建map 1 2 3 4 5 6 7 m1 := map[string]string { &amp;#34;name&amp;#34;: &amp;#34;zjm&amp;#34;, &amp;#34;age&amp;#34;: &amp;#34;26&amp;#34;, &amp;#34;country&amp;#34;: &amp;#34;CN&amp;#34;, } m2 := make(map[string]int) //m2 == empty map var m3 map[string]int //m3 == nil map map元素赋值 1 2 3 4 5 6 m1 := map[string]string {</description>
     </item>
     
     <item>
       <title>切片</title>
-      <link>http://beuself.xyz/post/2019-09-21-%E5%88%87%E7%89%87/</link>
+      <link>http://beuself.xyz/post/go-basic-knowledge/2019-09-21-%E5%88%87%E7%89%87/</link>
       <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
       
-      <guid>http://beuself.xyz/post/2019-09-21-%E5%88%87%E7%89%87/</guid>
+      <guid>http://beuself.xyz/post/go-basic-knowledge/2019-09-21-%E5%88%87%E7%89%87/</guid>
       <description>1 2 3 4 5 6 7 func main() { arr := [...]int{0, 1, 2, 3, 4, 5, 6, 7} fmt.Println(&amp;#34;arr[2:6] = &amp;#34;, arr[2:6]) fmt.Println(&amp;#34;arr[:6] = &amp;#34;, arr[:6]) fmt.Println(&amp;#34;arr[2:] = &amp;#34;, arr[2:]) fmt.Println(&amp;#34;arr[:] = &amp;#34;, arr[:]) } 运行结果 1 2 3 4 arr[2:6] = [2 3 4 5] arr[:6] = [0 1 2 3 4 5] arr[2:] = [2 3 4 5 6 7] arr[:] = [0</description>
     </item>
     
     <item>
       <title>字符和字符串处理</title>
-      <link>http://beuself.xyz/post/2019-09-21-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/</link>
+      <link>http://beuself.xyz/post/go-basic-knowledge/2019-09-21-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/</link>
       <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
       
-      <guid>http://beuself.xyz/post/2019-09-21-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/</guid>
+      <guid>http://beuself.xyz/post/go-basic-knowledge/2019-09-21-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/</guid>
       <description>ASCII ASCII是基于拉丁字母的一套电脑编码系统，主要用于显示英文字母和其它西欧语言。 标准ASCII码也叫基础ASCII码，使用7位二进制数（剩</description>
     </item>
     
     <item>
       <title>数组</title>
-      <link>http://beuself.xyz/post/2019-09-21-%E6%95%B0%E7%BB%84/</link>
+      <link>http://beuself.xyz/post/go-basic-knowledge/2019-09-21-%E6%95%B0%E7%BB%84/</link>
       <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
       
-      <guid>http://beuself.xyz/post/2019-09-21-%E6%95%B0%E7%BB%84/</guid>
+      <guid>http://beuself.xyz/post/go-basic-knowledge/2019-09-21-%E6%95%B0%E7%BB%84/</guid>
       <description>数组就是指一系列同一类型数据 的集合。数组中包含的每个数据被称为数组元素(element)，一个数组包含的元素个数被称为数 组的长度。 常规数组的</description>
     </item>
     

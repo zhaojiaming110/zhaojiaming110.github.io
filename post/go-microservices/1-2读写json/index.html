@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>1-2.读写json - Beyourself - a gopher</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Beyourself" />
+  <meta name="description" content="感谢encoding/json包，它内置在标准库中，可轻松快速地对go类型的JSON进行编码和解码。它实现了简单的marshal和unmar" />
+
+  <meta name="keywords" content="Beyourslef, go, golang" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.58.3" />
+
+
+<link rel="canonical" href="http://beuself.xyz/post/go-microservices/1-2%E8%AF%BB%E5%86%99json/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="1-2.读写json" />
+<meta property="og:description" content="感谢encoding/json包，它内置在标准库中，可轻松快速地对go类型的JSON进行编码和解码。它实现了简单的marshal和unmar" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://beuself.xyz/post/go-microservices/1-2%E8%AF%BB%E5%86%99json/" />
+<meta property="article:published_time" content="2019-10-10T22:00:23+08:00" />
+<meta property="article:modified_time" content="2019-10-10T22:00:23+08:00" />
+<meta itemprop="name" content="1-2.读写json">
+<meta itemprop="description" content="感谢encoding/json包，它内置在标准库中，可轻松快速地对go类型的JSON进行编码和解码。它实现了简单的marshal和unmar">
+
+
+<meta itemprop="datePublished" content="2019-10-10T22:00:23&#43;08:00" />
+<meta itemprop="dateModified" content="2019-10-10T22:00:23&#43;08:00" />
+<meta itemprop="wordCount" content="4905">
+
+
+
+<meta itemprop="keywords" content="微服务简介," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="1-2.读写json"/>
+<meta name="twitter:description" content="感谢encoding/json包，它内置在标准库中，可轻松快速地对go类型的JSON进行编码和解码。它实现了简单的marshal和unmar"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'true', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css"/>
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Beyourslef</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://beuself.xyz/">首页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://beuself.xyz/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://beuself.xyz/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://beuself.xyz/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://beuself.xyz/about/">简介</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          <div class="mobile-menu-parent">
+            <span class="mobile-submenu-open"></span>
+            <a href="https://beuself.xyz/categories/leetcode-go/">
+              leetcode-Go
+            </a>
+          </div>
+          <ul class="mobile-submenu-list">
+            
+              <li>
+                <a href="http://beuself.xyz/post/go-leetcode/leetcode%E8%A7%A3%E9%A2%98%E8%BF%9B%E5%BA%A6/">LeetCode解题进度</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/go-leetcode/2019-09-22-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">1-1两数之和</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/go-leetcode/2019-09-22-%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/">1-2删除排序数组中的重复项</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/go-leetcode/2019-09-22-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/">1-3移除元素</a>
+              </li>
+            
+          </ul>
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          <div class="mobile-menu-parent">
+            <span class="mobile-submenu-open"></span>
+            <a href="https://beuself.xyz/categories/go-microservices/">
+              Go microservices
+            </a>
+          </div>
+          <ul class="mobile-submenu-list">
+            
+              <li>
+                <a href="http://beuself.xyz/post/go-microservices/0-%E5%89%8D%E8%A8%80/">0-前言</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/go-microservices/1-1%E4%BD%BF%E7%94%A8nethttp%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8/">1-1.使用net/http构建一个简单的web服务器</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/go-microservices/1-2%E8%AF%BB%E5%86%99json/">1-2.读写json</a>
+              </li>
+            
+          </ul>
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          <div class="mobile-menu-parent">
+            <span class="mobile-submenu-open"></span>
+            <a href="https://beuself.xyz/categories/go-design-paterns/">
+              Go Design Paterns
+            </a>
+          </div>
+          <ul class="mobile-submenu-list">
+            
+              <li>
+                <a href="http://beuself.xyz/post/go-paterns/go-paterns%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6/">Go-Paterns项目进度</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/go-paterns/builder/">1-1建造者模式-Builder</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/go-paterns/factory_method/">1-2工厂方法-Factory Method</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/go-paterns/singleton/">1-3单例模式-Singleton</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Beyourslef
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://beuself.xyz/">首页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://beuself.xyz/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://beuself.xyz/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://beuself.xyz/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://beuself.xyz/about/">简介</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          <a class="menu-item-link menu-parent" href="https://beuself.xyz/categories/leetcode-go/">leetcode-Go</a>
+          <ul class="submenu">
+            
+              <li>
+                <a href="http://beuself.xyz/post/go-leetcode/leetcode%E8%A7%A3%E9%A2%98%E8%BF%9B%E5%BA%A6/">LeetCode解题进度</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/go-leetcode/2019-09-22-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">1-1两数之和</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/go-leetcode/2019-09-22-%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/">1-2删除排序数组中的重复项</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/go-leetcode/2019-09-22-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/">1-3移除元素</a>
+              </li>
+            
+          </ul>
+
+        
+
+      </li>
+    
+        <li class="menu-item active">
+        
+          
+          <a class="menu-item-link menu-parent" href="https://beuself.xyz/categories/go-microservices/">Go microservices</a>
+          <ul class="submenu">
+            
+              <li>
+                <a href="http://beuself.xyz/post/go-microservices/0-%E5%89%8D%E8%A8%80/">0-前言</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/go-microservices/1-1%E4%BD%BF%E7%94%A8nethttp%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8/">1-1.使用net/http构建一个简单的web服务器</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/go-microservices/1-2%E8%AF%BB%E5%86%99json/">1-2.读写json</a>
+              </li>
+            
+          </ul>
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          <a class="menu-item-link menu-parent" href="https://beuself.xyz/categories/go-design-paterns/">Go Design Paterns</a>
+          <ul class="submenu">
+            
+              <li>
+                <a href="http://beuself.xyz/post/go-paterns/go-paterns%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6/">Go-Paterns项目进度</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/go-paterns/builder/">1-1建造者模式-Builder</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/go-paterns/factory_method/">1-2工厂方法-Factory Method</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/go-paterns/singleton/">1-3单例模式-Singleton</a>
+              </li>
+            
+          </ul>
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">1-2.读写json</h1>
+      
+      <div class="post-meta">
+        <time datetime="2019-10-10" class="post-time">
+          2019-10-10
+        </time>
+        <div class="post-category">
+            <a href="http://beuself.xyz/categories/go-microservices/"> Go microservices </a>
+            
+          </div>
+        <span class="more-meta"> 4905 words </span>
+          <span class="more-meta"> 10 min read </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#将go结构编组为json">将go结构编组为json</a></li>
+<li><a href="#解组json为go结构">解组json为go结构</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p>感谢<code>encoding/json</code>包，它内置在标准库中，可轻松快速地对go类型的JSON进行编码和解码。它实现了简单的<strong>marshal</strong>和<strong>unmarshal</strong>函数；无论如何，如果我们需要它们，包还提供了编码器和解码器类型，允许我们在读写json数据流时进行更大的控制。在本节中，我们将研究这两种方法，但首先让我们看看将标准go结构转换为相应的json字符串是多么简单。</p>
+
+<h2 id="将go结构编组为json">将go结构编组为json</h2>
+
+<p>为了对json数据进行编码，encoding/json包提供了marshall函数，该函数具有以下签名：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">Marshal</span><span class="p">(</span><span class="nx">v</span> <span class="kd">interface</span><span class="p">{})</span> <span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>这个函数接受一个参数，它是interface类型的，所以几乎可以想到任何对象，因为interface表示go中的任何类型。它返回一个元组（[]byte，error），您将在go中经常看到这种返回样式，一些语言实现了try-catch方法，该方法鼓励在无法执行操作时抛出错误，go建议使用模式(return type, error)，当操作成功时，错误为零。</p>
+
+<p>在go中，未处理的错误是一件坏事，虽然该语言确实实现了panic和recover，这类似于其他语言中的异常处理，但是您应该使用它们的情况却截然不同（请参阅go编程语言kernaghan）。在go中，panic函数会导致正常执行停止，go例程中所有延迟的函数调用都会执行，然后程序会因一条日志消息而崩溃。它通常用于指示代码中存在错误的意外错误，而良好的健壮go代码将尝试处理这些运行时异常并将详细的错误对象返回给调用函数。</p>
+
+<p>这个模式正是用marshal函数实现的。在marshal无法从给定对象创建json编码的字节数组的实例中，这可能是由于运行时死机造成的，然后捕获该实例并将详细说明问题的错误对象返回给调用方。</p>
+
+<p>让我们尝试一下，在现有的示例中展开，而不是简单地从处理程序中打印字符串，让我们为响应创建一个简单的结构，然后返回此结构。</p>
+
+<p>示例1.1 reading_writing_json_1/reading_writing_json_1.go</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;encoding/json&#34;</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;log&#34;</span>
+	<span class="s">&#34;net/http&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">type</span> <span class="nx">helloWorldResponse</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Message</span> <span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">port</span> <span class="o">:=</span> <span class="mi">8080</span>
+
+	<span class="nx">http</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/helloworld&#34;</span><span class="p">,</span> <span class="nx">helloWorldHandler</span><span class="p">)</span>
+
+	<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Server starting on port %v\n&#34;</span><span class="p">,</span> <span class="nx">port</span><span class="p">)</span>
+	<span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;:%v&#34;</span><span class="p">,</span> <span class="nx">port</span><span class="p">),</span> <span class="kc">nil</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">helloWorldHandler</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">response</span> <span class="o">:=</span> <span class="nx">helloWorldResponse</span><span class="p">{</span><span class="nx">Message</span><span class="p">:</span> <span class="s">&#34;Hello World&#34;</span><span class="p">}</span>
+	<span class="nx">data</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nb">panic</span><span class="p">(</span><span class="s">&#34;Ooops&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+    
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Fprint</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nb">string</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">helloWorldResponse</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Message</span> <span class="kt">string</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>在处理程序中，我们将创建helloWorldResponse对象的一个实例，设置消息，然后在返回之前使用marshal函数将其编码为json格式。</p>
+
+<p>让我们看看会是什么样子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">helloWorldHandler</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">response</span> <span class="o">:=</span> <span class="nx">helloWorldResponse</span><span class="p">{</span><span class="nx">Message</span><span class="p">:</span> <span class="s">&#34;Hello World&#34;</span><span class="p">}</span>
+	<span class="nx">data</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nb">panic</span><span class="p">(</span><span class="s">&#34;Ooops&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+    
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Fprint</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nb">string</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>现在，当我们再次运行程序并刷新浏览器时，我们看到以下输出以有效的json呈现：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span><span class="nt">&#34;Message&#34;</span><span class="p">:</span><span class="s2">&#34;Hello World&#34;</span><span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>这太棒了；然而，marshall的默认行为是取字段的字面名称，并将其用作json输出中的字段。如果我更喜欢使用<strong>camel case</strong>(骆驼风格)并且更愿意看到“<strong>message</strong>”，我们可以在helloworldresponse结构中重命名该字段吗？</p>
+
+<p>不幸的是，我们不能像go那样导出小写属性，marshal将忽略这些属性，并且不会将它们包含在输出中。</p>
+
+<p>由于encoding/json包实现了struct field属性，允许我们将字段属性的输出更改为我们选择的任何内容。</p>
+
+<p>示例1.2 reading_writing_json_2/reading_writing_json_2.go</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;encoding/json&#34;</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;log&#34;</span>
+	<span class="s">&#34;net/http&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">type</span> <span class="nx">helloWorldResponse</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Message</span> <span class="kt">string</span> <span class="s">`json:&#34;message&#34;`</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">port</span> <span class="o">:=</span> <span class="mi">8080</span>
+
+	<span class="nx">http</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/helloworld&#34;</span><span class="p">,</span> <span class="nx">helloWorldHandler</span><span class="p">)</span>
+
+	<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Server starting on port %v\n&#34;</span><span class="p">,</span> <span class="nx">port</span><span class="p">)</span>
+	<span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;:%v&#34;</span><span class="p">,</span> <span class="nx">port</span><span class="p">),</span> <span class="kc">nil</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">helloWorldHandler</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">response</span> <span class="o">:=</span> <span class="nx">helloWorldResponse</span><span class="p">{</span><span class="nx">Message</span><span class="p">:</span> <span class="s">&#34;HelloWorld&#34;</span><span class="p">}</span>
+	<span class="nx">data</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nb">panic</span><span class="p">(</span><span class="s">&#34;Ooops&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Fprint</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nb">string</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">helloWorldResponse</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Message</span> <span class="kt">string</span> <span class="s">`json:&#34;message&#34;`</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>使用struct字段的标记，我们可以更好地控制输出的外观。在前面的示例中，当我们<strong>marshal</strong>此结构时，来自服务器的输出将是：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span><span class="nt">&#34;message&#34;</span><span class="p">:</span><span class="s2">&#34;HelloWorld&#34;</span><span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>这正是我们想要的，但是我们可以使用字段标记来进一步控制输出。如果需要，我们可以转换对象类型，甚至完全忽略一个字段：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">helloWorldResponse</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="c1">// change the output field to be &#34;message&#34;
+</span><span class="c1"></span>	<span class="nx">Message</span> <span class="kt">string</span> <span class="s">`json:&#34;message&#34;`</span>
+	<span class="c1">// do not output this field
+</span><span class="c1"></span>	<span class="nx">Author</span> <span class="kt">string</span> <span class="s">`json:&#34;-&#34;`</span>
+	<span class="c1">// do not output the field if the value is empty
+</span><span class="c1"></span>	<span class="nx">Date</span> <span class="kt">string</span> <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="c1">// convert output to a string and rename &#34;id&#34;
+</span><span class="c1"></span>	<span class="nx">Id</span> <span class="kt">int</span> <span class="s">`json:&#34;id, string&#34;`</span>
+<span class="p">}</span> </code></pre></td></tr></table>
+</div>
+</div>
+<p>Channel、复杂类型和函数不能用json编码；尝试对这些类型进行编码将导致由函数Marshal返回的UnsupportedTypeError。</p>
+
+<p>它也不能表示循环数据结构；如果stuct包含循环引用，那么Marshal处理将导致无限递归，这对web请求来说永远都不是好事。</p>
+
+<p>如果我们想导出使用缩进格式的json，我们可以使用marshallident函数，这允许您传递一个额外的string参数来指定您希望缩进的内容。两个空格对吧，不是一个标签？</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">MarshalIndent</span><span class="p">(</span><span class="nx">v</span> <span class="kd">interface</span><span class="p">{},</span> <span class="nx">prefix</span><span class="p">,</span> <span class="nx">indent</span> <span class="kt">string</span><span class="p">)</span> <span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>精明的读者可能已经注意到，我们正在将结构解码为字节数组，然后将其写入响应流，这似乎不是特别有效，实际上也不是。go提供编码器和解码器，它们可以直接写入流，因为我们已经有了一个带有<strong>Responsewriter</strong>的流，那么让我们这样做吧。</p>
+
+<p>在我们做之前，我想我们需要看一下负责人，看看那里发生了什么。</p>
+
+<p><strong>Responsewriter</strong>是定义三种方法的接口：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">ResponseWriter</span> <span class="kd">interface</span> <span class="p">{</span>
+	<span class="c1">// WriteHeader method. 
+</span><span class="c1"></span>	<span class="nf">Header</span><span class="p">()</span> 
+
+	<span class="c1">// Writes the data to the connection. If WriteHeader has not 
+</span><span class="c1"></span>	<span class="c1">// already been called then Write will call 
+</span><span class="c1"></span>	<span class="c1">// WriteHeader(http.StatusOK). 
+</span><span class="c1"></span>	<span class="nf">Write</span><span class="p">([]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> 
+
+	<span class="c1">// Sends an HTTP response header with the status code. 
+</span><span class="c1"></span>	<span class="nf">WriteHeader</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> 
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>如果我们有一个<strong>Responsewriter</strong>接口，我们如何将它与<code>fmt.Fprint(w io.Writer, a ...interface{})</code>一起使用？这个方法需要一个writer接口作为参数，我们有一个<strong>Responsewriter</strong>接口。如果我们看一下<code>io.Writer</code>，我们会发现它是：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nf">Write</span><span class="p">(</span><span class="nx">p</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> </code></pre></td></tr></table>
+</div>
+</div>
+<p>因为<strong>Responsewriter</strong>接口实现了这个方法，所以它也满足接口编写器的要求，因此实现<strong>Responsewriter</strong>的任何对象都可以传递给任何需要<code>Writer</code>的函数。</p>
+
+<p>太棒了，太棒了，但是我们还没有回答我们的问题，有没有更好的方法可以在返回数据之前将数据发送到输出流而不<strong><em>marshalling</em></strong>处理到临时对象？</p>
+
+<p><code>encoding/json</code>包有一个名为<strong>newencoder</strong>的函数，它返回一个<strong>Encoder</strong>对象，可用于将json直接写入打开的<strong>writer</strong>并猜测是什么；我们有一个：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// NewEncoder returns a new encoder that writes to w.
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">NewEncoder</span><span class="p">(</span><span class="nx">w</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Writer</span><span class="p">)</span> <span class="o">*</span><span class="nx">Encoder</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">Encoder</span><span class="p">{</span><span class="nx">w</span><span class="p">:</span> <span class="nx">w</span><span class="p">,</span> <span class="nx">escapeHTML</span><span class="p">:</span> <span class="kc">true</span><span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>因此，我们可以直接将<strong>marshal</strong>的输出写入http响应，而不是将其存储到字节数组中。</p>
+
+<p>示例1.3 reading_writing_json_3/reading_writing_json_3.go：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;encoding/json&#34;</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;log&#34;</span>
+	<span class="s">&#34;net/http&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">type</span> <span class="nx">helloWorldResponse</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Message</span> <span class="kt">string</span> <span class="s">`json:&#34;message&#34;`</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">port</span> <span class="o">:=</span> <span class="mi">8080</span>
+
+	<span class="nx">http</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/helloworld&#34;</span><span class="p">,</span> <span class="nx">helloWorldHandler</span><span class="p">)</span>
+
+	<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Server starting on port %v\n&#34;</span><span class="p">,</span> <span class="nx">port</span><span class="p">)</span>
+	<span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;:%v&#34;</span><span class="p">,</span> <span class="nx">port</span><span class="p">),</span> <span class="kc">nil</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">helloWorldHandler</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">response</span> <span class="o">:=</span> <span class="nx">helloWorldResponse</span><span class="p">{</span><span class="nx">Message</span><span class="p">:</span> <span class="s">&#34;HelloWorld&#34;</span><span class="p">}</span>
+
+	<span class="nx">encoder</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">NewEncoder</span><span class="p">(</span><span class="nx">w</span><span class="p">)</span>
+	<span class="nx">encoder</span><span class="p">.</span><span class="nf">Encode</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">helloWorldHandler</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">response</span> <span class="o">:=</span> <span class="nx">helloWorldResponse</span><span class="p">{</span><span class="nx">Message</span><span class="p">:</span> <span class="s">&#34;HelloWorld&#34;</span><span class="p">}</span>
+
+	<span class="nx">encoder</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">NewEncoder</span><span class="p">(</span><span class="nx">w</span><span class="p">)</span>
+	<span class="nx">encoder</span><span class="p">.</span><span class="nf">Encode</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>我们将在后面的一章中讨论<strong>benchmarking</strong>，但是为了了解为什么这一点很重要，我们创建了一个简单的基准测试来检查这两个方法，查看输出。</p>
+
+<p>示例1.4 reading_writing_json_2/reading_writing_json_2_test.go：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">$go</span> <span class="nb">test</span> -v -run<span class="o">=</span><span class="s2">&#34;none&#34;</span> -bench<span class="o">=</span>. -benchtime<span class="o">=</span><span class="s2">&#34;5s&#34;</span> -benchmem
+
+BenchmarkHelloHandlerVariable-8  <span class="m">20000000</span>  <span class="m">511</span> ns/op  <span class="m">248</span> B/op  <span class="m">5</span> allocs/op
+BenchmarkHelloHandlerEncoder-8  <span class="m">20000000</span>  <span class="m">328</span> ns/op   <span class="m">24</span> B/op  <span class="m">2</span> allocs/op
+BenchmarkHelloHandlerEncoderReference-8  <span class="m">20000000</span>  <span class="m">304</span> ns/op  <span class="m">8</span> B/op  <span class="m">1</span> allocs/op
+PASS
+ok  github.com/building-microservices-with-go/chapter1/reading_writing_json_2  <span class="m">24</span>.109s </code></pre></td></tr></table>
+</div>
+</div>
+<p>使用<strong>Encoder</strong>比<strong>marshalling</strong>字节数组的速度快了近50%。我们在这里处理纳秒，这样时间看起来似乎无关紧要，但事实并非如此；这是两行代码。如果在剩下的代码中都存在这种效率低下的情况，那么应用程序将运行得更慢，您将需要更多的硬件来满足负载，这将花费您的金钱。在这两种方法之间没有什么聪明的区别，我们所做的只是理解标准包是如何工作的，并为我们的需求选择正确的选项，这不是性能优化，而是理解框架。</p>
+
+<h2 id="解组json为go结构">解组json为go结构</h2>
+
+<p>现在我们已经了解了如何将json发送回客户机，如果在返回输出之前需要读取输入怎么办？我们可以使用url参数，我们将在下一章中看到这一切，但是通常您需要更复杂的数据结构，这些数据结构涉及到接受json作为http post请求的一部分的服务。</p>
+
+<p>应用我们在上一节中学习到的类似技术来编写json，读取json同样简单。要将json解码为stuct字段，encoding/json包提供了<strong>Unmarshal</strong>函数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">Unmarshal</span><span class="p">(</span><span class="nx">data</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">,</span> <span class="nx">v</span> <span class="kd">interface</span><span class="p">{})</span> <span class="kt">error</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>Unmarshal</strong>函数的工作方式与<strong>marshal</strong>相反；它根据需要分配maps，slices，和 pointers 。传入的object keys 使用结构字段名或其标记进行匹配，并将使用不区分大小写的匹配；但是，最好使用完全匹配。与<strong>marshal</strong>一样，解组将只设置导出的结构字段，这些字段以大写字母开头。</p>
+
+<p>我们首先添加一个新的struct字段来表示请求，而<strong>Unmarshal</strong>可以将json解码为<code>interface{}</code>，对于JSON objects type 类型，接口是<code>map[string]interface{}</code>，对于JSON arrays，接口是：<code>[]interface{}</code>，这取决于我们的json是对象还是数组。</p>
+
+<p>在我看来，如果我们以请求的形式显式地声明我们所期望的内容，代码的读者会更清楚。当我们来使用它，我们还可以节省自己的工作，不必手动铸造数据。</p>
+
+<p>记住两件事：</p>
+
+<ul>
+<li><p>你不是为编译器编写代码，而是为人类编写代码</p></li>
+
+<li><p>读代码的时间比写代码的时间要长</p></li>
+</ul>
+
+<p>考虑到这两点，我们创建了一个简单的结构来表示我们的请求，它将如下所示：</p>
+
+<p>Example 1.5 reading_writing_json_4/reading_writing_json_4.go:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">helloWorldRequest</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Name</span> <span class="kt">string</span> <span class="s">`json:&#34;name&#34;`</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>同样，我们将使用struct字段标记，因为我们可以让<strong>Unmarshal</strong>进行不区分大小写的匹配，所以{“name”：“World&rdquo;}将正确地与{“Name”：“World”}一样将数据解组到结构中，当我们指定一个标记时，我们对请求表单是明确的，这是一件好事。在速度和性能方面，它也快了10%，记住，性能很重要。</p>
+
+<p>要访问随请求发送的JSON，我们需要查看传递给处理程序的<code>http.request</code>对象。下面的列表并没有显示请求中的所有方法，只是我们将立即处理的方法。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Requests</span> <span class="kd">struct</span> <span class="p">{</span> 
+	<span class="o">...</span> 
+	<span class="c1">// Method specifies the HTTP method (GET, POST, PUT, etc.). 
+</span><span class="c1"></span>	<span class="nx">Method</span> <span class="kt">string</span> 
+
+	<span class="c1">// Header contains the request header fields received by the server. The type 		Header is a link to map[string] []string.  
+</span><span class="c1"></span>	<span class="nx">Header</span> <span class="nx">Header</span> 
+
+	<span class="c1">// Body is the request&#39;s body. 
+</span><span class="c1"></span>	<span class="nx">Body</span> <span class="nx">io</span><span class="p">.</span><span class="nx">ReadCloser</span> 
+	<span class="o">...</span> 
+<span class="p">}</span> </code></pre></td></tr></table>
+</div>
+</div>
+<p>随请求一起发送的json可以在body字段中访问。body将接口io.readcloser实现为流并且不返回[]byte或string。如果我们需要正文中包含的数据，只需将其读入[]byte，如下例所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="mi">30</span> <span class="nx">body</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadAll</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span> 
+<span class="mi">31</span> <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span> 
+<span class="mi">32</span>     <span class="nx">http</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="s">&#34;Bad request&#34;</span><span class="p">,</span> <span class="nx">http</span><span class="p">.</span><span class="nx">StatusBadRequest</span><span class="p">)</span> 
+<span class="mi">33</span>     <span class="k">return</span>   
+<span class="mi">34</span> <span class="p">}</span> </code></pre></td></tr></table>
+</div>
+</div>
+<p>这是我们需要记住的。我们没有调用<code>body.close()</code>，如果我们正在与客户端进行调用，则需要这样做，因为它不会自动关闭，但是，当在servehttp处理程序中使用时，服务器会自动关闭请求流。</p>
+
+<p>要了解这一切在处理程序中是如何工作的，我们可以查看以下处理程序：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="mi">28</span> <span class="kd">func</span> <span class="nf">helloWorldHandler</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span> 
+<span class="mi">29</span>  
+<span class="mi">30</span>   <span class="nx">body</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadAll</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span> 
+<span class="mi">31</span>   <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span> 
+<span class="mi">32</span>     <span class="nx">http</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="s">&#34;Bad request&#34;</span><span class="p">,</span> <span class="nx">http</span><span class="p">.</span><span class="nx">StatusBadRequest</span><span class="p">)</span> 
+<span class="mi">33</span>             <span class="k">return</span> 
+<span class="mi">34</span>   <span class="p">}</span> 
+<span class="mi">35</span>  
+<span class="mi">36</span>   <span class="kd">var</span> <span class="nx">request</span> <span class="nx">helloWorldRequest</span> 
+<span class="mi">37</span>   <span class="nx">err</span> <span class="p">=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">(</span><span class="nx">body</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">request</span><span class="p">)</span> 
+<span class="mi">38</span>   <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span> 
+<span class="mi">39</span>     <span class="nx">http</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="s">&#34;Bad request&#34;</span><span class="p">,</span> <span class="nx">http</span><span class="p">.</span><span class="nx">StatusBadRequest</span><span class="p">)</span> 
+<span class="mi">40</span>             <span class="k">return</span> 
+<span class="mi">41</span>   <span class="p">}</span> 
+<span class="mi">42</span>  
+<span class="mi">43</span>  <span class="nx">response</span> <span class="o">:=</span> <span class="nx">helloWorldResponse</span><span class="p">{</span><span class="nx">Message</span><span class="p">:</span> <span class="s">&#34;Hello &#34;</span> <span class="o">+</span> <span class="nx">request</span><span class="p">.</span><span class="nx">Name</span><span class="p">}</span> 
+<span class="mi">44</span>  
+<span class="mi">45</span>   <span class="nx">encoder</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">NewEncoder</span><span class="p">(</span><span class="nx">w</span><span class="p">)</span> 
+<span class="mi">46</span>   <span class="nx">encoder</span><span class="p">.</span><span class="nf">Encode</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> 
+<span class="mi">47</span> <span class="p">}</span> </code></pre></td></tr></table>
+</div>
+</div>
+<p>让我们运行这个示例，看看它是如何工作的。为了测试，我们可以简单地使用curl命令向正在运行的服务器发送请求。如果您觉得使用gui工具比如postman（可用于google chrome浏览器）更舒适，他们将工作得很好，或者可以随意使用您喜欢的工具：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">curl localhost:8080/helloworld -d <span class="s1">&#39;{&#34;name&#34;:&#34;Nic&#34;}&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>您应该看到以下响应：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span><span class="nt">&#34;message&#34;</span><span class="p">:</span><span class="s2">&#34;Hello Nic&#34;</span><span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>如果你的请求中没有包含一个实体，你认为会发生什么？</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">curl localhost:8080/helloworld</code></pre></td></tr></table>
+</div>
+</div>
+<p>如果您猜对了，您将得到一个http状态400错误请求，那么您将赢得一个奖品:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">Error</span><span class="p">(</span><span class="nx">w</span> <span class="nx">ResponseWriter</span><span class="p">,</span> <span class="kt">error</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">code</span> <span class="kt">int</span><span class="p">)</span> </code></pre></td></tr></table>
+</div>
+</div>
+<p>用给定的消息和状态代码答复请求时出错。发送完此消息后，我们需要返回停止进一步执行的函数，因为这不会自动关闭<strong>ResponseWriter</strong>接口并将流返回到调用函数。</p>
+
+<p>就在你认为你已经完成之前，去看看你是否可以提高处理器的性能。想想我们在整理json时所讨论的事情。</p>
+
+<p>知道了？</p>
+
+<p>如果答案不是这样的话，那么我们所做的就是使用解码器，这与我们在编写json时使用的编码器正好相反。它的性能瞬间提高了33%，代码也减少了。</p>
+
+<p>Example 1.6 reading_writing_json_5/reading_writing_json_5.go:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="mi">27</span> <span class="kd">func</span> <span class="nf">helloWorldHandler</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span> 
+<span class="mi">28</span> 
+<span class="mi">29</span>   <span class="kd">var</span> <span class="nx">request</span> <span class="nx">HelloWorldRequest</span> 
+<span class="mi">30</span>   <span class="nx">decoder</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">NewDecoder</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span> 
+<span class="mi">31</span>  
+<span class="mi">32</span>   <span class="nx">err</span> <span class="o">:=</span> <span class="nx">decoder</span><span class="p">.</span><span class="nf">Decode</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">request</span><span class="p">)</span> 
+<span class="mi">33</span>   <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span> 
+<span class="mi">34</span>     <span class="nx">http</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="s">&#34;Bad request&#34;</span><span class="p">,</span> <span class="nx">http</span><span class="p">.</span><span class="nx">StatusBadRequest</span><span class="p">)</span> 
+<span class="mi">35</span>     <span class="k">return</span> 
+<span class="mi">36</span>   <span class="p">}</span> 
+<span class="mi">37</span>  
+<span class="mi">38</span>   <span class="nx">response</span> <span class="o">:=</span> <span class="nx">HelloWorldResponse</span><span class="p">{</span><span class="nx">Message</span><span class="p">:</span> <span class="s">&#34;Hello &#34;</span> <span class="o">+</span> <span class="nx">request</span><span class="p">.</span><span class="nx">Name</span><span class="p">}</span> 
+<span class="mi">39</span>  
+<span class="mi">40</span>   <span class="nx">encoder</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">NewEncoder</span><span class="p">(</span><span class="nx">w</span><span class="p">)</span> 
+<span class="mi">41</span>   <span class="nx">encoder</span><span class="p">.</span><span class="nf">Encode</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> 
+<span class="mi">42</span> <span class="p">}</span> </code></pre></td></tr></table>
+</div>
+</div>
+<p>现在我们可以看到使用go对json进行编码和解码是多么容易，我建议您现在花五分钟来深入研究encoding/json包的文档（<a href="https://golang.org/pkg/encoding/json/），因为您可以用它做很多事情。">https://golang.org/pkg/encoding/json/），因为您可以用它做很多事情。</a></p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Beyourself</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2019-10-10
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="https://tva1.sinaimg.cn/large/006y8mN6ly1g92kccissoj30u00u0gmg.jpg">
+        <span>Wechat</span>
+      </label>
+    
+  </div>
+</div>
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://beuself.xyz/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%AE%80%E4%BB%8B/">微服务简介</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/go-microservices/1-1%E4%BD%BF%E7%94%A8nethttp%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">1-1.使用net/http构建一个简单的web服务器</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/go-basic-knowledge/%E6%90%AD%E5%BB%BAgolang%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">
+            <span class="next-text nav-default">搭建Golang开发环境</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "zhaojiaming110/comments-myblog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="https://github.com/zhaojiaming110/" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://www.zhihu.com/people/zhao-jia-ming-95-85/activities" rel="me noopener" class="iconfont"
+      title="zhihu"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M351.791182 562.469462l192.945407 0c0-45.367257-21.3871-71.939449-21.3871-71.939449L355.897709 490.530013c3.977591-82.182744 7.541767-187.659007 8.816806-226.835262l159.282726 0c0 0-0.86367-67.402109-18.578124-67.402109s-279.979646 0-279.979646 0 16.850783-88.141456 39.318494-127.053698c0 0-83.60514-4.510734-112.121614 106.962104S81.344656 355.077018 76.80834 367.390461c-4.536316 12.313443 24.62791 5.832845 36.941354 0 12.313443-5.832845 68.050885-25.924439 84.252893-103.69571l86.570681 0c1.165546 49.28652 4.596691 200.335724 3.515057 226.835262L109.86113 490.530013c-25.275663 18.147312-33.701566 71.939449-33.701566 71.939449L279.868105 562.469462c-8.497535 56.255235-23.417339 128.763642-44.275389 167.210279-33.05279 60.921511-50.55235 116.65793-169.802314 212.576513 0 0-19.442818 14.257725 40.829917 9.073656 60.273758-5.185093 117.305683-20.739347 156.840094-99.807147 20.553105-41.107233 41.805128-93.250824 58.386782-146.138358l-0.055259 0.185218 167.855986 193.263655c0 0 22.035876-51.847855 5.832845-108.880803L371.045711 650.610918l-42.1244 31.157627-0.045025 0.151449c11.69946-41.020252 20.11206-81.5749 22.726607-116.858498C351.665315 564.212152 351.72876 563.345412 351.791182 562.469462z"></path>
+  <path d="M584.918753 182.033893l0 668.840094 70.318532 0 28.807093 80.512708 121.875768-80.512708 153.600307 0L959.520453 182.033893 584.918753 182.033893zM887.150192 778.934538l-79.837326 0-99.578949 65.782216-23.537066-65.782216-24.855084 0L659.341766 256.673847l227.807403 0L887.149169 778.934538z"></path>
+</svg>
+
+    </a>
+
+
+<a href="http://beuself.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Beyourself
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+
+  
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"
+integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" 
+crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"
+integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe"
+crossorigin="anonymous"
+onload="renderMathInElement(document.body,{delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false}]});"></script>
+
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

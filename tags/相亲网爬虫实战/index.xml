@@ -13,10 +13,10 @@
     
     <item>
       <title>单任务版爬虫</title>
-      <link>http://beuself.xyz/post/%E5%8D%95%E4%BB%BB%E5%8A%A1%E7%89%88%E7%88%AC%E8%99%AB/</link>
+      <link>http://beuself.xyz/post/go-basic-knowledge/%E5%8D%95%E4%BB%BB%E5%8A%A1%E7%89%88%E7%88%AC%E8%99%AB/</link>
       <pubDate>Sat, 19 Oct 2019 16:01:23 +0800</pubDate>
       
-      <guid>http://beuself.xyz/post/%E5%8D%95%E4%BB%BB%E5%8A%A1%E7%89%88%E7%88%AC%E8%99%AB/</guid>
+      <guid>http://beuself.xyz/post/go-basic-knowledge/%E5%8D%95%E4%BB%BB%E5%8A%A1%E7%89%88%E7%88%AC%E8%99%AB/</guid>
       <description>单任务版爬虫 设计目标： 获取并打印所有城市第一页用户的详细信息 获取网页内容（fetch）: 使用http.Get获取内容 使用Encoding来转</description>
     </item>
     

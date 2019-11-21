@@ -13,19 +13,19 @@
     
     <item>
       <title>1-1.使用net/http构建一个简单的web服务器</title>
-      <link>http://beuself.xyz/post/1-1%E4%BD%BF%E7%94%A8nethttp%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <link>http://beuself.xyz/post/go-microservices/1-1%E4%BD%BF%E7%94%A8nethttp%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
       <pubDate>Thu, 10 Oct 2019 22:02:23 +0800</pubDate>
       
-      <guid>http://beuself.xyz/post/1-1%E4%BD%BF%E7%94%A8nethttp%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <guid>http://beuself.xyz/post/go-microservices/1-1%E4%BD%BF%E7%94%A8nethttp%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
       <description>net/http net/http包提供了编写http客户端和服务器所需的所有功能。它使我们能够向使用http协议进行通信的其他服务器发送请求，并使我们能够</description>
     </item>
     
     <item>
       <title>1-2.读写json</title>
-      <link>http://beuself.xyz/post/1-2%E8%AF%BB%E5%86%99json/</link>
+      <link>http://beuself.xyz/post/go-microservices/1-2%E8%AF%BB%E5%86%99json/</link>
       <pubDate>Thu, 10 Oct 2019 22:00:23 +0800</pubDate>
       
-      <guid>http://beuself.xyz/post/1-2%E8%AF%BB%E5%86%99json/</guid>
+      <guid>http://beuself.xyz/post/go-microservices/1-2%E8%AF%BB%E5%86%99json/</guid>
       <description>感谢encoding/json包，它内置在标准库中，可轻松快速地对go类型的JSON进行编码和解码。它实现了简单的marshal和unmar</description>
     </item>
     

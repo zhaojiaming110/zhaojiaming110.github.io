@@ -13,28 +13,28 @@
     
     <item>
       <title>1-1建造者模式-Builder</title>
-      <link>http://beuself.xyz/post/builder/</link>
+      <link>http://beuself.xyz/post/go-paterns/builder/</link>
       <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
       
-      <guid>http://beuself.xyz/post/builder/</guid>
+      <guid>http://beuself.xyz/post/go-paterns/builder/</guid>
       <description>无论是在现实世界中还是在软件系统中，都存在一些复杂的对象，它们拥有多个组成部分，如汽车，它包括车轮、方向盘、发送机等各种部件。而对于大多数用</description>
     </item>
     
     <item>
       <title>1-2工厂方法-Factory Method</title>
-      <link>http://beuself.xyz/post/factory_method/</link>
+      <link>http://beuself.xyz/post/go-paterns/factory_method/</link>
       <pubDate>Mon, 14 Oct 2019 22:01:23 +0800</pubDate>
       
-      <guid>http://beuself.xyz/post/factory_method/</guid>
+      <guid>http://beuself.xyz/post/go-paterns/factory_method/</guid>
       <description>工厂方法（Factory Method）属于创建型模式，它提供了一种创建对象的最佳方式。在工厂方法中，我们在创建对象时不会对客户端暴露创建逻辑</description>
     </item>
     
     <item>
       <title>1-3单例模式-Singleton</title>
-      <link>http://beuself.xyz/post/singleton/</link>
+      <link>http://beuself.xyz/post/go-paterns/singleton/</link>
       <pubDate>Mon, 14 Oct 2019 20:01:23 +0800</pubDate>
       
-      <guid>http://beuself.xyz/post/singleton/</guid>
+      <guid>http://beuself.xyz/post/go-paterns/singleton/</guid>
       <description>单例设计模式-在整个程序中有一个类型的唯一实例 您是否曾经对软件工程师进行过采访？有趣的是，当您向他们询问设计模式时，超过80％的人会提及 Si</description>
     </item>
     

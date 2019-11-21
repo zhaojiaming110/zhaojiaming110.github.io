@@ -22,10 +22,10 @@
     
     <item>
       <title>1-1建造者模式-Builder</title>
-      <link>http://beuself.xyz/post/builder/</link>
+      <link>http://beuself.xyz/post/go-paterns/builder/</link>
       <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
       
-      <guid>http://beuself.xyz/post/builder/</guid>
+      <guid>http://beuself.xyz/post/go-paterns/builder/</guid>
       <description>无论是在现实世界中还是在软件系统中，都存在一些复杂的对象，它们拥有多个组成部分，如汽车，它包括车轮、方向盘、发送机等各种部件。而对于大多数用</description>
     </item>
     
@@ -35,24 +35,24 @@
       <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
       
       <guid>http://beuself.xyz/post/go-paterns/go-paterns%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6/</guid>
-      <description></description>
+      <description>分类 Creational Patterns Pattern Description URL Builder Provides an interface for creating families of releated objects Go Factory Method Defers instantiation of an object to a specialized function for creating instances Go Singleton Restricts instantiation of a type to one object Go</description>
     </item>
     
     <item>
       <title>1-2工厂方法-Factory Method</title>
-      <link>http://beuself.xyz/post/factory_method/</link>
+      <link>http://beuself.xyz/post/go-paterns/factory_method/</link>
       <pubDate>Mon, 14 Oct 2019 22:01:23 +0800</pubDate>
       
-      <guid>http://beuself.xyz/post/factory_method/</guid>
+      <guid>http://beuself.xyz/post/go-paterns/factory_method/</guid>
       <description>工厂方法（Factory Method）属于创建型模式，它提供了一种创建对象的最佳方式。在工厂方法中，我们在创建对象时不会对客户端暴露创建逻辑</description>
     </item>
     
     <item>
       <title>1-3单例模式-Singleton</title>
-      <link>http://beuself.xyz/post/singleton/</link>
+      <link>http://beuself.xyz/post/go-paterns/singleton/</link>
       <pubDate>Mon, 14 Oct 2019 20:01:23 +0800</pubDate>
       
-      <guid>http://beuself.xyz/post/singleton/</guid>
+      <guid>http://beuself.xyz/post/go-paterns/singleton/</guid>
       <description>单例设计模式-在整个程序中有一个类型的唯一实例 您是否曾经对软件工程师进行过采访？有趣的是，当您向他们询问设计模式时，超过80％的人会提及 Si</description>
     </item>
     
@@ -67,10 +67,10 @@
     
     <item>
       <title>1-2删除排序数组中的重复项</title>
-      <link>http://beuself.xyz/post/2019-09-22-%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/</link>
+      <link>http://beuself.xyz/post/go-leetcode/2019-09-22-%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/</link>
       <pubDate>Sun, 13 Oct 2019 16:01:23 +0800</pubDate>
       
-      <guid>http://beuself.xyz/post/2019-09-22-%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/</guid>
+      <guid>http://beuself.xyz/post/go-leetcode/2019-09-22-%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/</guid>
       <description>题目： 给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。 不要使用额外的数组空间，你必须在原地</description>
     </item>
     
@@ -121,19 +121,19 @@
     
     <item>
       <title>1-1两数之和</title>
-      <link>http://beuself.xyz/post/2019-09-22-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</link>
+      <link>http://beuself.xyz/post/go-leetcode/2019-09-22-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</link>
       <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
       
-      <guid>http://beuself.xyz/post/2019-09-22-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</guid>
+      <guid>http://beuself.xyz/post/go-leetcode/2019-09-22-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</guid>
       <description>题目： 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。 你可以假设每种输入只会对应</description>
     </item>
     
     <item>
       <title>1-3移除元素</title>
-      <link>http://beuself.xyz/post/2019-09-22-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/</link>
+      <link>http://beuself.xyz/post/go-leetcode/2019-09-22-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/</link>
       <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
       
-      <guid>http://beuself.xyz/post/2019-09-22-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/</guid>
+      <guid>http://beuself.xyz/post/go-leetcode/2019-09-22-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/</guid>
       <description>题目： 给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。 不要使用额外的数组空间，你必须在原地修改输入</description>
     </item>
     
@@ -166,10 +166,10 @@
     
     <item>
       <title>LeetCode解题进度</title>
-      <link>http://beuself.xyz/post/leetcode%E8%A7%A3%E9%A2%98%E8%BF%9B%E5%BA%A6/</link>
+      <link>http://beuself.xyz/post/go-leetcode/leetcode%E8%A7%A3%E9%A2%98%E8%BF%9B%E5%BA%A6/</link>
       <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
       
-      <guid>http://beuself.xyz/post/leetcode%E8%A7%A3%E9%A2%98%E8%BF%9B%E5%BA%A6/</guid>
+      <guid>http://beuself.xyz/post/go-leetcode/leetcode%E8%A7%A3%E9%A2%98%E8%BF%9B%E5%BA%A6/</guid>
       <description>分类 array 题号 题目 等级 解答 LeetCode 1 Two Sum Easy Go LeetCode</description>
     </item>
     

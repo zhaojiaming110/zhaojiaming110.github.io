@@ -58,7 +58,7 @@
   </url>
   
   <url>
-    <loc>http://beuself.xyz/post/builder/</loc>
+    <loc>http://beuself.xyz/post/go-paterns/builder/</loc>
     <lastmod>2019-10-14T23:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -86,14 +86,14 @@
   </url>
   
   <url>
-    <loc>http://beuself.xyz/post/factory_method/</loc>
+    <loc>http://beuself.xyz/post/go-paterns/factory_method/</loc>
     <lastmod>2019-10-14T22:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://beuself.xyz/post/singleton/</loc>
+    <loc>http://beuself.xyz/post/go-paterns/singleton/</loc>
     <lastmod>2019-10-14T20:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -128,7 +128,7 @@
   </url>
   
   <url>
-    <loc>http://beuself.xyz/post/2019-09-22-%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/</loc>
+    <loc>http://beuself.xyz/post/go-leetcode/2019-09-22-%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/</loc>
     <lastmod>2019-10-13T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -212,14 +212,14 @@
   </url>
   
   <url>
-    <loc>http://beuself.xyz/post/2019-09-22-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</loc>
+    <loc>http://beuself.xyz/post/go-leetcode/2019-09-22-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</loc>
     <lastmod>2018-03-01T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://beuself.xyz/post/2019-09-22-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/</loc>
+    <loc>http://beuself.xyz/post/go-leetcode/2019-09-22-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/</loc>
     <lastmod>2018-03-01T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -247,7 +247,7 @@
   </url>
   
   <url>
-    <loc>http://beuself.xyz/post/leetcode%E8%A7%A3%E9%A2%98%E8%BF%9B%E5%BA%A6/</loc>
+    <loc>http://beuself.xyz/post/go-leetcode/leetcode%E8%A7%A3%E9%A2%98%E8%BF%9B%E5%BA%A6/</loc>
     <lastmod>2018-03-01T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

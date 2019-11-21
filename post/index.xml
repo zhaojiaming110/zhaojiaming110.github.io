@@ -30,6 +30,15 @@
     </item>
     
     <item>
+      <title>Go-Paterns项目进度</title>
+      <link>http://beuself.xyz/post/go-paterns/go-paterns%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6/</link>
+      <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/go-paterns/go-paterns%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>1-2工厂方法-Factory Method</title>
       <link>http://beuself.xyz/post/factory_method/</link>
       <pubDate>Mon, 14 Oct 2019 22:01:23 +0800</pubDate>
@@ -180,15 +189,6 @@
       
       <guid>http://beuself.xyz/post/%E5%85%B6%E5%AE%83%E6%A0%87%E5%87%86%E5%BA%93/</guid>
       <description>其它标准库 bufio log encoding/json time log regexp string/math/rand 如何看标准库文档 godoc -http :8888(包含本地第三方和自己写的包) golang中文网标准库</description>
-    </item>
-    
-    <item>
-      <title>内建变量类型</title>
-      <link>http://beuself.xyz/post/2019-09-20-%E5%86%85%E5%BB%BA%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/</link>
-      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
-      
-      <guid>http://beuself.xyz/post/2019-09-20-%E5%86%85%E5%BB%BA%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/</guid>
-      <description>bool, string int, (u)int8, (u)int16, (u)int32, (u)int64, uintptr(没有指定具体的bit大小但是足以容纳指针) byte(uint8等价类型)，byte类型一般用于强调数值是一个原</description>
     </item>
     
   </channel>

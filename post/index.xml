@@ -138,6 +138,15 @@
     </item>
     
     <item>
+      <title>11.Container With Most Water</title>
+      <link>http://beuself.xyz/post/go-leetcode/11.container-with-most-water/</link>
+      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/go-leetcode/11.container-with-most-water/</guid>
+      <description>题目描述 给定 n 个非负整数 a1，a2，&amp;hellip;，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai)</description>
+    </item>
+    
+    <item>
       <title>GOPATH及目录结构</title>
       <link>http://beuself.xyz/post/go-basic-knowledge/2019-09-22-gopath%E5%8F%8A%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/</link>
       <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
@@ -180,15 +189,6 @@
       
       <guid>http://beuself.xyz/post/go-basic-knowledge/2019-09-21-map/</guid>
       <description>map是一堆键值对的未排序集合。 创建map 1 2 3 4 5 6 7 m1 := map[string]string { &amp;#34;name&amp;#34;: &amp;#34;zjm&amp;#34;, &amp;#34;age&amp;#34;: &amp;#34;26&amp;#34;, &amp;#34;country&amp;#34;: &amp;#34;CN&amp;#34;, } m2 := make(map[string]int) //m2 == empty map var m3 map[string]int //m3 == nil map map元素赋值 1 2 3 4 5 6 m1 := map[string]string {</description>
-    </item>
-    
-    <item>
-      <title>其它标准库</title>
-      <link>http://beuself.xyz/post/go-basic-knowledge/%E5%85%B6%E5%AE%83%E6%A0%87%E5%87%86%E5%BA%93/</link>
-      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
-      
-      <guid>http://beuself.xyz/post/go-basic-knowledge/%E5%85%B6%E5%AE%83%E6%A0%87%E5%87%86%E5%BA%93/</guid>
-      <description>其它标准库 bufio log encoding/json time log regexp string/math/rand 如何看标准库文档 godoc -http :8888(包含本地第三方和自己写的包) golang中文网标准库</description>
     </item>
     
   </channel>

@@ -39,6 +39,15 @@
     </item>
     
     <item>
+      <title>11.Container With Most Water</title>
+      <link>http://beuself.xyz/post/go-leetcode/11.container-with-most-water/</link>
+      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/go-leetcode/11.container-with-most-water/</guid>
+      <description>题目描述 给定 n 个非负整数 a1，a2，&amp;hellip;，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai)</description>
+    </item>
+    
+    <item>
       <title>LeetCode解题进度</title>
       <link>http://beuself.xyz/post/go-leetcode/leetcode%E8%A7%A3%E9%A2%98%E8%BF%9B%E5%BA%A6/</link>
       <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>

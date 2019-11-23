@@ -38,5 +38,14 @@
       <description>题目： 给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。 不要使用额外的数组空间，你必须在原地修改输入</description>
     </item>
     
+    <item>
+      <title>11.Container With Most Water</title>
+      <link>http://beuself.xyz/post/go-leetcode/11.container-with-most-water/</link>
+      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/go-leetcode/11.container-with-most-water/</guid>
+      <description>题目描述 给定 n 个非负整数 a1，a2，&amp;hellip;，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai)</description>
+    </item>
+    
   </channel>
 </rss>

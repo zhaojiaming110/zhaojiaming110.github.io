@@ -183,12 +183,12 @@
     </item>
     
     <item>
-      <title>map</title>
-      <link>http://beuself.xyz/post/go-basic-knowledge/2019-09-21-map/</link>
+      <title>LeetCode解题进度1</title>
+      <link>http://beuself.xyz/post/go-leetcode/3232/</link>
       <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
       
-      <guid>http://beuself.xyz/post/go-basic-knowledge/2019-09-21-map/</guid>
-      <description>map是一堆键值对的未排序集合。 创建map 1 2 3 4 5 6 7 m1 := map[string]string { &amp;#34;name&amp;#34;: &amp;#34;zjm&amp;#34;, &amp;#34;age&amp;#34;: &amp;#34;26&amp;#34;, &amp;#34;country&amp;#34;: &amp;#34;CN&amp;#34;, } m2 := make(map[string]int) //m2 == empty map var m3 map[string]int //m3 == nil map map元素赋值 1 2 3 4 5 6 m1 := map[string]string {</description>
+      <guid>http://beuself.xyz/post/go-leetcode/3232/</guid>
+      <description>热尔</description>
     </item>
     
   </channel>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>1-2工厂方法-Factory Method - Beyourself - a gopher</title>
+  <title>0011-Container With Most Water - Beyourself - a gopher</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Beyourself" />
-  <meta name="description" content="工厂方法（Factory Method）属于创建型模式，它提供了一种创建对象的最佳方式。在工厂方法中，我们在创建对象时不会对客户端暴露创建逻辑" />
+  <meta name="description" content="题目描述 给定 n 个非负整数 a1，a2，&amp;hellip;，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai)" />
 
   <meta name="keywords" content="Beyourslef, go, golang" />
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.58.3" />
 
 
-<link rel="canonical" href="http://beuself.xyz/post/go-paterns/factory_method/" />
+<link rel="canonical" href="http://beuself.xyz/post/go-leetcode/0011%E7%9B%9B%E6%9C%80%E5%A4%9A%E8%B0%81%E7%9A%84%E5%AE%B9%E5%99%A8/" />
 
 
 
@@ -57,26 +57,26 @@
 
 
 
-<meta property="og:title" content="1-2工厂方法-Factory Method" />
-<meta property="og:description" content="工厂方法（Factory Method）属于创建型模式，它提供了一种创建对象的最佳方式。在工厂方法中，我们在创建对象时不会对客户端暴露创建逻辑" />
+<meta property="og:title" content="0011-Container With Most Water" />
+<meta property="og:description" content="题目描述 给定 n 个非负整数 a1，a2，&hellip;，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai)" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://beuself.xyz/post/go-paterns/factory_method/" />
-<meta property="article:published_time" content="2019-10-14T22:01:23+08:00" />
-<meta property="article:modified_time" content="2019-10-14T22:01:23+08:00" />
-<meta itemprop="name" content="1-2工厂方法-Factory Method">
-<meta itemprop="description" content="工厂方法（Factory Method）属于创建型模式，它提供了一种创建对象的最佳方式。在工厂方法中，我们在创建对象时不会对客户端暴露创建逻辑">
+<meta property="og:url" content="http://beuself.xyz/post/go-leetcode/0011%E7%9B%9B%E6%9C%80%E5%A4%9A%E8%B0%81%E7%9A%84%E5%AE%B9%E5%99%A8/" />
+<meta property="article:published_time" content="2019-09-20T16:01:23+08:00" />
+<meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
+<meta itemprop="name" content="0011-Container With Most Water">
+<meta itemprop="description" content="题目描述 给定 n 个非负整数 a1，a2，&hellip;，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai)">
 
 
-<meta itemprop="datePublished" content="2019-10-14T22:01:23&#43;08:00" />
-<meta itemprop="dateModified" content="2019-10-14T22:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="1056">
+<meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
+<meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
+<meta itemprop="wordCount" content="1230">
 
 
 
-<meta itemprop="keywords" content="创作模式," />
+<meta itemprop="keywords" content="数组," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="1-2工厂方法-Factory Method"/>
-<meta name="twitter:description" content="工厂方法（Factory Method）属于创建型模式，它提供了一种创建对象的最佳方式。在工厂方法中，我们在创建对象时不会对客户端暴露创建逻辑"/>
+<meta name="twitter:title" content="0011-Container With Most Water"/>
+<meta name="twitter:description" content="题目描述 给定 n 个非负整数 a1，a2，&hellip;，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai)"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -378,7 +378,7 @@ if (!doNotTrack) {
 
       </li>
     
-        <li class="menu-item">
+        <li class="menu-item active">
         
           
           <a class="menu-item-link menu-parent" href="https://beuself.xyz/categories/leetcode-go/">leetcode-Go</a>
@@ -434,7 +434,7 @@ if (!doNotTrack) {
 
       </li>
     
-        <li class="menu-item active">
+        <li class="menu-item">
         
           
           <a class="menu-item-link menu-parent" href="https://beuself.xyz/categories/go-design-paterns/">Go Design Paterns</a>
@@ -479,17 +479,17 @@ if (!doNotTrack) {
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">1-2工厂方法-Factory Method</h1>
+      <h1 class="post-title">0011-Container With Most Water</h1>
       
       <div class="post-meta">
-        <time datetime="2019-10-14" class="post-time">
-          2019-10-14
+        <time datetime="2019-09-20" class="post-time">
+          2019-09-20
         </time>
         <div class="post-category">
-            <a href="http://beuself.xyz/categories/go-design-paterns/"> Go Design Paterns </a>
+            <a href="http://beuself.xyz/categories/leetcode-go/"> leetcode-Go </a>
             
           </div>
-        <span class="more-meta"> 1056 words </span>
+        <span class="more-meta"> 1230 words </span>
           <span class="more-meta"> 3 min read </span>
 
         
@@ -515,22 +515,24 @@ if (!doNotTrack) {
 <ul>
 <li>
 <ul>
-<li><a href="#介绍">介绍</a>
+<li><a href="#题目描述">题目描述</a></li>
+<li><a href="#示例">示例</a></li>
+<li><a href="#解题思路">解题思路</a></li>
+<li><a href="#解题">解题</a>
 <ul>
-<li><a href="#定义">定义：</a></li>
-<li><a href="#主要解决">主要解决：</a></li>
-<li><a href="#何时使用">何时使用：</a></li>
-<li><a href="#如何解决">如何解决：</a></li>
-<li><a href="#应用实例">应用实例：</a></li>
-<li><a href="#优点">优点：</a></li>
-<li><a href="#缺点">缺点：</a></li>
-<li><a href="#使用场景">使用场景：</a></li>
-<li><a href="#注意事项">注意事项：</a></li>
+<li><a href="#1-暴力法">1.暴力法</a>
+<ul>
+<li><a href="#算法">算法</a></li>
+<li><a href="#代码实现">代码实现</a></li>
+<li><a href="#复杂度分析">复杂度分析</a></li>
 </ul></li>
-<li><a href="#模式原理">模式原理</a>
+<li><a href="#2-双指针法">2.双指针法</a>
 <ul>
-<li><a href="#类图">类图</a></li>
-<li><a href="#模式组成">模式组成</a></li>
+<li><a href="#算法-1">算法</a></li>
+<li><a href="#代码实现-1">代码实现</a></li>
+<li><a href="#复杂度分析-1">复杂度分析</a></li>
+</ul></li>
+<li><a href="#测试">测试</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -543,122 +545,272 @@ if (!doNotTrack) {
     <div class="post-content">
       
 
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=390 height=86 src="//music.163.com/outchain/player?type=2&id=27901416&auto=1&height=66"></iframe>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g95r6zww73j312k0u0q77.jpg" alt="" /></p>
 
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8dvkilb5yj313r0mbgmw.jpg" alt="" /></p>
+<h3 id="题目描述">题目描述</h3>
 
-<blockquote>
-<p>工厂方法（Factory Method）属于创建型模式，它提供了一种创建对象的最佳方式。在工厂方法中，我们在创建对象时不会对客户端暴露创建逻辑，并且是通过使用一个共同的接口来指向新创建的对象。</p>
-</blockquote>
+<p>给定 n 个非负整数 a1，a2，&hellip;，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。</p>
 
-<h3 id="介绍">介绍</h3>
+<p>说明：你不能倾斜容器，且 n 的值至少为 2。</p>
 
-<h4 id="定义">定义：</h4>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g97wucwojej30m90an74d.jpg" alt="" /></p>
 
-<blockquote>
-<p>工厂方法模式，又称工厂模式、多态工厂模式和虚拟构造器模式。定义一个用户创建对象的公共接口，通过定义工厂类，使其返回此接口，而具体工厂则负责生成具体的对象。工厂模式使其创建过程延迟到具体工厂中进行。</p>
-</blockquote>
+<p>图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。</p>
 
-<h4 id="主要解决">主要解决：</h4>
-
-<p>主要解决接口选择的问题。</p>
-
-<h4 id="何时使用">何时使用：</h4>
-
-<p>我们明确地计划不同条件下创建不同实例时。</p>
-
-<h4 id="如何解决">如何解决：</h4>
-
-<p>让其具体工厂实现工厂接口，返回的也是一个抽象的产品<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>。</p>
-
-<h4 id="应用实例">应用实例：</h4>
-
-<ul>
-<li>您需要一辆汽车，可以直接从工厂里面提货，而不用去管这辆汽车是怎么做出来的，以及这个汽车里面的具体实现。</li>
-<li>Hibernate 换数据库只需换方言和驱动就可以。</li>
-</ul>
-
-<h4 id="优点">优点：</h4>
-
-<ul>
-<li>一个调用者想创建一个对象，只要知道其名称就可以了。</li>
-<li>扩展性高，如果想增加一个产品，只要扩展一个具体的工厂类就可以。</li>
-<li>屏蔽产品的具体实现，调用者只关心产品的接口。</li>
-</ul>
-
-<h4 id="缺点">缺点：</h4>
-
-<p>每次增加一个产品时，都需要增加一个具体类和对象实现工厂，使得系统中类的个数成倍增加，在一定程度上增加了系统的复杂度，同时也增加了系统具体类的依赖。这并不是什么好事。</p>
-
-<h4 id="使用场景">使用场景：</h4>
-
-<ul>
-<li>日志记录器：记录可能记录到本地硬盘、系统事件、远程服务器等，用户可以选择记录日志到什么地方。</li>
-<li>数据库访问，当用户不知道最后系统采用哪一类数据库，以及数据库可能有变化时。</li>
-<li>设计一个连接服务器的框架，需要三个协议，&rdquo;POP3&rdquo;、&rdquo;IMAP&rdquo;、&rdquo;HTTP&rdquo;，可以把这三个作为产品类，共同实现一个接口。</li>
-</ul>
-
-<h4 id="注意事项">注意事项：</h4>
-
-<p>作为一种创建类模式，在任何需要生成复杂对象的地方，都可以使用工厂方法模式。有一点需要注意的地方就是复杂对象适合使用工厂模式，而简单对象，特别是只需要通过 new 就可以完成创建的对象，无需使用工厂模式。如果使用工厂模式，就需要引入一个工厂类，会增加系统的复杂度。</p>
-
-<h3 id="模式原理">模式原理</h3>
-
-<h4 id="类图">类图</h4>
-
-<div class="box">
-<figure itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
-    <div class="img">
-      <img itemprop="thumbnail" src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8e38bmmb4j315m0q6q38.jpg">
-    </div>
-    <a href="https://tva1.sinaimg.cn/large/006y8mN6ly1g8e38bmmb4j315m0q6q38.jpg" itemprop="contentUrl"></a>
-      <figcaption><h4 class="post-content-header">类图</h4>
-      </figcaption>
-  </figure>
+<h3 id="示例">示例</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Input: [1,8,6,2,5,4,8,3,7]
+Output: 49</pre></td></tr></table>
 </div>
-
-<h4 id="模式组成">模式组成</h4>
-
-<table>
-<thead>
-<tr>
-<th align="center">组成结构</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td align="center">Product(抽象产品类)</td>
-<td align="center">需要创建的产品的抽象类。</td>
-</tr>
-
-<tr>
-<td align="center">ConcreteProduct(具体产品类)</td>
-<td align="center">为实现抽象产品的某个具体产品类</td>
-</tr>
-
-<tr>
-<td align="center">Factory(抽象工厂类)</td>
-<td align="center">工厂方法中的核心，其方法决定选择具体的工厂类并返回ConcreteProduct实例（Product类型的对象）。</td>
-</tr>
-
-<tr>
-<td align="center">ConcreteFactory(具体工厂类)</td>
-<td align="center">实现具体业务逻辑。</td>
-</tr>
-</tbody>
-</table>
-<div class="footnotes">
-
-<hr />
-
-<ol>
-<li id="fn:1"><strong>脚注</strong>在少数派的文章中也很常见，即某段话结尾右上角标有数字标记，页面底部进行注释的写法。
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
-</ol>
 </div>
+<h3 id="解题思路">解题思路</h3>
 
+<p>如题意，垂直的两条线段将会与坐标轴构成一个矩形区域，较短线段的长度将会作为矩形区域的宽度，两线间距将会作为矩形区域的长度，而我们必须最大化该矩形区域的面积。</p>
+
+<h3 id="解题">解题</h3>
+
+<h4 id="1-暴力法">1.暴力法</h4>
+
+<h5 id="算法">算法</h5>
+
+<p>在这种情况下，我们将简单地考虑每对可能出现的线段组合并找出这些情况之下的最大面积。</p>
+
+<h5 id="代码实现">代码实现</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">leetcode</span>
+
+<span class="kd">func</span> <span class="nf">maxArea</span><span class="p">(</span><span class="nx">height</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="nx">maxarea</span> <span class="o">:=</span> <span class="mi">0</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">height</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">height</span><span class="p">);</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
+			<span class="nx">width</span> <span class="o">:=</span> <span class="nx">j</span> <span class="o">-</span> <span class="nx">i</span>
+			<span class="nx">high</span> <span class="o">:=</span> <span class="mi">0</span>
+			<span class="k">if</span> <span class="nx">height</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">&lt;</span> <span class="nx">height</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="p">{</span>
+				<span class="nx">high</span> <span class="p">=</span> <span class="nx">height</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+			<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+				<span class="nx">high</span> <span class="p">=</span> <span class="nx">height</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span>
+			<span class="p">}</span>
+			<span class="nx">temp</span> <span class="o">:=</span> <span class="nx">width</span> <span class="o">*</span> <span class="nx">high</span>
+			<span class="k">if</span> <span class="nx">temp</span> <span class="p">&gt;</span> <span class="nx">maxarea</span> <span class="p">{</span>
+				<span class="nx">maxarea</span> <span class="p">=</span> <span class="nx">temp</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+  <span class="k">return</span> <span class="nx">maxarea</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h5 id="复杂度分析">复杂度分析</h5>
+
+<ul>
+<li>时间复杂度：$O(n^2)$，计算所有 $\frac{n(n-1)}{2} $种高度组合的面积。</li>
+<li>空间复杂度：$O(1)$，使用恒定的额外空间。</li>
+</ul>
+
+<h4 id="2-双指针法">2.双指针法</h4>
+
+<h5 id="算法-1">算法</h5>
+
+<p>这种方法背后的思路在于，两线段之间形成的区域总是会受到其中较短那条长度的限制。此外，两线段距离越远，得到的面积就越大。</p>
+
+<p>我们在由线段长度构成的数组中使用两个指针，一个放在开始，一个置于末尾。 此外，我们会使用变量 maxareamaxarea 来持续存储到目前为止所获得的最大面积。 在每一步中，我们会找出指针所指向的两条线段形成的区域，更新 maxareamaxarea，并将指向较短线段的指针向较长线段那端移动一步。</p>
+
+<p>查看下面的例子将有助于你更好地理解该算法：</p>
+
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g97y4qmr9tg30m80ciabw.gif" alt="" /></p>
+
+<p>这种方法如何工作？</p>
+
+<p>最初我们考虑由最外围两条线段构成的区域。现在，为了使面积最大化，我们需要考虑更长的两条线段之间的区域。如果我们试图将指向较长线段的指针向内侧移动，矩形区域的面积将受限于较短的线段而不会获得任何增加。但是，在同样的条件下，移动指向较短线段的指针尽管造成了矩形宽度的减小，但却可能会有助于面积的增大。因为移动较短线段的指针会得到一条相对较长的线段，这可以克服由宽度减小而引起的面积减小。</p>
+
+<h5 id="代码实现-1">代码实现</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">leetcode</span>
+
+<span class="kd">func</span> <span class="nf">maxArea</span><span class="p">(</span><span class="nx">height</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="nx">maxarea</span><span class="p">,</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">end</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">height</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+	<span class="k">for</span> <span class="nx">start</span> <span class="p">&lt;</span> <span class="nx">end</span> <span class="p">{</span>
+		<span class="nx">width</span> <span class="o">:=</span> <span class="nx">end</span> <span class="o">-</span> <span class="nx">start</span>
+		<span class="nx">high</span> <span class="o">:=</span> <span class="mi">0</span>
+		<span class="k">if</span> <span class="nx">height</span><span class="p">[</span><span class="nx">start</span><span class="p">]</span> <span class="p">&lt;</span> <span class="nx">height</span><span class="p">[</span><span class="nx">end</span><span class="p">]</span> <span class="p">{</span>
+			<span class="nx">high</span> <span class="p">=</span> <span class="nx">height</span><span class="p">[</span><span class="nx">start</span><span class="p">]</span>
+			<span class="nx">start</span><span class="o">++</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="nx">high</span> <span class="p">=</span> <span class="nx">height</span><span class="p">[</span><span class="nx">end</span><span class="p">]</span>
+			<span class="nx">end</span><span class="o">--</span>
+		<span class="p">}</span>
+
+		<span class="nx">temp</span> <span class="o">:=</span> <span class="nx">width</span> <span class="o">*</span> <span class="nx">high</span>
+		<span class="k">if</span> <span class="nx">temp</span> <span class="p">&gt;</span> <span class="nx">maxarea</span> <span class="p">{</span>
+			<span class="nx">maxarea</span> <span class="p">=</span> <span class="nx">temp</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">maxarea</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h5 id="复杂度分析-1">复杂度分析</h5>
+
+<ul>
+<li>时间复杂度：$O(n)$，一次扫描。</li>
+<li>空间复杂度：$O(1)$，使用恒定的空间。</li>
+</ul>
+
+<h4 id="测试">测试</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">leetcode</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;testing&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">type</span> <span class="nx">question11</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">para11</span>
+	<span class="nx">ans11</span>
+<span class="p">}</span>
+
+<span class="c1">// para 是参数
+</span><span class="c1">// one 代表第一个参数
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">para11</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">one</span> <span class="p">[]</span><span class="kt">int</span>
+<span class="p">}</span>
+
+<span class="c1">// ans 是答案
+</span><span class="c1">// one 代表第一个答案
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">ans11</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">one</span> <span class="kt">int</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">Test_Problem11</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+
+	<span class="nx">qs</span> <span class="o">:=</span> <span class="p">[]</span><span class="nx">question11</span><span class="p">{</span>
+
+		<span class="nx">question11</span><span class="p">{</span>
+			<span class="nx">para11</span><span class="p">{[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">}},</span>
+			<span class="nx">ans11</span><span class="p">{</span><span class="mi">49</span><span class="p">},</span>
+		<span class="p">},</span>
+
+		<span class="nx">question11</span><span class="p">{</span>
+			<span class="nx">para11</span><span class="p">{[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">}},</span>
+			<span class="nx">ans11</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span>
+		<span class="p">},</span>
+	<span class="p">}</span>
+
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;------------------------Leetcode Problem 11------------------------\n&#34;</span><span class="p">)</span>
+
+	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">q</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">qs</span> <span class="p">{</span>
+		<span class="nx">_</span><span class="p">,</span> <span class="nx">p</span> <span class="o">:=</span> <span class="nx">q</span><span class="p">.</span><span class="nx">ans11</span><span class="p">,</span> <span class="nx">q</span><span class="p">.</span><span class="nx">para11</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;【input】:%v    【output】:%v\n&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">one</span><span class="p">,</span> <span class="nf">maxArea</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">one</span><span class="p">))</span>
+	<span class="p">}</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;\n\n\n&#34;</span><span class="p">)</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     
@@ -671,7 +823,7 @@ if (!doNotTrack) {
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-      2019-10-14
+      2018-03-01
       
     </span>
   </p>
@@ -701,14 +853,14 @@ if (!doNotTrack) {
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="http://beuself.xyz/tags/%E5%88%9B%E4%BD%9C%E6%A8%A1%E5%BC%8F/">创作模式</a>
+          <a href="http://beuself.xyz/tags/%E6%95%B0%E7%BB%84/">数组</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/go-paterns/go-paterns%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6/">
+          <a class="prev" href="/post/go-leetcode/0001%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -718,12 +870,12 @@ if (!doNotTrack) {
 </svg>
 
             </i>
-            <span class="prev-text nav-default">Go-Paterns项目进度</span>
+            <span class="prev-text nav-default">0001-Two Sum</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
-          <a class="next" href="/post/go-paterns/singleton/">
-            <span class="next-text nav-default">1-3单例模式-Singleton</span>
+          <a class="next" href="/post/go-leetcode/0027%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/">
+            <span class="next-text nav-default">0027-Remove Element</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

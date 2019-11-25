@@ -69,7 +69,7 @@
 
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="1012">
+<meta itemprop="wordCount" content="976">
 
 
 
@@ -513,8 +513,8 @@ if (!doNotTrack) {
             <a href="http://beuself.xyz/categories/leetcode-go/"> leetcode-Go </a>
             
           </div>
-        <span class="more-meta"> 1012 words </span>
-          <span class="more-meta"> 3 min read </span>
+        <span class="more-meta"> 976 words </span>
+          <span class="more-meta"> 2 min read </span>
 
         
         
@@ -688,7 +688,6 @@ if (!doNotTrack) {
 <li>如果<code>sum==target</code>，将四数加入结果集</li>
 <li>如果<code>nums[start]==nums[start+1]</code>会导致结果重复，故<code>start++</code>。</li>
 <li>如果<code>nums[end]==nums[end-1]</code>会导致结果重复，故<code>end--</code>。</li>
-<li>如果<code>start==end</code>，说明小于四个数，跳出循环。</li>
 </ul>
 
 <h5 id="代码实现-1">代码实现</h5>
@@ -733,9 +732,6 @@ if (!doNotTrack) {
 </span><span class="lnt">37
 </span><span class="lnt">38
 </span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">fourSum</span><span class="p">(</span><span class="nx">nums</span> <span class="p">[]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">target</span> <span class="kt">int</span><span class="p">)</span> <span class="p">[][]</span><span class="kt">int</span> <span class="p">{</span>
@@ -764,9 +760,6 @@ if (!doNotTrack) {
 					<span class="p">}</span>
 					<span class="k">for</span> <span class="nx">start</span> <span class="p">&lt;</span> <span class="nx">end</span> <span class="o">&amp;&amp;</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">end</span><span class="p">]</span> <span class="o">==</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">end</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">{</span>
 						<span class="nx">end</span><span class="o">--</span>
-					<span class="p">}</span>
-					<span class="k">if</span> <span class="nx">start</span> <span class="o">==</span> <span class="nx">end</span> <span class="p">{</span>
-						<span class="k">break</span>
 					<span class="p">}</span>
 					<span class="nx">start</span><span class="o">++</span>
 					<span class="nx">end</span><span class="o">--</span>

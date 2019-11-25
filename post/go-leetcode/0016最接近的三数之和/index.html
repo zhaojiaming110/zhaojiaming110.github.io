@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>0011-Container With Most Water - Beyourself - a gopher</title>
+  <title>0016-3Sum Closest - Beyourself - a gopher</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Beyourself" />
-  <meta name="description" content="题目描述 给定 n 个非负整数 a1，a2，&amp;hellip;，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai)" />
+  <meta name="description" content="题目描述 给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存" />
 
   <meta name="keywords" content="Beyourslef, go, golang" />
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.58.3" />
 
 
-<link rel="canonical" href="http://beuself.xyz/post/go-leetcode/0011%E7%9B%9B%E6%9C%80%E5%A4%9A%E8%B0%81%E7%9A%84%E5%AE%B9%E5%99%A8/" />
+<link rel="canonical" href="http://beuself.xyz/post/go-leetcode/0016%E6%9C%80%E6%8E%A5%E8%BF%91%E7%9A%84%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/" />
 
 
 
@@ -57,26 +57,26 @@
 
 
 
-<meta property="og:title" content="0011-Container With Most Water" />
-<meta property="og:description" content="题目描述 给定 n 个非负整数 a1，a2，&hellip;，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai)" />
+<meta property="og:title" content="0016-3Sum Closest" />
+<meta property="og:description" content="题目描述 给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://beuself.xyz/post/go-leetcode/0011%E7%9B%9B%E6%9C%80%E5%A4%9A%E8%B0%81%E7%9A%84%E5%AE%B9%E5%99%A8/" />
+<meta property="og:url" content="http://beuself.xyz/post/go-leetcode/0016%E6%9C%80%E6%8E%A5%E8%BF%91%E7%9A%84%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/" />
 <meta property="article:published_time" content="2019-09-20T16:01:23+08:00" />
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
-<meta itemprop="name" content="0011-Container With Most Water">
-<meta itemprop="description" content="题目描述 给定 n 个非负整数 a1，a2，&hellip;，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai)">
+<meta itemprop="name" content="0016-3Sum Closest">
+<meta itemprop="description" content="题目描述 给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存">
 
 
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="1035">
+<meta itemprop="wordCount" content="571">
 
 
 
 <meta itemprop="keywords" content="array-leetcode," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="0011-Container With Most Water"/>
-<meta name="twitter:description" content="题目描述 给定 n 个非负整数 a1，a2，&hellip;，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai)"/>
+<meta name="twitter:title" content="0016-3Sum Closest"/>
+<meta name="twitter:description" content="题目描述 给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -495,7 +495,7 @@ if (!doNotTrack) {
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">0011-Container With Most Water</h1>
+      <h1 class="post-title">0016-3Sum Closest</h1>
       
       <div class="post-meta">
         <time datetime="2019-09-20" class="post-time">
@@ -505,8 +505,8 @@ if (!doNotTrack) {
             <a href="http://beuself.xyz/categories/leetcode-go/"> leetcode-Go </a>
             
           </div>
-        <span class="more-meta"> 1035 words </span>
-          <span class="more-meta"> 3 min read </span>
+        <span class="more-meta"> 571 words </span>
+          <span class="more-meta"> 2 min read </span>
 
         
         
@@ -532,21 +532,14 @@ if (!doNotTrack) {
 <li>
 <ul>
 <li><a href="#题目描述">题目描述</a></li>
-<li><a href="#示例">示例</a></li>
-<li><a href="#解题思路">解题思路</a></li>
 <li><a href="#解题">解题</a>
 <ul>
-<li><a href="#1-暴力法">1.暴力法</a>
+<li><a href="#双指针-排序">双指针+排序</a>
 <ul>
 <li><a href="#算法">算法</a></li>
+<li><a href="#gif演示">GIF演示</a></li>
 <li><a href="#代码实现">代码实现</a></li>
 <li><a href="#复杂度分析">复杂度分析</a></li>
-</ul></li>
-<li><a href="#2-双指针法">2.双指针法</a>
-<ul>
-<li><a href="#算法-1">算法</a></li>
-<li><a href="#代码实现-1">代码实现</a></li>
-<li><a href="#复杂度分析-1">复杂度分析</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -564,110 +557,38 @@ if (!doNotTrack) {
 
 <h3 id="题目描述">题目描述</h3>
 
-<p>给定 n 个非负整数 a1，a2，&hellip;，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。</p>
-
-<p>说明：你不能倾斜容器，且 n 的值至少为 2。</p>
-
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g97wucwojej30m90an74d.jpg" alt="" /></p>
-
-<p>图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。</p>
-
-<h3 id="示例">示例</h3>
+<p>给定一个包括 <code>n</code> 个整数的数组 <code>nums</code> 和 一个目标值 <code>target</code>。找出 <code>nums</code> 中的三个整数，使得它们的和与 <code>target</code> 最接近。返回这三个数的和。假定每组输入只存在唯一答案。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
 </span><span class="lnt">2
+</span><span class="lnt">3
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">Input: [1,8,6,2,5,4,8,3,7]
-Output: 49</pre></td></tr></table>
+<pre class="chroma">例如，给定数组 nums = [-1，2，1，-4], 和 target = 1.
+
+与 target 最接近的三个数的和为 2. (-1 + 2 + 1 = 2).</pre></td></tr></table>
 </div>
 </div>
-<h3 id="解题思路">解题思路</h3>
-
-<p>如题意，垂直的两条线段将会与坐标轴构成一个矩形区域，较短线段的长度将会作为矩形区域的宽度，两线间距将会作为矩形区域的长度，而我们必须最大化该矩形区域的面积。</p>
-
 <h3 id="解题">解题</h3>
 
-<h4 id="1-暴力法">1.暴力法</h4>
+<h4 id="双指针-排序">双指针+排序</h4>
 
 <h5 id="算法">算法</h5>
 
-<p>在这种情况下，我们将简单地考虑每对可能出现的线段组合并找出这些情况之下的最大面积。</p>
-
-<h5 id="代码实现">代码实现</h5>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">leetcode</span>
-
-<span class="kd">func</span> <span class="nf">maxArea</span><span class="p">(</span><span class="nx">height</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
-	<span class="nx">maxarea</span> <span class="o">:=</span> <span class="mi">0</span>
-	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">height</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-		<span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">height</span><span class="p">);</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
-			<span class="nx">width</span> <span class="o">:=</span> <span class="nx">j</span> <span class="o">-</span> <span class="nx">i</span>
-			<span class="nx">high</span> <span class="o">:=</span> <span class="mi">0</span>
-			<span class="k">if</span> <span class="nx">height</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">&lt;</span> <span class="nx">height</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="p">{</span>
-				<span class="nx">high</span> <span class="p">=</span> <span class="nx">height</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
-			<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-				<span class="nx">high</span> <span class="p">=</span> <span class="nx">height</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span>
-			<span class="p">}</span>
-			<span class="nx">temp</span> <span class="o">:=</span> <span class="nx">width</span> <span class="o">*</span> <span class="nx">high</span>
-			<span class="k">if</span> <span class="nx">temp</span> <span class="p">&gt;</span> <span class="nx">maxarea</span> <span class="p">{</span>
-				<span class="nx">maxarea</span> <span class="p">=</span> <span class="nx">temp</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-  <span class="k">return</span> <span class="nx">maxarea</span>
-<span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div>
-<h5 id="复杂度分析">复杂度分析</h5>
-
 <ul>
-<li>时间复杂度：$O(n^2)$，计算所有 $\frac{n(n-1)}{2} $种高度组合的面积。</li>
-<li>空间复杂度：$O(1)$，使用恒定的额外空间。</li>
+<li>首先对数组进行排序，时间复杂度为 $O(nlogn)$。</li>
+<li>对数组<code>nums</code>进行遍历，每遍历一个值利用其下标i，形成一个固定值<code>nums[i]</code>。</li>
+<li>再使用指针指向<code>start=i+1</code>处，后指针指向<code>end=len(nums)-1</code>处，也就是数组末尾。</li>
+<li>然后计算<code>sum=nums[i]+nums[start]+nums[end]</code>，判断<code>sum</code>和<code>target</code>的差值，如果更接近<code>target</code>，就更新结果<code>ans</code>。</li>
+<li>同时判断<code>sum</code>与<code>target</code>的关系，因为数组有序，如果<code>sum&gt;target</code>，则<code>end--</code>；如果<code>sum&lt;target</code>，则<code>start++</code>；如果<code>sum=target</code>，则直接返回结果<code>ans</code>。</li>
 </ul>
 
-<h4 id="2-双指针法">2.双指针法</h4>
+<h5 id="gif演示">GIF演示</h5>
 
-<h5 id="算法-1">算法</h5>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9agbu4rjfg30m80cimzq.gif" alt="" /></p>
 
-<p>这种方法背后的思路在于，两线段之间形成的区域总是会受到其中较短那条长度的限制。此外，两线段距离越远，得到的面积就越大。</p>
-
-<p>我们在由线段长度构成的数组中使用两个指针，一个放在开始，一个置于末尾。 此外，我们会使用变量 maxareamaxarea 来持续存储到目前为止所获得的最大面积。 在每一步中，我们会找出指针所指向的两条线段形成的区域，更新 maxareamaxarea，并将指向较短线段的指针向较长线段那端移动一步。</p>
-
-<p>查看下面的例子将有助于你更好地理解该算法：</p>
-
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g97y4qmr9tg30m80ciabw.gif" alt="" /></p>
-
-<p>这种方法如何工作？</p>
-
-<p>最初我们考虑由最外围两条线段构成的区域。现在，为了使面积最大化，我们需要考虑更长的两条线段之间的区域。如果我们试图将指向较长线段的指针向内侧移动，矩形区域的面积将受限于较短的线段而不会获得任何增加。但是，在同样的条件下，移动指向较短线段的指针尽管造成了矩形宽度的减小，但却可能会有助于面积的增大。因为移动较短线段的指针会得到一条相对较长的线段，这可以克服由宽度减小而引起的面积减小。</p>
-
-<h5 id="代码实现-1">代码实现</h5>
+<h5 id="代码实现">代码实现</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
@@ -694,35 +615,35 @@ Output: 49</pre></td></tr></table>
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">leetcode</span>
-
-<span class="kd">func</span> <span class="nf">maxArea</span><span class="p">(</span><span class="nx">height</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
-	<span class="nx">maxarea</span><span class="p">,</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">end</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">height</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
-	<span class="k">for</span> <span class="nx">start</span> <span class="p">&lt;</span> <span class="nx">end</span> <span class="p">{</span>
-		<span class="nx">width</span> <span class="o">:=</span> <span class="nx">end</span> <span class="o">-</span> <span class="nx">start</span>
-		<span class="nx">high</span> <span class="o">:=</span> <span class="mi">0</span>
-		<span class="k">if</span> <span class="nx">height</span><span class="p">[</span><span class="nx">start</span><span class="p">]</span> <span class="p">&lt;</span> <span class="nx">height</span><span class="p">[</span><span class="nx">end</span><span class="p">]</span> <span class="p">{</span>
-			<span class="nx">high</span> <span class="p">=</span> <span class="nx">height</span><span class="p">[</span><span class="nx">start</span><span class="p">]</span>
-			<span class="nx">start</span><span class="o">++</span>
-		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-			<span class="nx">high</span> <span class="p">=</span> <span class="nx">height</span><span class="p">[</span><span class="nx">end</span><span class="p">]</span>
-			<span class="nx">end</span><span class="o">--</span>
-		<span class="p">}</span>
-
-		<span class="nx">temp</span> <span class="o">:=</span> <span class="nx">width</span> <span class="o">*</span> <span class="nx">high</span>
-		<span class="k">if</span> <span class="nx">temp</span> <span class="p">&gt;</span> <span class="nx">maxarea</span> <span class="p">{</span>
-			<span class="nx">maxarea</span> <span class="p">=</span> <span class="nx">temp</span>
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">threeSumClosest</span><span class="p">(</span><span class="nx">nums</span> <span class="p">[]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">target</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="nx">sort</span><span class="p">.</span><span class="nf">Ints</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span> <span class="c1">// 排序
+</span><span class="c1"></span>	<span class="nx">ans</span> <span class="o">:=</span> <span class="nx">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nx">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">nums</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+	<span class="nx">len_nums</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">len_nums</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">start</span><span class="p">,</span> <span class="nx">end</span> <span class="o">:=</span> <span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nx">len_nums</span><span class="o">-</span><span class="mi">1</span>
+		<span class="k">for</span> <span class="nx">start</span> <span class="p">&lt;</span> <span class="nx">end</span> <span class="p">{</span>
+			<span class="nx">sum</span> <span class="o">:=</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">start</span><span class="p">]</span> <span class="o">+</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">end</span><span class="p">]</span>
+			<span class="k">if</span> <span class="nx">math</span><span class="p">.</span><span class="nf">Abs</span><span class="p">(</span><span class="nb">float64</span><span class="p">(</span><span class="nx">target</span><span class="o">-</span><span class="nx">sum</span><span class="p">))</span> <span class="p">&lt;</span> <span class="nx">math</span><span class="p">.</span><span class="nf">Abs</span><span class="p">(</span><span class="nb">float64</span><span class="p">(</span><span class="nx">target</span><span class="o">-</span><span class="nx">ans</span><span class="p">))</span> <span class="p">{</span>
+				<span class="nx">ans</span> <span class="p">=</span> <span class="nx">sum</span>
+			<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="nx">sum</span> <span class="p">&gt;</span> <span class="nx">target</span> <span class="p">{</span>
+				<span class="nx">end</span><span class="o">--</span>
+			<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="nx">sum</span> <span class="p">&lt;</span> <span class="nx">target</span> <span class="p">{</span>
+				<span class="nx">start</span><span class="o">++</span>
+			<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+				<span class="c1">// sum == target
+</span><span class="c1"></span>				<span class="k">return</span> <span class="nx">ans</span>
+			<span class="p">}</span>
 		<span class="p">}</span>
 	<span class="p">}</span>
-	<span class="k">return</span> <span class="nx">maxarea</span>
+	<span class="k">return</span> <span class="nx">ans</span>
 <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
-<h5 id="复杂度分析-1">复杂度分析</h5>
+<h5 id="复杂度分析">复杂度分析</h5>
 
 <ul>
-<li>时间复杂度：$O(n)$，一次扫描。</li>
-<li>空间复杂度：$O(1)$，使用恒定的空间。</li>
+<li>时间复杂度：$O(N^2)$。</li>
+<li>空间复杂度：$O(1)$。</li>
 </ul>
 
     </div>
@@ -774,7 +695,7 @@ Output: 49</pre></td></tr></table>
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/go-leetcode/0001%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
+          <a class="prev" href="/post/go-leetcode/0015%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -784,12 +705,12 @@ Output: 49</pre></td></tr></table>
 </svg>
 
             </i>
-            <span class="prev-text nav-default">0001-Two Sum</span>
+            <span class="prev-text nav-default">0015-3Sum</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
-          <a class="next" href="/post/go-leetcode/0015%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/">
-            <span class="next-text nav-default">0015-3Sum</span>
+          <a class="next" href="/post/go-leetcode/0027%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/">
+            <span class="next-text nav-default">0027-Remove Element</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

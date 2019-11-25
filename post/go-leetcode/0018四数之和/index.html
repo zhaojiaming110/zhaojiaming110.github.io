@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>0016-4Sum - Beyourself - a gopher</title>
+  <title>0018-4Sum - Beyourself - a gopher</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -57,25 +57,25 @@
 
 
 
-<meta property="og:title" content="0016-4Sum" />
+<meta property="og:title" content="0018-4Sum" />
 <meta property="og:description" content="题目描述 给定一个包含 n 个整数的数组 nums 和一个目标值 target，判断 nums 中是否存在四个元素 a，b，c 和 d ，使得 a &#43; b &#43; c &#43; d 的值与 target 相等？找出所" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://beuself.xyz/post/go-leetcode/0018%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C/" />
 <meta property="article:published_time" content="2019-09-20T16:01:23+08:00" />
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
-<meta itemprop="name" content="0016-4Sum">
+<meta itemprop="name" content="0018-4Sum">
 <meta itemprop="description" content="题目描述 给定一个包含 n 个整数的数组 nums 和一个目标值 target，判断 nums 中是否存在四个元素 a，b，c 和 d ，使得 a &#43; b &#43; c &#43; d 的值与 target 相等？找出所">
 
 
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="1017">
+<meta itemprop="wordCount" content="1012">
 
 
 
 <meta itemprop="keywords" content="array-leetcode," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="0016-4Sum"/>
+<meta name="twitter:title" content="0018-4Sum"/>
 <meta name="twitter:description" content="题目描述 给定一个包含 n 个整数的数组 nums 和一个目标值 target，判断 nums 中是否存在四个元素 a，b，c 和 d ，使得 a &#43; b &#43; c &#43; d 的值与 target 相等？找出所"/>
 
 <!--[if lte IE 9]>
@@ -183,7 +183,7 @@ if (!doNotTrack) {
               </li>
             
               <li>
-                <a href="http://beuself.xyz/post/go-leetcode/0018%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C/">0016-4Sum</a>
+                <a href="http://beuself.xyz/post/go-leetcode/0018%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C/">0018-4Sum</a>
               </li>
             
               <li>
@@ -417,7 +417,7 @@ if (!doNotTrack) {
               </li>
             
               <li>
-                <a href="http://beuself.xyz/post/go-leetcode/0018%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C/">0016-4Sum</a>
+                <a href="http://beuself.xyz/post/go-leetcode/0018%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C/">0018-4Sum</a>
               </li>
             
               <li>
@@ -503,7 +503,7 @@ if (!doNotTrack) {
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">0016-4Sum</h1>
+      <h1 class="post-title">0018-4Sum</h1>
       
       <div class="post-meta">
         <time datetime="2019-09-20" class="post-time">
@@ -513,7 +513,7 @@ if (!doNotTrack) {
             <a href="http://beuself.xyz/categories/leetcode-go/"> leetcode-Go </a>
             
           </div>
-        <span class="more-meta"> 1017 words </span>
+        <span class="more-meta"> 1012 words </span>
           <span class="more-meta"> 3 min read </span>
 
         
@@ -680,15 +680,15 @@ if (!doNotTrack) {
 
 <ul>
 <li>首先对数组进行排序，时间复杂度为 $O(nlogn)$。</li>
-<li>对数组nums遍历，每遍历一个值利用其下标i，形成一个固定的值nums[i]。</li>
-<li>如果i&gt;0且nums[i] == nums[i-1]，则说明该数字重复会导致结果重复，跳过。</li>
-<li>继续对数组nums遍历，每遍历一个值利用其下标j，其中j=i+1，形成一个固定的值nums[j]。</li>
+<li>对数组<code>nums</code>遍历，每遍历一个值利用其下标i，形成一个固定的值<code>nums[i]</code>。</li>
+<li>如果<code>i&gt;0</code>且<code>nums[i] == nums[i-1]</code>，则说明该数字重复会导致结果重复，跳过。</li>
+<li>继续对数组<code>nums</code>遍历，每遍历一个值利用其下标j，其中<code>j=i+1</code>，形成一个固定的值<code>nums[j]</code>。</li>
 <li>再使用指针指向<code>start=i+1</code>处，后指针指向<code>end=len(nums)-1</code>处，也就是数组末尾。</li>
-<li>计算四数nums[i]+nums[j]+nums[start]+nums[end]之和sum。</li>
-<li>如果sum==target，将四数加入结果集</li>
-<li>如果nums[start]==nums[start+1]会导致结果重复，故start++。</li>
-<li>如果nums[end]==nums[end-1]会导致结果重复，故end&ndash;。</li>
-<li>如果start==end，说明小于四个数，跳出循环。</li>
+<li>计算四数<code>nums[i]+nums[j]+nums[start]+nums[end]</code>之和<code>sum</code>。</li>
+<li>如果<code>sum==target</code>，将四数加入结果集</li>
+<li>如果<code>nums[start]==nums[start+1]</code>会导致结果重复，故<code>start++</code>。</li>
+<li>如果<code>nums[end]==nums[end-1]</code>会导致结果重复，故<code>end--</code>。</li>
+<li>如果<code>start==end</code>，说明小于四个数，跳出循环。</li>
 </ul>
 
 <h5 id="代码实现-1">代码实现</h5>

@@ -69,7 +69,7 @@
 
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="1230">
+<meta itemprop="wordCount" content="1035">
 
 
 
@@ -497,7 +497,7 @@ if (!doNotTrack) {
             <a href="http://beuself.xyz/categories/leetcode-go/"> leetcode-Go </a>
             
           </div>
-        <span class="more-meta"> 1230 words </span>
+        <span class="more-meta"> 1035 words </span>
           <span class="more-meta"> 3 min read </span>
 
         
@@ -540,7 +540,6 @@ if (!doNotTrack) {
 <li><a href="#代码实现-1">代码实现</a></li>
 <li><a href="#复杂度分析-1">复杂度分析</a></li>
 </ul></li>
-<li><a href="#测试">测试</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -718,107 +717,6 @@ Output: 49</pre></td></tr></table>
 <li>空间复杂度：$O(1)$，使用恒定的空间。</li>
 </ul>
 
-<h4 id="测试">测试</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">leetcode</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;fmt&#34;</span>
-	<span class="s">&#34;testing&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">type</span> <span class="nx">question11</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">para11</span>
-	<span class="nx">ans11</span>
-<span class="p">}</span>
-
-<span class="c1">// para 是参数
-</span><span class="c1">// one 代表第一个参数
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">para11</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">one</span> <span class="p">[]</span><span class="kt">int</span>
-<span class="p">}</span>
-
-<span class="c1">// ans 是答案
-</span><span class="c1">// one 代表第一个答案
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">ans11</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">one</span> <span class="kt">int</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="nf">Test_Problem11</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
-
-	<span class="nx">qs</span> <span class="o">:=</span> <span class="p">[]</span><span class="nx">question11</span><span class="p">{</span>
-
-		<span class="nx">question11</span><span class="p">{</span>
-			<span class="nx">para11</span><span class="p">{[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">}},</span>
-			<span class="nx">ans11</span><span class="p">{</span><span class="mi">49</span><span class="p">},</span>
-		<span class="p">},</span>
-
-		<span class="nx">question11</span><span class="p">{</span>
-			<span class="nx">para11</span><span class="p">{[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">}},</span>
-			<span class="nx">ans11</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span>
-		<span class="p">},</span>
-	<span class="p">}</span>
-
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;------------------------Leetcode Problem 11------------------------\n&#34;</span><span class="p">)</span>
-
-	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">q</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">qs</span> <span class="p">{</span>
-		<span class="nx">_</span><span class="p">,</span> <span class="nx">p</span> <span class="o">:=</span> <span class="nx">q</span><span class="p">.</span><span class="nx">ans11</span><span class="p">,</span> <span class="nx">q</span><span class="p">.</span><span class="nx">para11</span>
-		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;【input】:%v    【output】:%v\n&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">one</span><span class="p">,</span> <span class="nf">maxArea</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">one</span><span class="p">))</span>
-	<span class="p">}</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;\n\n\n&#34;</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div>
     </div>
 
     

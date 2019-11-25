@@ -69,7 +69,7 @@
 
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="624">
+<meta itemprop="wordCount" content="1017">
 
 
 
@@ -513,8 +513,8 @@ if (!doNotTrack) {
             <a href="http://beuself.xyz/categories/leetcode-go/"> leetcode-Go </a>
             
           </div>
-        <span class="more-meta"> 624 words </span>
-          <span class="more-meta"> 2 min read </span>
+        <span class="more-meta"> 1017 words </span>
+          <span class="more-meta"> 3 min read </span>
 
         
         
@@ -677,6 +677,19 @@ if (!doNotTrack) {
 <h4 id="2-优化">2.优化</h4>
 
 <h5 id="算法">算法</h5>
+
+<ul>
+<li>首先对数组进行排序，时间复杂度为 $O(nlogn)$。</li>
+<li>对数组nums遍历，每遍历一个值利用其下标i，形成一个固定的值nums[i]。</li>
+<li>如果i&gt;0且nums[i] == nums[i-1]，则说明该数字重复会导致结果重复，跳过。</li>
+<li>继续对数组nums遍历，每遍历一个值利用其下标j，其中j=i+1，形成一个固定的值nums[j]。</li>
+<li>再使用指针指向<code>start=i+1</code>处，后指针指向<code>end=len(nums)-1</code>处，也就是数组末尾。</li>
+<li>计算四数nums[i]+nums[j]+nums[start]+nums[end]之和sum。</li>
+<li>如果sum==target，将四数加入结果集</li>
+<li>如果nums[start]==nums[start+1]会导致结果重复，故start++。</li>
+<li>如果nums[end]==nums[end-1]会导致结果重复，故end&ndash;。</li>
+<li>如果start==end，说明小于四个数，跳出循环。</li>
+</ul>
 
 <h5 id="代码实现-1">代码实现</h5>
 <div class="highlight"><div class="chroma">

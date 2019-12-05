@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Date Structures With Go on Beyourself - a gopher</title>
+    <link>http://beuself.xyz/categories/date-structures-with-go/</link>
+    <description>Recent content in Date Structures With Go on Beyourself - a gopher</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 10 Nov 2019 23:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="http://beuself.xyz/categories/date-structures-with-go/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>1-链表简介</title>
+      <link>http://beuself.xyz/post/date-structures-with-go/%E9%93%BE%E8%A1%A8%E7%AE%80%E4%BB%8B/</link>
+      <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/date-structures-with-go/%E9%93%BE%E8%A1%A8%E7%AE%80%E4%BB%8B/</guid>
+      <description>像数组一样，链表是一个线性数据结构。与数组不同，链接列表元素不存储在连续位置；元素使用指针链接。 为什么要使用链表？ 数组可用于存储相似类型的线</description>
+    </item>
+    
+  </channel>
+</rss>

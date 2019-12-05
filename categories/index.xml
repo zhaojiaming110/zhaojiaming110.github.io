@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Beyourself - a gopher</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 19 Oct 2019 16:01:23 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 10 Nov 2019 23:01:23 +0800</lastBuildDate>
     
 	<atom:link href="http://beuself.xyz/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Date Structures With Go</title>
+      <link>http://beuself.xyz/categories/date-structures-with-go/</link>
+      <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/categories/date-structures-with-go/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>爬虫</title>

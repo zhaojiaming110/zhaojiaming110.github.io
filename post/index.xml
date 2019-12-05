@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Beyourself - a gopher</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 19 Oct 2019 16:01:23 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 10 Nov 2019 23:01:23 +0800</lastBuildDate>
     
 	<atom:link href="http://beuself.xyz/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>1-链表简介</title>
+      <link>http://beuself.xyz/post/date-structures-with-go/%E9%93%BE%E8%A1%A8%E7%AE%80%E4%BB%8B/</link>
+      <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/date-structures-with-go/%E9%93%BE%E8%A1%A8%E7%AE%80%E4%BB%8B/</guid>
+      <description>像数组一样，链表是一个线性数据结构。与数组不同，链接列表元素不存储在连续位置；元素使用指针链接。 为什么要使用链表？ 数组可用于存储相似类型的线</description>
+    </item>
     
     <item>
       <title>单任务版爬虫</title>
@@ -180,15 +189,6 @@
       
       <guid>http://beuself.xyz/post/go-basic-knowledge/2019-09-22-gopath%E5%8F%8A%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/</guid>
       <description>GOPATH环境变量： 默认在~/go(unix,linux)，%USERPROFIEL%\go(windows) 官方推荐：所有项目和第三方库</description>
-    </item>
-    
-    <item>
-      <title>Goroutine</title>
-      <link>http://beuself.xyz/post/go-basic-knowledge/20919-09-27-goroutine/</link>
-      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
-      
-      <guid>http://beuself.xyz/post/go-basic-knowledge/20919-09-27-goroutine/</guid>
-      <description>并发concurrency 很多人都是冲着Go大肆宣扬的高并发而忍不住跃跃欲试，但其实从源码解析来看，goroutine只是由官方实现的超级“</description>
     </item>
     
   </channel>

@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>3-插入节点</title>
+      <link>http://beuself.xyz/post/date-structures-with-go/%E6%8F%92%E5%85%A5%E8%8A%82%E7%82%B9/</link>
+      <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/date-structures-with-go/%E6%8F%92%E5%85%A5%E8%8A%82%E7%82%B9/</guid>
+      <description>在上一篇文章中，我们介绍了链接列表。我们还创建了一个具有3个节点的简单链表，并讨论了链表遍历。 本文中讨论的所有程序均考虑以下链表的表示形式。</description>
+    </item>
+    
+    <item>
       <title>单任务版爬虫</title>
       <link>http://beuself.xyz/post/go-basic-knowledge/%E5%8D%95%E4%BB%BB%E5%8A%A1%E7%89%88%E7%88%AC%E8%99%AB/</link>
       <pubDate>Sat, 19 Oct 2019 16:01:23 +0800</pubDate>
@@ -180,15 +189,6 @@
       
       <guid>http://beuself.xyz/post/go-leetcode/0027%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/</guid>
       <description>题目： 给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。 不要使用额外的数组空间，你必须在原地修改输入</description>
-    </item>
-    
-    <item>
-      <title>GOPATH及目录结构</title>
-      <link>http://beuself.xyz/post/go-basic-knowledge/2019-09-22-gopath%E5%8F%8A%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/</link>
-      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
-      
-      <guid>http://beuself.xyz/post/go-basic-knowledge/2019-09-22-gopath%E5%8F%8A%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/</guid>
-      <description>GOPATH环境变量： 默认在~/go(unix,linux)，%USERPROFIEL%\go(windows) 官方推荐：所有项目和第三方库</description>
     </item>
     
   </channel>

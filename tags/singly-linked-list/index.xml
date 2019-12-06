@@ -20,5 +20,14 @@
       <description>像数组一样，链表是一个线性数据结构。与数组不同，链接列表元素不存储在连续位置；元素使用指针链接。 为什么要使用链表？ 数组可用于存储相似类型的线</description>
     </item>
     
+    <item>
+      <title>3-插入节点</title>
+      <link>http://beuself.xyz/post/date-structures-with-go/%E6%8F%92%E5%85%A5%E8%8A%82%E7%82%B9/</link>
+      <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/date-structures-with-go/%E6%8F%92%E5%85%A5%E8%8A%82%E7%82%B9/</guid>
+      <description>在上一篇文章中，我们介绍了链接列表。我们还创建了一个具有3个节点的简单链表，并讨论了链表遍历。 本文中讨论的所有程序均考虑以下链表的表示形式。</description>
+    </item>
+    
   </channel>
 </rss>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>常用的系统接口 - Beyourself - a gopher</title>
+  <title>3-插入节点 - Beyourself - a gopher</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Beyourself" />
-  <meta name="description" content="Stringer Reader/Writer" />
+  <meta name="description" content="在上一篇文章中，我们介绍了链接列表。我们还创建了一个具有3个节点的简单链表，并讨论了链表遍历。 本文中讨论的所有程序均考虑以下链表的表示形式。" />
 
   <meta name="keywords" content="Beyourslef, go, golang" />
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.58.3" />
 
 
-<link rel="canonical" href="http://beuself.xyz/post/go-basic-knowledge/2019-09-23-%E5%B8%B8%E7%94%A8%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%8E%A5%E5%8F%A3/" />
+<link rel="canonical" href="http://beuself.xyz/post/date-structures-with-go/%E6%8F%92%E5%85%A5%E8%8A%82%E7%82%B9/" />
 
 
 
@@ -57,26 +57,26 @@
 
 
 
-<meta property="og:title" content="常用的系统接口" />
-<meta property="og:description" content="Stringer Reader/Writer" />
+<meta property="og:title" content="3-插入节点" />
+<meta property="og:description" content="在上一篇文章中，我们介绍了链接列表。我们还创建了一个具有3个节点的简单链表，并讨论了链表遍历。 本文中讨论的所有程序均考虑以下链表的表示形式。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://beuself.xyz/post/go-basic-knowledge/2019-09-23-%E5%B8%B8%E7%94%A8%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%8E%A5%E5%8F%A3/" />
-<meta property="article:published_time" content="2019-09-20T16:01:23+08:00" />
-<meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
-<meta itemprop="name" content="常用的系统接口">
-<meta itemprop="description" content="Stringer Reader/Writer">
+<meta property="og:url" content="http://beuself.xyz/post/date-structures-with-go/%E6%8F%92%E5%85%A5%E8%8A%82%E7%82%B9/" />
+<meta property="article:published_time" content="2019-11-10T23:01:23+08:00" />
+<meta property="article:modified_time" content="2019-11-10T23:01:23+08:00" />
+<meta itemprop="name" content="3-插入节点">
+<meta itemprop="description" content="在上一篇文章中，我们介绍了链接列表。我们还创建了一个具有3个节点的简单链表，并讨论了链表遍历。 本文中讨论的所有程序均考虑以下链表的表示形式。">
 
 
-<meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
-<meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="2">
+<meta itemprop="datePublished" content="2019-11-10T23:01:23&#43;08:00" />
+<meta itemprop="dateModified" content="2019-11-10T23:01:23&#43;08:00" />
+<meta itemprop="wordCount" content="1491">
 
 
 
-<meta itemprop="keywords" content="面向对象," />
+<meta itemprop="keywords" content="Singly Linked List," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="常用的系统接口"/>
-<meta name="twitter:description" content="Stringer Reader/Writer"/>
+<meta name="twitter:title" content="3-插入节点"/>
+<meta name="twitter:description" content="在上一篇文章中，我们介绍了链接列表。我们还创建了一个具有3个节点的简单链表，并讨论了链表遍历。 本文中讨论的所有程序均考虑以下链表的表示形式。"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -507,7 +507,7 @@ if (!doNotTrack) {
 
       </li>
     
-        <li class="menu-item">
+        <li class="menu-item active">
         
           
           <a class="menu-item-link menu-parent" href="http://beuself.xyz/">Date Structures With Go</a>
@@ -544,18 +544,18 @@ if (!doNotTrack) {
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">常用的系统接口</h1>
+      <h1 class="post-title">3-插入节点</h1>
       
       <div class="post-meta">
-        <time datetime="2019-09-20" class="post-time">
-          2019-09-20
+        <time datetime="2019-11-10" class="post-time">
+          2019-11-10
         </time>
         <div class="post-category">
-            <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
+            <a href="http://beuself.xyz/categories/date-structures-with-go/"> Date Structures With Go </a>
             
           </div>
-        <span class="more-meta"> 2 words </span>
-          <span class="more-meta"> 1 min read </span>
+        <span class="more-meta"> 1491 words </span>
+          <span class="more-meta"> 3 min read </span>
 
         
         
@@ -574,17 +574,397 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#在链表的最前面添加节点">在链表的最前面添加节点</a>
+<ul>
+<li><a href="#步骤">步骤</a></li>
+</ul></li>
+<li><a href="#在给定节点之后添加新的节点">在给定节点之后添加新的节点</a>
+<ul>
+<li><a href="#步骤-1">步骤</a></li>
+</ul></li>
+<li><a href="#在链表末尾添加新的节点">在链表末尾添加新的节点</a>
+<ul>
+<li><a href="#步骤-2">步骤</a></li>
+</ul></li>
+<li><a href="#完整程序实例代码">完整程序实例代码</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      <ul>
-<li>Stringer</li>
-<li>Reader/Writer</li>
+      
+
+<p>在<a href="[https://beuself.xyz/post/date-structures-with-go/%E9%93%BE%E8%A1%A8%E7%AE%80%E4%BB%8B/](https://beuself.xyz/post/date-structures-with-go/链表简介/)">上一篇文章</a>中，我们介绍了链接列表。我们还创建了一个具有3个节点的简单链表，并讨论了链表遍历。</p>
+
+<p>本文中讨论的所有程序均考虑以下链表的表示形式。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Node</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">date</span> <span class="kd">interface</span><span class="p">{}</span>
+	<span class="nx">next</span> <span class="o">*</span><span class="nx">Node</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>在这篇文章中，讨论了在链表中插入新节点的方法。可以通过三种方式添加节点：</p>
+
+<ul>
+<li>在链表的最前面。</li>
+<li>在给定节点之后。</li>
+<li>在链表末尾。</li>
 </ul>
 
+<h4 id="在链表的最前面添加节点">在链表的最前面添加节点</h4>
+
+<p>新节点总是添加到给定链接列表的开头之前。新添加的节点将成为链表的新头。</p>
+
+<p>例如，如果给定的链接列表为10-&gt; 15-&gt; 20-&gt; 25，并且在前面添加了项5，则链接列表将变为5-&gt; 10-&gt; 15-&gt; 20-&gt; 25。让我们将添加到列表最前面的函数称为push()。push()必须接受一个指向头指针，因为必须推头指针改为指向新的节点。</p>
+
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9n5dtl9ovj30l30730sj.jpg" alt="" /></p>
+
+<h5 id="步骤">步骤</h5>
+
+<ul>
+<li>创建一个新的节点并输入数据</li>
+<li>使新节点的next指向原来的头节点</li>
+
+<li><p>返回新节点的地址给链表头指针</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// 给一个指向单链表头部的指针，在单链表的最前插入一个新的node
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">oldHead</span> <span class="o">*</span><span class="nx">Node</span><span class="p">)</span> <span class="nf">push</span><span class="p">(</span><span class="nx">new_date</span> <span class="kd">interface</span><span class="p">{})</span> <span class="p">(</span><span class="nx">newHead</span> <span class="o">*</span><span class="nx">Node</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">newHead</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">Node</span><span class="p">{</span><span class="nx">new_date</span><span class="p">,</span> <span class="nx">oldHead</span><span class="p">}</span>
+	<span class="k">return</span> <span class="nx">newHead</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+
+<p>push()的时间复杂度为O(1)，因为它要做的工作量是恒定的。</p>
+
+<h4 id="在给定节点之后添加新的节点">在给定节点之后添加新的节点</h4>
+
+<p>给我们一个指向节点的指针，并将新节点插入到给定节点之后。</p>
+
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9n5ldyrnej30l307la9v.jpg" alt="" /></p>
+
+<h5 id="步骤-1">步骤</h5>
+
+<ul>
+<li>检查给定的节点是否为空节点</li>
+<li>创建一个新的节点并输入数据</li>
+<li>将给定节点的next赋值给新节点的next</li>
+
+<li><p>将新节点的地址赋值给给定节点的next</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// 给定一个节点prev_node，在给定的节点之后添加新的节点
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">prev_node</span> <span class="o">*</span><span class="nx">Node</span><span class="p">)</span> <span class="nf">insertAfter</span><span class="p">(</span><span class="nx">new_date</span> <span class="kd">interface</span><span class="p">{})</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="o">*</span><span class="nx">prev_node</span> <span class="o">==</span> <span class="p">(</span><span class="nx">Node</span><span class="p">{})</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;the given previous node cannot be NULL&#34;</span><span class="p">)</span>
+		<span class="k">return</span>
+	<span class="p">}</span>
+	<span class="nx">prev_node</span><span class="p">.</span><span class="nx">next</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">Node</span><span class="p">{</span><span class="nx">new_date</span><span class="p">,</span> <span class="nx">prev_node</span><span class="p">.</span><span class="nx">next</span><span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+
+<p>insertAfter()的时间复杂度为O(1)，因为它的工作量是恒定的。</p>
+
+<h4 id="在链表末尾添加新的节点">在链表末尾添加新的节点</h4>
+
+<p>将新节点始终添加到给定链表的最后一个节点之后。例如，如果给定的链表为5-&gt; 10-&gt; 15-&gt; 20-&gt; 25，并在最后添加30，则链表将变为5-&gt; 10-&gt; 15-&gt; 20-&gt; 25- &gt; 30。
+由于“链接列表”通常由其开头表示，因此我们必须遍历该列表直至结束，然后将最后一个节点的next更改为新节点。</p>
+
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9n5srn00pj30l306tglf.jpg" alt="" /></p>
+
+<h5 id="步骤-2">步骤</h5>
+
+<ul>
+<li>创建一个新的节点并输入数据，新节点的next置为nil</li>
+<li>如果给定的链表为空链表，将新节点的地址返回给头指针</li>
+<li>遍历该列表直至结束</li>
+
+<li><p>将新节点的地址赋值给链表最后一个节点的next</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// 给一个指向单链表头部的指针，在末端追加一个新的节点
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">head</span> <span class="o">*</span><span class="nx">Node</span><span class="p">)</span> <span class="nf">appendEnd</span><span class="p">(</span><span class="nx">new_date</span> <span class="kd">interface</span><span class="p">{})</span> <span class="p">(</span><span class="nx">newHead</span> <span class="o">*</span><span class="nx">Node</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">end</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Node</span><span class="p">{</span><span class="nx">new_date</span><span class="p">,</span> <span class="kc">nil</span><span class="p">}</span>
+	<span class="nx">last</span> <span class="o">:=</span> <span class="nx">head</span>
+
+	<span class="k">if</span> <span class="o">*</span><span class="nx">head</span> <span class="o">==</span> <span class="p">(</span><span class="nx">Node</span><span class="p">{})</span> <span class="p">{</span>
+		<span class="nx">newHead</span> <span class="p">=</span> <span class="nx">end</span>
+		<span class="k">return</span> <span class="nx">newHead</span>
+	<span class="p">}</span>
+
+	<span class="k">for</span> <span class="nx">last</span><span class="p">.</span><span class="nx">next</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">last</span> <span class="p">=</span> <span class="nx">last</span><span class="p">.</span><span class="nx">next</span>
+	<span class="p">}</span>
+
+	<span class="nx">last</span><span class="p">.</span><span class="nx">next</span> <span class="p">=</span> <span class="nx">end</span>
+
+	<span class="nx">newHead</span> <span class="p">=</span> <span class="nx">head</span>
+
+	<span class="k">return</span> <span class="nx">newHead</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+
+<p>appendEnd的时间复杂度为O(n)，其中n是链表中节点的数量。由于从头到尾都有一个循环，因此该函数可以执行O(n)。
+还可以通过保留指向链表尾部的额外指针来优化此方法以使其在O(1)中工作。</p>
+
+<h4 id="完整程序实例代码">完整程序实例代码</h4>
+
+<p>以下是一个完整的程序，该程序使用上述所有方法来创建单链表。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+
+<span class="kd">type</span> <span class="nx">Node</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">date</span> <span class="kd">interface</span><span class="p">{}</span>
+	<span class="nx">next</span> <span class="o">*</span><span class="nx">Node</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">// Start with the empty list
+</span><span class="c1"></span>	<span class="nx">head</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Node</span><span class="p">{}</span>
+
+	<span class="c1">// Insert 6. So linked list becomes 6-&gt;NULL
+</span><span class="c1"></span>	<span class="nx">head</span> <span class="p">=</span> <span class="nx">head</span><span class="p">.</span><span class="nf">appendEnd</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+
+	<span class="c1">// Insert 7 at the beginning.
+</span><span class="c1"></span>	<span class="c1">// So linked list becomes 7-&gt;6-&gt;NULL
+</span><span class="c1"></span>	<span class="nx">head</span> <span class="p">=</span> <span class="nx">head</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+
+	<span class="c1">// Insert 1 at the beginning.
+</span><span class="c1"></span>	<span class="c1">// So linked list becomes 1-&gt;7-&gt;6-&gt;NULL
+</span><span class="c1"></span>	<span class="nx">head</span> <span class="p">=</span> <span class="nx">head</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+	<span class="c1">// Insert 4 at the end. So
+</span><span class="c1"></span>	<span class="c1">// linked list becomes 1-&gt;7-&gt;6-&gt;4-&gt;NULL
+</span><span class="c1"></span>	<span class="nx">head</span><span class="p">.</span><span class="nf">appendEnd</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+	<span class="c1">// Insert 8, after 7. So linked
+</span><span class="c1"></span>	<span class="c1">// list becomes 1-&gt;7-&gt;8-&gt;6-&gt;4-&gt;NULL
+</span><span class="c1"></span>	<span class="nx">head</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nf">insertAfter</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Created Linked list is: &#34;</span><span class="p">)</span>
+	<span class="nx">head</span><span class="p">.</span><span class="nf">printList</span><span class="p">()</span>
+
+	<span class="k">return</span>
+<span class="p">}</span>
+
+<span class="c1">// This function prints contents of
+</span><span class="c1">// linked list starting from head
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">n</span> <span class="o">*</span><span class="nx">Node</span><span class="p">)</span> <span class="nf">printList</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="nx">n</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">date</span><span class="p">)</span>
+		<span class="nx">n</span> <span class="p">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">next</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 给一个指向单链表头部的指针，在单链表的最前插入一个新的node
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">oldHead</span> <span class="o">*</span><span class="nx">Node</span><span class="p">)</span> <span class="nf">push</span><span class="p">(</span><span class="nx">new_date</span> <span class="kd">interface</span><span class="p">{})</span> <span class="p">(</span><span class="nx">newHead</span> <span class="o">*</span><span class="nx">Node</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">newHead</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">Node</span><span class="p">{</span><span class="nx">new_date</span><span class="p">,</span> <span class="nx">oldHead</span><span class="p">}</span>
+	<span class="k">return</span> <span class="nx">newHead</span>
+<span class="p">}</span>
+
+<span class="c1">// 给定一个节点prev_node，在给定的节点之后添加新的节点
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">prev_node</span> <span class="o">*</span><span class="nx">Node</span><span class="p">)</span> <span class="nf">insertAfter</span><span class="p">(</span><span class="nx">new_date</span> <span class="kd">interface</span><span class="p">{})</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="o">*</span><span class="nx">prev_node</span> <span class="o">==</span> <span class="p">(</span><span class="nx">Node</span><span class="p">{})</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;the given previous node cannot be NULL&#34;</span><span class="p">)</span>
+		<span class="k">return</span>
+	<span class="p">}</span>
+	<span class="nx">prev_node</span><span class="p">.</span><span class="nx">next</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">Node</span><span class="p">{</span><span class="nx">new_date</span><span class="p">,</span> <span class="nx">prev_node</span><span class="p">.</span><span class="nx">next</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 给一个指向单链表头部的指针，在末端追加一个新的节点
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">head</span> <span class="o">*</span><span class="nx">Node</span><span class="p">)</span> <span class="nf">appendEnd</span><span class="p">(</span><span class="nx">new_date</span> <span class="kd">interface</span><span class="p">{})</span> <span class="p">(</span><span class="nx">newHead</span> <span class="o">*</span><span class="nx">Node</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">end</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Node</span><span class="p">{</span><span class="nx">new_date</span><span class="p">,</span> <span class="kc">nil</span><span class="p">}</span>
+	<span class="nx">last</span> <span class="o">:=</span> <span class="nx">head</span>
+
+	<span class="k">if</span> <span class="o">*</span><span class="nx">head</span> <span class="o">==</span> <span class="p">(</span><span class="nx">Node</span><span class="p">{})</span> <span class="p">{</span>
+		<span class="nx">newHead</span> <span class="p">=</span> <span class="nx">end</span>
+		<span class="k">return</span> <span class="nx">newHead</span>
+	<span class="p">}</span>
+
+	<span class="k">for</span> <span class="nx">last</span><span class="p">.</span><span class="nx">next</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">last</span> <span class="p">=</span> <span class="nx">last</span><span class="p">.</span><span class="nx">next</span>
+	<span class="p">}</span>
+
+	<span class="nx">last</span><span class="p">.</span><span class="nx">next</span> <span class="p">=</span> <span class="nx">end</span>
+
+	<span class="nx">newHead</span> <span class="p">=</span> <span class="nx">head</span>
+
+	<span class="k">return</span> <span class="nx">newHead</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>输出</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">Created Linked list is:
+<span class="m">1</span>
+<span class="m">7</span>
+<span class="m">8</span>
+<span class="m">6</span>
+<span class="m">4</span></code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     
@@ -597,7 +977,7 @@ if (!doNotTrack) {
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-      2018-03-01
+      2019-11-10
       
     </span>
   </p>
@@ -627,14 +1007,14 @@ if (!doNotTrack) {
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="http://beuself.xyz/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">面向对象</a>
+          <a href="http://beuself.xyz/tags/singly-linked-list/">Singly Linked List</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/go-basic-knowledge/2019-09-21-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/">
+          <a class="prev" href="/post/date-structures-with-go/%E9%93%BE%E8%A1%A8%E7%AE%80%E4%BB%8B/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -644,12 +1024,12 @@ if (!doNotTrack) {
 </svg>
 
             </i>
-            <span class="prev-text nav-default">字符和字符串处理</span>
+            <span class="prev-text nav-default">1-链表简介</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
-          <a class="next" href="/post/go-basic-knowledge/2019-09-20-%E5%B8%B8%E9%87%8F%E4%B8%8E%E6%9E%9A%E4%B8%BE/">
-            <span class="next-text nav-default">常量与枚举</span>
+          <a class="next" href="/post/go-basic-knowledge/%E5%8D%95%E4%BB%BB%E5%8A%A1%E7%89%88%E7%88%AC%E8%99%AB/">
+            <span class="next-text nav-default">单任务版爬虫</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

@@ -26,7 +26,16 @@
       <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
       
       <guid>http://beuself.xyz/post/date-structures-with-go/%E6%8F%92%E5%85%A5%E8%8A%82%E7%82%B9/</guid>
-      <description>在上一篇文章中，我们介绍了链接列表。我们还创建了一个具有3个节点的简单链表，并讨论了链表遍历。 本文中讨论的所有程序均考虑以下链表的表示形式。</description>
+      <description>在上一篇文章中，我们介绍了链表。我们还创建了一个具有3个节点的简单链表，并讨论了链表遍历。 本文中讨论的所有程序均考虑以下链表的表示形式。 1 2</description>
+    </item>
+    
+    <item>
+      <title>4-删除节点（指定key）</title>
+      <link>http://beuself.xyz/post/date-structures-with-go/1-4%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9%E6%8C%87%E5%AE%9Akey/</link>
+      <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/date-structures-with-go/1-4%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9%E6%8C%87%E5%AE%9Akey/</guid>
+      <description>我们在前面几篇文章讨论了关于单链表的“链表介绍”和“插入节点”。 让我们制定问题陈述以了解删除过程。*给定一个“key”，删除此键在链表中的第</description>
     </item>
     
     <item>
@@ -180,15 +189,6 @@
       
       <guid>http://beuself.xyz/post/go-leetcode/0018%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C/</guid>
       <description>题目描述 给定一个包含 n 个整数的数组 nums 和一个目标值 target，判断 nums 中是否存在四个元素 a，b，c 和 d ，使得 a + b + c + d 的值与 target 相等？找出所</description>
-    </item>
-    
-    <item>
-      <title>0027-Remove Element</title>
-      <link>http://beuself.xyz/post/go-leetcode/0027%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/</link>
-      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
-      
-      <guid>http://beuself.xyz/post/go-leetcode/0027%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/</guid>
-      <description>题目： 给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。 不要使用额外的数组空间，你必须在原地修改输入</description>
     </item>
     
   </channel>

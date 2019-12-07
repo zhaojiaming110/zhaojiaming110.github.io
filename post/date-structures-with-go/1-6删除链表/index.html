@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Go microservices · Beyourself - a gopher</title>
+  <title>1-5-删除链表 - Beyourself - a gopher</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Beyourself" />
-  <meta name="description" content="Beyourself&#39;s blog." />
+  <meta name="description" content="C / C &#43;&#43;的算法：遍历链表并一一删除所有节点。 在Java中，会发生自动垃圾收集，因此删除链接列表很容易。我们只需要将head更改为nil。 实" />
+
   <meta name="keywords" content="Beyourslef, go, golang" />
 
 
@@ -34,8 +35,7 @@
 <meta name="generator" content="Hugo 0.58.3" />
 
 
-<link rel="canonical" href="http://beuself.xyz/categories/go-microservices/" />
-<link href="%7balternate%20%7bRSS%20application/rss&#43;xml%20%20index%20alternate%20%20false%20false%20true%20false%20false%200%7d%20/categories/go-microservices/index.xml%20http://beuself.xyz/categories/go-microservices/index.xml%7d" rel="alternate" type="application/rss+xml" title="Beyourself - a gopher" />
+<link rel="canonical" href="http://beuself.xyz/post/date-structures-with-go/1-6%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8/" />
 
 
 
@@ -57,18 +57,26 @@
 
 
 
-<meta property="og:title" content="Go microservices" />
-<meta property="og:description" content="Beyourself&#39;s blog." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://beuself.xyz/categories/go-microservices/" />
+<meta property="og:title" content="1-5-删除链表" />
+<meta property="og:description" content="C / C &#43;&#43;的算法：遍历链表并一一删除所有节点。 在Java中，会发生自动垃圾收集，因此删除链接列表很容易。我们只需要将head更改为nil。 实" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://beuself.xyz/post/date-structures-with-go/1-6%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8/" />
+<meta property="article:published_time" content="2019-11-10T23:01:23+08:00" />
+<meta property="article:modified_time" content="2019-11-10T23:01:23+08:00" />
+<meta itemprop="name" content="1-5-删除链表">
+<meta itemprop="description" content="C / C &#43;&#43;的算法：遍历链表并一一删除所有节点。 在Java中，会发生自动垃圾收集，因此删除链接列表很容易。我们只需要将head更改为nil。 实">
 
-<meta property="og:updated_time" content="2019-10-10T23:01:23+08:00" />
-<meta itemprop="name" content="Go microservices">
-<meta itemprop="description" content="Beyourself&#39;s blog.">
 
+<meta itemprop="datePublished" content="2019-11-10T23:01:23&#43;08:00" />
+<meta itemprop="dateModified" content="2019-11-10T23:01:23&#43;08:00" />
+<meta itemprop="wordCount" content="179">
+
+
+
+<meta itemprop="keywords" content="Singly Linked List," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Go microservices"/>
-<meta name="twitter:description" content="Beyourself&#39;s blog."/>
+<meta name="twitter:title" content="1-5-删除链表"/>
+<meta name="twitter:description" content="C / C &#43;&#43;的算法：遍历链表并一一删除所有节点。 在Java中，会发生自动垃圾收集，因此删除链接列表很容易。我们只需要将head更改为nil。 实"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -511,7 +519,7 @@ if (!doNotTrack) {
 
       </li>
     
-        <li class="menu-item">
+        <li class="menu-item active">
         
           
           <a class="menu-item-link menu-parent" href="http://beuself.xyz/">Date Structures With Go</a>
@@ -557,77 +565,264 @@ if (!doNotTrack) {
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-
-<section id="archive" class="archive">
-  
+          <article class="post bg-white">
     
-      <div class="archive-title category">
-        <h2 class="archive-name">Category: Go microservices</h2>
+    <header class="post-header">
+      <h1 class="post-title">1-5-删除链表</h1>
+      
+      <div class="post-meta">
+        <time datetime="2019-11-10" class="post-time">
+          2019-11-10
+        </time>
+        <div class="post-category">
+            <a href="http://beuself.xyz/categories/date-structures-with-go/"> Date Structures With Go </a>
+            
+          </div>
+        <span class="more-meta"> 179 words </span>
+          <span class="more-meta"> 1 min read </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
       </div>
+    </header>
+
     
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#实现方式">实现方式</a></li>
+<li><a href="#输出">输出</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p><strong>C / C ++的算法：</strong>遍历链表并一一删除所有节点。</p>
+
+<p>在<strong>Java中</strong>，会发生自动垃圾收集，因此删除链接列表很容易。我们只需要将<code>head</code>更改为<code>nil</code>。</p>
+
+<h4 id="实现方式">实现方式</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// 删除链表
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">head</span> <span class="o">*</span><span class="nx">Node</span><span class="p">)</span> <span class="nf">DeleteList</span><span class="p">()</span> <span class="o">*</span><span class="nx">Node</span> <span class="p">{</span>
+	<span class="nx">head</span> <span class="p">=</span> <span class="kc">nil</span>
+	<span class="k">return</span> <span class="nx">head</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;myrepo/Singly_Linked_List/node&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">head</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">node</span><span class="p">.</span><span class="nx">Node</span><span class="p">{}</span>
+
+	<span class="nx">head</span> <span class="p">=</span> <span class="nx">head</span><span class="p">.</span><span class="nf">Push</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+	<span class="nx">head</span> <span class="p">=</span> <span class="nx">head</span><span class="p">.</span><span class="nf">Push</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+	<span class="nx">head</span> <span class="p">=</span> <span class="nx">head</span><span class="p">.</span><span class="nf">Push</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+	<span class="nx">head</span> <span class="p">=</span> <span class="nx">head</span><span class="p">.</span><span class="nf">Push</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Created Linked List: &#34;</span><span class="p">)</span>
+	<span class="nx">head</span><span class="p">.</span><span class="nf">PrintList</span><span class="p">()</span>
+
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Deleteing the List&#34;</span><span class="p">)</span>
+	<span class="nx">head</span> <span class="p">=</span> <span class="nx">head</span><span class="p">.</span><span class="nf">DeleteList</span><span class="p">()</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Linked list deleted&#34;</span><span class="p">)</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="输出">输出</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">Created Linked List:
+<span class="m">2</span>
+<span class="m">3</span>
+<span class="m">1</span>
+<span class="m">7</span>
+Deleteing the List
+Linked list deleted</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Beyourself</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2019-11-10
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="https://tva1.sinaimg.cn/large/006y8mN6ly1g92kccissoj30u00u0gmg.jpg">
+        <span>Wechat</span>
+      </label>
+    
+  </div>
+</div>
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://beuself.xyz/tags/singly-linked-list/">Singly Linked List</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/date-structures-with-go/1-5%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9%E6%8C%87%E5%AE%9A%E4%BD%8D%E7%BD%AE/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">1-5-删除节点（指定位置）</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/date-structures-with-go/%E9%93%BE%E8%A1%A8%E7%AE%80%E4%BB%8B/">
+            <span class="next-text nav-default">1-链表简介</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+
+
+  
   
 
   
-    <div class="archive-post">
-      <time datetime="2019-10-10" class="archive-post-time">
-        2019-10-10
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/go-microservices/0-%E5%89%8D%E8%A8%80/" class="archive-post-link">
-          0-前言
-        </a>
-      </span>
+  
+
+  
+
+  
+  
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "zhaojiaming110/comments-myblog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
     </div>
   
-    <div class="archive-post">
-      <time datetime="2019-10-10" class="archive-post-time">
-        2019-10-10
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/go-microservices/1-1%E4%BD%BF%E7%94%A8nethttp%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="archive-post-link">
-          1-1.使用net/http构建一个简单的web服务器
-        </a>
-      </span>
-    </div>
-  
-    <div class="archive-post">
-      <time datetime="2019-10-10" class="archive-post-time">
-        2019-10-10
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/go-microservices/1-2%E8%AF%BB%E5%86%99json/" class="archive-post-link">
-          1-2.读写json
-        </a>
-      </span>
-    </div>
-  
-</section>
-
-
-
-
-
 
   
-  
+
   
 
   
-  
+
+    
 
   
-  
-
-  
-  
-
-  
-  
-
-
-
-
 
         </div>
       </div>

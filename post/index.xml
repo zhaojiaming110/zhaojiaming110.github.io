@@ -12,6 +12,24 @@
     
     
     <item>
+      <title>1-5-删除节点（指定位置）</title>
+      <link>http://beuself.xyz/post/date-structures-with-go/1-5%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9%E6%8C%87%E5%AE%9A%E4%BD%8D%E7%BD%AE/</link>
+      <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/date-structures-with-go/1-5%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9%E6%8C%87%E5%AE%9A%E4%BD%8D%E7%BD%AE/</guid>
+      <description>给定一个链表和一个位置，请删除给定位置的链表节点。 Example 1 2 3 4 5 Input: position = 1, Linked List = 8-&amp;gt;2-&amp;gt;3-&amp;gt;1-&amp;gt;7 Output: Linked List = 8-&amp;gt;3-&amp;gt;1-&amp;gt;7 Input: position = 0, Linked List = 8-&amp;gt;2-&amp;gt;3-&amp;gt;1-&amp;gt;7 Output: Linked List = 2-&amp;gt;3-&amp;gt;1-&amp;gt;7 思路 如果要删除的节点是根节</description>
+    </item>
+    
+    <item>
+      <title>1-5-删除链表</title>
+      <link>http://beuself.xyz/post/date-structures-with-go/1-6%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/date-structures-with-go/1-6%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8/</guid>
+      <description>C / C ++的算法：遍历链表并一一删除所有节点。 在Java中，会发生自动垃圾收集，因此删除链接列表很容易。我们只需要将head更改为nil。 实</description>
+    </item>
+    
+    <item>
       <title>1-链表简介</title>
       <link>http://beuself.xyz/post/date-structures-with-go/%E9%93%BE%E8%A1%A8%E7%AE%80%E4%BB%8B/</link>
       <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
@@ -35,7 +53,7 @@
       <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
       
       <guid>http://beuself.xyz/post/date-structures-with-go/1-4%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9%E6%8C%87%E5%AE%9Akey/</guid>
-      <description>我们在前面几篇文章讨论了关于单链表的“链表介绍”和“插入节点”。 让我们制定问题陈述以了解删除过程。*给定一个“key”，删除此键在链表中的第</description>
+      <description>我们在前面几篇文章讨论了关于单链表的“链表介绍”和“插入节点”。 让我们制定问题陈述以了解删除过程。给定一个“key”，删除此键在链表中的第一</description>
     </item>
     
     <item>
@@ -171,24 +189,6 @@
       
       <guid>http://beuself.xyz/post/go-leetcode/0015%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/</guid>
       <description>题目描述 给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。 注意：</description>
-    </item>
-    
-    <item>
-      <title>0016-3Sum Closest</title>
-      <link>http://beuself.xyz/post/go-leetcode/0016%E6%9C%80%E6%8E%A5%E8%BF%91%E7%9A%84%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/</link>
-      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
-      
-      <guid>http://beuself.xyz/post/go-leetcode/0016%E6%9C%80%E6%8E%A5%E8%BF%91%E7%9A%84%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/</guid>
-      <description>题目描述 给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存</description>
-    </item>
-    
-    <item>
-      <title>0018-4Sum</title>
-      <link>http://beuself.xyz/post/go-leetcode/0018%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C/</link>
-      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
-      
-      <guid>http://beuself.xyz/post/go-leetcode/0018%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C/</guid>
-      <description>题目描述 给定一个包含 n 个整数的数组 nums 和一个目标值 target，判断 nums 中是否存在四个元素 a，b，c 和 d ，使得 a + b + c + d 的值与 target 相等？找出所</description>
     </item>
     
   </channel>

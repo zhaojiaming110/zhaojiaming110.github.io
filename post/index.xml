@@ -21,12 +21,21 @@
     </item>
     
     <item>
-      <title>1-5-删除链表</title>
+      <title>1-5删除链表</title>
       <link>http://beuself.xyz/post/date-structures-with-go/1-6%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8/</link>
       <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
       
       <guid>http://beuself.xyz/post/date-structures-with-go/1-6%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8/</guid>
-      <description>C / C ++的算法：遍历链表并一一删除所有节点。 在Java中，会发生自动垃圾收集，因此删除链接列表很容易。我们只需要将head更改为nil。 实</description>
+      <description>C / C ++的算法：遍历链表并一一删除所有节点。 在Go中，会发生自动垃圾收集，因此删除链接列表很容易。我们只需要将head更改为nil。 实现方</description>
+    </item>
+    
+    <item>
+      <title>1-7链表的长度（迭代和递归）</title>
+      <link>http://beuself.xyz/post/date-structures-with-go/1-7%E9%93%BE%E8%A1%A8%E7%9A%84%E9%95%BF%E5%BA%A6%E8%BF%AD%E4%BB%A3%E5%92%8C%E9%80%92%E5%BD%92/</link>
+      <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/date-structures-with-go/1-7%E9%93%BE%E8%A1%A8%E7%9A%84%E9%95%BF%E5%BA%A6%E8%BF%AD%E4%BB%A3%E5%92%8C%E9%80%92%E5%BD%92/</guid>
+      <description>编写一个函数以计算给定单链表中的节点数。 Example 对于链接列表1-&amp;gt; 3-&amp;gt; 1-&amp;gt; 2-&amp;gt; 1，该函数应返回5。 迭代 初始化计数为0 循环迭代 实现 1 2 3 4 5 6 7 8 9</description>
     </item>
     
     <item>
@@ -180,15 +189,6 @@
       
       <guid>http://beuself.xyz/post/go-leetcode/0011%E7%9B%9B%E6%9C%80%E5%A4%9A%E8%B0%81%E7%9A%84%E5%AE%B9%E5%99%A8/</guid>
       <description>题目描述 给定 n 个非负整数 a1，a2，&amp;hellip;，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai)</description>
-    </item>
-    
-    <item>
-      <title>0015-3Sum</title>
-      <link>http://beuself.xyz/post/go-leetcode/0015%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/</link>
-      <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
-      
-      <guid>http://beuself.xyz/post/go-leetcode/0015%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/</guid>
-      <description>题目描述 给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。 注意：</description>
     </item>
     
   </channel>

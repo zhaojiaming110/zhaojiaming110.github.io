@@ -69,7 +69,7 @@
 
 <meta itemprop="datePublished" content="2019-11-10T23:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-10T23:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="819">
+<meta itemprop="wordCount" content="1535">
 
 
 
@@ -594,8 +594,8 @@ if (!doNotTrack) {
             <a href="http://beuself.xyz/categories/date-structures-with-go/"> Date Structures With Go </a>
             
           </div>
-        <span class="more-meta"> 819 words </span>
-          <span class="more-meta"> 2 min read </span>
+        <span class="more-meta"> 1535 words </span>
+          <span class="more-meta"> 4 min read </span>
 
         
         
@@ -636,7 +636,15 @@ if (!doNotTrack) {
 <ul>
 <li><a href="#具体步骤">具体步骤：</a></li>
 </ul></li>
-<li><a href="#在给定节点之后添加节点">在给定节点之后添加节点</a></li>
+<li><a href="#在给定节点之后添加节点">在给定节点之后添加节点</a>
+<ul>
+<li><a href="#具体步骤-1">具体步骤：</a></li>
+</ul></li>
+<li><a href="#在链表末尾添加节点">在链表末尾添加节点</a>
+<ul>
+<li><a href="#具体步骤-2">具体步骤：</a></li>
+</ul></li>
+<li><a href="#在给定节点之前添加一个新的节点">在给定节点之前添加一个新的节点</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -717,9 +725,8 @@ if (!doNotTrack) {
 
 <h5 id="在双链表的最前面插入节点">在双链表的最前面插入节点</h5>
 
-<p>新节点总是添加到给定链表<strong>的最前面</strong>。新添加的节点成为DLL的新负责人。例如，如果给定的链表为10-&gt;15-&gt;20-&gt;25，并且我们在前面添加了项5，则链接列表将变为5-&gt;10-&gt;15-&gt;20-&gt;25。让我们将添加到列表前面的函数称为push()。push()必须接受一个指向头指针的指针，因为push必须改变头指针去指向新的节点（或者可以返回一个改变后的头指针）。</p>
-
-<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9rqmcoc8kj30p7056t8i.jpg" alt="" /></p>
+<p>新节点总是添加到给定链表<strong>的最前面</strong>。新添加的节点成为DLL的新负责人。例如，如果给定的链表为10-&gt;15-&gt;20-&gt;25，并且我们在前面添加了项5，则链接列表将变为5-&gt;10-&gt;15-&gt;20-&gt;25。让我们将添加到列表前面的函数称为push()。push()必须接受一个指向头指针的指针，因为push必须改变头指针去指向新的节点（或者可以返回一个改变后的头指针）。
+<img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9rqmcoc8kj30p7056t8i.jpg" alt="" /></p>
 
 <h6 id="具体步骤">具体步骤：</h6>
 
@@ -762,8 +769,157 @@ if (!doNotTrack) {
 </div></li>
 </ul>
 
+<p>上述操作比在单链表最前面插入节点多了更改原头结点的Prev</p>
+
 <h5 id="在给定节点之后添加节点">在给定节点之后添加节点</h5>
 
+<p>给一个指向给定节点的指针，然后在给定节点之后添加新的节点
+<img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9rydo1wqfj30sf08ja9w.jpg" alt="" /></p>
+
+<h6 id="具体步骤-1">具体步骤：</h6>
+
+<ul>
+<li>检查给定的节点是否为空</li>
+<li>创建新节点，并初始化</li>
+
+<li><p>修改插入给定节点之后的前节点的Next，后节点的Pre</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="p">(</span><span class="nx">pre</span> <span class="o">*</span><span class="nx">Node</span><span class="p">)</span> <span class="nf">insertafter</span><span class="p">(</span><span class="nx">new_date</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">// 1.检查给定节点是否为空节点
+</span><span class="c1"></span>	<span class="k">if</span> <span class="o">*</span><span class="nx">pre</span> <span class="o">==</span> <span class="p">(</span><span class="nx">Node</span><span class="p">{})</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;The given previous node is null&#34;</span><span class="p">)</span>
+		<span class="k">return</span>
+	<span class="p">}</span>
+	<span class="c1">// 2.创建新节点并初始化
+</span><span class="c1"></span>	<span class="nx">new_node</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Node</span><span class="p">{</span><span class="nx">new_date</span><span class="p">,</span> <span class="nx">pre</span><span class="p">,</span> <span class="nx">pre</span><span class="p">.</span><span class="nx">Next</span><span class="p">}</span>
+	<span class="c1">// 3.改变前置节点的next，后置节点的prev
+</span><span class="c1"></span>	<span class="nx">pre</span><span class="p">.</span><span class="nx">Next</span> <span class="p">=</span> <span class="nx">new_node</span>
+	<span class="k">if</span> <span class="nx">new_node</span><span class="p">.</span><span class="nx">Next</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">new_node</span><span class="p">.</span><span class="nx">Next</span><span class="p">.</span><span class="nx">Prev</span> <span class="p">=</span> <span class="nx">new_node</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+
+<p>上述步骤比在单链表给定节点之后的操作多了修改前后节点的Next、Prev</p>
+
+<h5 id="在链表末尾添加节点">在链表末尾添加节点</h5>
+
+<p>总是在给定链表的最后一个节点之后添加新节点。例如，如果给定的DLL是5-&gt;10-&gt;15-&gt;20-&gt;25，而我们在末尾添加了第30个项目，则DLL变为5-&gt;10-&gt;15-&gt;20-&gt;25-&gt;30。
+由于通常由链表首表示链表，因此我们必须遍历该链表直到结尾，然后更改最后一个节点的Next使其指向新节点。</p>
+
+<h6 id="具体步骤-2">具体步骤：</h6>
+
+<ul>
+<li>创建新的节点，并且初始化</li>
+<li>如果给定节点为空，则新<code>new_node.Prev=nil</code></li>
+
+<li><p>更改最后节点的<code>Next</code>，<code>new_node.Prev</code>为最后节点的地址</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// 在双链表末尾添加一个新的节点
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">appendEnd</span><span class="p">(</span><span class="nx">head</span> <span class="o">**</span><span class="nx">Node</span><span class="p">,</span> <span class="nx">new_date</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">new_node</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Node</span><span class="p">{</span><span class="nx">Data</span><span class="p">:</span> <span class="nx">new_date</span><span class="p">,</span> <span class="nx">Next</span><span class="p">:</span> <span class="kc">nil</span><span class="p">}</span>
+	<span class="nx">temp</span> <span class="o">:=</span> <span class="o">*</span><span class="nx">head</span>
+
+	<span class="c1">// 给定链表为空链表的情况
+</span><span class="c1"></span>	<span class="k">if</span> <span class="o">**</span><span class="nx">head</span> <span class="o">==</span> <span class="p">(</span><span class="nx">Node</span><span class="p">{})</span> <span class="p">{</span>
+		<span class="nx">new_node</span><span class="p">.</span><span class="nx">Prev</span> <span class="p">=</span> <span class="kc">nil</span>
+		<span class="o">*</span><span class="nx">head</span> <span class="p">=</span> <span class="nx">new_node</span>
+		<span class="k">return</span>
+	<span class="p">}</span>
+
+	<span class="k">for</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">Next</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">temp</span> <span class="p">=</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">Next</span>
+	<span class="p">}</span>
+
+	<span class="nx">temp</span><span class="p">.</span><span class="nx">Next</span> <span class="p">=</span> <span class="nx">new_node</span>
+	<span class="nx">new_node</span><span class="p">.</span><span class="nx">Prev</span> <span class="p">=</span> <span class="nx">temp</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+
+<h5 id="在给定节点之前添加一个新的节点">在给定节点之前添加一个新的节点</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// 在给定节点之前添加一个新的节点
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">insertBefore</span><span class="p">(</span><span class="nx">head</span> <span class="o">**</span><span class="nx">Node</span><span class="p">,</span> <span class="nx">next_node</span> <span class="o">*</span><span class="nx">Node</span><span class="p">,</span> <span class="nx">new_date</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="o">*</span><span class="nx">next_node</span> <span class="o">==</span> <span class="p">(</span><span class="nx">Node</span><span class="p">{})</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;The given next_node cannot be NULL&#34;</span><span class="p">)</span>
+		<span class="k">return</span>
+	<span class="p">}</span>
+
+	<span class="c1">// 创建新节点
+</span><span class="c1"></span>	<span class="nx">new_node</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Node</span><span class="p">{</span><span class="nx">new_date</span><span class="p">,</span> <span class="nx">next_node</span><span class="p">.</span><span class="nx">Prev</span><span class="p">,</span> <span class="nx">next_node</span><span class="p">}</span>
+	<span class="c1">// 更改next_node.Prev
+</span><span class="c1"></span>	<span class="nx">next_node</span><span class="p">.</span><span class="nx">Prev</span> <span class="p">=</span> <span class="nx">new_node</span>
+	<span class="k">if</span> <span class="nx">new_node</span><span class="p">.</span><span class="nx">Prev</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="o">*</span><span class="nx">head</span> <span class="p">=</span> <span class="nx">new_node</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="nx">new_node</span><span class="p">.</span><span class="nx">Prev</span><span class="p">.</span><span class="nx">Next</span> <span class="p">=</span> <span class="nx">new_node</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     

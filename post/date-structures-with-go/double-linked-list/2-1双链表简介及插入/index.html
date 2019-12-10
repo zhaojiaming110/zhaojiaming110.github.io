@@ -69,7 +69,7 @@
 
 <meta itemprop="datePublished" content="2019-11-10T23:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-10T23:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="1536">
+<meta itemprop="wordCount" content="1545">
 
 
 
@@ -594,7 +594,7 @@ if (!doNotTrack) {
             <a href="http://beuself.xyz/categories/date-structures-with-go/"> Date Structures With Go </a>
             
           </div>
-        <span class="more-meta"> 1536 words </span>
+        <span class="more-meta"> 1545 words </span>
           <span class="more-meta"> 4 min read </span>
 
         
@@ -635,16 +635,22 @@ if (!doNotTrack) {
 <li><a href="#在双链表的最前面插入节点">在双链表的最前面插入节点</a>
 <ul>
 <li><a href="#具体步骤">具体步骤：</a></li>
+<li><a href="#代码">代码</a></li>
 </ul></li>
 <li><a href="#在给定节点之后添加节点">在给定节点之后添加节点</a>
 <ul>
 <li><a href="#具体步骤-1">具体步骤：</a></li>
+<li><a href="#代码-1">代码</a></li>
 </ul></li>
 <li><a href="#在链表末尾添加节点">在链表末尾添加节点</a>
 <ul>
 <li><a href="#具体步骤-2">具体步骤：</a></li>
+<li><a href="#代码-2">代码</a></li>
 </ul></li>
-<li><a href="#在给定节点之前添加一个新的节点">在给定节点之前添加一个新的节点</a></li>
+<li><a href="#在给定节点之前添加一个新的节点">在给定节点之前添加一个新的节点</a>
+<ul>
+<li><a href="#代码-3">代码</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -735,6 +741,8 @@ if (!doNotTrack) {
 <li>使头结点的前指针指向新节点。</li>
 
 <li><p>返回新的头结点的指针。</p>
+
+<h6 id="代码">代码</h6>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
@@ -781,8 +789,10 @@ if (!doNotTrack) {
 <ul>
 <li>检查给定的节点是否为空</li>
 <li>创建新节点，并初始化</li>
+<li>修改插入给定节点之后的前节点的Next，后节点的Pre</li>
+</ul>
 
-<li><p>修改插入给定节点之后的前节点的Next，后节点的Pre</p>
+<h6 id="代码-1">代码</h6>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
@@ -816,9 +826,7 @@ if (!doNotTrack) {
 	<span class="p">}</span>
 <span class="p">}</span></code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
+</div>
 <p>上述步骤比在单链表给定节点之后的操作多了修改前后节点的Next、Prev</p>
 
 <h5 id="在链表末尾添加节点">在链表末尾添加节点</h5>
@@ -831,8 +839,10 @@ if (!doNotTrack) {
 <ul>
 <li>创建新的节点，并且初始化</li>
 <li>如果给定节点为空，则新<code>new_node.Prev=nil</code></li>
+<li>更改最后节点的<code>Next</code>，<code>new_node.Prev</code>为最后节点的地址。</li>
+</ul>
 
-<li><p>更改最后节点的<code>Next</code>，<code>new_node.Prev</code>为最后节点的地址</p>
+<h6 id="代码-2">代码</h6>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
@@ -876,10 +886,10 @@ if (!doNotTrack) {
 	<span class="nx">new_node</span><span class="p">.</span><span class="nx">Prev</span> <span class="p">=</span> <span class="nx">temp</span>
 <span class="p">}</span></code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
+</div>
 <h5 id="在给定节点之前添加一个新的节点">在给定节点之前添加一个新的节点</h5>
+
+<h6 id="代码-3">代码</h6>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1

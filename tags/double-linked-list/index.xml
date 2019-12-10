@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Double Linked List on Beyourself - a gopher</title>
+    <link>http://beuself.xyz/tags/double-linked-list/</link>
+    <description>Recent content in Double Linked List on Beyourself - a gopher</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 10 Nov 2019 23:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="http://beuself.xyz/tags/double-linked-list/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>2-1双链表简介及插入</title>
+      <link>http://beuself.xyz/post/date-structures-with-go/double-linked-list/2-1%E5%8F%8C%E9%93%BE%E8%A1%A8%E7%AE%80%E4%BB%8B%E5%8F%8A%E6%8F%92%E5%85%A5/</link>
+      <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/date-structures-with-go/double-linked-list/2-1%E5%8F%8C%E9%93%BE%E8%A1%A8%E7%AE%80%E4%BB%8B%E5%8F%8A%E6%8F%92%E5%85%A5/</guid>
+      <description>在前面的一些文章Singly Linked List我们介绍了单链表，接下来我们继续学习双链表（Double Linked List 简称DLL）。 介绍 一个双链表包含一个额外的</description>
+    </item>
+    
+  </channel>
+</rss>

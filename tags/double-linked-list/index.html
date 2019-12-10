@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>常用的系统接口 - Beyourself - a gopher</title>
+  <title>Double Linked List · Beyourself - a gopher</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,8 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Beyourself" />
-  <meta name="description" content="Stringer Reader/Writer" />
-
+  <meta name="description" content="Beyourself&#39;s blog." />
   <meta name="keywords" content="Beyourslef, go, golang" />
 
 
@@ -35,7 +34,8 @@
 <meta name="generator" content="Hugo 0.58.3" />
 
 
-<link rel="canonical" href="http://beuself.xyz/post/go-basic-knowledge/2019-09-23-%E5%B8%B8%E7%94%A8%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%8E%A5%E5%8F%A3/" />
+<link rel="canonical" href="http://beuself.xyz/tags/double-linked-list/" />
+<link href="%7balternate%20%7bRSS%20application/rss&#43;xml%20%20index%20alternate%20%20false%20false%20true%20false%20false%200%7d%20/tags/double-linked-list/index.xml%20http://beuself.xyz/tags/double-linked-list/index.xml%7d" rel="alternate" type="application/rss+xml" title="Beyourself - a gopher" />
 
 
 
@@ -57,26 +57,18 @@
 
 
 
-<meta property="og:title" content="常用的系统接口" />
-<meta property="og:description" content="Stringer Reader/Writer" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://beuself.xyz/post/go-basic-knowledge/2019-09-23-%E5%B8%B8%E7%94%A8%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%8E%A5%E5%8F%A3/" />
-<meta property="article:published_time" content="2019-09-20T16:01:23+08:00" />
-<meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
-<meta itemprop="name" content="常用的系统接口">
-<meta itemprop="description" content="Stringer Reader/Writer">
+<meta property="og:title" content="Double Linked List" />
+<meta property="og:description" content="Beyourself&#39;s blog." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://beuself.xyz/tags/double-linked-list/" />
 
+<meta property="og:updated_time" content="2019-11-10T23:01:23+08:00" />
+<meta itemprop="name" content="Double Linked List">
+<meta itemprop="description" content="Beyourself&#39;s blog.">
 
-<meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
-<meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="2">
-
-
-
-<meta itemprop="keywords" content="面向对象," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="常用的系统接口"/>
-<meta name="twitter:description" content="Stringer Reader/Writer"/>
+<meta name="twitter:title" content="Double Linked List"/>
+<meta name="twitter:description" content="Beyourself&#39;s blog."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -581,162 +573,55 @@ if (!doNotTrack) {
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          <article class="post bg-white">
-    
-    <header class="post-header">
-      <h1 class="post-title">常用的系统接口</h1>
-      
-      <div class="post-meta">
-        <time datetime="2019-09-20" class="post-time">
-          2019-09-20
-        </time>
-        <div class="post-category">
-            <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
-            
-          </div>
-        <span class="more-meta"> 2 words </span>
-          <span class="more-meta"> 1 min read </span>
-
-        
-        
-          <span id="busuanzi_container_page_pv">
-            | 阅读 <span id="busuanzi_value_page_pv"></span>
-          </span>
-        
-
-        
-        
-      </div>
-    </header>
-
-    
-    
-<div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Table of Contents</h2>
-  <div class="post-toc-content">
-    
-  </div>
-</div>
-
-    
-    <div class="post-content">
-      <ul>
-<li>Stringer</li>
-<li>Reader/Writer</li>
-</ul>
-
-    </div>
-
-    
-    
-<div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">Author</span>
-    <span class="item-content">Beyourself</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">LastMod</span>
-    <span class="item-content">
-      2018-03-01
-      
-    </span>
-  </p>
-  
-  <p class="copyright-item">
-    <span class="item-title">License</span>
-    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
-  </p>
-</div>
-
-
-    
-    
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">Reward</label>
-  <div class="qr-code">
-    
-    
-      <label class="qr-code-image" for="reward">
-        <img class="image" src="https://tva1.sinaimg.cn/large/006y8mN6ly1g92kccissoj30u00u0gmg.jpg">
-        <span>Wechat</span>
-      </label>
-    
-  </div>
-</div>
-
-    <footer class="post-footer">
-      <div class="post-tags">
-          <a href="http://beuself.xyz/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">面向对象</a>
           
-        </div>
 
-      
-      <nav class="post-nav">
-        
-          <a class="prev" href="/post/go-basic-knowledge/2019-09-21-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/">
-            
-            <i class="iconfont">
-              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
-</svg>
-
-            </i>
-            <span class="prev-text nav-default">字符和字符串处理</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        
-          <a class="next" href="/post/go-basic-knowledge/2019-09-20-%E5%B8%B8%E9%87%8F%E4%B8%8E%E6%9E%9A%E4%B8%BE/">
-            <span class="next-text nav-default">常量与枚举</span>
-            <span class="prev-text nav-mobile">Next</span>
-            
-            <i class="iconfont">
-              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
-</svg>
-
-            </i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-
-
-
+<section id="archive" class="archive">
   
+    
+      <div class="archive-title tag">
+        <h2 class="archive-name">Tag: Double Linked List</h2>
+      </div>
+    
   
 
   
-  
-
-  
-
-  
-  
-    <div class="post bg-white">
-      <script src="https://utteranc.es/client.js"
-            repo= "zhaojiaming110/comments-myblog"
-            issue-term="pathname"
-            theme="github-light"
-            crossorigin="anonymous"
-            async>
-      </script>
+    <div class="archive-post">
+      <time datetime="2019-11-10" class="archive-post-time">
+        2019-11-10
+      </time>
+      <span class="archive-post-title">
+        <a href="/post/date-structures-with-go/double-linked-list/2-1%E5%8F%8C%E9%93%BE%E8%A1%A8%E7%AE%80%E4%BB%8B%E5%8F%8A%E6%8F%92%E5%85%A5/" class="archive-post-link">
+          2-1双链表简介及插入
+        </a>
+      </span>
     </div>
   
+</section>
 
+
+
+
+
+
+  
+  
   
 
   
-
   
 
-    
+  
+  
 
   
+  
+
+  
+  
+
+
+
+
 
         </div>
       </div>

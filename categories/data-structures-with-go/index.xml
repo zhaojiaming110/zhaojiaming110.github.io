@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Structures With Go on Beyourself - a gopher</title>
+    <link>http://beuself.xyz/categories/data-structures-with-go/</link>
+    <description>Recent content in Data Structures With Go on Beyourself - a gopher</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 10 Nov 2019 23:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="http://beuself.xyz/categories/data-structures-with-go/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>0-1线性数据结构</title>
+      <link>http://beuself.xyz/post/date-structures-with-go/overview/0-1%E7%BA%BF%E6%80%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+      <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/date-structures-with-go/overview/0-1%E7%BA%BF%E6%80%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+      <description>数据结构是在计算机中组织数据以便有效使用的一种特殊方式。这个想法是为了减少不同任务的时间和空间复杂度。以下是一些流行的线性数据结构的概述。 Array</description>
+    </item>
+    
+  </channel>
+</rss>

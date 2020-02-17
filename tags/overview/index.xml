@@ -20,5 +20,14 @@
       <description>数据结构是在计算机中组织数据以便有效使用的一种特殊方式。这个想法是为了减少不同任务的时间和空间复杂度。以下是一些流行的线性数据结构的概述。 Array</description>
     </item>
     
+    <item>
+      <title>0-4通过简单的示例了解时间复杂度</title>
+      <link>http://beuself.xyz/post/date-structures-with-go/overview/0-4%E9%80%9A%E8%BF%87%E7%AE%80%E5%8D%95%E7%9A%84%E7%A4%BA%E4%BE%8B%E4%BA%86%E8%A7%A3%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/</link>
+      <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/date-structures-with-go/overview/0-4%E9%80%9A%E8%BF%87%E7%AE%80%E5%8D%95%E7%9A%84%E7%A4%BA%E4%BE%8B%E4%BA%86%E8%A7%A3%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/</guid>
+      <description>很多初学者在理解时间复杂度的概念时会感到困惑，但是在本文中，我们将用一个非常简单的示例来解释它： 想象一下一个教室，有100个学生，您将钢笔交</description>
+    </item>
+    
   </channel>
 </rss>

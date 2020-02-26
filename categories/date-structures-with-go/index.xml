@@ -74,5 +74,14 @@
       <description>我们在前面几篇文章讨论了关于单链表的“链表介绍”和“插入节点”。 让我们制定问题陈述以了解删除过程。给定一个“key”，删除此键在链表中的第一</description>
     </item>
     
+    <item>
+      <title>Queue</title>
+      <link>http://beuself.xyz/post/date-structures-with-go/queue/queue/</link>
+      <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/date-structures-with-go/queue/queue/</guid>
+      <description>入队与出队 与栈一样，队列(queue)也是存放数据对象的一种容器，其中的数据对象也按线性的逻辑次序排列。队列结构同样支持对象的插入和删除，但</description>
+    </item>
+    
   </channel>
 </rss>

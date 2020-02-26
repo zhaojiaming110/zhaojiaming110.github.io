@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Queue on Beyourself - a gopher</title>
+    <link>http://beuself.xyz/tags/queue/</link>
+    <description>Recent content in Queue on Beyourself - a gopher</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 10 Nov 2019 23:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="http://beuself.xyz/tags/queue/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Queue</title>
+      <link>http://beuself.xyz/post/date-structures-with-go/queue/queue/</link>
+      <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/date-structures-with-go/queue/queue/</guid>
+      <description>入队与出队 与栈一样，队列(queue)也是存放数据对象的一种容器，其中的数据对象也按线性的逻辑次序排列。队列结构同样支持对象的插入和删除，但</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>算法绪论 on Beyourself - a gopher</title>
+    <link>http://beuself.xyz/tags/%E7%AE%97%E6%B3%95%E7%BB%AA%E8%AE%BA/</link>
+    <description>Recent content in 算法绪论 on Beyourself - a gopher</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 10 Nov 2019 23:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="http://beuself.xyz/tags/%E7%AE%97%E6%B3%95%E7%BB%AA%E8%AE%BA/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>渐进复杂度</title>
+      <link>http://beuself.xyz/post/algorithms/overview/%E6%B8%90%E8%BF%9B%E5%A4%8D%E6%9D%82%E5%BA%A6/</link>
+      <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/algorithms/overview/%E6%B8%90%E8%BF%9B%E5%A4%8D%E6%9D%82%E5%BA%A6/</guid>
+      <description>渐进复杂度：大O记号 常系数项可省略 低次项可省略 $O()$构成了$T(n)$的上界，比如 $n^c$ = $O(2^n)$ Ω()构成了$T(n)$的下届，比如$</description>
+    </item>
+    
+    <item>
+      <title>算法分析</title>
+      <link>http://beuself.xyz/post/algorithms/overview/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/</link>
+      <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/algorithms/overview/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/</guid>
+      <description>级数 迭代 取非极端元素 问题：给定整数子集S，|S| = n &amp;gt;= 3 ​ 找出S中元素a，a不是最大值也不是最小值 算法：从S中任取三个元素x,y,z，确定并</description>
+    </item>
+    
+    <item>
+      <title>计算机与算法</title>
+      <link>http://beuself.xyz/post/algorithms/overview/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/algorithms/overview/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E7%AE%97%E6%B3%95/</guid>
+      <description>计算：算法 计算模型 = 计算机 = 信息处理工具 所谓算法，即特定计算模型下，旨在解决特定问题的指令序列 输入 待处理的信息（问题） 输出 经处理的信息（答案</description>
+    </item>
+    
+  </channel>
+</rss>

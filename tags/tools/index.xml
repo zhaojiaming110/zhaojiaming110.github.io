@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tools on Beyourself - a gopher</title>
+    <link>http://beuself.xyz/tags/tools/</link>
+    <description>Recent content in tools on Beyourself - a gopher</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 10 Jan 2020 23:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="http://beuself.xyz/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git</title>
+      <link>http://beuself.xyz/post/git/</link>
+      <pubDate>Fri, 10 Jan 2020 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/git/</guid>
+      <description>Git命令行 创建初始版本库 1 git init [版本库name] Git 不关心你是从一个完全空白的目录还是由一个装满文件的目录开始的。在这两种情况下，将目录转换</description>
+    </item>
+    
+  </channel>
+</rss>

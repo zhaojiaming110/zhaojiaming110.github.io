@@ -38,5 +38,14 @@
       <description>计算：算法 计算模型 = 计算机 = 信息处理工具 所谓算法，即特定计算模型下，旨在解决特定问题的指令序列 输入 待处理的信息（问题） 输出 经处理的信息（答案</description>
     </item>
     
+    <item>
+      <title>迭代与递归</title>
+      <link>http://beuself.xyz/post/algorithms/overview/%E8%BF%AD%E4%BB%A3%E4%B8%8E%E9%80%92%E5%BD%92/</link>
+      <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/algorithms/overview/%E8%BF%AD%E4%BB%A3%E4%B8%8E%E9%80%92%E5%BD%92/</guid>
+      <description>减而治之（Decrease-and-conquer） 除非特别说明外，空间复杂度一般都指的是除了输入所占的空间外其它我们所需要、计算另加的空间</description>
+    </item>
+    
   </channel>
 </rss>

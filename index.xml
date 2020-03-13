@@ -59,21 +59,5 @@
       
     </item>
     
-    <item>
-      <title>LeetCode</title>
-      <link>http://beuself.xyz/leetcode/</link>
-      <pubDate>Fri, 10 Oct 2008 22:02:23 +0800</pubDate>
-      
-      <guid>http://beuself.xyz/leetcode/</guid>
-      
-        <description>&lt;p&gt;使用Go解答LeetCode&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;www.baidu.com&#34;&gt;Two Sum&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      
-    </item>
-    
   </channel>
 </rss>

@@ -69,7 +69,7 @@
 
 <meta itemprop="datePublished" content="2019-10-14T23:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-10-14T23:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="1287">
+<meta itemprop="wordCount" content="1522">
 
 
 
@@ -539,8 +539,8 @@ if (!doNotTrack) {
             <a href="http://beuself.xyz/categories/docker/"> Docker </a>
             
           </div>
-        <span class="more-meta"> 1287 words </span>
-          <span class="more-meta"> 3 min read </span>
+        <span class="more-meta"> 1522 words </span>
+          <span class="more-meta"> 4 min read </span>
 
         
         
@@ -921,6 +921,37 @@ linux</code></pre></td></tr></table>
 <p>在指定镜像ID的时候通常使用该ID的前若干个字符组成的可区分字串来替代完整的ID。</p>
 
 <h4 id="搜寻镜像">搜寻镜像</h4>
+
+<p>使用<code>docker search</code>命令可以搜索远端仓库中共享的镜像，默认搜索Docker Hub官方仓库上的镜像。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ docker search mysql -s<span class="o">=</span><span class="m">30</span>
+NAME                      DESCRIPTION                                     STARS               OFFICIAL            AUTOMATED
+mysql                     MySQL is a widely used, open-source relation…   <span class="m">9226</span>                <span class="o">[</span>OK<span class="o">]</span>
+mariadb                   MariaDB is a community-developed fork of MyS…   <span class="m">3288</span>                <span class="o">[</span>OK<span class="o">]</span>
+mysql/mysql-server        Optimized MySQL Server Docker images. Create…   <span class="m">681</span>                                     <span class="o">[</span>OK<span class="o">]</span>
+centos/mysql-57-centos7   MySQL <span class="m">5</span>.7 SQL database server                   <span class="m">71</span>
+mysql/mysql-cluster       Experimental MySQL Cluster Docker images. Cr…   <span class="m">65</span>
+centurylink/mysql         Image containing mysql. Optimized to be link…   <span class="m">61</span>                                      <span class="o">[</span>OK<span class="o">]</span>
+deitch/mysql-backup       REPLACED! Please use http://hub.docker.com/r…   <span class="m">41</span>                                      <span class="o">[</span>OK<span class="o">]</span>
+bitnami/mysql             Bitnami MySQL Docker Image                      <span class="m">36</span>                                      <span class="o">[</span>OK<span class="o">]</span>
+tutum/mysql               Base docker image to run a MySQL database se…   <span class="m">34</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>返回信息包括了镜像名字、描述信息、星级、是否官方创建、是否自动创建。</p>
 
     </div>
 

@@ -20,5 +20,14 @@
       <description>本篇介绍Docker的三大核心概念： 镜像（Image） 容器（Container） 仓库（Repository） 理解了这三个核心概念，就能顺利地</description>
     </item>
     
+    <item>
+      <title>镜像</title>
+      <link>http://beuself.xyz/post/docker/%E9%95%9C%E5%83%8F/</link>
+      <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/docker/%E9%95%9C%E5%83%8F/</guid>
+      <description>镜像是Docker的三大核心概念之一。 Docker运行容器前需要本地存在对应的镜像，如果镜像不存在本地，Docker会尝试先从默认镜像仓库下</description>
+    </item>
+    
   </channel>
 </rss>

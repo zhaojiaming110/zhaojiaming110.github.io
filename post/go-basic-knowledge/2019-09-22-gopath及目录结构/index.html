@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-basic-knowledge/2019-09-22-gopath%E5%8F%8A%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
 <meta itemprop="name" content="GOPATH及目录结构">
 <meta itemprop="description" content="GOPATH环境变量： 默认在~/go(unix,linux)，%USERPROFIEL%\go(windows) 官方推荐：所有项目和第三方库">
-
-
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="189">
 
 
 
-<meta itemprop="keywords" content="面向对象," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="面向对象," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GOPATH及目录结构"/>
 <meta name="twitter:description" content="GOPATH环境变量： 默认在~/go(unix,linux)，%USERPROFIEL%\go(windows) 官方推荐：所有项目和第三方库"/>
 
@@ -559,59 +556,72 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
       <ul>
-<li><p>GOPATH环境变量：</p>
-
+<li>
+<p>GOPATH环境变量：</p>
 <ul>
 <li>默认在~/go(unix,linux)，%USERPROFIEL%\go(windows)</li>
 <li>官方推荐：所有项目和第三方库都放在同一个GOPATH下</li>
 <li>也可以将每个项目放在不同的GOPATH下</li>
-</ul></li>
-
-<li><p>go get 获取第三方库：</p>
-
+</ul>
+</li>
+<li>
+<p>go get 获取第三方库：</p>
 <ul>
-<li><p>go get命令用法</p>
+<li>
+<p>go get命令用法</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">go get golang.org/x/tools/cmd/goimports</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">go get golang.org/x/tools/cmd/goimports
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>国内可以使用gopm来获取无法下载的包</p>
+<li>
+<p>国内可以使用gopm来获取无法下载的包</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">go get -v github.com/gpmgo/gopm
-gopm get -v -g golang.org/x/tools/cmd/goimports</code></pre></td></tr></table>
+gopm get -v -g golang.org/x/tools/cmd/goimports
+</code></pre></td></tr></table>
 </div>
 </div></li>
-</ul></li>
-
-<li><p>GOPATH下目录结构</p>
-
+</ul>
+</li>
+<li>
+<p>GOPATH下目录结构</p>
 <ul>
-<li>src</li>
+<li>src
+<ul>
 <li>git respository 1</li>
 <li>git respository 2</li>
-<li>pkg</li>
+</ul>
+</li>
+<li>pkg
+<ul>
 <li>git respository 1</li>
 <li>git respository 2</li>
-<li>bin</li>
+</ul>
+</li>
+<li>bin
+<ul>
 <li>执行文件1、2、3</li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
     </div>

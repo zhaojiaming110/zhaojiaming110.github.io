@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/git/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2020-01-10T23:01:23+08:00" />
 <meta itemprop="name" content="Git">
 <meta itemprop="description" content="Git命令行 创建初始版本库 1 git init [版本库name] Git 不关心你是从一个完全空白的目录还是由一个装满文件的目录开始的。在这两种情况下，将目录转换">
-
-
 <meta itemprop="datePublished" content="2020-01-10T23:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-10T23:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="544">
 
 
 
-<meta itemprop="keywords" content="tools," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="tools," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Git"/>
 <meta name="twitter:description" content="Git命令行 创建初始版本库 1 git init [版本库name] Git 不关心你是从一个完全空白的目录还是由一个装满文件的目录开始的。在这两种情况下，将目录转换"/>
 
@@ -557,145 +554,144 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#git命令行">Git命令行</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h4 id="git命令行">Git命令行</h4>
-
+      <h4 id="git命令行">Git命令行</h4>
 <ul>
-<li><p>创建初始版本库</p>
+<li>
+<p>创建初始版本库</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">git init <span class="o">[</span>版本库name<span class="o">]</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">git init <span class="o">[</span>版本库name<span class="o">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Git 不关心你是从一个完全空白的目录还是由一个装满文件的目录开始的。在这两种情况下，将目录转换到Git版本库的过程是一样的。</p></li>
-
-<li><p>将文件添加到版本库中</p>
+</div><p>Git 不关心你是从一个完全空白的目录还是由一个装满文件的目录开始的。在这两种情况下，将目录转换到Git版本库的过程是一样的。</p>
+</li>
+<li>
+<p>将文件添加到版本库中</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">git add README.md   // 添加单个文件
-git add .   // 把当前目录及子目录中的文件都添加到版本库里</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">git add README.md	// 添加单个文件
+git add .	// 把当前目录及子目录中的文件都添加到版本库里
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>查看状态</p>
+<li>
+<p>查看状态</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">git status</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">git status
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>更新</p>
+<li>
+<p>更新</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">git commit -m <span class="s2">&#34;First commit&#34;</span> <span class="se">\
-</span><span class="se"></span>                --author<span class="o">=</span><span class="s2">&#34;Your Name &lt;you@example.com&gt;&#34;</span></code></pre></td></tr></table>
+</span><span class="se"></span>                --author<span class="o">=</span><span class="s2">&#34;Your Name &lt;you@example.com&gt;&#34;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>可以在命令行中提供一条日志消息，但是更典型的作法是在交互式编辑器会话期间创建消息。设置<strong>GIT_EDITOR</strong>环境变量</p>
+</div><p>可以在命令行中提供一条日志消息，但是更典型的作法是在交互式编辑器会话期间创建消息。设置<strong>GIT_EDITOR</strong>环境变量</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">export</span> <span class="nv">GIT_EDITOR</span><span class="o">=</span>vim</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">export</span> <span class="nv">GIT_EDITOR</span><span class="o">=</span>vim
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>配置提交作者</p>
-
+<li>
+<p>配置提交作者</p>
 <p>使用git config命令在配置文件里保存你的身份。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">git config --global user.email <span class="s2">&#34;you@example.com&#34;</span>
-git config --global user.name <span class="s2">&#34;Your Name&#34;</span></code></pre></td></tr></table>
+git config --global user.name <span class="s2">&#34;Your Name&#34;</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>查看提交</p>
+<li>
+<p>查看提交</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">git log</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">git log
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>git log命令会产生版本库里一系列单独提交的历史。</p>
-
-<p>条目按照从最新的到最老的顺序罗列出来；每个条目显示了提交作者和email地址，提交日期，变更的日志信息和提交的内部识别码</p></li>
-
-<li><p>查看特定提交的更加详细信息</p>
+</div><p>git log命令会产生版本库里一系列单独提交的历史。</p>
+<p>条目按照从最新的到最老的顺序罗列出来；每个条目显示了提交作者和email地址，提交日期，变更的日志信息和提交的内部识别码</p>
+</li>
+<li>
+<p>查看特定提交的更加详细信息</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">git show <span class="o">[</span>提交码<span class="o">]</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">git show <span class="o">[</span>提交码<span class="o">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>如果在执行git show命令的时候没有加提交码，它将只显示最近一次提交的详细信息。</p>
+</div><p>如果在执行git show命令的时候没有加提交码，它将只显示最近一次提交的详细信息。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">git show-branch --more<span class="o">=</span><span class="m">10</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">git show-branch --more<span class="o">=</span><span class="m">10</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>提供当前分支简洁的单行摘要。</p></li>
-
-<li><p>查看提交差异</p>
+</div><p>提供当前分支简洁的单行摘要。</p>
+</li>
+<li>
+<p>查看提交差异</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">git diff <span class="o">[</span>提交码1<span class="o">]</span> <span class="o">[</span>提交码2<span class="o">]</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">git diff <span class="o">[</span>提交码1<span class="o">]</span> <span class="o">[</span>提交码2<span class="o">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>按照惯例[提交码1]为早期版本，[提交码2]为较新版本。</p></li>
-
-<li><p>版本库内文件的删除和重命名</p>
+</div><p>按照惯例[提交码1]为早期版本，[提交码2]为较新版本。</p>
+</li>
+<li>
+<p>版本库内文件的删除和重命名</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -707,24 +703,24 @@ git config --global user.name <span class="s2">&#34;Your Name&#34;</span></code>
 git rm README.md
 git commit -m <span class="s2">&#34;remove README.md&#34;</span>
 // 重命名
-git mv <span class="m">11</span>.txt <span class="m">22</span>.txt
-git commit -m <span class="s2">&#34;rename 11.txt&#34;</span></code></pre></td></tr></table>
+git mv 11.txt 22.txt
+git commit -m <span class="s2">&#34;rename 11.txt&#34;</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>创建版本库副本</p>
+<li>
+<p>创建版本库副本</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">git clone <span class="o">[</span>版本库<span class="o">]</span> <span class="o">[</span>版本库副本<span class="o">]</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">git clone <span class="o">[</span>版本库<span class="o">]</span> <span class="o">[</span>版本库副本<span class="o">]</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
 <li></li>
 </ul>
-
 <p>111</p>
 
     </div>

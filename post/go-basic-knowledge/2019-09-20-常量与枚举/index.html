@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-basic-knowledge/2019-09-20-%E5%B8%B8%E9%87%8F%E4%B8%8E%E6%9E%9A%E4%B8%BE/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
 <meta itemprop="name" content="常量与枚举">
 <meta itemprop="description" content="1.常量的定义 常量的值在编译时就已经确定 常量的定义格式与变量基本相同 等号右侧必须是常量或常量表达式 常量表达式中的函数必须是内置函数 2.常量的">
-
-
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="303">
+<meta itemprop="wordCount" content="301">
 
 
 
-<meta itemprop="keywords" content="基础语法," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="基础语法," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="常量与枚举"/>
 <meta name="twitter:description" content="1.常量的定义 常量的值在编译时就已经确定 常量的定义格式与变量基本相同 等号右侧必须是常量或常量表达式 常量表达式中的函数必须是内置函数 2.常量的"/>
 
@@ -539,7 +536,7 @@ if (!doNotTrack) {
             <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
             
           </div>
-        <span class="more-meta"> 303 words </span>
+        <span class="more-meta"> 301 words </span>
           <span class="more-meta"> 1 min read </span>
 
         
@@ -560,42 +557,33 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#1-常量的定义">1.常量的定义</a>
-<ul>
-<li><a href="#2-常量的初始化与枚举">2.常量的初始化与枚举</a></li>
-</ul></li>
-<li><a href="#3-常量表达式">3.常量表达式</a></li>
-</ul>
+  <ul>
+    <li><a href="#2常量的初始化与枚举">2.常量的初始化与枚举</a></li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="1-常量的定义">1.常量的定义</h1>
-
-<ul class="task-list">
-<li><label><input type="checkbox" disabled class="task-list-item"> 常量的值在编译时就已经确定</label></li>
-<li><label><input type="checkbox" disabled class="task-list-item"> 常量的定义格式与变量基本相同</label></li>
-<li><label><input type="checkbox" disabled class="task-list-item"> 等号右侧必须是常量或常量表达式</label></li>
-<li><label><input type="checkbox" disabled class="task-list-item"> 常量表达式中的函数必须是内置函数</label></li>
+      <h1 id="1常量的定义">1.常量的定义</h1>
+<ul>
+<li><input disabled="" type="checkbox"> 常量的值在编译时就已经确定</li>
+<li><input disabled="" type="checkbox"> 常量的定义格式与变量基本相同</li>
+<li><input disabled="" type="checkbox"> 等号右侧必须是常量或常量表达式</li>
+<li><input disabled="" type="checkbox"> 常量表达式中的函数必须是内置函数</li>
 </ul>
-
-<h2 id="2-常量的初始化与枚举">2.常量的初始化与枚举</h2>
-
-<ul class="task-list">
-<li><label><input type="checkbox" disabled class="task-list-item"> 在定义常量组时，如果不提供初值，则将表示使用上行的表达式</label></li>
-<li><label><input type="checkbox" disabled class="task-list-item"> 使用相同的表达式不代表具有相同的值</label></li>
-<li><label><input type="checkbox" disabled class="task-list-item"> iota是常量的计数器，从0开始，组中每定义一个常量自动递增1</label></li>
-<li><label><input type="checkbox" disabled class="task-list-item"> 通过初始化规则与iota可以达到枚举的效果</label></li>
-
-<li><p>[ ] 每遇到一个const关键字，iota就会重置为0</p>
+<h2 id="2常量的初始化与枚举">2.常量的初始化与枚举</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 在定义常量组时，如果不提供初值，则将表示使用上行的表达式</li>
+<li><input disabled="" type="checkbox"> 使用相同的表达式不代表具有相同的值</li>
+<li><input disabled="" type="checkbox"> iota是常量的计数器，从0开始，组中每定义一个常量自动递增1</li>
+<li><input disabled="" type="checkbox"> 通过初始化规则与iota可以达到枚举的效果</li>
+<li><input disabled="" type="checkbox"> 每遇到一个const关键字，iota就会重置为0</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -636,13 +624,10 @@ const <span class="o">(</span>
 	Friday
 	Saturday
 	Sunday
-<span class="o">)</span></code></pre></td></tr></table>
+<span class="o">)</span>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
-<h1 id="3-常量表达式">3.常量表达式</h1>
-
+</div><h1 id="3常量表达式">3.常量表达式</h1>
 <p>常量表达式是指在编译期即可计算结果的表达式</p>
 
     </div>

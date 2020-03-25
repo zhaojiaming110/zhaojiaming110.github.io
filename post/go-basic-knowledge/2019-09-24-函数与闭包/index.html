@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-basic-knowledge/2019-09-24-%E5%87%BD%E6%95%B0%E4%B8%8E%E9%97%AD%E5%8C%85/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
 <meta itemprop="name" content="函数与闭包">
 <meta itemprop="description" content="函数可以作为一种类型使用 匿名函数 在Go里面，函数可以像普通变量一样被传递或使用。 Go语言支持随时在代码里定义匿名函数。 匿名函数由一个不带函数">
-
-
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="530">
 
 
 
-<meta itemprop="keywords" content="函数式编程," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="函数式编程," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="函数与闭包"/>
 <meta name="twitter:description" content="函数可以作为一种类型使用 匿名函数 在Go里面，函数可以像普通变量一样被传递或使用。 Go语言支持随时在代码里定义匿名函数。 匿名函数由一个不带函数"/>
 
@@ -559,46 +556,41 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#匿名函数">匿名函数</a></li>
-<li><a href="#闭包">闭包</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<p>函数可以作为一种类型使用</p>
-
+      <p>函数可以作为一种类型使用</p>
 <h1 id="匿名函数">匿名函数</h1>
-
 <ul>
-<li><p>在Go里面，函数可以像普通变量一样被传递或使用。</p></li>
-
-<li><p>Go语言支持随时在代码里定义匿名函数。</p></li>
-
-<li><p>匿名函数由一个不带函数名的函数声明和函数体组成，如下所示：</p>
+<li>
+<p>在Go里面，函数可以像普通变量一样被传递或使用。</p>
+</li>
+<li>
+<p>Go语言支持随时在代码里定义匿名函数。</p>
+</li>
+<li>
+<p>匿名函数由一个不带函数名的函数声明和函数体组成，如下所示：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">func<span class="o">(</span>a, b int, z float64<span class="o">)</span> bool <span class="o">{</span>
-  <span class="k">return</span> a*b &lt; int<span class="o">(</span>z<span class="o">)</span>
-<span class="o">}</span></code></pre></td></tr></table>
+    <span class="k">return</span> a*b &lt; int<span class="o">(</span>z<span class="o">)</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>匿名函数可以直接赋值给变量或者执行。</p>
+<li>
+<p>匿名函数可以直接赋值给变量或者执行。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -607,36 +599,32 @@ if (!doNotTrack) {
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">f :<span class="o">=</span> func<span class="o">(</span>x, y int<span class="o">)</span> int <span class="o">{</span>
-  <span class="k">return</span> x + y 
+    <span class="k">return</span> x + y 
 <span class="o">}</span>	//将匿名函数赋值给变量f, 此时变量f类似函数名 f<span class="o">(</span>参数列表<span class="o">)</span>可完成函数调用
 func<span class="o">(</span>x, y int<span class="o">)</span> int <span class="o">{</span>
-  <span class="k">return</span> x + y
-<span class="o">}</span> <span class="o">(</span><span class="m">1</span>, <span class="m">2</span><span class="o">)</span>	//花括号后直接跟参数列表表示函数调用</code></pre></td></tr></table>
+    <span class="k">return</span> x + y
+<span class="o">}</span> <span class="o">(</span>1, 2<span class="o">)</span>	//花括号后直接跟参数列表表示函数调用
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
-
 <h1 id="闭包">闭包</h1>
-
 <ul>
-<li>基本概念：</li>
-</ul>
-
+<li>
+<p>基本概念：</p>
 <p>闭包是可以包含自由(未绑定到特定对象)变量的代码块，这些变量不在这个代码块内或者 任何全局上下文中定义，而是在定义代码块的环境中定义。要执行的代码块(由于自由变量包含 在代码块中，所以这些自由变量以及它们引用的对象没有被释放)为自由变量提供绑定的计算环 境(作用域)。</p>
-
-<ul>
-<li>闭包的价值：</li>
-</ul>
-
+</li>
+<li>
+<p>闭包的价值：</p>
 <p>闭包的价值在于可以作为函数对象或者匿名函数，对于类型系统而言，这意味着不仅要表示
-  数据还要表示代码。支持闭包的多数语言都将函数作为第一级对象，就是说这些函数可以存储到 变量中作为参数传递给其他函数，最重要的是能够被函数动态创建和返回。</p>
-
-<ul>
-<li>Go语言中的闭包：</li>
-</ul>
-
+数据还要表示代码。支持闭包的多数语言都将函数作为第一级对象，就是说这些函数可以存储到 变量中作为参数传递给其他函数，最重要的是能够被函数动态创建和返回。</p>
+</li>
+<li>
+<p>Go语言中的闭包：</p>
 <p>Go语言中的闭包同样也会引用到函数外的变量。闭包的实现确保只要闭包还被使用，那么
-  被闭包引用的变量会一直存在。</p>
+被闭包引用的变量会一直存在。</p>
+</li>
+</ul>
 
     </div>
 

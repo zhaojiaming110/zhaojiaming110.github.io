@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-basic-knowledge/2019-09-20-%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
 <meta itemprop="name" content="条件语句">
 <meta itemprop="description" content="条件语句if 条件语句不需要使用括号将条件包含起来() 无论语句体内有几条语句，花括号{}都是必须存在的 左花括号{必须与if或者else处于同一">
-
-
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="687">
+<meta itemprop="wordCount" content="671">
 
 
 
-<meta itemprop="keywords" content="基础语法," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="基础语法," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="条件语句"/>
 <meta name="twitter:description" content="条件语句if 条件语句不需要使用括号将条件包含起来() 无论语句体内有几条语句，花括号{}都是必须存在的 左花括号{必须与if或者else处于同一"/>
 
@@ -539,7 +536,7 @@ if (!doNotTrack) {
             <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
             
           </div>
-        <span class="more-meta"> 687 words </span>
+        <span class="more-meta"> 671 words </span>
           <span class="more-meta"> 2 min read </span>
 
         
@@ -559,30 +556,22 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#条件语句if">条件语句if</a></li>
-<li><a href="#选择语句switch">选择语句switch</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="条件语句if">条件语句if</h1>
-
-<ul class="task-list">
-<li><label><input type="checkbox" disabled class="task-list-item"> 条件语句不需要使用括号将条件包含起来()</label></li>
-<li><label><input type="checkbox" disabled class="task-list-item"> 无论语句体内有几条语句，花括号{}都是必须存在的</label></li>
-<li><label><input type="checkbox" disabled class="task-list-item"> 左花括号{必须与if或者else处于同一行</label></li>
-
-<li><p>[ ] 在if之后，条件语句之前，可以添加变量初始化语句，使用;间隔</p>
+      <h1 id="条件语句if">条件语句if</h1>
+<ul>
+<li><input disabled="" type="checkbox"> 条件语句不需要使用括号将条件包含起来()</li>
+<li><input disabled="" type="checkbox"> 无论语句体内有几条语句，花括号{}都是必须存在的</li>
+<li><input disabled="" type="checkbox"> 左花括号{必须与if或者else处于同一行</li>
+<li><input disabled="" type="checkbox"> 在if之后，条件语句之前，可以添加变量初始化语句，使用;间隔</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -599,19 +588,19 @@ if (!doNotTrack) {
 	<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
 		fmt.Println<span class="o">(</span><span class="s2">&#34;%s\n&#34;</span>, contents<span class="o">)</span>
 	<span class="o">}</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>[ ] 在有返回值的函数中，不允许将最终的return语句包含在==<u>if&hellip;else..</u>==.结构中，否则会编译失败：</p></li>
-</ul>
-
-<p>​ function ends without a return statement。</p>
-
+</div><ul>
+<li>
+<p><input disabled="" type="checkbox"> 在有返回值的函数中，不允许将最终的return语句包含在==<!-- raw HTML omitted -->if&hellip;else..<!-- raw HTML omitted -->==.结构中，否则会编译失败：</p>
+<p>​	function ends without a return statement。</p>
 <p>失败的原因在于，Go编译器无法找到终止该函数的return语句。</p>
+</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -650,13 +639,13 @@ func example1<span class="o">(</span>x int<span class="o">)</span> int <span cla
 		<span class="nv">y</span> <span class="o">=</span> x
 	<span class="o">}</span>
 	<span class="k">return</span> y
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="选择语句switch">选择语句switch</h1>
+</div><h1 id="选择语句switch">选择语句switch</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -673,39 +662,44 @@ func example1<span class="o">(</span>x int<span class="o">)</span> int <span cla
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">switch i <span class="o">{</span>
-	<span class="k">case</span> <span class="m">0</span>:
+	<span class="k">case</span> 0:
 		fmt.Printf<span class="o">(</span><span class="s2">&#34;0&#34;</span><span class="o">)</span>
-	<span class="k">case</span> <span class="m">1</span>:
+	<span class="k">case</span> 1:
 		fmt.Printf<span class="o">(</span><span class="s2">&#34;1&#34;</span><span class="o">)</span>
-	<span class="k">case</span> <span class="m">2</span>:
+	<span class="k">case</span> 2:
 		fallthrough
-	<span class="k">case</span> <span class="m">3</span>:
+	<span class="k">case</span> 3:
 		fmt.Printf<span class="o">(</span><span class="s2">&#34;3&#34;</span><span class="o">)</span>
-	<span class="k">case</span> <span class="m">4</span>, <span class="m">5</span>, <span class="m">6</span>:
+	<span class="k">case</span> 4, 5, 6:
 		fmt.Printf<span class="o">(</span><span class="s2">&#34;4, 5, 6&#34;</span><span class="o">)</span>
 	default:
 		fmt.Printf<span class="o">(</span><span class="s2">&#34;Default&#34;</span><span class="o">)</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>使用switch语句必须注意以下几点：</p>
-
+</div><p>使用switch语句必须注意以下几点：</p>
 <ul>
-<li><p>[ ] 左花括号{必须与switch处于同一行;</p></li>
-
-<li><p>[ ] 条件表达式不限制为常量或者整数;</p></li>
-
-<li><p>[ ] 单个case中，可以出现多个结果选项;</p></li>
-
-<li><p>[ ] 与C语言等规则相反，Go语言不需要用break来明确退出一个case;</p></li>
-
-<li><p>[ ] 只有在case中明确添加fallthrough关键字，才会继续执行紧跟的下一个case;</p></li>
-
-<li><p>[ ] 可以不设定switch之后的条件表达式，在此种情况下，整个switch结构与多个
+<li>
+<p><input disabled="" type="checkbox"> 左花括号{必须与switch处于同一行;</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 条件表达式不限制为常量或者整数;</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 单个case中，可以出现多个结果选项;</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 与C语言等规则相反，Go语言不需要用break来明确退出一个case;</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 只有在case中明确添加fallthrough关键字，才会继续执行紧跟的下一个case;</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 可以不设定switch之后的条件表达式，在此种情况下，整个switch结构与多个
 if&hellip;else&hellip;的逻辑作用等同。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -726,21 +720,22 @@ if&hellip;else&hellip;的逻辑作用等同。</p>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">//不设定switch之后的条件表达式
 func grade<span class="o">(</span>score int<span class="o">)</span> string <span class="o">{</span>
-	g :<span class="o">=</span> <span class="s2">&#34;&#34;</span>
-	switch <span class="o">{</span>
-	<span class="k">case</span> score &lt; <span class="m">60</span>:
-		<span class="nv">g</span> <span class="o">=</span> <span class="s2">&#34;F&#34;</span>
-	<span class="k">case</span> score &lt; <span class="m">80</span>:
-		<span class="nv">g</span> <span class="o">=</span> <span class="s2">&#34;D&#34;</span>
-	<span class="k">case</span> score &lt; <span class="m">90</span>:
-		<span class="nv">g</span> <span class="o">=</span> <span class="s2">&#34;B&#34;</span>
-	<span class="k">case</span> score &lt;<span class="o">=</span> <span class="m">100</span>:
-		<span class="nv">g</span> <span class="o">=</span> <span class="s2">&#34;A&#34;</span>
-	default:
-		panic<span class="o">(</span>fmt.Println<span class="o">(</span><span class="s2">&#34;wrong score&#34;</span><span class="o">))</span>
-	<span class="o">}</span>
-	<span class="k">return</span> g
-<span class="o">}</span></code></pre></td></tr></table>
+  g :<span class="o">=</span> <span class="s2">&#34;&#34;</span>
+  switch <span class="o">{</span>
+  <span class="k">case</span> score &lt; 60:
+      <span class="nv">g</span> <span class="o">=</span> <span class="s2">&#34;F&#34;</span>
+  <span class="k">case</span> score &lt; 80:
+      <span class="nv">g</span> <span class="o">=</span> <span class="s2">&#34;D&#34;</span>
+  <span class="k">case</span> score &lt; 90:
+      <span class="nv">g</span> <span class="o">=</span> <span class="s2">&#34;B&#34;</span>
+  <span class="k">case</span> score &lt;<span class="o">=</span> 100:
+      <span class="nv">g</span> <span class="o">=</span> <span class="s2">&#34;A&#34;</span>
+  default:
+      panic<span class="o">(</span>fmt.Println<span class="o">(</span><span class="s2">&#34;wrong score&#34;</span><span class="o">))</span>
+  <span class="o">}</span>
+  <span class="k">return</span> g
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>

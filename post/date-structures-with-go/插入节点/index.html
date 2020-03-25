@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/date-structures-with-go/%E6%8F%92%E5%85%A5%E8%8A%82%E7%82%B9/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2019-11-10T23:01:23+08:00" />
 <meta itemprop="name" content="3-插入节点">
 <meta itemprop="description" content="在上一篇文章中，我们介绍了链表。我们还创建了一个具有3个节点的简单链表，并讨论了链表遍历。 本文中讨论的所有程序均考虑以下链表的表示形式。 1 2">
-
-
 <meta itemprop="datePublished" content="2019-11-10T23:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-10T23:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="1505">
 
 
 
-<meta itemprop="keywords" content="Singly Linked List," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Singly Linked List," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="3-插入节点"/>
 <meta name="twitter:description" content="在上一篇文章中，我们介绍了链表。我们还创建了一个具有3个节点的简单链表，并讨论了链表遍历。 本文中讨论的所有程序均考虑以下链表的表示形式。 1 2"/>
 
@@ -560,44 +557,24 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#在链表的最前面添加节点">在链表的最前面添加节点</a>
-<ul>
-<li><a href="#步骤">步骤</a></li>
-</ul></li>
-<li><a href="#在给定节点之后添加新的节点">在给定节点之后添加新的节点</a>
-<ul>
-<li><a href="#步骤-1">步骤</a></li>
-</ul></li>
-<li><a href="#在链表末尾添加新的节点">在链表末尾添加新的节点</a>
-<ul>
-<li><a href="#步骤-2">步骤</a></li>
-</ul></li>
-<li><a href="#完整程序实例代码">完整程序实例代码</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<p>在<a href="https://beuself.xyz/post/date-structures-with-go/%E9%93%BE%E8%A1%A8%E7%AE%80%E4%BB%8B/">上一篇文章</a>中，我们介绍了链表。我们还创建了一个具有3个节点的简单链表，并讨论了链表遍历。</p>
-
+      <p>在<a href="https://beuself.xyz/post/date-structures-with-go/%E9%93%BE%E8%A1%A8%E7%AE%80%E4%BB%8B/">上一篇文章</a>中，我们介绍了链表。我们还创建了一个具有3个节点的简单链表，并讨论了链表遍历。</p>
 <p>本文中讨论的所有程序均考虑以下链表的表示形式。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -606,35 +583,28 @@ if (!doNotTrack) {
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Node</span> <span class="kd">struct</span> <span class="p">{</span>
 	<span class="nx">date</span> <span class="kd">interface</span><span class="p">{}</span>
 	<span class="nx">next</span> <span class="o">*</span><span class="nx">Node</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>在这篇文章中，讨论了在链表中插入新节点的方法。可以通过三种方式添加节点：</p>
-
+</div><p>在这篇文章中，讨论了在链表中插入新节点的方法。可以通过三种方式添加节点：</p>
 <ul>
 <li>在链表的最前面。</li>
 <li>在给定节点之后。</li>
 <li>在链表末尾。</li>
 </ul>
-
 <h4 id="在链表的最前面添加节点">在链表的最前面添加节点</h4>
-
 <p>新节点总是添加到给定链接列表的开头之前。新添加的节点将成为链表的新头。</p>
-
 <p>例如，如果给定的链接列表为10-&gt; 15-&gt; 20-&gt; 25，并且在前面添加了项5，则链接列表将变为5-&gt; 10-&gt; 15-&gt; 20-&gt; 25。让我们将添加到列表最前面的函数称为push()。push()必须接受一个指向链表头指针，因为必须让头指针改为指向新的节点。</p>
-
-<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9n5dtl9ovj30l30730sj.jpg" alt="" /></p>
-
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9n5dtl9ovj30l30730sj.jpg" alt=""></p>
 <h5 id="步骤">步骤</h5>
-
 <ul>
 <li>创建一个新的节点并输入数据</li>
 <li>使新节点的next指向原来的头节点</li>
-
-<li><p>返回新节点的地址给链表头指针</p>
+<li>返回新节点的地址给链表头指针</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -645,30 +615,23 @@ if (!doNotTrack) {
 </span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">oldHead</span> <span class="o">*</span><span class="nx">Node</span><span class="p">)</span> <span class="nf">push</span><span class="p">(</span><span class="nx">new_date</span> <span class="kd">interface</span><span class="p">{})</span> <span class="p">(</span><span class="nx">newHead</span> <span class="o">*</span><span class="nx">Node</span><span class="p">)</span> <span class="p">{</span>
 	<span class="nx">newHead</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">Node</span><span class="p">{</span><span class="nx">new_date</span><span class="p">,</span> <span class="nx">oldHead</span><span class="p">}</span>
 	<span class="k">return</span> <span class="nx">newHead</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
-<p>push()的时间复杂度为O(1)，因为它要做的工作量是恒定的。</p>
-
+</div><p>push()的时间复杂度为O(1)，因为它要做的工作量是恒定的。</p>
 <h4 id="在给定节点之后添加新的节点">在给定节点之后添加新的节点</h4>
-
 <p>给我们一个指向指定节点的指针，并将新节点插入到给定节点之后。</p>
-
-<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9n5ldyrnej30l307la9v.jpg" alt="" /></p>
-
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9n5ldyrnej30l307la9v.jpg" alt=""></p>
 <h5 id="步骤-1">步骤</h5>
-
 <ul>
 <li>检查给定的节点是否为空节点</li>
 <li>创建一个新的节点并输入数据</li>
 <li>将给定节点的next赋值给新节点的next</li>
-
-<li><p>将新节点的地址赋值给给定节点的next</p>
+<li>将新节点的地址赋值给给定节点的next</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -685,31 +648,24 @@ if (!doNotTrack) {
 		<span class="k">return</span>
 	<span class="p">}</span>
 	<span class="nx">prev_node</span><span class="p">.</span><span class="nx">next</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">Node</span><span class="p">{</span><span class="nx">new_date</span><span class="p">,</span> <span class="nx">prev_node</span><span class="p">.</span><span class="nx">next</span><span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
-<p>insertAfter()的时间复杂度为O(1)，因为它的工作量是恒定的。</p>
-
+</div><p>insertAfter()的时间复杂度为O(1)，因为它的工作量是恒定的。</p>
 <h4 id="在链表末尾添加新的节点">在链表末尾添加新的节点</h4>
-
 <p>将新节点始终添加到给定链表的最后一个节点之后。例如，如果给定的链表为5-&gt; 10-&gt; 15-&gt; 20-&gt; 25，并在最后添加30，则链表将变为5-&gt; 10-&gt; 15-&gt; 20-&gt; 25- &gt; 30。
 由于链表通常由其开头表示，因此我们必须遍历该链表直至结束，然后将最后一个节点的next更改为新节点。</p>
-
-<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9n5srn00pj30l306tglf.jpg" alt="" /></p>
-
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9n5srn00pj30l306tglf.jpg" alt=""></p>
 <h5 id="步骤-2">步骤</h5>
-
 <ul>
 <li>创建一个新的节点并输入数据，新节点的next置为nil</li>
 <li>如果给定的链表为空链表，将新节点的地址返回给头指针</li>
 <li>遍历该列表直至结束</li>
-
-<li><p>将新节点的地址赋值给链表最后一个节点的next</p>
+<li>将新节点的地址赋值给链表最后一个节点的next</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -750,20 +706,16 @@ if (!doNotTrack) {
 	<span class="nx">newHead</span> <span class="p">=</span> <span class="nx">head</span>
 
 	<span class="k">return</span> <span class="nx">newHead</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
-<p>appendEnd的时间复杂度为O(n)，其中n是链表中节点的数量。由于从头到尾都有一个循环，因此该函数可以执行O(n)。
+</div><p>appendEnd的时间复杂度为O(n)，其中n是链表中节点的数量。由于从头到尾都有一个循环，因此该函数可以执行O(n)。
 还可以通过保留指向链表尾部的额外指针来优化此方法以使其在O(1)中工作。</p>
-
 <h4 id="完整程序实例代码">完整程序实例代码</h4>
-
 <p>以下是一个完整的程序，该程序使用上述所有方法来创建单链表。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -938,13 +890,13 @@ if (!doNotTrack) {
 	<span class="nx">newHead</span> <span class="p">=</span> <span class="nx">head</span>
 
 	<span class="k">return</span> <span class="nx">newHead</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>输出</p>
+</div><p>输出</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -957,7 +909,8 @@ if (!doNotTrack) {
 <span class="m">7</span>
 <span class="m">8</span>
 <span class="m">6</span>
-<span class="m">4</span></code></pre></td></tr></table>
+<span class="m">4</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

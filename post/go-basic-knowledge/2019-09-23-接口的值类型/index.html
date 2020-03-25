@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-basic-knowledge/2019-09-23-%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%80%BC%E7%B1%BB%E5%9E%8B/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
 <meta itemprop="name" content="接口的值类型">
 <meta itemprop="description" content="接口变量里有什么？ 实现者的类型和实现者的值。 实现者的类型和指向实现者的指针。 接口变量自带指针。 接口变量同样采用值传递，由于接口变量可以带指针">
-
-
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="143">
 
 
 
-<meta itemprop="keywords" content="面向对象," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="面向对象," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="接口的值类型"/>
 <meta name="twitter:description" content="接口变量里有什么？ 实现者的类型和实现者的值。 实现者的类型和指向实现者的指针。 接口变量自带指针。 接口变量同样采用值传递，由于接口变量可以带指针"/>
 
@@ -559,21 +556,13 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#接口变量里有什么">接口变量里有什么？</a></li>
-<li><a href="#查看接口变量">查看接口变量</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="接口变量里有什么">接口变量里有什么？</h1>
-
+      <h1 id="接口变量里有什么">接口变量里有什么？</h1>
 <ul>
 <li>实现者的类型和实现者的值。</li>
 <li>实现者的类型和指向实现者的指针。</li>
@@ -581,9 +570,7 @@ if (!doNotTrack) {
 <li>接口变量同样采用值传递，由于接口变量可以带指针，所以几乎不需要使用接口的指针。</li>
 <li>指针接收者实现的接口，只能以指针方式使用。值接受者都可以。</li>
 </ul>
-
 <h1 id="查看接口变量">查看接口变量</h1>
-
 <ul>
 <li>表示任何类型：interface{}</li>
 <li>Type Assersion</li>

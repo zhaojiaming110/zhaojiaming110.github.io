@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-basic-knowledge/%E6%90%AD%E5%BB%BAgolang%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2019-09-21T16:01:23+08:00" />
 <meta itemprop="name" content="搭建Golang开发环境">
 <meta itemprop="description" content="搭建Golang开发环境 1.Sublime Text3 &#43; GoSublime &#43; Goimports &#43; Go build ​ 安装sublime text3和GoSublime插件 2.Sublime Text3、Goimports和GoSub">
-
-
 <meta itemprop="datePublished" content="2019-09-21T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-09-21T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="335">
 
 
 
-<meta itemprop="keywords" content="基础语法," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="基础语法," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="搭建Golang开发环境"/>
 <meta name="twitter:description" content="搭建Golang开发环境 1.Sublime Text3 &#43; GoSublime &#43; Goimports &#43; Go build ​ 安装sublime text3和GoSublime插件 2.Sublime Text3、Goimports和GoSub"/>
 
@@ -560,40 +557,27 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#搭建golang开发环境">搭建Golang开发环境</a>
-<ul>
-<li><a href="#1-sublime-text3-gosublime-goimports-go-build">1.Sublime Text3 + GoSublime + Goimports + Go build</a></li>
-<li><a href="#2-sublime-text3-goimports和gosublime的安装">2.Sublime Text3、Goimports和GoSublime的安装</a></li>
-<li><a href="#3-sublime-text3解决gosublime无法补全代码和使用goimports">3.Sublime Text3解决Gosublime无法补全代码和使用Goimports</a></li>
-<li><a href="#4-sublime-text3实现跳转功能">4.Sublime Text3实现跳转功能</a></li>
-<li><a href="#5-sublime-text3中git插件的安装与使用">5.Sublime text3中Git插件的安装与使用</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#1sublime-text3--gosublime--goimports--go-build">1.Sublime Text3 + GoSublime + Goimports + Go build</a></li>
+    <li><a href="#2sublime-text3goimports和gosublime的安装">2.Sublime Text3、Goimports和GoSublime的安装</a></li>
+    <li><a href="#3sublime-text3解决gosublime无法补全代码和使用goimports">3.Sublime Text3解决Gosublime无法补全代码和使用Goimports</a></li>
+    <li><a href="#4sublime-text3实现跳转功能">4.Sublime Text3实现跳转功能</a></li>
+    <li><a href="#5sublime-text3中git插件的安装与使用">5.Sublime text3中Git插件的安装与使用</a></li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="搭建golang开发环境">搭建Golang开发环境</h1>
-
-<h2 id="1-sublime-text3-gosublime-goimports-go-build">1.Sublime Text3 + GoSublime + Goimports + Go build</h2>
-
-<p>​   安装sublime text3和GoSublime插件</p>
-
-<h2 id="2-sublime-text3-goimports和gosublime的安装">2.Sublime Text3、Goimports和GoSublime的安装</h2>
-
-<h2 id="3-sublime-text3解决gosublime无法补全代码和使用goimports">3.Sublime Text3解决Gosublime无法补全代码和使用Goimports</h2>
-
-<h2 id="4-sublime-text3实现跳转功能">4.Sublime Text3实现跳转功能</h2>
-
-<p>​   在sublime text3中安装插件ctags,然后再在sublime text 3打开$GOROOT下src\pkg目录，进行Rebuild Tags（为防止和C的ctags生成路径冲突导致无法使用，先将~/.vimrc文件中的tags配置注释掉)，稍后就可以使用command+shift+左键查看源代码了。commad+alt+shift+z返回到上处。</p>
-
-<h2 id="5-sublime-text3中git插件的安装与使用">5.Sublime text3中Git插件的安装与使用</h2>
-
+      <h1 id="搭建golang开发环境">搭建Golang开发环境</h1>
+<h2 id="1sublime-text3--gosublime--goimports--go-build">1.Sublime Text3 + GoSublime + Goimports + Go build</h2>
+<p>​	安装sublime text3和GoSublime插件</p>
+<h2 id="2sublime-text3goimports和gosublime的安装">2.Sublime Text3、Goimports和GoSublime的安装</h2>
+<h2 id="3sublime-text3解决gosublime无法补全代码和使用goimports">3.Sublime Text3解决Gosublime无法补全代码和使用Goimports</h2>
+<h2 id="4sublime-text3实现跳转功能">4.Sublime Text3实现跳转功能</h2>
+<p>​	在sublime text3中安装插件ctags,然后再在sublime text 3打开$GOROOT下src\pkg目录，进行Rebuild Tags（为防止和C的ctags生成路径冲突导致无法使用，先将~/.vimrc文件中的tags配置注释掉)，稍后就可以使用command+shift+左键查看源代码了。commad+alt+shift+z返回到上处。</p>
+<h2 id="5sublime-text3中git插件的安装与使用">5.Sublime text3中Git插件的安装与使用</h2>
 <table>
 <thead>
 <tr>
@@ -602,20 +586,17 @@ if (!doNotTrack) {
 <th>职位</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>张三</td>
 <td>22</td>
 <td>p1</td>
 </tr>
-
 <tr>
 <td>李四</td>
 <td>23</td>
 <td>p2</td>
 </tr>
-
 <tr>
 <td>赵大</td>
 <td>25</td>

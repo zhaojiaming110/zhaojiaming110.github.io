@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-basic-knowledge/2019-09-22-%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8C%E6%96%B9%E6%B3%95/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
 <meta itemprop="name" content="结构体和方法">
 <meta itemprop="description" content="面向对象 Go语言仅支持封装，不支持继承和多态 Go语言没有class，只有struct struct 结构体是一种聚合的数据类型，是由零个或多个任意类型的值">
-
-
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="1927">
 
 
 
-<meta itemprop="keywords" content="面向对象," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="面向对象," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="结构体和方法"/>
 <meta name="twitter:description" content="面向对象 Go语言仅支持封装，不支持继承和多态 Go语言没有class，只有struct struct 结构体是一种聚合的数据类型，是由零个或多个任意类型的值"/>
 
@@ -559,114 +556,105 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#面向对象">面向对象</a></li>
-<li><a href="#struct">struct</a></li>
-<li><a href="#方法">方法</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="面向对象">面向对象</h1>
-
+      <h1 id="面向对象">面向对象</h1>
 <ul>
 <li>Go语言仅支持封装，不支持继承和多态</li>
 <li>Go语言没有class，只有struct</li>
 </ul>
-
 <h1 id="struct">struct</h1>
-
 <p>结构体是一种聚合的数据类型，是由零个或多个任意类型的值聚合成的实体。每个值称为结
 构体的成员。</p>
-
 <ul>
-<li><p>结构的定义：</p>
+<li>
+<p>结构的定义：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">type</span> TreeNode struct <span class="o">{</span>
-  value int
-  Left, Right *TreeNode
-<span class="o">}</span></code></pre></td></tr></table>
+    value int
+    Left, Right *TreeNode
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li>如果结构体成员名字是以大写字母开头的，那么相对于其它package来说，它是可以导出的。</li>
 <li>一个命名为S的结构体类型将不能再包含S类型的成员：因为一个聚合的值不能包含它自身；但是S类型的结构体可以包含*S类型指针的成员，这可以让我们创建递归的数组结构，比如链表和树结构。</li>
 <li>结构体类型的零值是每个成员都是对应类型的零值。</li>
-</ul></li>
-
-<li><p>访问结构体成员：</p></li>
 </ul>
-
+</li>
+<li>
+<p>访问结构体成员：</p>
 <p>无论是结构体还是指向结构体的指针，都可以使用点操作符来访问结构体成员。</p>
-
+</li>
+<li>
+<p>结构体字面值：</p>
 <ul>
-<li><p>结构体字面值：</p>
-
-<ul>
-<li><p>以结构体成员定义的顺序为每个结构体成员指定一个字面值：</p>
+<li>
+<p>以结构体成员定义的顺序为每个结构体成员指定一个字面值：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">type</span> point struct<span class="o">{</span>x, y int<span class="o">}</span>
-p :<span class="o">=</span> point<span class="o">{</span><span class="m">1</span>, <span class="m">2</span><span class="o">}</span></code></pre></td></tr></table>
+p :<span class="o">=</span> point<span class="o">{</span>1, 2<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>它要求写代码和读代码的人要记住结构体的每个成员的 类型和顺序，不过结构体成员有细微的调整就可能导致上述代码不能编译。</p></li>
-
-<li><p>上述的语 法一般只在定义结构体的包内部使用，或者是在较小的结构体中使用</p></li>
-
-<li><p>以成员的名字和相应的值来初始化(推荐使用)：</p>
+</div><ul>
+<li>它要求写代码和读代码的人要记住结构体的每个成员的 类型和顺序，不过结构体成员有细微的调整就可能导致上述代码不能编译。</li>
+<li>上述的语 法一般只在定义结构体的包内部使用，或者是在较小的结构体中使用</li>
+</ul>
+</li>
+<li>
+<p>以成员的名字和相应的值来初始化(推荐使用)：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">type</span> point struct<span class="o">(</span>x, y int<span class="o">)</span>
-p :<span class="o">=</span> point<span class="o">{</span>x:1<span class="o">}</span></code></pre></td></tr></table>
+p :<span class="o">=</span> point<span class="o">{</span>x:1<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>如果成员被忽略的话将默认用零值初始化该元素。</p></li>
-
-<li><p>提供了成员的名字，所有成员出现的顺序并不重要。</p></li>
-</ul></li>
-
-<li><p>结构体可以作为函数的参数和返回值：</p>
-
+</div><ul>
+<li>如果成员被忽略的话将默认用零值初始化该元素。</li>
+<li>提供了成员的名字，所有成员出现的顺序并不重要。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>结构体可以作为函数的参数和返回值：</p>
 <ul>
 <li>如果考虑效率的话，较大的结构体通常会用指针的方式传入和返回</li>
 <li>如果要在函数内部修改结构体成员的话，用指针传入是必须的；因为在Go语言中，所有的函数参数都是值拷贝传入的，函数参数将不再是函数调用时的原始变量。</li>
-</ul></li>
-
-<li><p>结构体比较：</p>
-
+</ul>
+</li>
+<li>
+<p>结构体比较：</p>
 <ul>
 <li>如果结构体的全部成员都是可以比较的，那么结构体也是可以比较的</li>
 <li>可比较的结构体类型和其他可比较的类型一样，可以用于map的key类型</li>
-</ul></li>
-
-<li><p>结构体嵌入和匿名成员：</p>
+</ul>
+</li>
+<li>
+<p>结构体嵌入和匿名成员：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -680,26 +668,26 @@ p :<span class="o">=</span> point<span class="o">{</span>x:1<span class="o">}</s
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">type</span> Point struct <span class="o">{</span>
-  X, Y int
+    X, Y int
 <span class="o">}</span>
 <span class="nb">type</span> Circle struct <span class="o">{</span>
-  Point
-	Radius int 
+    Point
+  Radius int 
 <span class="o">}</span>
 <span class="nb">type</span> Wheel struct <span class="o">{</span>
-  Circle
-	Spokes int 
-<span class="o">}</span></code></pre></td></tr></table>
+    Circle
+  Spokes int 
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li>Go语言有一个特性让我们只声明一个成员对应的数据类型而不指名成员的名字;这类成员就 叫匿名成员。</li>
-<li>匿名成员的数据类型必须是<u><strong>命名的类型</strong></u>或<u><strong>指向一个命名的类型的指针</strong></u>。</li>
-
-<li><p>得意于匿名嵌入的特性，我们可以直接访问叶子属性而不需要给出完整的路径:</p>
+<li>匿名成员的数据类型必须是<!-- raw HTML omitted --><strong>命名的类型</strong><!-- raw HTML omitted -->或<!-- raw HTML omitted --><strong>指向一个命名的类型的指针</strong><!-- raw HTML omitted -->。</li>
+<li>得意于匿名嵌入的特性，我们可以直接访问叶子属性而不需要给出完整的路径:</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -710,26 +698,28 @@ p :<span class="o">=</span> point<span class="o">{</span>x:1<span class="o">}</s
 w.X <span class="o">=</span> <span class="m">8</span>
 w.Y <span class="o">=</span> <span class="m">8</span>
 w.Radius <span class="o">=</span> <span class="m">5</span>
-w.Spokes <span class="o">=</span> <span class="m">20</span></code></pre></td></tr></table>
+w.Spokes <span class="o">=</span> <span class="m">20</span>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>不幸的是，结构体字面值并没有简短表示匿名成员的语法， 因此下面的语句都不能编译通 过:</p>
+</div><ul>
+<li>不幸的是，结构体字面值并没有简短表示匿名成员的语法， 因此下面的语句都不能编译通 过:</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">w</span> <span class="o">=</span> Wheel<span class="o">{</span><span class="m">8</span>, <span class="m">8</span>, <span class="m">5</span>, <span class="m">20</span><span class="o">}</span>                       // compile error: unknown fields
-<span class="nv">w</span> <span class="o">=</span> Wheel<span class="o">{</span>X: <span class="m">8</span>, Y: <span class="m">8</span>, Radius: <span class="m">5</span>, Spokes: <span class="m">20</span><span class="o">}</span> // compile error: unknown fields</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">w</span> <span class="o">=</span> Wheel<span class="o">{</span>8, 8, 5, 20<span class="o">}</span>                       // compile error: unknown fields
+<span class="nv">w</span> <span class="o">=</span> Wheel<span class="o">{</span>X: 8, Y: 8, Radius: 5, Spokes: 20<span class="o">}</span> // compile error: unknown fields
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>结构体字面值必须遵循形状类型声明时的结构:</p>
+</div><ul>
+<li>结构体字面值必须遵循形状类型声明时的结构:</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -739,32 +729,30 @@ w.Spokes <span class="o">=</span> <span class="m">20</span></code></pre></td></t
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">w</span> <span class="o">=</span> Wheel<span class="o">{</span>Circle<span class="o">{</span>Point<span class="o">{</span><span class="m">8</span>, <span class="m">8</span><span class="o">}</span>, <span class="m">5</span><span class="o">}</span>, <span class="m">20</span><span class="o">}</span>
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">w</span> <span class="o">=</span> Wheel<span class="o">{</span>Circle<span class="o">{</span>Point<span class="o">{</span>8, 8<span class="o">}</span>, 5<span class="o">}</span>, 20<span class="o">}</span>
 <span class="nv">w</span> <span class="o">=</span> Wheel<span class="o">{</span>
-Circle: Circle<span class="o">{</span>
-  Point:  Point<span class="o">{</span>X: <span class="m">8</span>, Y: <span class="m">8</span><span class="o">}</span>,
-		Radius: <span class="m">5</span>, 
-	<span class="o">}</span>,
-Spokes: <span class="m">20</span>, // NOTE: trailing comma necessary here <span class="o">(</span>and at Radius<span class="o">)</span>
-<span class="o">}</span>	//推荐使用这种方法</code></pre></td></tr></table>
+    Circle: Circle<span class="o">{</span>
+        Point:  Point<span class="o">{</span>X: 8, Y: 8<span class="o">}</span>,
+      Radius: 5, 
+  <span class="o">}</span>,
+    Spokes: 20, // NOTE: trailing comma necessary here <span class="o">(</span>and at Radius<span class="o">)</span>
+<span class="o">}</span>	//推荐使用这种方法
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>因为匿名成员也有一个隐式的名字，因此不能同时包含两个类型相同的匿名成员，这会导致 名字冲突。</p></li>
-</ul></li>
+</div><ul>
+<li>因为匿名成员也有一个隐式的名字，因此不能同时包含两个类型相同的匿名成员，这会导致 名字冲突。</li>
 </ul>
-
+</li>
+</ul>
 <h1 id="方法">方法</h1>
-
 <p>尽管没有被大众所接受的明确的OOP的定义，从我们的理解来讲，一个对象其实也就是一个 简单的值或者一个变量，在这个对象中会包含一些方法，而一个方法则是一个一个和特殊类 型关联的函数。一个面向对象的程序会用方法来表达其属性和对应的操作，这样使用这个对 象的用户就不需要直接去操作对象，而是借助方法来做这些事情。</p>
-
 <ul>
-<li><p>方法声明：</p>
-
+<li>
+<p>方法声明：</p>
 <p>尽管没有被大众所接受的明确的OOP的定义，从我们的理解来讲，一个对象其实也就是一个 简单的值或者一个变量，在这个对象中会包含一些方法，而一个方法则是一个一个和特殊类 型关联的函数。一个面向对象的程序会用方法来表达其属性和对应的操作，这样使用这个对 象的用户就不需要直接去操作对象，而是借助方法来做这些事情。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -782,45 +770,51 @@ import <span class="s2">&#34;math&#34;</span>
 <span class="nb">type</span> Point struct<span class="o">{</span> X, Y float64 <span class="o">}</span>
 // traditional <span class="k">function</span>
 func Distance<span class="o">(</span>p, q Point<span class="o">)</span> float64 <span class="o">{</span>
-  <span class="k">return</span> math.Hypot<span class="o">(</span>q.X-p.X, q.Y-p.Y<span class="o">)</span>
+    <span class="k">return</span> math.Hypot<span class="o">(</span>q.X-p.X, q.Y-p.Y<span class="o">)</span>
 <span class="o">}</span>
 // same thing, but as a method of the Point <span class="nb">type</span>
 func <span class="o">(</span>p Point<span class="o">)</span> Distance<span class="o">(</span>q Point<span class="o">)</span> float64 <span class="o">{</span>
-  <span class="k">return</span> math.Hypot<span class="o">(</span>q.X-p.X, q.Y-p.Y<span class="o">)</span>
-<span class="o">}</span></code></pre></td></tr></table>
+    <span class="k">return</span> math.Hypot<span class="o">(</span>q.X-p.X, q.Y-p.Y<span class="o">)</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li>上面的代码里那个附加的参数p，叫做方法的接收器(receiver)，早期的面向对象语言留下的遗 产将调用一个方法称为“向一个对象发送消息”。</li>
 <li>p.Distance的表达式叫做选择器，因为他会选择合适的对应p这个对象的Distance方法来 执行。</li>
 <li>由于接收器的名字经常会被使用到，所以为了保持其在方法间传递时的一致性和简单性，通常使用其类型的首字母作为方法的接收器。</li>
 <li>我 们可以给同一个包内的任意命名类型定义方法，只要这个命名类型的底层类型不是指针或者interface。</li>
 <li>对于一个给定的类型，其内部的方法都必须有唯一的方法名，但是不同的类型却可以有同样 的方法名。</li>
-</ul></li>
-
-<li><p>基于指针对象的方法：</p>
+</ul>
+</li>
+<li>
+<p>基于指针对象的方法：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">func <span class="o">(</span>p *Point<span class="o">)</span> ScaleBy<span class="o">(</span>factor float64<span class="o">)</span> <span class="o">{</span>
-  p.X *<span class="o">=</span> factor
-  p.Y *<span class="o">=</span> factor
-<span class="o">}</span></code></pre></td></tr></table>
+    p.X *<span class="o">=</span> factor
+    p.Y *<span class="o">=</span> factor
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li>只有类型（Type）和指向类型的指针（*Type），才是可能出现在接收器声明里的两种接收器。</li>
-<li>声明一个method的recevier该是指针还是非指针类型时，需考虑两方面的内容：</li>
+<li>声明一个method的recevier该是指针还是非指针类型时，需考虑两方面的内容：
+<ul>
 <li>1.这个对象本身是不是特别大，如果声明为非指针变量时，调用会产生一次拷 贝;</li>
 <li>2.如果你用指针类型作为receiver，那么你一定要注意，这种指针类型指向 的始终是一块内存地址。</li>
-</ul></li>
-
-<li><p>Nil也是一个合法的接收器类型</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Nil也是一个合法的接收器类型</p>
+</li>
 </ul>
 
     </div>

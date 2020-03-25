@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/date-structures-with-go/%E9%93%BE%E8%A1%A8%E7%AE%80%E4%BB%8B/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2019-11-10T23:01:23+08:00" />
 <meta itemprop="name" content="1-链表简介">
 <meta itemprop="description" content="像数组一样，链表是一个线性数据结构。与数组不同，链接列表元素不存储在连续位置；元素使用指针链接。 为什么要使用链表？ 数组可用于存储相似类型的线">
-
-
 <meta itemprop="datePublished" content="2019-11-10T23:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-10T23:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="1242">
 
 
 
-<meta itemprop="keywords" content="Singly Linked List," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Singly Linked List," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="1-链表简介"/>
 <meta name="twitter:description" content="像数组一样，链表是一个线性数据结构。与数组不同，链接列表元素不存储在连续位置；元素使用指针链接。 为什么要使用链表？ 数组可用于存储相似类型的线"/>
 
@@ -560,81 +557,53 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#为什么要使用链表">为什么要使用链表？</a></li>
-<li><a href="#链表比数组的优势">链表比数组的优势</a></li>
-<li><a href="#缺点">缺点</a></li>
-<li><a href="#表示形式">表示形式</a></li>
-<li><a href="#链表遍历">链表遍历</a></li>
-<li><a href="#输出">输出</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<p>像数组一样，链表是一个线性数据结构。与数组不同，链接列表元素不存储在连续位置；元素使用指针链接。</p>
-
-<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9m8sz50olj30l304pjr6.jpg" alt="" /></p>
-
+      <p>像数组一样，链表是一个线性数据结构。与数组不同，链接列表元素不存储在连续位置；元素使用指针链接。</p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9m8sz50olj30l304pjr6.jpg" alt=""></p>
 <h4 id="为什么要使用链表">为什么要使用链表？</h4>
-
 <p>数组可用于存储相似类型的线性数据，但是数组具有以下限制。</p>
-
 <ul>
 <li>数组的大小是固定的：因此，我们必须提前知道元素数量的上限。而且，通常，所分配的存储器与用途无关而等于上限。</li>
 <li>在元素数组中插入新元素非常昂贵，因为必须为新元素创建空间，并且为创建房间而必须移动现有元素。</li>
 </ul>
-
 <p>例如，在系统中，如果我们在数组id []中维护ID的排序列表。</p>
-
 <p>id [] = [1000，1010，1050，2000，2040]。</p>
-
 <p>而且，如果要插入新的ID 1005，则要保持排序顺序，我们必须将所有元素都移到1000（不包括1000）之后。
 除非使用某些特殊技术，否则删除数组也很昂贵。例如，要删除id []中的1010，必须移动1010之后的所有内容。</p>
-
 <h4 id="链表比数组的优势">链表比数组的优势</h4>
-
 <ul>
 <li>动态大小</li>
 <li>易于插入/删除</li>
 </ul>
-
 <h4 id="缺点">缺点</h4>
-
 <ul>
 <li>不允许随机访问。我们必须从第一个节点开始顺序访问元素。因此，我们无法使用其默认实现对链接列表进行有效的二进制搜索。<a href="https://www.geeksforgeeks.org/binary-search-on-singly-linked-list/">在这里</a>阅读。</li>
 <li>列表的每个元素都需要用于指针的额外存储空间。</li>
 <li>不适合缓存。由于数组元素是连续的位置，因此存在引用位置，而在链接列表的情况下则不存在。</li>
 </ul>
-
 <h4 id="表示形式">表示形式</h4>
-
 <p>链表由指向链表第一个节点的指针表示。第一个节点称为头。如果链表为空，则head的值为NULL。</p>
-
 <p>列表中的每个节点至少由两部分组成：</p>
-
 <ul>
 <li>数据</li>
 <li>指向下一个节点的指针（或引用）</li>
 </ul>
-
 <p>在Go语言中，我们可以使用结构表示一个节点。以下是带有整数数据的链表节点的示例。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -643,13 +612,13 @@ if (!doNotTrack) {
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Node</span> <span class="kd">struct</span> <span class="p">{</span>
 	<span class="nx">date</span> <span class="kt">int</span>
 	<span class="nx">next</span> <span class="o">*</span><span class="nx">Node</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Go中的第一个简单链接列表让我们创建一个包含3个节点的简单链接列表。</p>
+</div><p>Go中的第一个简单链接列表让我们创建一个包含3个节点的简单链接列表。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -758,15 +727,14 @@ if (!doNotTrack) {
 </span><span class="cm">		        +---+---+     +---+---+       +----+------+
 </span><span class="cm">	*/</span>
 	<span class="k">return</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="链表遍历">链表遍历</h4>
-
+</div><h4 id="链表遍历">链表遍历</h4>
 <p>在上一个程序中，我们创建了一个包含三个节点的简单链表。让我们遍历创建的列表并打印每个节点的数据。为了进行遍历，让我们编写一个通用函数printList()来打印任何给定的列表。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -909,20 +877,21 @@ if (!doNotTrack) {
 		<span class="nx">n</span> <span class="p">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">next</span>
 	<span class="p">}</span>
 	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">date</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="输出">输出</h4>
+</div><h4 id="输出">输出</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="m">1</span>
 <span class="m">2</span>
-<span class="m">3</span></code></pre></td></tr></table>
+<span class="m">3</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

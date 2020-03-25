@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-leetcode/0016%E6%9C%80%E6%8E%A5%E8%BF%91%E7%9A%84%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
 <meta itemprop="name" content="0016-3Sum Closest">
 <meta itemprop="description" content="题目描述 给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存">
-
-
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="571">
 
 
 
-<meta itemprop="keywords" content="array-leetcode," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="array-leetcode," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="0016-3Sum Closest"/>
 <meta name="twitter:description" content="题目描述 给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存"/>
 
@@ -560,56 +557,38 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#题目描述">题目描述</a></li>
-<li><a href="#解题">解题</a>
-<ul>
-<li><a href="#双指针-排序">双指针+排序</a>
-<ul>
-<li><a href="#算法">算法</a></li>
-<li><a href="#gif演示">GIF演示</a></li>
-<li><a href="#代码实现">代码实现</a></li>
-<li><a href="#复杂度分析">复杂度分析</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#题目描述">题目描述</a></li>
+        <li><a href="#解题">解题</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g95r6zww73j312k0u0q77.jpg" alt="" /></p>
-
+      <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g95r6zww73j312k0u0q77.jpg" alt=""></p>
 <h3 id="题目描述">题目描述</h3>
-
 <p>给定一个包括 <code>n</code> 个整数的数组 <code>nums</code> 和 一个目标值 <code>target</code>。找出 <code>nums</code> 中的三个整数，使得它们的和与 <code>target</code> 最接近。返回这三个数的和。假定每组输入只存在唯一答案。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">例如，给定数组 nums = [-1，2，1，-4], 和 target = 1.
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">例如，给定数组 nums = [-1，2，1，-4], 和 target = 1.
 
-与 target 最接近的三个数的和为 2. (-1 + 2 + 1 = 2).</pre></td></tr></table>
+与 target 最接近的三个数的和为 2. (-1 + 2 + 1 = 2).
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="解题">解题</h3>
-
-<h4 id="双指针-排序">双指针+排序</h4>
-
+</div><h3 id="解题">解题</h3>
+<h4 id="双指针排序">双指针+排序</h4>
 <h5 id="算法">算法</h5>
-
 <ul>
 <li>首先对数组进行排序，时间复杂度为 $O(nlogn)$。</li>
 <li>对数组<code>nums</code>进行遍历，每遍历一个值利用其下标i，形成一个固定值<code>nums[i]</code>。</li>
@@ -617,15 +596,12 @@ if (!doNotTrack) {
 <li>然后计算<code>sum=nums[i]+nums[start]+nums[end]</code>，判断<code>sum</code>和<code>target</code>的差值，如果更接近<code>target</code>，就更新结果<code>ans</code>。</li>
 <li>同时判断<code>sum</code>与<code>target</code>的关系，因为数组有序，如果<code>sum&gt;target</code>，则<code>end--</code>；如果<code>sum&lt;target</code>，则<code>start++</code>；如果<code>sum=target</code>，则直接返回结果<code>ans</code>。</li>
 </ul>
-
 <h5 id="gif演示">GIF演示</h5>
-
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9agbu4rjfg30m80cimzq.gif" alt="" /></p>
-
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9agbu4rjfg30m80cimzq.gif" alt=""></p>
 <h5 id="代码实现">代码实现</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -670,11 +646,10 @@ if (!doNotTrack) {
 		<span class="p">}</span>
 	<span class="p">}</span>
 	<span class="k">return</span> <span class="nx">ans</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h5 id="复杂度分析">复杂度分析</h5>
-
+</div><h5 id="复杂度分析">复杂度分析</h5>
 <ul>
 <li>时间复杂度：$O(N^2)$。</li>
 <li>空间复杂度：$O(1)$。</li>

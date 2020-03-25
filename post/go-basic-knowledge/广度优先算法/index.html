@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-basic-knowledge/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E7%AE%97%E6%B3%95/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2019-10-14T16:01:23+08:00" />
 <meta itemprop="name" content="广度优先算法">
 <meta itemprop="description" content="什么是广度优先算法 广度优先搜索算法（又称宽度优先搜索）是最简便的图的搜索算法之一，这一算法也是很多重要的图的算法的原型。Dijkstra单源">
-
-
 <meta itemprop="datePublished" content="2019-10-14T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-10-14T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="969">
 
 
 
-<meta itemprop="keywords" content="广度优先算法," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="广度优先算法," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="广度优先算法"/>
 <meta name="twitter:description" content="什么是广度优先算法 广度优先搜索算法（又称宽度优先搜索）是最简便的图的搜索算法之一，这一算法也是很多重要的图的算法的原型。Dijkstra单源"/>
 
@@ -560,31 +557,21 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#什么是广度优先算法">什么是广度优先算法</a></li>
-<li><a href="#广度优先搜索算法走迷宫">广度优先搜索算法走迷宫</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="什么是广度优先算法">什么是广度优先算法</h1>
-
+      <h1 id="什么是广度优先算法">什么是广度优先算法</h1>
 <p>广度优先<a href="https://baike.baidu.com/item/%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/2988274">搜索算法</a>（又称宽度优先搜索）是最简便的图的搜索算法之一，这一算法也是很多重要的图的算法的原型。Dijkstra<a href="https://baike.baidu.com/item/%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/6975204">单源最短路径</a>算法和Prim<a href="https://baike.baidu.com/item/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91">最小生成树</a>算法都采用了和宽度优先搜索类似的思想。其别名又叫BFS，属于一种盲目搜寻法，目的是系统地展开并检查图中的所有节点，以找寻结果。换句话说，它并不考虑结果的可能位置，彻底地搜索整张图， 直到找到结果为止。</p>
-
 <h1 id="广度优先搜索算法走迷宫">广度优先搜索算法走迷宫</h1>
-
 <ul>
-<li>题目描述:</li>
-</ul>
-
+<li>
+<p>题目描述:</p>
 <p>有一个i*j的格子迷宫，1代表格子为墙，不能通过，0代表可以通过。起点为（0，0），终点为（5，4），求出从起点到终点的路径。</p>
-
+</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -595,7 +582,6 @@ if (!doNotTrack) {
 <th align="center">0</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td align="center">0</td>
@@ -604,7 +590,6 @@ if (!doNotTrack) {
 <td align="center">1</td>
 <td align="center">0</td>
 </tr>
-
 <tr>
 <td align="center">0</td>
 <td align="center">1</td>
@@ -612,7 +597,6 @@ if (!doNotTrack) {
 <td align="center">1</td>
 <td align="center">0</td>
 </tr>
-
 <tr>
 <td align="center">1</td>
 <td align="center">1</td>
@@ -620,7 +604,6 @@ if (!doNotTrack) {
 <td align="center">0</td>
 <td align="center">0</td>
 </tr>
-
 <tr>
 <td align="center">0</td>
 <td align="center">1</td>
@@ -628,7 +611,6 @@ if (!doNotTrack) {
 <td align="center">0</td>
 <td align="center">1</td>
 </tr>
-
 <tr>
 <td align="center">0</td>
 <td align="center">1</td>
@@ -638,11 +620,9 @@ if (!doNotTrack) {
 </tr>
 </tbody>
 </table>
-
 <ul>
 <li>预期结果:</li>
 </ul>
-
 <table>
 <thead>
 <tr>
@@ -653,7 +633,6 @@ if (!doNotTrack) {
 <th align="center">6</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td align="center">1</td>
@@ -662,7 +641,6 @@ if (!doNotTrack) {
 <td align="center">1</td>
 <td align="center">7</td>
 </tr>
-
 <tr>
 <td align="center">0</td>
 <td align="center">1</td>
@@ -670,7 +648,6 @@ if (!doNotTrack) {
 <td align="center">1</td>
 <td align="center">8</td>
 </tr>
-
 <tr>
 <td align="center">1</td>
 <td align="center">1</td>
@@ -678,7 +655,6 @@ if (!doNotTrack) {
 <td align="center">10</td>
 <td align="center">9</td>
 </tr>
-
 <tr>
 <td align="center">0</td>
 <td align="center">1</td>
@@ -686,7 +662,6 @@ if (!doNotTrack) {
 <td align="center">11</td>
 <td align="center">1</td>
 </tr>
-
 <tr>
 <td align="center">0</td>
 <td align="center">1</td>
@@ -696,23 +671,22 @@ if (!doNotTrack) {
 </tr>
 </tbody>
 </table>
-
 <p>颜色所标记的就是结果路线。</p>
-
 <ul>
-<li><p>思路:</p>
-
+<li>
+<p>思路:</p>
 <ul>
 <li>用循环创建二维slice</li>
 <li>使用slice来实现队列</li>
 <li>用Fscanf读取文件</li>
 <li>对Point的抽象</li>
-</ul></li>
-
-<li><p>代码实现:</p>
+</ul>
+</li>
+<li>
+<p>代码实现:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -831,117 +805,118 @@ if (!doNotTrack) {
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
   
 <span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;fmt&#34;</span>
-	<span class="s">&#34;os&#34;</span>
+  <span class="s">&#34;fmt&#34;</span>
+  <span class="s">&#34;os&#34;</span>
 <span class="p">)</span>
   
 <span class="kd">func</span> <span class="nf">readMaze</span><span class="p">(</span><span class="nx">filename</span> <span class="kt">string</span><span class="p">)</span> <span class="p">[][]</span><span class="kt">int</span> <span class="p">{</span>
-	<span class="nx">file</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-	<span class="p">}</span>
-	<span class="kd">var</span> <span class="nx">row</span><span class="p">,</span> <span class="nx">col</span> <span class="kt">int</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Fscanf</span><span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="s">&#34;%d %d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">row</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">col</span><span class="p">)</span>
-	<span class="nx">maze</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([][]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">row</span><span class="p">)</span>
-	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">maze</span> <span class="p">{</span>
-		<span class="nx">maze</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">col</span><span class="p">)</span>
-		<span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">maze</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">{</span>
-			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Fscanf</span><span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">maze</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">])</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+  <span class="nx">file</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span>
+  <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+      <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="kd">var</span> <span class="nx">row</span><span class="p">,</span> <span class="nx">col</span> <span class="kt">int</span>
+  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Fscanf</span><span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="s">&#34;%d %d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">row</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">col</span><span class="p">)</span>
+  <span class="nx">maze</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([][]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">row</span><span class="p">)</span>
+  <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">maze</span> <span class="p">{</span>
+      <span class="nx">maze</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">col</span><span class="p">)</span>
+      <span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">maze</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">{</span>
+          <span class="nx">fmt</span><span class="p">.</span><span class="nf">Fscanf</span><span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">maze</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">])</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
   
-	<span class="k">return</span> <span class="nx">maze</span>
+  <span class="k">return</span> <span class="nx">maze</span>
 <span class="p">}</span>
   
 <span class="kd">type</span> <span class="nx">point</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span>
+  <span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span>
 <span class="p">}</span>
   
 <span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="nx">point</span><span class="p">)</span> <span class="nf">add</span><span class="p">(</span><span class="nx">r</span> <span class="nx">point</span><span class="p">)</span> <span class="nx">point</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nx">point</span><span class="p">{</span><span class="nx">p</span><span class="p">.</span><span class="nx">i</span> <span class="o">+</span> <span class="nx">r</span><span class="p">.</span><span class="nx">i</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">j</span> <span class="o">+</span> <span class="nx">r</span><span class="p">.</span><span class="nx">j</span><span class="p">}</span>
+  <span class="k">return</span> <span class="nx">point</span><span class="p">{</span><span class="nx">p</span><span class="p">.</span><span class="nx">i</span> <span class="o">+</span> <span class="nx">r</span><span class="p">.</span><span class="nx">i</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">j</span> <span class="o">+</span> <span class="nx">r</span><span class="p">.</span><span class="nx">j</span><span class="p">}</span>
 <span class="p">}</span>
   
 <span class="c1">//判断当前点是否数组越界
 </span><span class="c1">//返回当前点对应二维数组的值
 </span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="nx">point</span><span class="p">)</span> <span class="nf">at</span><span class="p">(</span><span class="nx">grid</span> <span class="p">[][]</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">if</span> <span class="nx">p</span><span class="p">.</span><span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">p</span><span class="p">.</span><span class="nx">i</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">grid</span><span class="p">)</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">false</span>
-	<span class="p">}</span>
-	<span class="k">if</span> <span class="nx">p</span><span class="p">.</span><span class="nx">j</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">p</span><span class="p">.</span><span class="nx">j</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">grid</span><span class="p">[</span><span class="nx">p</span><span class="p">.</span><span class="nx">i</span><span class="p">])</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">false</span>
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="nx">grid</span><span class="p">[</span><span class="nx">p</span><span class="p">.</span><span class="nx">i</span><span class="p">][</span><span class="nx">p</span><span class="p">.</span><span class="nx">j</span><span class="p">],</span> <span class="kc">true</span>
+  <span class="k">if</span> <span class="nx">p</span><span class="p">.</span><span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">p</span><span class="p">.</span><span class="nx">i</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">grid</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">false</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="nx">p</span><span class="p">.</span><span class="nx">j</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">p</span><span class="p">.</span><span class="nx">j</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">grid</span><span class="p">[</span><span class="nx">p</span><span class="p">.</span><span class="nx">i</span><span class="p">])</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">false</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">grid</span><span class="p">[</span><span class="nx">p</span><span class="p">.</span><span class="nx">i</span><span class="p">][</span><span class="nx">p</span><span class="p">.</span><span class="nx">j</span><span class="p">],</span> <span class="kc">true</span>
 <span class="p">}</span>
   
 <span class="kd">var</span> <span class="nx">dirs</span> <span class="p">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="nx">point</span><span class="p">{</span>
-	<span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span>
+  <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span>
 <span class="p">}</span>
   
 <span class="kd">func</span> <span class="nf">walk</span><span class="p">(</span><span class="nx">maze</span> <span class="p">[][]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">end</span> <span class="nx">point</span><span class="p">)</span> <span class="p">[][]</span><span class="kt">int</span> <span class="p">{</span>
-	<span class="nx">steps</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([][]</span><span class="kt">int</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">maze</span><span class="p">))</span>
-	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">steps</span> <span class="p">{</span>
-		<span class="nx">steps</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">maze</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span>
-	<span class="p">}</span>
-	<span class="nx">Q</span> <span class="o">:=</span> <span class="p">[]</span><span class="nx">point</span><span class="p">{</span><span class="nx">start</span><span class="p">}</span>
-	<span class="k">for</span> <span class="nb">len</span><span class="p">(</span><span class="nx">Q</span><span class="p">)</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
-		<span class="nx">cur</span> <span class="o">:=</span> <span class="nx">Q</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">//当前点
-</span><span class="c1"></span>		<span class="nx">Q</span> <span class="p">=</span> <span class="nx">Q</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+  <span class="nx">steps</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([][]</span><span class="kt">int</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">maze</span><span class="p">))</span>
+  <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">steps</span> <span class="p">{</span>
+      <span class="nx">steps</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">maze</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span>
+  <span class="p">}</span>
+  <span class="nx">Q</span> <span class="o">:=</span> <span class="p">[]</span><span class="nx">point</span><span class="p">{</span><span class="nx">start</span><span class="p">}</span>
+  <span class="k">for</span> <span class="nb">len</span><span class="p">(</span><span class="nx">Q</span><span class="p">)</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+      <span class="nx">cur</span> <span class="o">:=</span> <span class="nx">Q</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">//当前点
+</span><span class="c1"></span>      <span class="nx">Q</span> <span class="p">=</span> <span class="nx">Q</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
   
-		<span class="k">if</span> <span class="nx">cur</span> <span class="o">==</span> <span class="nx">end</span> <span class="p">{</span>
-			<span class="k">break</span>
-		<span class="p">}</span>
+      <span class="k">if</span> <span class="nx">cur</span> <span class="o">==</span> <span class="nx">end</span> <span class="p">{</span>
+          <span class="k">break</span>
+      <span class="p">}</span>
   
-		<span class="c1">//循环朝四个方向前进
-</span><span class="c1"></span>		<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">dir</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">dirs</span> <span class="p">{</span>
-			<span class="nx">next</span> <span class="o">:=</span> <span class="nx">cur</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="nx">dir</span><span class="p">)</span> <span class="c1">//当前点前进的点
-</span><span class="c1"></span>			<span class="c1">//maze at next is 0
-</span><span class="c1"></span>			<span class="c1">//and stesp next is 0
-</span><span class="c1"></span>			<span class="c1">//and next != start
-</span><span class="c1"></span>			<span class="nx">val</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">next</span><span class="p">.</span><span class="nf">at</span><span class="p">(</span><span class="nx">maze</span><span class="p">)</span>
-			<span class="c1">//val == 1表明当前点向当前方向前进撞墙了
-</span><span class="c1"></span>			<span class="k">if</span> <span class="p">!</span><span class="nx">ok</span> <span class="o">||</span> <span class="nx">val</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">{</span>
-				<span class="k">continue</span>
-			<span class="p">}</span>
-			<span class="nx">val</span><span class="p">,</span> <span class="nx">ok</span> <span class="p">=</span> <span class="nx">next</span><span class="p">.</span><span class="nf">at</span><span class="p">(</span><span class="nx">steps</span><span class="p">)</span>
-			<span class="c1">//val != 0 表明当前点向当前飞向前进的点已经标记步骤了
-</span><span class="c1"></span>			<span class="k">if</span> <span class="p">!</span><span class="nx">ok</span> <span class="o">||</span> <span class="nx">val</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
-				<span class="k">continue</span>
-			<span class="p">}</span>
-			<span class="k">if</span> <span class="nx">next</span> <span class="o">==</span> <span class="nx">start</span> <span class="p">{</span>
-				<span class="k">continue</span>
-			<span class="p">}</span>
-			<span class="c1">//此路可通，此路+1
-</span><span class="c1"></span>			<span class="nx">curSteps</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">cur</span><span class="p">.</span><span class="nf">at</span><span class="p">(</span><span class="nx">steps</span><span class="p">)</span>         <span class="c1">//当前点在steps模板中的值
-</span><span class="c1"></span>			<span class="nx">steps</span><span class="p">[</span><span class="nx">next</span><span class="p">.</span><span class="nx">i</span><span class="p">][</span><span class="nx">next</span><span class="p">.</span><span class="nx">j</span><span class="p">]</span> <span class="p">=</span> <span class="nx">curSteps</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1">//模板对应位置的值+1
+      <span class="c1">//循环朝四个方向前进
+</span><span class="c1"></span>      <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">dir</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">dirs</span> <span class="p">{</span>
+          <span class="nx">next</span> <span class="o">:=</span> <span class="nx">cur</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="nx">dir</span><span class="p">)</span> <span class="c1">//当前点前进的点
+</span><span class="c1"></span>          <span class="c1">//maze at next is 0
+</span><span class="c1"></span>          <span class="c1">//and stesp next is 0
+</span><span class="c1"></span>          <span class="c1">//and next != start
+</span><span class="c1"></span>          <span class="nx">val</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">next</span><span class="p">.</span><span class="nf">at</span><span class="p">(</span><span class="nx">maze</span><span class="p">)</span>
+          <span class="c1">//val == 1表明当前点向当前方向前进撞墙了
+</span><span class="c1"></span>          <span class="k">if</span> <span class="p">!</span><span class="nx">ok</span> <span class="o">||</span> <span class="nx">val</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">{</span>
+              <span class="k">continue</span>
+          <span class="p">}</span>
+          <span class="nx">val</span><span class="p">,</span> <span class="nx">ok</span> <span class="p">=</span> <span class="nx">next</span><span class="p">.</span><span class="nf">at</span><span class="p">(</span><span class="nx">steps</span><span class="p">)</span>
+          <span class="c1">//val != 0 表明当前点向当前飞向前进的点已经标记步骤了
+</span><span class="c1"></span>          <span class="k">if</span> <span class="p">!</span><span class="nx">ok</span> <span class="o">||</span> <span class="nx">val</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
+              <span class="k">continue</span>
+          <span class="p">}</span>
+          <span class="k">if</span> <span class="nx">next</span> <span class="o">==</span> <span class="nx">start</span> <span class="p">{</span>
+              <span class="k">continue</span>
+          <span class="p">}</span>
+          <span class="c1">//此路可通，此路+1
+</span><span class="c1"></span>          <span class="nx">curSteps</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">cur</span><span class="p">.</span><span class="nf">at</span><span class="p">(</span><span class="nx">steps</span><span class="p">)</span>         <span class="c1">//当前点在steps模板中的值
+</span><span class="c1"></span>          <span class="nx">steps</span><span class="p">[</span><span class="nx">next</span><span class="p">.</span><span class="nx">i</span><span class="p">][</span><span class="nx">next</span><span class="p">.</span><span class="nx">j</span><span class="p">]</span> <span class="p">=</span> <span class="nx">curSteps</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1">//模板对应位置的值+1
 </span><span class="c1"></span>  
-			<span class="nx">Q</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">Q</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="c1">//将后面的点加进队列里面
-</span><span class="c1"></span>		<span class="p">}</span>
-	<span class="p">}</span>
+          <span class="nx">Q</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">Q</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="c1">//将后面的点加进队列里面
+</span><span class="c1"></span>      <span class="p">}</span>
+  <span class="p">}</span>
   
-	<span class="k">return</span> <span class="nx">steps</span>
+  <span class="k">return</span> <span class="nx">steps</span>
 <span class="p">}</span>
   
 <span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">maze</span> <span class="o">:=</span> <span class="nf">readMaze</span><span class="p">(</span><span class="s">&#34;/Users/zhaojiaming/go/src/study/maze/maze.txt&#34;</span><span class="p">)</span>
+  <span class="nx">maze</span> <span class="o">:=</span> <span class="nf">readMaze</span><span class="p">(</span><span class="s">&#34;/Users/zhaojiaming/go/src/study/maze/maze.txt&#34;</span><span class="p">)</span>
   
-	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">row</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">maze</span> <span class="p">{</span>
-		<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">row</span> <span class="p">{</span>
-			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%3d&#34;</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
-		<span class="p">}</span>
-		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">()</span>
-	<span class="p">}</span>
+  <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">row</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">maze</span> <span class="p">{</span>
+      <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">row</span> <span class="p">{</span>
+          <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%3d&#34;</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
+      <span class="p">}</span>
+      <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">()</span>
+  <span class="p">}</span>
   
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">()</span>
+  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">()</span>
   
-	<span class="nx">steps</span> <span class="o">:=</span> <span class="nf">walk</span><span class="p">(</span><span class="nx">maze</span><span class="p">,</span> <span class="nx">point</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="nx">point</span><span class="p">{</span><span class="nb">len</span><span class="p">(</span><span class="nx">maze</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">maze</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">})</span>
+  <span class="nx">steps</span> <span class="o">:=</span> <span class="nf">walk</span><span class="p">(</span><span class="nx">maze</span><span class="p">,</span> <span class="nx">point</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="nx">point</span><span class="p">{</span><span class="nb">len</span><span class="p">(</span><span class="nx">maze</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">maze</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">})</span>
   
-	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">row</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">steps</span> <span class="p">{</span>
-		<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">row</span> <span class="p">{</span>
-			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%3d&#34;</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
-		<span class="p">}</span>
-		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">()</span>
-	<span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+  <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">row</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">steps</span> <span class="p">{</span>
+      <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">row</span> <span class="p">{</span>
+          <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%3d&#34;</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
+      <span class="p">}</span>
+      <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">()</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>

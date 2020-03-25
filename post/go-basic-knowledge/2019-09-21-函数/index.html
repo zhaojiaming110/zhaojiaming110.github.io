@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-basic-knowledge/2019-09-21-%E5%87%BD%E6%95%B0/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
 <meta itemprop="name" content="函数">
 <meta itemprop="description" content="1 2 3 4 5 6 7 func Add(a int, b int) (ret int, err error) { if a &lt; 0 || b &lt; 0 { // 假设这个函数只支持两个非负数字的加法 err = errors.New(&#34;Should be non-negative numbers!&#34;) return } return a &#43; b, nil // 支持多重返回值 } 函数定">
-
-
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="1298">
 
 
 
-<meta itemprop="keywords" content="基础语法," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="基础语法," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="函数"/>
 <meta name="twitter:description" content="1 2 3 4 5 6 7 func Add(a int, b int) (ret int, err error) { if a &lt; 0 || b &lt; 0 { // 假设这个函数只支持两个非负数字的加法 err = errors.New(&#34;Should be non-negative numbers!&#34;) return } return a &#43; b, nil // 支持多重返回值 } 函数定"/>
 
@@ -559,26 +556,15 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#函数定义">函数定义</a></li>
-<li><a href="#函数调用">函数调用</a></li>
-<li><a href="#不定参数">不定参数</a></li>
-<li><a href="#多返回值">多返回值</a></li>
-<li><a href="#匿名函数与闭包">匿名函数与闭包</a></li>
-<li><a href="#函数作为参数-回调">函数作为参数（回调）</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<div class="highlight"><div class="chroma">
+      <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -593,72 +579,68 @@ if (!doNotTrack) {
 		<span class="k">return</span>
 	<span class="o">}</span>
 	<span class="k">return</span> a + b, nil // 支持多重返回值
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="函数定义">函数定义</h1>
-
+</div><h1 id="函数定义">函数定义</h1>
 <p>函数声明包括函数名、形式参数列表、返回值列表(可省略)以及函数体。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">func name<span class="o">(</span>parameter-list<span class="o">)</span> <span class="o">(</span>result-list<span class="o">)</span> <span class="o">{</span>
     body
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="函数调用">函数调用</h1>
-
+</div><h1 id="函数调用">函数调用</h1>
 <p>函数调用非常方便，只要事先导入了该函数所在的包，就可以直接按照如下所示的方式调用 函数:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">import <span class="s2">&#34;fmt&#34;</span>
 
-fmt.Println<span class="o">(</span><span class="s2">&#34;函数调用&#34;</span><span class="o">)</span></code></pre></td></tr></table>
+fmt.Println<span class="o">(</span><span class="s2">&#34;函数调用&#34;</span><span class="o">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="不定参数">不定参数</h1>
-
+</div><h1 id="不定参数">不定参数</h1>
 <ol>
-<li>不定参数类型</li>
-</ol>
-
+<li>
+<p>不定参数类型</p>
 <p>不定参数是指函数传入的参数个数为不定数量。为了做到这点，首先需要将函数定义为接受 不定参数类型:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">   func myfunc<span class="o">(</span>args ...int<span class="o">)</span> <span class="o">{</span>
-   	<span class="k">for</span> _, arg :<span class="o">=</span> range args <span class="o">{</span>
-   		fmt.Println<span class="o">(</span>arg<span class="o">)</span>
-   	<span class="o">}</span>
-   <span class="o">}</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">func myfunc<span class="o">(</span>args ...int<span class="o">)</span> <span class="o">{</span>
+ <span class="k">for</span> _, arg :<span class="o">=</span> range args <span class="o">{</span>
+     fmt.Println<span class="o">(</span>arg<span class="o">)</span>
+ <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li>形如&hellip;type格式的类型只能作为函数的参数类型存在，并且必须是最后一个参数。它是一 个语法糖(syntactic sugar).</li>
 <li>从内部实现机理上来说，类型&hellip;type本质上是一个数组切片，也就是[]type。</li>
 </ul>
-
-<ol>
-<li><p>不定参数的传递</p>
+</li>
+<li>
+<p>不定参数的传递</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -666,82 +648,81 @@ fmt.Println<span class="o">(</span><span class="s2">&#34;函数调用&#34;</span
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">func myfunc<span class="o">(</span>args ...int<span class="o">)</span> <span class="o">{</span> // 按原样传递
-	myfunc3<span class="o">(</span>args...<span class="o">)</span>
-	// 传递片段，实际上任意的int slice都可以传进去
-	myfunc3<span class="o">(</span>args<span class="o">[</span><span class="m">1</span>:<span class="o">]</span>...<span class="o">)</span>
-<span class="o">}</span></code></pre></td></tr></table>
+ myfunc3<span class="o">(</span>args...<span class="o">)</span>
+ // 传递片段，实际上任意的int slice都可以传进去
+ myfunc3<span class="o">(</span>args<span class="o">[</span>1:<span class="o">]</span>...<span class="o">)</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>任意类型的不定参数</p></li>
-</ol>
-
+<li>
+<p>任意类型的不定参数</p>
 <p>用interface{}传递任意类型数据是Go语言的惯例用法。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">   func Printf<span class="o">(</span>format string, args ...interface<span class="o">{})</span> <span class="o">{</span> 
-   	// ...
-   <span class="o">}</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">func Printf<span class="o">(</span>format string, args ...interface<span class="o">{})</span> <span class="o">{</span> 
+ // ...
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ol>
 <h1 id="多返回值">多返回值</h1>
-
 <ol>
-<li><p>Go语言的函数或者成员的方法可以有多 个返回值，比如File.Read()函 数就可以同时返回读取的字节数和错误信息。</p>
+<li>
+<p>Go语言的函数或者成员的方法可以有多 个返回值，比如File.Read()函 数就可以同时返回读取的字节数和错误信息。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">func <span class="o">(</span>file *File<span class="o">)</span> Read<span class="o">(</span>b <span class="o">[]</span>byte<span class="o">)</span> <span class="o">(</span>n int, err Error<span class="o">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">func <span class="o">(</span>file *File<span class="o">)</span> Read<span class="o">(</span>b <span class="o">[]</span>byte<span class="o">)</span> <span class="o">(</span>n int, err Error<span class="o">)</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>可以给返回值命名，返回值被命名之后，它们的值在函数开始的时候被自动初始化为空。</p></li>
-
-<li><p>如果调用方调用了一个具有多返回值的方法，但是却不想关心其中的某个返回值，可以简单 地用一个下划线“_”来跳过这个返回值。</p>
+<li>
+<p>可以给返回值命名，返回值被命名之后，它们的值在函数开始的时候被自动初始化为空。</p>
+</li>
+<li>
+<p>如果调用方调用了一个具有多返回值的方法，但是却不想关心其中的某个返回值，可以简单 地用一个下划线“_”来跳过这个返回值。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">n, _ :<span class="o">=</span> f.Read<span class="o">(</span>buf<span class="o">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">n, _ :<span class="o">=</span> f.Read<span class="o">(</span>buf<span class="o">)</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ol>
-
 <h1 id="匿名函数与闭包">匿名函数与闭包</h1>
-
 <p>匿名函数是指不需要定义函数名的一种函数方式实现方式。</p>
-
 <ol>
-<li>匿名函数</li>
-</ol>
-
+<li>
+<p>匿名函数</p>
 <p>在Go里面，函数可以像普通变量一样被传递或使用，Go语言支持随时在代码里定义匿名函数。</p>
-
 <p>匿名函数由一个不带函数名的函数声明和函数体组成，如下所示:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">   func<span class="o">(</span>a, b int, z float64<span class="o">)</span> bool <span class="o">{</span> 
-   	<span class="k">return</span> a*b &lt; int<span class="o">(</span>z<span class="o">)</span>
-   <span class="o">}</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">func<span class="o">(</span>a, b int, z float64<span class="o">)</span> bool <span class="o">{</span> 
+ <span class="k">return</span> a*b &lt; int<span class="o">(</span>z<span class="o">)</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>匿名函数可以直接赋值给一个变量或者直接执行:</p>
+</div><p>匿名函数可以直接赋值给一个变量或者直接执行:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -755,51 +736,45 @@ fmt.Println<span class="o">(</span><span class="s2">&#34;函数调用&#34;</span
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">   //匿名函数赋值给一个变量
-   f :<span class="o">=</span> func<span class="o">(</span>x, y int<span class="o">)</span> int <span class="o">{</span> 
-   	<span class="k">return</span> x + y
-   <span class="o">}</span>
-   //匿名函数直接执行
-   func main<span class="o">()</span> <span class="o">{</span>
-       x :<span class="o">=</span> <span class="m">100</span>
-       func<span class="o">(</span>x *int<span class="o">)</span> <span class="o">{</span>
-           *x +<span class="o">=</span> <span class="m">1</span>
-       <span class="o">}(</span><span class="p">&amp;</span>x<span class="o">)</span>//花括号后面直接跟参数列表表示函数调用
-       fmt.Println<span class="o">(</span>x<span class="o">)</span>
-   <span class="o">}</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">//匿名函数赋值给一个变量
+f :<span class="o">=</span> func<span class="o">(</span>x, y int<span class="o">)</span> int <span class="o">{</span> 
+ <span class="k">return</span> x + y
+<span class="o">}</span>
+//匿名函数直接执行
+func main<span class="o">()</span> <span class="o">{</span>
+    x :<span class="o">=</span> <span class="m">100</span>
+    func<span class="o">(</span>x *int<span class="o">)</span> <span class="o">{</span>
+        *x +<span class="o">=</span> <span class="m">1</span>
+    <span class="o">}(</span><span class="p">&amp;</span>x<span class="o">)</span>//花括号后面直接跟参数列表表示函数调用
+    fmt.Println<span class="o">(</span>x<span class="o">)</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<ol>
-<li><p>闭包</p>
-
+</div></li>
+<li>
+<p>闭包</p>
 <ul>
-<li>基本概念</li>
-</ul>
-
+<li>
+<p>基本概念</p>
 <p>闭包是可以包含自由(未绑定到特定对象)变量的代码块，这些变量不在这个代码块内或者 任何全局上下文中定义，而是在定义代码块的环境中定义。要执行的代码块(由于自由变量包含 在代码块中，所以这些自由变量以及它们引用的对象没有被释放)为自由变量提供绑定的计算环 境(作用域)。</p>
-
-<ul>
-<li>闭包的价值</li>
-</ul>
-
+</li>
+<li>
+<p>闭包的价值</p>
 <p>闭包的价值在于可以作为函数对象或者匿名函数，对于类型系统而言，这意味着不仅要表示
- 数据还要表示代码。支持闭包的多数语言都将函数作为第一级对象，就是说这些函数可以存储到 变量中作为参数传递给其他函数，最重要的是能够被函数动态创建和返回。</p>
-
-<ul>
-<li>Go语言中的闭包</li>
-</ul>
-
+数据还要表示代码。支持闭包的多数语言都将函数作为第一级对象，就是说这些函数可以存储到 变量中作为参数传递给其他函数，最重要的是能够被函数动态创建和返回。</p>
+</li>
+<li>
+<p>Go语言中的闭包</p>
 <p>Go语言中的闭包同样也会引用到函数外的变量。闭包的实现确保只要闭包还被使用，那么
- 被闭包引用的变量会一直存在。</p></li>
+被闭包引用的变量会一直存在。</p>
+</li>
+</ul>
+</li>
 </ol>
-
-<h1 id="函数作为参数-回调">函数作为参数（回调）</h1>
-
+<h1 id="函数作为参数回调">函数作为参数（回调）</h1>
 <p>golang中函数也可以作为其它函数的参数进行传递，然后再其它函数内调用，一般称之为回调。</p>
-
 <p>语法：</p>
-
-<p>​   以函数签名作为主调函数的形参类型，即传递一个指向函数的指针。</p>
+<p>​	以函数签名作为主调函数的形参类型，即传递一个指向函数的指针。</p>
 
     </div>
 

@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/algorithms/overview/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E7%AE%97%E6%B3%95/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2019-11-10T23:01:23+08:00" />
 <meta itemprop="name" content="计算机与算法">
 <meta itemprop="description" content="计算：算法 计算模型 = 计算机 = 信息处理工具 所谓算法，即特定计算模型下，旨在解决特定问题的指令序列 输入 待处理的信息（问题） 输出 经处理的信息（答案">
-
-
 <meta itemprop="datePublished" content="2019-11-10T23:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-10T23:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="1058">
 
 
 
-<meta itemprop="keywords" content="算法绪论," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="算法绪论," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="计算机与算法"/>
 <meta name="twitter:description" content="计算：算法 计算模型 = 计算机 = 信息处理工具 所谓算法，即特定计算模型下，旨在解决特定问题的指令序列 输入 待处理的信息（问题） 输出 经处理的信息（答案"/>
 
@@ -560,164 +557,145 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#计算-算法">计算：算法</a></li>
-<li><a href="#计算模型-统一尺度">计算模型：统一尺度</a></li>
-<li><a href="#计算模型-图灵机">计算模型：图灵机</a></li>
-<li><a href="#计算模型-ram">计算模型：RAM</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h4 id="计算-算法">计算：算法</h4>
-
+      <h4 id="计算算法">计算：算法</h4>
 <ul>
-<li><p>计算模型 = 计算机 = 信息处理工具</p></li>
-
-<li><p>所谓算法，即特定计算模型下，旨在解决特定问题的指令序列</p>
-
+<li>
+<p>计算模型 = 计算机 = 信息处理工具</p>
+</li>
+<li>
+<p>所谓算法，即特定计算模型下，旨在解决特定问题的指令序列</p>
 <ul>
 <li>输入    待处理的信息（问题）</li>
 <li>输出    经处理的信息（答案）</li>
 <li>正确性   的确可以解决指定的问题</li>
 <li>确定性   任一算法都可以描述为一个由基本操作组成的序列</li>
 <li>可行性   每一基本操作都可实现，且在常熟时间内完成</li>
-<li>有穷性   对于任何输入，经有穷次基本操作，都可以得到输出
-<br /></li>
-</ul></li>
-
-<li><p>好算法 = ？</p>
-
-<ul>
-<li><p>正确：符合语法，能够编译、链接</p>
-
-<p>​           能够正确处理简单的输入</p>
-
-<p>​           能够正确处理大规模的输入</p>
-
-<p>​           能够正确处理一般性的输入</p>
-
-<p>​           能够正确处理退化的输入</p>
-
-<p>​           能够正确处理任意合法的输入</p></li>
-
-<li><p>健壮：能辨别不和法的输入并做适当处理，而不致非正常退出</p></li>
-
-<li><p>可读：结构化 + 准确命名 + 注释 + &hellip;</p></li>
-
-<li><p><strong>效率</strong>：速度尽可能快；存储空间尽可能少</p>
-
-<p>​           Algorithms + Data Structures = Programs</p>
-
-<p>​           (Algorithms + Data Structures) * Efficiency = Computation</p></li>
-</ul></li>
+<li>有穷性   对于任何输入，经有穷次基本操作，都可以得到输出</li>
 </ul>
-
-<h4 id="计算模型-统一尺度">计算模型：统一尺度</h4>
-
+</li>
+<li>
+<p>好算法 = ？</p>
 <ul>
-<li><p>算法分析</p>
-
+<li>
+<p>正确：符合语法，能够编译、链接</p>
+<p>​			能够正确处理简单的输入</p>
+<p>​			能够正确处理大规模的输入</p>
+<p>​			能够正确处理一般性的输入</p>
+<p>​			能够正确处理退化的输入</p>
+<p>​			能够正确处理任意合法的输入</p>
+</li>
+<li>
+<p>健壮：能辨别不和法的输入并做适当处理，而不致非正常退出</p>
+</li>
+<li>
+<p>可读：结构化 + 准确命名 + 注释 + &hellip;</p>
+</li>
+<li>
+<p><strong>效率</strong>：速度尽可能快；存储空间尽可能少</p>
+<p>​			Algorithms + Data Structures = Programs</p>
+<p>​			(Algorithms + Data Structures) * Efficiency = Computation</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="计算模型统一尺度">计算模型：统一尺度</h4>
 <ul>
-<li><p>正确性：算法功能与问题要求一致？</p></li>
-
-<li><p><strong>成本</strong>：<strong>运行时间</strong> + 所需存储空间</p>
-
-<p>​           如何度量？如何比较？</p></li>
-</ul></li>
-
-<li><p>考察：$T_A(P)$ = 算法A求解问题实例P的计算成本</p>
-
-<p>​           意义不大，毕竟&hellip;可能出现的问题实例太多</p>
-
-<p>​           如何归纳概括？ <strong>划分等价类</strong></p></li>
-
-<li><p>观察：问题实例的规模，往往是决定计算成本的主要因素</p></li>
-
-<li><p>通常：规模接近，计算成本也接近</p>
-
-<p>​           规模扩大，计算成本亦上升</p></li>
-
-<li><p>特定算法 + 不同实例</p>
-
+<li>
+<p>算法分析</p>
 <ul>
-<li><p>令$T_A(n)$ = 用算法A求解某一问题规模为n的实例（不是一个是一类），所需的计算成本。</p>
-
-<p>讨论特定算法A（及其对应的问题）时，简记坐$T(n)$.</p></li>
-
-<li><p>然而，这一定义仍有问题&hellip;</p></li>
-
-<li><p>观察：同一问题等规模的不同实例，计算成本不尽相同，甚至有实质差别</p></li>
-
-<li><p>例如：在平面上的n个点中，找到所成三角形面积最小的三个点</p>
-
+<li>
+<p>正确性：算法功能与问题要求一致？</p>
+</li>
+<li>
+<p><strong>成本</strong>：<strong>运行时间</strong> + 所需存储空间</p>
+<p>​			如何度量？如何比较？</p>
+</li>
+</ul>
+</li>
+<li>
+<p>考察：$T_A(P)$ = 算法A求解问题实例P的计算成本</p>
+<p>​			意义不大，毕竟&hellip;可能出现的问题实例太多</p>
+<p>​			如何归纳概括？	<strong>划分等价类</strong></p>
+</li>
+<li>
+<p>观察：问题实例的规模，往往是决定计算成本的主要因素</p>
+</li>
+<li>
+<p>通常：规模接近，计算成本也接近</p>
+<p>​			规模扩大，计算成本亦上升</p>
+</li>
+<li>
+<p>特定算法 + 不同实例</p>
+<ul>
+<li>
+<p>令$T_A(n)$ = 用算法A求解某一问题规模为n的实例（不是一个是一类），所需的计算成本。</p>
+<p>讨论特定算法A（及其对应的问题）时，简记坐$T(n)$.</p>
+</li>
+<li>
+<p>然而，这一定义仍有问题&hellip;</p>
+</li>
+<li>
+<p>观察：同一问题等规模的不同实例，计算成本不尽相同，甚至有实质差别</p>
+</li>
+<li>
+<p>例如：在平面上的n个点中，找到所成三角形面积最小的三个点</p>
 <p>以蛮力法为例，最坏情况下需枚举所有$C(n,3)$种组合</p>
-
-<p>但运气好的话&hellip; (可能直接找到面积为0的三个点)</p></li>
-
-<li><p>既然如此，又该如何定义$T(n)$呢？</p></li>
-
-<li><p>稳妥起见，取$T(n)$ = max {  T(P) | |P| = n }</p>
-
-<p>亦即，在规模为n的所有实例中，只关注最坏（成本最高）者</p></li>
-</ul></li>
-
-<li><p>特定问题 + 不同算法</p>
-
+<p>但运气好的话&hellip; (可能直接找到面积为0的三个点)</p>
+</li>
+<li>
+<p>既然如此，又该如何定义$T(n)$呢？</p>
+</li>
+<li>
+<p>稳妥起见，取$T(n)$ = max {  T(P) | |P| = n }</p>
+<p>亦即，在规模为n的所有实例中，只关注最坏（成本最高）者</p>
+</li>
+</ul>
+</li>
+<li>
+<p>特定问题 + 不同算法</p>
 <ul>
 <li>同一问题通常有多种算法，如何评判其优劣？</li>
 <li>实验统计是最直接的方法，但不足以准确反映算法的真正效率？</li>
 <li>不足够！
-
 <ul>
 <li>不同的算法，可能更适应于不同规模的输入</li>
 <li>不同的算法，可能更适应于不同类型的输入</li>
 <li>同一算法，可能由于不同程序员，用不同程序语言，经不同编译器实现</li>
 <li>同一算法，可能实现并运行于不同的体系结构、操作系统&hellip;</li>
-</ul></li>
+</ul>
+</li>
 <li>为给出<strong>客观</strong>的评判，需要抽象出一个<strong>理想</strong>的平台或模型
-
 <ul>
 <li>不再依赖于上述种种具体因素</li>
 <li>从而直接而准确地描述，测量并评价算法</li>
-</ul></li>
-</ul></li>
 </ul>
-
-<h4 id="计算模型-图灵机">计算模型：图灵机</h4>
-
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcfmg3i5jsj30qo0f0tap.jpg" alt="" /></p>
-
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcfmgy0k1zj30qo0f076b.jpg" alt="" /></p>
-
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcfmhnlqhpj30qo0f0mzw.jpg" alt="" /></p>
-
-<h4 id="计算模型-ram">计算模型：RAM</h4>
-
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcfoipr1jzj30qo0f0tat.jpg" alt="" /></p>
-
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcfojf1stwj30qo0f0jtl.jpg" alt="" /></p>
-
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcfok3f5dfj30qo0f00ul.jpg" alt="" /></p>
-
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcfokiacypj30qo0f0tay.jpg" alt="" /></p>
-
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="计算模型图灵机">计算模型：图灵机</h4>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcfmg3i5jsj30qo0f0tap.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcfmgy0k1zj30qo0f076b.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcfmhnlqhpj30qo0f0mzw.jpg" alt=""></p>
+<h4 id="计算模型ram">计算模型：RAM</h4>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcfoipr1jzj30qo0f0tat.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcfojf1stwj30qo0f0jtl.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcfok3f5dfj30qo0f00ul.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcfokiacypj30qo0f0tay.jpg" alt=""></p>
 <p>执行过程可以记录为一张表</p>
-
 <p>表的行数即是所执行基本指令的总条数，能够客观度量算法的执行时间。</p>
 
     </div>

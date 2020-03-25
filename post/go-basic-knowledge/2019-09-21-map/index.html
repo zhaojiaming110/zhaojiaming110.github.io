@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-basic-knowledge/2019-09-21-map/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
 <meta itemprop="name" content="map">
 <meta itemprop="description" content="map是一堆键值对的未排序集合。 创建map 1 2 3 4 5 6 7 m1 := map[string]string { &#34;name&#34;: &#34;zjm&#34;, &#34;age&#34;: &#34;26&#34;, &#34;country&#34;: &#34;CN&#34;, } m2 := make(map[string]int) //m2 == empty map var m3 map[string]int //m3 == nil map map元素赋值 1 2 3 4 5 6 m1 := map[string]string {">
-
-
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="730">
+<meta itemprop="wordCount" content="731">
 
 
 
-<meta itemprop="keywords" content="内建容器," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="内建容器," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="map"/>
 <meta name="twitter:description" content="map是一堆键值对的未排序集合。 创建map 1 2 3 4 5 6 7 m1 := map[string]string { &#34;name&#34;: &#34;zjm&#34;, &#34;age&#34;: &#34;26&#34;, &#34;country&#34;: &#34;CN&#34;, } m2 := make(map[string]int) //m2 == empty map var m3 map[string]int //m3 == nil map map元素赋值 1 2 3 4 5 6 m1 := map[string]string {"/>
 
@@ -539,7 +536,7 @@ if (!doNotTrack) {
             <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
             
           </div>
-        <span class="more-meta"> 730 words </span>
+        <span class="more-meta"> 731 words </span>
           <span class="more-meta"> 2 min read </span>
 
         
@@ -559,31 +556,17 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#创建map">创建map</a></li>
-<li><a href="#map元素赋值">map元素赋值</a></li>
-<li><a href="#map元素删除">map元素删除</a></li>
-<li><a href="#map元素查找">map元素查找</a></li>
-<li><a href="#map遍历">map遍历</a></li>
-<li><a href="#map的有序遍历">map的有序遍历</a></li>
-<li><a href="#map的key">map的key</a></li>
-<li><a href="#map例题">map例题</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<p>map是一堆键值对的未排序集合。</p>
-
+      <p>map是一堆键值对的未排序集合。</p>
 <h1 id="创建map">创建map</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -598,13 +581,13 @@ if (!doNotTrack) {
     <span class="s2">&#34;country&#34;</span>: <span class="s2">&#34;CN&#34;</span>,
 <span class="o">}</span>
 m2 :<span class="o">=</span> make<span class="o">(</span>map<span class="o">[</span>string<span class="o">]</span>int<span class="o">)</span>	//m2 <span class="o">==</span> empty map
-var m3 map<span class="o">[</span>string<span class="o">]</span>int		//m3 <span class="o">==</span> nil map</code></pre></td></tr></table>
+var m3 map<span class="o">[</span>string<span class="o">]</span>int		//m3 <span class="o">==</span> nil map
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="map元素赋值">map元素赋值</h1>
+</div><h1 id="map元素赋值">map元素赋值</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -617,13 +600,13 @@ var m3 map<span class="o">[</span>string<span class="o">]</span>int		//m3 <span 
     <span class="s2">&#34;age&#34;</span>: <span class="s2">&#34;26&#34;</span>,
     <span class="s2">&#34;country&#34;</span>: <span class="s2">&#34;CN&#34;</span>,
 <span class="o">}</span>
-m1<span class="o">[</span>age<span class="o">]</span> <span class="o">=</span> <span class="s2">&#34;28&#34;</span></code></pre></td></tr></table>
+m1<span class="o">[</span>age<span class="o">]</span> <span class="o">=</span> <span class="s2">&#34;28&#34;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="map元素删除">map元素删除</h1>
+</div><h1 id="map元素删除">map元素删除</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -636,13 +619,13 @@ m1<span class="o">[</span>age<span class="o">]</span> <span class="o">=</span> <
     <span class="s2">&#34;age&#34;</span>: <span class="s2">&#34;26&#34;</span>,
     <span class="s2">&#34;country&#34;</span>: <span class="s2">&#34;CN&#34;</span>,
 <span class="o">}</span>
-delete<span class="o">(</span>m1, <span class="s2">&#34;age&#34;</span><span class="o">)</span></code></pre></td></tr></table>
+delete<span class="o">(</span>m1, <span class="s2">&#34;age&#34;</span><span class="o">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="map元素查找">map元素查找</h1>
+</div><h1 id="map元素查找">map元素查找</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -661,15 +644,14 @@ delete<span class="o">(</span>m1, <span class="s2">&#34;age&#34;</span><span cla
 value, ok :<span class="o">=</span> m1<span class="o">[</span><span class="s2">&#34;age&#34;</span><span class="o">]</span>
 <span class="k">if</span> ok <span class="o">{</span>
     fmt.Println<span class="o">(</span><span class="s2">&#34;m1[age]=&#34;</span>, value<span class="o">)</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>当取一个不存在的key时会返回一个空值。</p>
-
+</div><p>当取一个不存在的key时会返回一个空值。</p>
 <h1 id="map遍历">map遍历</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -686,32 +668,29 @@ value, ok :<span class="o">=</span> m1<span class="o">[</span><span class="s2">&
 <span class="o">}</span>
 <span class="k">for</span> k, v :<span class="o">=</span> range m1 <span class="o">{</span>
     fmt.Println<span class="o">(</span><span class="s2">&#34;key:&#34;</span>, k, <span class="s2">&#34;value:&#34;</span>, v<span class="o">)</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>运行结果：</p>
+</div><p>运行结果：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">key: name value: zjm
 key: age value: <span class="m">26</span>
-key: country value: CN</code></pre></td></tr></table>
+key: country value: CN
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>注意遍历出来的结果是无序的，因为map是一堆键值对的未排序集合。</p>
-
+</div><p>注意遍历出来的结果是无序的，因为map是一堆键值对的未排序集合。</p>
 <p>如需顺序，需要手动对key进行排序。</p>
-
 <h1 id="map的有序遍历">map的有序遍历</h1>
-
 <p>如果要按顺序遍历key/value对，我 们必须显式地对key进行排序，可以使用sort包的Strings函数对字符串slice进行排序。下面是 常见的处理方式:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -730,9 +709,9 @@ key: country value: CN</code></pre></td></tr></table>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">func main<span class="o">()</span> <span class="o">{</span>
 	m :<span class="o">=</span> map<span class="o">[</span>int<span class="o">]</span>string<span class="o">{</span>
-		<span class="m">1</span>: <span class="s2">&#34;hello&#34;</span>,
-		<span class="m">2</span>: <span class="s2">&#34;linux&#34;</span>,
-		<span class="m">3</span>: <span class="s2">&#34;!&#34;</span>,
+		1: <span class="s2">&#34;hello&#34;</span>,
+		2: <span class="s2">&#34;linux&#34;</span>,
+		3: <span class="s2">&#34;!&#34;</span>,
 	<span class="o">}</span>
 	var mkeys <span class="o">[]</span>int
 	<span class="k">for</span> mkey :<span class="o">=</span> range m <span class="o">{</span>
@@ -742,39 +721,34 @@ key: country value: CN</code></pre></td></tr></table>
 	<span class="k">for</span> _, key :<span class="o">=</span> range mkeys <span class="o">{</span>
 		fmt.Println<span class="o">(</span><span class="s2">&#34;key is:&#34;</span>, key, <span class="s2">&#34; values:&#34;</span>, m<span class="o">[</span>key<span class="o">])</span>
 	<span class="o">}</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="map的key">map的key</h1>
-
+</div><h1 id="map的key">map的key</h1>
 <ul>
-<li><p>map使用哈希表，必须可以比较相等</p></li>
-
-<li><p>除了slice,map,function等内建类型都可以作为key</p></li>
-</ul>
-
+<li>
+<p>map使用哈希表，必须可以比较相等</p>
+</li>
+<li>
+<p>除了slice,map,function等内建类型都可以作为key</p>
 <p>m2 := make(map[([3]int)]string)</p>
-
-<ul>
-<li>struct类型元素不包含上述类型，也可作为key</li>
+</li>
+<li>
+<p>struct类型元素不包含上述类型，也可作为key</p>
+</li>
 </ul>
-
 <h1 id="map例题">map例题</h1>
-
 <p>寻找最长不含有重复字符串的子串。</p>
-
 <p>对于每一个字母x:</p>
-
 <ul>
-<li>lastOccurred[x]不存在，或者<start -> 无需操作</li>
-<li>lastOccurred[x]存在且&gt;=start &gt; 更新start (当前计算的最长子串中包含了字符x)</li>
-<li>更新lastOccurred[x],更新maxLength</li>
+<li>lastOccurred<input checked="" disabled="" type="checkbox"> 不存在，或者&lt;start -&gt; 无需操作</li>
+<li>lastOccurred<input checked="" disabled="" type="checkbox"> 存在且&gt;=start &gt; 更新start (当前计算的最长子串中包含了字符x)</li>
+<li>更新lastOccurred<input checked="" disabled="" type="checkbox"> ,更新maxLength</li>
 </ul>
-
 <p>代码实现：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -821,7 +795,8 @@ func main<span class="o">()</span> <span class="o">{</span>
 	fmt.Println<span class="o">(</span>lengthOfNonRepeatingSubStr<span class="o">(</span><span class="s2">&#34;abcbcabbc&#34;</span><span class="o">))</span>
 	fmt.Println<span class="o">(</span>lengthOfNonRepeatingSubStr<span class="o">(</span><span class="s2">&#34;aabbabcd&#34;</span><span class="o">))</span>
 	fmt.Println<span class="o">(</span>lengthOfNonRepeatingSubStr<span class="o">(</span><span class="s2">&#34;abcdefghijk&#34;</span><span class="o">))</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

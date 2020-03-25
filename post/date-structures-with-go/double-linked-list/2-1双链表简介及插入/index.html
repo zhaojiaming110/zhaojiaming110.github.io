@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/date-structures-with-go/double-linked-list/2-1%E5%8F%8C%E9%93%BE%E8%A1%A8%E7%AE%80%E4%BB%8B%E5%8F%8A%E6%8F%92%E5%85%A5/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2019-11-10T23:01:23+08:00" />
 <meta itemprop="name" content="2-1双链表简介及插入">
 <meta itemprop="description" content="在前面的一些文章Singly Linked List我们介绍了单链表，接下来我们继续学习双链表（Double Linked List 简称DLL）。 介绍 一个双链表包含一个额外的">
-
-
 <meta itemprop="datePublished" content="2019-11-10T23:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-10T23:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="1545">
 
 
 
-<meta itemprop="keywords" content="Double Linked List," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Double Linked List," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="2-1双链表简介及插入"/>
 <meta name="twitter:description" content="在前面的一些文章Singly Linked List我们介绍了单链表，接下来我们继续学习双链表（Double Linked List 简称DLL）。 介绍 一个双链表包含一个额外的"/>
 
@@ -560,69 +557,28 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#介绍">介绍</a></li>
-<li><a href="#节点表示">节点表示</a></li>
-<li><a href="#优缺点">优缺点</a>
-<ul>
-<li><a href="#优点">优点</a></li>
-<li><a href="#缺点">缺点</a></li>
-</ul></li>
-<li><a href="#插入节点">插入节点</a></li>
-<li><a href="#代码实现">代码实现</a>
-<ul>
-<li><a href="#在双链表的最前面插入节点">在双链表的最前面插入节点</a>
-<ul>
-<li><a href="#具体步骤">具体步骤：</a></li>
-<li><a href="#代码">代码</a></li>
-</ul></li>
-<li><a href="#在给定节点之后添加节点">在给定节点之后添加节点</a>
-<ul>
-<li><a href="#具体步骤-1">具体步骤：</a></li>
-<li><a href="#代码-1">代码</a></li>
-</ul></li>
-<li><a href="#在链表末尾添加节点">在链表末尾添加节点</a>
-<ul>
-<li><a href="#具体步骤-2">具体步骤：</a></li>
-<li><a href="#代码-2">代码</a></li>
-</ul></li>
-<li><a href="#在给定节点之前添加一个新的节点">在给定节点之前添加一个新的节点</a>
-<ul>
-<li><a href="#代码-3">代码</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<p>在前面的一些文章<a href="https://beuself.xyz/tags/singly-linked-list/">Singly Linked List</a>我们介绍了单链表，接下来我们继续学习双链表（Double Linked List 简称DLL）。</p>
-
+      <p>在前面的一些文章<a href="https://beuself.xyz/tags/singly-linked-list/">Singly Linked List</a>我们介绍了单链表，接下来我们继续学习双链表（Double Linked List 简称DLL）。</p>
 <h4 id="介绍">介绍</h4>
-
 <p>一个双链表包含一个额外的指针，通常称为前指针，与单链表的数据及后指针构成。</p>
-
-<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9rpwev1mcj30p7056t8i.jpg" alt="" /></p>
-
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9rpwev1mcj30p7056t8i.jpg" alt=""></p>
 <h4 id="节点表示">节点表示</h4>
-
 <p>以下是Go语言中双链表节点的表示：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -633,64 +589,50 @@ if (!doNotTrack) {
 	<span class="nx">Data</span> <span class="kt">int</span>
 	<span class="nx">Prev</span> <span class="o">*</span><span class="nx">Node</span>
 	<span class="nx">Next</span> <span class="o">*</span><span class="nx">Node</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="优缺点">优缺点</h4>
-
+</div><h4 id="优缺点">优缺点</h4>
 <p>以下是双链表相对于单链表的优缺点</p>
-
 <h5 id="优点">优点</h5>
-
 <ul>
 <li>双链表可以向前和向后进行遍历。</li>
 <li>如果给出了要删除的节点的指针，则双链表的删除会更有效。</li>
 <li>双链表可以在给定节点之前快速插入一个新的节点。</li>
 <li>在单链表中要删除一个节点，需要指向前一个节点的指针。为了获得该节点的指针，常常需要去遍历链表；在双链表中，我们可以使用当前节点的前指针获取先前指针的节点。</li>
 </ul>
-
 <h5 id="缺点">缺点</h5>
-
 <ul>
 <li>双链表的每个节点都需要额外的空间才能存储先前的指针。</li>
 <li>所有操作都需要事先保留一个额外的指针。例如：
-
 <ul>
 <li>在插入时，我们需要同时修改前一个指针和下一个指针。</li>
 <li>在以下用于不同位置插入的函数中，我们需要1个或2个步骤来设置先前的指针。</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h4 id="插入节点">插入节点</h4>
-
 <p>我们可以通过四种方法添加节点：</p>
-
 <ul>
 <li>在双链表的前面</li>
 <li>在给定节点之后</li>
 <li>在双链表的末尾</li>
 <li>在给定节点之前</li>
 </ul>
-
 <h4 id="代码实现">代码实现</h4>
-
 <h5 id="在双链表的最前面插入节点">在双链表的最前面插入节点</h5>
-
 <p>新节点总是添加到给定链表<strong>的最前面</strong>。新添加的节点成为DLL的新负责人。例如，如果给定的链表为10-&gt;15-&gt;20-&gt;25，并且我们在前面添加了项5，则链接列表将变为5-&gt;10-&gt;15-&gt;20-&gt;25。让我们将添加到列表前面的函数称为push()。push()必须接受一个指向头指针的指针，因为push必须改变头指针去指向新的节点（或者可以返回一个改变后的头指针）。
-<img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9rqmcoc8kj30p7056t8i.jpg" alt="" /></p>
-
+<img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9rqmcoc8kj30p7056t8i.jpg" alt=""></p>
 <h6 id="具体步骤">具体步骤：</h6>
-
 <ul>
 <li>创建新的节点，并初始化。</li>
 <li>使头结点的前指针指向新节点。</li>
 <li>返回新的头结点的指针。</li>
 </ul>
-
 <h6 id="代码">代码</h6>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -717,28 +659,23 @@ if (!doNotTrack) {
 	<span class="p">}</span>
 	<span class="c1">// 返回新的头指针
 </span><span class="c1"></span>	<span class="k">return</span> <span class="nx">new_node</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>上述操作比在单链表最前面插入节点多了更改原头结点的Prev</p>
-
+</div><p>上述操作比在单链表最前面插入节点多了更改原头结点的Prev</p>
 <h5 id="在给定节点之后添加节点">在给定节点之后添加节点</h5>
-
 <p>给一个指向给定节点的指针，然后在给定节点之后添加新的节点
-<img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9rydo1wqfj30sf08ja9w.jpg" alt="" /></p>
-
+<img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9rydo1wqfj30sf08ja9w.jpg" alt=""></p>
 <h6 id="具体步骤-1">具体步骤：</h6>
-
 <ul>
 <li>检查给定的节点是否为空</li>
 <li>创建新节点，并初始化</li>
 <li>修改插入给定节点之后的前节点的Next，后节点的Pre</li>
 </ul>
-
 <h6 id="代码-1">代码</h6>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -767,28 +704,23 @@ if (!doNotTrack) {
 	<span class="k">if</span> <span class="nx">new_node</span><span class="p">.</span><span class="nx">Next</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
 		<span class="nx">new_node</span><span class="p">.</span><span class="nx">Next</span><span class="p">.</span><span class="nx">Prev</span> <span class="p">=</span> <span class="nx">new_node</span>
 	<span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>上述步骤比在单链表给定节点之后的操作多了修改前后节点的Next、Prev</p>
-
+</div><p>上述步骤比在单链表给定节点之后的操作多了修改前后节点的Next、Prev</p>
 <h5 id="在链表末尾添加节点">在链表末尾添加节点</h5>
-
 <p>总是在给定链表的最后一个节点之后添加新节点。例如，如果给定的DLL是5-&gt;10-&gt;15-&gt;20-&gt;25，而我们在末尾添加了第30个项目，则DLL变为5-&gt;10-&gt;15-&gt;20-&gt;25-&gt;30。
 由于通常由链表首表示链表，因此我们必须遍历该链表直到结尾，然后更改最后一个节点的Next使其指向新节点。</p>
-
 <h6 id="具体步骤-2">具体步骤：</h6>
-
 <ul>
 <li>创建新的节点，并且初始化</li>
 <li>如果给定节点为空，则新<code>new_node.Prev=nil</code></li>
 <li>更改最后节点的<code>Next</code>，<code>new_node.Prev</code>为最后节点的地址。</li>
 </ul>
-
 <h6 id="代码-2">代码</h6>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -827,15 +759,14 @@ if (!doNotTrack) {
 
 	<span class="nx">temp</span><span class="p">.</span><span class="nx">Next</span> <span class="p">=</span> <span class="nx">new_node</span>
 	<span class="nx">new_node</span><span class="p">.</span><span class="nx">Prev</span> <span class="p">=</span> <span class="nx">temp</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h5 id="在给定节点之前添加一个新的节点">在给定节点之前添加一个新的节点</h5>
-
+</div><h5 id="在给定节点之前添加一个新的节点">在给定节点之前添加一个新的节点</h5>
 <h6 id="代码-3">代码</h6>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -870,7 +801,8 @@ if (!doNotTrack) {
 	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 		<span class="nx">new_node</span><span class="p">.</span><span class="nx">Prev</span><span class="p">.</span><span class="nx">Next</span> <span class="p">=</span> <span class="nx">new_node</span>
 	<span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

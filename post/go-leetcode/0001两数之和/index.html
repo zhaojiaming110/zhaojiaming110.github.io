@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-leetcode/0001%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
 <meta itemprop="name" content="0001-Two Sum">
 <meta itemprop="description" content="题目： 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。 你可以假设每种输入只会对应">
-
-
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="309">
 
 
 
-<meta itemprop="keywords" content="array-leetcode," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="array-leetcode," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="0001-Two Sum"/>
 <meta name="twitter:description" content="题目： 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。 你可以假设每种输入只会对应"/>
 
@@ -559,41 +556,39 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g95r6zww73j312k0u0q77.jpg" alt="" /></p>
-
+      <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g95r6zww73j312k0u0q77.jpg" alt=""></p>
 <ul>
-<li>题目：</li>
-</ul>
-
+<li>
+<p>题目：</p>
 <p>给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。</p>
-
 <p>你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。</p>
-
-<ul>
-<li><p>示例：</p>
+</li>
+<li>
+<p>示例：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">给定 <span class="nv">nums</span> <span class="o">=</span> <span class="o">[</span><span class="m">2</span>, <span class="m">7</span>, <span class="m">11</span>, <span class="m">15</span><span class="o">]</span>, <span class="nv">target</span> <span class="o">=</span> <span class="m">9</span>
-因为 nums<span class="o">[</span><span class="m">0</span><span class="o">]</span> + nums<span class="o">[</span><span class="m">1</span><span class="o">]</span> <span class="o">=</span> <span class="m">2</span> + <span class="nv">7</span> <span class="o">=</span> <span class="m">9</span>
-所以返回 <span class="o">[</span><span class="m">0</span>, <span class="m">1</span><span class="o">]</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">给定 <span class="nv">nums</span> <span class="o">=</span> <span class="o">[</span>2, 7, 11, 15<span class="o">]</span>, <span class="nv">target</span> <span class="o">=</span> <span class="m">9</span>
+因为 nums<span class="o">[</span>0<span class="o">]</span> + nums<span class="o">[</span>1<span class="o">]</span> <span class="o">=</span> <span class="m">2</span> + <span class="nv">7</span> <span class="o">=</span> <span class="m">9</span>
+所以返回 <span class="o">[</span>0, 1<span class="o">]</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>Go解题：</p>
+<li>
+<p>Go解题：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -642,41 +637,42 @@ import <span class="s2">&#34;fmt&#34;</span>
   
 //暴力法
 func twoSum<span class="o">(</span>nums <span class="o">[]</span>int, target int<span class="o">)</span> <span class="o">[]</span>int <span class="o">{</span>
-	var res <span class="o">[]</span>int
-	<span class="k">for</span> i :<span class="o">=</span> <span class="m">0</span><span class="p">;</span> i &lt; len<span class="o">(</span>nums<span class="o">)</span><span class="p">;</span> i++ <span class="o">{</span>
-		<span class="k">for</span> j :<span class="o">=</span> i + <span class="m">1</span><span class="p">;</span> j &lt; len<span class="o">(</span>nums<span class="o">)</span><span class="p">;</span> j++ <span class="o">{</span>
-			<span class="k">if</span> nums<span class="o">[</span>j<span class="o">]</span> <span class="o">==</span> target-nums<span class="o">[</span>i<span class="o">]</span> <span class="o">{</span>
-				<span class="nv">res</span> <span class="o">=</span> append<span class="o">(</span>res, i, j<span class="o">)</span>
-				<span class="k">return</span> res
-			<span class="o">}</span>
-		<span class="o">}</span>
-	<span class="o">}</span>
-	fmt.Println<span class="o">(</span><span class="s2">&#34;no two sum solution!&#34;</span><span class="o">)</span>
-	<span class="k">return</span> res
+  var res <span class="o">[]</span>int
+  <span class="k">for</span> i :<span class="o">=</span> 0<span class="p">;</span> i &lt; len<span class="o">(</span>nums<span class="o">)</span><span class="p">;</span> i++ <span class="o">{</span>
+      <span class="k">for</span> j :<span class="o">=</span> i + 1<span class="p">;</span> j &lt; len<span class="o">(</span>nums<span class="o">)</span><span class="p">;</span> j++ <span class="o">{</span>
+          <span class="k">if</span> nums<span class="o">[</span>j<span class="o">]</span> <span class="o">==</span> target-nums<span class="o">[</span>i<span class="o">]</span> <span class="o">{</span>
+              <span class="nv">res</span> <span class="o">=</span> append<span class="o">(</span>res, i, j<span class="o">)</span>
+              <span class="k">return</span> res
+          <span class="o">}</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+  fmt.Println<span class="o">(</span><span class="s2">&#34;no two sum solution!&#34;</span><span class="o">)</span>
+  <span class="k">return</span> res
 <span class="o">}</span>
   
 //利用map
 func twoSum2<span class="o">(</span>nums <span class="o">[]</span>int, target int<span class="o">)</span> <span class="o">[]</span>int <span class="o">{</span>
-	m :<span class="o">=</span> make<span class="o">(</span>map<span class="o">[</span>int<span class="o">]</span>int<span class="o">)</span>
-	var res <span class="o">[]</span>int
-	<span class="k">for</span> i, v :<span class="o">=</span> range nums <span class="o">{</span>
-		num :<span class="o">=</span> target - v
-		_, ok :<span class="o">=</span> m<span class="o">[</span>num<span class="o">]</span>
-		<span class="k">if</span> ok <span class="o">{</span>
-			<span class="nv">res</span> <span class="o">=</span> append<span class="o">(</span>res, i, m<span class="o">[</span>num<span class="o">])</span>
-			<span class="k">return</span> res
-		<span class="o">}</span>
-		m<span class="o">[</span>v<span class="o">]</span> <span class="o">=</span> i
-	<span class="o">}</span>
-	fmt.Println<span class="o">(</span><span class="s2">&#34;no two sum solution!&#34;</span><span class="o">)</span>
-	<span class="k">return</span> res
+  m :<span class="o">=</span> make<span class="o">(</span>map<span class="o">[</span>int<span class="o">]</span>int<span class="o">)</span>
+  var res <span class="o">[]</span>int
+  <span class="k">for</span> i, v :<span class="o">=</span> range nums <span class="o">{</span>
+      num :<span class="o">=</span> target - v
+      _, ok :<span class="o">=</span> m<span class="o">[</span>num<span class="o">]</span>
+      <span class="k">if</span> ok <span class="o">{</span>
+          <span class="nv">res</span> <span class="o">=</span> append<span class="o">(</span>res, i, m<span class="o">[</span>num<span class="o">])</span>
+          <span class="k">return</span> res
+      <span class="o">}</span>
+      m<span class="o">[</span>v<span class="o">]</span> <span class="o">=</span> i
+  <span class="o">}</span>
+  fmt.Println<span class="o">(</span><span class="s2">&#34;no two sum solution!&#34;</span><span class="o">)</span>
+  <span class="k">return</span> res
 <span class="o">}</span>
   
 func main<span class="o">()</span> <span class="o">{</span>
-	nums :<span class="o">=</span> <span class="o">[]</span>int<span class="o">{</span><span class="m">2</span>, <span class="m">7</span>, <span class="m">11</span>, <span class="m">15</span><span class="o">}</span>
-	fmt.Println<span class="o">(</span>twoSum<span class="o">(</span>nums, <span class="m">18</span><span class="o">))</span>
-	fmt.Println<span class="o">(</span>twoSum<span class="o">(</span>nums, <span class="m">9</span><span class="o">))</span>
-<span class="o">}</span></code></pre></td></tr></table>
+  nums :<span class="o">=</span> <span class="o">[]</span>int<span class="o">{</span>2, 7, 11, 15<span class="o">}</span>
+  fmt.Println<span class="o">(</span>twoSum<span class="o">(</span>nums, 18<span class="o">))</span>
+  fmt.Println<span class="o">(</span>twoSum<span class="o">(</span>nums, 9<span class="o">))</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>

@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/date-structures-with-go/1-4%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9%E6%8C%87%E5%AE%9Akey/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2019-11-10T23:01:23+08:00" />
 <meta itemprop="name" content="4-删除节点（指定key）">
 <meta itemprop="description" content="我们在前面几篇文章讨论了关于单链表的“链表介绍”和“插入节点”。 让我们制定问题陈述以了解删除过程。给定一个“key”，删除此键在链表中的第一">
-
-
 <meta itemprop="datePublished" content="2019-11-10T23:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-10T23:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="417">
 
 
 
-<meta itemprop="keywords" content="Singly Linked List," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Singly Linked List," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="4-删除节点（指定key）"/>
 <meta name="twitter:description" content="我们在前面几篇文章讨论了关于单链表的“链表介绍”和“插入节点”。 让我们制定问题陈述以了解删除过程。给定一个“key”，删除此键在链表中的第一"/>
 
@@ -559,29 +556,25 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      <p>我们在前面几篇文章讨论了关于单链表的“<a href="https://beuself.xyz/post/date-structures-with-go/链表简介/">链表介绍</a>”和“<a href="https://beuself.xyz/post/date-structures-with-go/插入节点/">插入节点</a>”。</p>
-
+      <p>我们在前面几篇文章讨论了关于单链表的“<a href="https://beuself.xyz/post/date-structures-with-go/%E9%93%BE%E8%A1%A8%E7%AE%80%E4%BB%8B/">链表介绍</a>”和“<a href="https://beuself.xyz/post/date-structures-with-go/%E6%8F%92%E5%85%A5%E8%8A%82%E7%82%B9/">插入节点</a>”。</p>
 <p>让我们制定问题陈述以了解删除过程。给定一个“key”，删除此键在链表中的第一个匹配项。
 要从链表中删除节点，我们需要执行以下步骤。</p>
-
 <ul>
 <li>查找要删除的节点的上一个节点。</li>
 <li>更改上一个节点的next。</li>
 <li>释放删除节点所占的内存。</li>
 </ul>
-
 <p>由于Go语言自带垃圾回收机制，所以我们不考虑删除节点内存的释放问题。</p>
-
-<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9nbijo7utj30l306ra9v.jpg" alt="" /></p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9nbijo7utj30l306ra9v.jpg" alt=""></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -640,11 +633,12 @@ if (!doNotTrack) {
 	<span class="nx">prev</span><span class="p">.</span><span class="nx">next</span> <span class="p">=</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">next</span>
 
 	<span class="k">return</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -689,13 +683,13 @@ if (!doNotTrack) {
 	<span class="nx">head</span> <span class="p">=</span> <span class="nx">head</span><span class="p">.</span><span class="nf">DeleteNode</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Linked List after Deletion of 1: &#34;</span><span class="p">)</span>
 	<span class="nx">head</span><span class="p">.</span><span class="nf">PrintList</span><span class="p">()</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><strong>输出</strong>：</p>
+</div><p><strong>输出</strong>：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -711,10 +705,11 @@ if (!doNotTrack) {
 <span class="m">3</span>
 <span class="m">1</span>
 <span class="m">7</span>
-Linked List after Deletion of <span class="m">1</span>:
+Linked List after Deletion of 1:
 <span class="m">2</span>
 <span class="m">3</span>
-<span class="m">7</span></code></pre></td></tr></table>
+<span class="m">7</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

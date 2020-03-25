@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Beyourself - a gopher</title>
@@ -26,7 +26,7 @@
       <pubDate>Sun, 01 Mar 2020 22:02:23 +0800</pubDate>
       
       <guid>http://beuself.xyz/post/mysql/</guid>
-      <description>mysql简介 [安装mysql]()</description>
+      <description>mysql简介 安装mysql</description>
     </item>
     
     <item>
@@ -125,7 +125,7 @@
       <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
       
       <guid>http://beuself.xyz/post/date-structures-with-go/1-6%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8/</guid>
-      <description>C / C ++的算法：遍历链表并一一删除所有节点。 在Go中，会发生自动垃圾收集，因此删除链接列表很容易。我们只需要将head更改为nil。 实现方</description>
+      <description>**C / C ++的算法：**遍历链表并一一删除所有节点。 在Go中，会发生自动垃圾收集，因此删除链接列表很容易。我们只需要将head更改为nil。 实</description>
     </item>
     
     <item>
@@ -183,12 +183,12 @@
     </item>
     
     <item>
-      <title>渐进复杂度</title>
-      <link>http://beuself.xyz/post/algorithms/overview/%E6%B8%90%E8%BF%9B%E5%A4%8D%E6%9D%82%E5%BA%A6/</link>
+      <title>Vector</title>
+      <link>http://beuself.xyz/post/date-structures-with-go/vector/vector/</link>
       <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
       
-      <guid>http://beuself.xyz/post/algorithms/overview/%E6%B8%90%E8%BF%9B%E5%A4%8D%E6%9D%82%E5%BA%A6/</guid>
-      <description>渐进复杂度：大O记号 常系数项可省略 低次项可省略 $O()$构成了$T(n)$的上界，比如 $n^c$ = $O(2^n)$ Ω()构成了$T(n)$的下届，比如$</description>
+      <guid>http://beuself.xyz/post/date-structures-with-go/vector/vector/</guid>
+      <description>接口 ADT接口 操作接口 功能 适用对象 Size() 报告向量当前的规模（元素总数） 向量 Get(r) 获取秩为r的元素 向量 Put(r, e) 用e替换秩为r元素的数值 向量 Insert(r, e) e作为秩为r</description>
     </item>
     
   </channel>

@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/algorithms/overview/%E6%B8%90%E8%BF%9B%E5%A4%8D%E6%9D%82%E5%BA%A6/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2019-11-10T23:01:23+08:00" />
 <meta itemprop="name" content="渐进复杂度">
 <meta itemprop="description" content="渐进复杂度：大O记号 常系数项可省略 低次项可省略 $O()$构成了$T(n)$的上界，比如 $n^c$ = $O(2^n)$ Ω()构成了$T(n)$的下届，比如$">
-
-
 <meta itemprop="datePublished" content="2019-11-10T23:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-10T23:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="249">
 
 
 
-<meta itemprop="keywords" content="算法绪论," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="算法绪论," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="渐进复杂度"/>
 <meta name="twitter:description" content="渐进复杂度：大O记号 常系数项可省略 低次项可省略 $O()$构成了$T(n)$的上界，比如 $n^c$ = $O(2^n)$ Ω()构成了$T(n)$的下届，比如$"/>
 
@@ -560,89 +557,47 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#渐进复杂度-大o记号">渐进复杂度：大O记号</a></li>
-<li><a href="#渐进复杂度-多项式">渐进复杂度：多项式</a>
-<ul>
-<li><a href="#常数0-1">常数0(1)</a></li>
-<li><a href="#对数o-logn">对数O(logn)</a></li>
-<li><a href="#多项式-o-n-c">多项式$O(n^c)$</a></li>
-</ul></li>
-<li><a href="#指数-o-2-n">指数$O(2^n)$</a></li>
-<li><a href="#层级划分">层级划分</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h4 id="渐进复杂度-大o记号">渐进复杂度：大O记号</h4>
-
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcgsugylamj30qo0f0myz.jpg" alt="" /></p>
-
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcgsv4fet8j30qo0f0wgj.jpg" alt="" /></p>
-
+      <h4 id="渐进复杂度大o记号">渐进复杂度：大O记号</h4>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcgsugylamj30qo0f0myz.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcgsv4fet8j30qo0f0wgj.jpg" alt=""></p>
 <p>常系数项可省略</p>
-
 <p>低次项可省略</p>
-
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcgt0kk3ldj31hc0u0gni.jpg" alt="" /></p>
-
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcgt0kk3ldj31hc0u0gni.jpg" alt=""></p>
 <p>$O()$构成了$T(n)$的上界，比如 $n^c$ = $O(2^n)$</p>
-
 <p>Ω()构成了$T(n)$的下届，比如$2^n$ = (big-omega notation)$(n^c)$</p>
-
-<h4 id="渐进复杂度-多项式">渐进复杂度：多项式</h4>
-
-<h5 id="常数0-1">常数0(1)</h5>
-
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcgtkzbemlj30qo0f040n.jpg" alt="" /></p>
-
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcgtllzm2oj30qo0f0taq.jpg" alt="" /></p>
-
+<h4 id="渐进复杂度多项式">渐进复杂度：多项式</h4>
+<h5 id="常数01">常数0(1)</h5>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcgtkzbemlj30qo0f040n.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcgtllzm2oj30qo0f0taq.jpg" alt=""></p>
 <p>什么样的代码段对应于常数执行时间？</p>
-
 <p><strong>不含转向（循环、调用、递归等） 必顺序执行  即是O(1)</strong></p>
-
-<h5 id="对数o-logn">对数O(logn)</h5>
-
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcgu4itw7wj30qo0f0wg9.jpg" alt="" /></p>
-
+<h5 id="对数ologn">对数O(logn)</h5>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcgu4itw7wj30qo0f0wg9.jpg" alt=""></p>
 <p>其中$logn = O(n^c)$可以理解为$logn$总是可以被$O(n^c)$所覆盖。等式后面的(big-O notation)构成了等式左面的上届。</p>
-
 <p>亦 $logn$ + $O(n^c)$ = $O(n^c)$</p>
-
-<h5 id="多项式-o-n-c">多项式$O(n^c)$</h5>
-
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gch0j31hhnj30qo0f00va.jpg" alt="" /></p>
-
-<h4 id="指数-o-2-n">指数$O(2^n)$</h4>
-
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gch1g3h0msj30qo0f0mzu.jpg" alt="" /></p>
-
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gch1gk4bqnj30qo0f00vk.jpg" alt="" /></p>
-
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gch1g3h0msj30qo0f0mzu.jpg" alt="" /></p>
-
+<h5 id="多项式onc">多项式$O(n^c)$</h5>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gch0j31hhnj30qo0f00va.jpg" alt=""></p>
+<h4 id="指数o2n">指数$O(2^n)$</h4>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gch1g3h0msj30qo0f0mzu.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gch1gk4bqnj30qo0f00vk.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gch1g3h0msj30qo0f0mzu.jpg" alt=""></p>
 <h4 id="层级划分">层级划分</h4>
-
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gch1kxjp4bj30qo0f0dhb.jpg" alt="" /></p>
-
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gch1ncjf85j30qo0f0abf.jpg" alt="" /></p>
-
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gch1nwvhgcj30qo0f0tbd.jpg" alt="" /></p>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gch1kxjp4bj30qo0f0dhb.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gch1ncjf85j30qo0f0abf.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gch1nwvhgcj30qo0f0tbd.jpg" alt=""></p>
 
     </div>
 
@@ -693,7 +648,7 @@ if (!doNotTrack) {
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/date-structures-with-go/queue/queue/">
+          <a class="prev" href="/post/date-structures-with-go/vector/vector/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -703,7 +658,7 @@ if (!doNotTrack) {
 </svg>
 
             </i>
-            <span class="prev-text nav-default">Queue</span>
+            <span class="prev-text nav-default">Vector</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         

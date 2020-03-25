@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/date-structures-with-go/queue/queue/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2019-11-10T23:01:23+08:00" />
 <meta itemprop="name" content="Queue">
 <meta itemprop="description" content="入队与出队 与栈一样，队列(queue)也是存放数据对象的一种容器，其中的数据对象也按线性的逻辑次序排列。队列结构同样支持对象的插入和删除，但">
-
-
 <meta itemprop="datePublished" content="2019-11-10T23:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-10T23:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="487">
+<meta itemprop="wordCount" content="475">
 
 
 
-<meta itemprop="keywords" content="Queue," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Queue," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Queue"/>
 <meta name="twitter:description" content="入队与出队 与栈一样，队列(queue)也是存放数据对象的一种容器，其中的数据对象也按线性的逻辑次序排列。队列结构同样支持对象的插入和删除，但"/>
 
@@ -539,7 +536,7 @@ if (!doNotTrack) {
             <a href="http://beuself.xyz/categories/date-structures-with-go/"> Date Structures With Go </a>
             
           </div>
-        <span class="more-meta"> 487 words </span>
+        <span class="more-meta"> 475 words </span>
           <span class="more-meta"> 1 min read </span>
 
         
@@ -560,45 +557,27 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#入队与出队">入队与出队</a></li>
-<li><a href="#先进先出">先进先出</a></li>
-<li><a href="#adt接口">ADT接口</a></li>
-<li><a href="#posts">Posts</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h4 id="入队与出队">入队与出队</h4>
-
+      <h4 id="入队与出队">入队与出队</h4>
 <p>与栈一样，队列(queue)也是存放数据对象的一种容器，其中的数据对象也按线性的逻辑次序排列。队列结构同样支持对象的插入和删除，但两种操作的范围分别被限制于队列的两端 若约定新对象只能从某一端插入其中，则只能从另一端删除已有的元素。允许取出元素的一 端称作队头(front)，而允许插入元素的另一端称作队尾(rear)。</p>
-
-<p><img src="https://tva1.sinaimg.cn/large/0082zybply1gc9u8c6pxbj30kl07kt8l.jpg" alt="" /></p>
-
+<p><img src="https://tva1.sinaimg.cn/large/0082zybply1gc9u8c6pxbj30kl07kt8l.jpg" alt=""></p>
 <p>一般地如上图所示，元素的插入与删除也是修改队列结构的两种主要方式，站在被操作对象的角度，分别称作入队(enqueue)和出队(dequeue)操作。</p>
-
 <h4 id="先进先出">先进先出</h4>
-
 <p>由以上的约定和限制不难看出，与栈结构恰好相反，队列中各对象的操作次序遵循所谓先进先出(first-in-first-out, FIFO)的规律:更早(晚)出队的元素应为更早(晚)入队者， 反之，更早(晚)入队者应更早(晚)出队。</p>
-
 <h4 id="adt接口">ADT接口</h4>
-
 <p>作为一种抽象数据类型，队列结构必须支持以下操作接口。</p>
-
 <table>
 <thead>
 <tr>
@@ -606,47 +585,39 @@ if (!doNotTrack) {
 <th align="center">功能</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td align="center">size()</td>
 <td align="center">报告队列的规模（元素总数）</td>
 </tr>
-
 <tr>
 <td align="center">empty()</td>
 <td align="center">判断队列是否为空</td>
 </tr>
-
 <tr>
 <td align="center">enqueue(e)</td>
 <td align="center">将e插入队尾</td>
 </tr>
-
 <tr>
 <td align="center">dequeue(e)</td>
 <td align="center">删除队首元素</td>
 </tr>
-
 <tr>
 <td align="center">front()</td>
 <td align="center">引用队首对象</td>
 </tr>
-
 <tr>
 <td align="center">rear()</td>
 <td align="center">引用队尾对象</td>
 </tr>
 </tbody>
 </table>
-
 <h4 id="posts">Posts</h4>
-
 <ol>
 <li><a href="beuself.xyz">队列简介及其数组实现</a></li>
-<li>[使用链表实现队列]()</li>
-<li>[队列数据结构的应用]()</li>
-<li>[优先队列介绍]()</li>
+<li><a href="">使用链表实现队列</a></li>
+<li><a href="">队列数据结构的应用</a></li>
+<li><a href="">优先队列介绍</a></li>
 </ol>
 
     </div>
@@ -712,8 +683,8 @@ if (!doNotTrack) {
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
-          <a class="next" href="/post/algorithms/overview/%E6%B8%90%E8%BF%9B%E5%A4%8D%E6%9D%82%E5%BA%A6/">
-            <span class="next-text nav-default">渐进复杂度</span>
+          <a class="next" href="/post/date-structures-with-go/vector/vector/">
+            <span class="next-text nav-default">Vector</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

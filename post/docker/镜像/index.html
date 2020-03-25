@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/docker/%E9%95%9C%E5%83%8F/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2019-10-14T23:01:23+08:00" />
 <meta itemprop="name" content="镜像">
 <meta itemprop="description" content="镜像是Docker的三大核心概念之一。 Docker运行容器前需要本地存在对应的镜像，如果镜像不存在本地，Docker会尝试先从默认镜像仓库下">
-
-
 <meta itemprop="datePublished" content="2019-10-14T23:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-10-14T23:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="1522">
+<meta itemprop="wordCount" content="1526">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="镜像"/>
 <meta name="twitter:description" content="镜像是Docker的三大核心概念之一。 Docker运行容器前需要本地存在对应的镜像，如果镜像不存在本地，Docker会尝试先从默认镜像仓库下"/>
 
@@ -539,7 +536,7 @@ if (!doNotTrack) {
             <a href="http://beuself.xyz/categories/docker/"> Docker </a>
             
           </div>
-        <span class="more-meta"> 1522 words </span>
+        <span class="more-meta"> 1526 words </span>
           <span class="more-meta"> 4 min read </span>
 
         
@@ -560,42 +557,28 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#获取镜像">获取镜像</a></li>
-<li><a href="#查看镜像信息">查看镜像信息</a></li>
-<li><a href="#搜寻镜像">搜寻镜像</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<p>镜像是Docker的三大核心概念之一。</p>
-
+      <p>镜像是Docker的三大核心概念之一。</p>
 <p>Docker运行容器前需要本地存在对应的镜像，如果镜像不存在本地，Docker会尝试先从默认镜像仓库下载（默认使用Docker Hub公共注册服务器中的仓库），用户也可以配置使用自定义的镜像仓库。</p>
-
 <h4 id="获取镜像">获取镜像</h4>
-
 <p>可以使用docker pull命令从网络上下载镜像。该命令的格式为<code>docker pull NAME[:TAG]</code>。</p>
-
 <p>对于docker镜像来说，如果不显示地指定TAG，则默认会选择latest标签，即下载最新版本的镜像。</p>
-
 <p>演示：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -614,39 +597,35 @@ e43ee7addbdb: Pull <span class="nb">complete</span>
 cbc99497dda7: Pull <span class="nb">complete</span>
 Digest: sha256:78b986254986c4ae1237b32219a83c5a23354a6c30c18817597f776a4edcac41
 Status: Downloaded newer image <span class="k">for</span> nsqio/nsq:latest
-docker.io/nsqio/nsq:latest</code></pre></td></tr></table>
+docker.io/nsqio/nsq:latest
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>该命令实际上下载的就是nsqio/nsq:latest镜像。</p>
-
+</div><p>该命令实际上下载的就是nsqio/nsq:latest镜像。</p>
 <p>下载过程可以看出，镜像文件一般由若干层组成。行首的<code>5d20c808ce19</code>这样的字符串代表了各层的ID。下载过程中会获取并输出镜像的各层信息。</p>
-
 <p>层（Layer）其实是AUFS（一种联合文件系统）中的重要概念，是实现增量保存与更新的基础。</p>
-
 <p>用户也可以通过指定标签来下载特定版本的某一个镜像：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo docker pull nsqio/nsq:1.3</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo docker pull nsqio/nsq:1.3
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>用户也可以选择从其他注册服务器的仓库下载镜像</p>
+</div><p>用户也可以选择从其他注册服务器的仓库下载镜像</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo docker pull d1.dockerpool.com:5000/nsqio/nsq</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo docker pull d1.dockerpool.com:5000/nsqio/nsq
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="查看镜像信息">查看镜像信息</h4>
-
+</div><h4 id="查看镜像信息">查看镜像信息</h4>
 <p>使用<code>docker images</code>或<code>docker image ls</code>命令可以列出本地主机上已有的镜像。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -657,49 +636,47 @@ docker.io/nsqio/nsq:latest</code></pre></td></tr></table>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo docker images
 REPOSITORY            TAG                 IMAGE ID            CREATED             SIZE
-registry              <span class="m">2</span>                   708bc6af7e5e        <span class="m">7</span> weeks ago         <span class="m">25</span>.8MB
+registry              <span class="m">2</span>                   708bc6af7e5e        <span class="m">7</span> weeks ago         25.8MB
 beuself/hello-world   latest              7cbbf0491ed0        <span class="m">4</span> months ago        2MB
 mysql                 latest              c8ee894bd2bd        <span class="m">4</span> months ago        456MB
-redis                 latest              de25a81a5a0b        <span class="m">4</span> months ago        <span class="m">98</span>.2MB
-nsqio/nsq             latest              4cac9773ca5e        <span class="m">6</span> months ago        <span class="m">65</span>.6MB</code></pre></td></tr></table>
+redis                 latest              de25a81a5a0b        <span class="m">4</span> months ago        98.2MB
+nsqio/nsq             latest              4cac9773ca5e        <span class="m">6</span> months ago        65.6MB
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul class="task-list">
-<li><label><input type="checkbox" disabled class="task-list-item"> REPOSITORY：来自于哪一个仓库，比如redis仓库。</label></li>
-<li><label><input type="checkbox" disabled class="task-list-item"> TAG：镜像的标签信息，比如latest。</label></li>
-<li><label><input type="checkbox" disabled class="task-list-item"> IMAGE ID：镜像的ID号（唯一）。</label></li>
-<li><label><input type="checkbox" disabled class="task-list-item"> CREATED：镜像创建时间。</label></li>
-<li><label><input type="checkbox" disabled class="task-list-item"> SIZE：镜像大小。</label></li>
+</div><ul>
+<li><input disabled="" type="checkbox"> REPOSITORY：来自于哪一个仓库，比如redis仓库。</li>
+<li><input disabled="" type="checkbox"> TAG：镜像的标签信息，比如latest。</li>
+<li><input disabled="" type="checkbox"> IMAGE ID：镜像的ID号（唯一）。</li>
+<li><input disabled="" type="checkbox"> CREATED：镜像创建时间。</li>
+<li><input disabled="" type="checkbox"> SIZE：镜像大小。</li>
 </ul>
-
 <p>为了方便在之后使用这个镜像，可以使用<code>docker tag</code>命令为本地镜像添加一个新的标签。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">sudo docker tag nsqio/nsq:latest nsq:latest</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo docker tag nsqio/nsq:latest nsq:latest
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>再次使用<code>docker images</code>列出本地主机上的镜像信息，可以看出多出了一个nsq:latest标签的镜像。</p>
+</div><p>再次使用<code>docker images</code>列出本地主机上的镜像信息，可以看出多出了一个nsq:latest标签的镜像。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">REPOSITORY            TAG                 IMAGE ID            CREATED             SIZE
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">REPOSITORY            TAG                 IMAGE ID            CREATED             SIZE
 nsq                   latest              4cac9773ca5e        6 months ago        65.6MB
-nsqio/nsq             latest              4cac9773ca5e        6 months ago        65.6MB</pre></td></tr></table>
+nsqio/nsq             latest              4cac9773ca5e        6 months ago        65.6MB
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>我们可以注意到，不同标签的镜像的ID是完全一致的，说明它们实际指向了同一个镜像文件，只是别名不同而已。标签在这里起到了引用和快捷方式的作用。</p>
-
+</div><p>我们可以注意到，不同标签的镜像的ID是完全一致的，说明它们实际指向了同一个镜像文件，只是别名不同而已。标签在这里起到了引用和快捷方式的作用。</p>
 <p>使用<code>docker inspect</code>命令可以获取该镜像的详细信息。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -884,8 +861,8 @@ nsqio/nsq             latest              4cac9773ca5e        6 months ago      
         <span class="o">}</span>,
         <span class="s2">&#34;Architecture&#34;</span>: <span class="s2">&#34;amd64&#34;</span>,
         <span class="s2">&#34;Os&#34;</span>: <span class="s2">&#34;linux&#34;</span>,
-        <span class="s2">&#34;Size&#34;</span>: <span class="m">203001545</span>,
-        <span class="s2">&#34;VirtualSize&#34;</span>: <span class="m">203001545</span>,
+        <span class="s2">&#34;Size&#34;</span>: 203001545,
+        <span class="s2">&#34;VirtualSize&#34;</span>: 203001545,
         <span class="s2">&#34;GraphDriver&#34;</span>: <span class="o">{</span>
             <span class="s2">&#34;Data&#34;</span>: <span class="o">{</span>
                 <span class="s2">&#34;MergedDir&#34;</span>: <span class="s2">&#34;/var/lib/docker/overlay2/f9c4186028ccba78ecd66165fb2a0fa91de5b93b2dd7ca2a8b27060f4aa435fa/merged&#34;</span>,
@@ -904,28 +881,26 @@ nsqio/nsq             latest              4cac9773ca5e        6 months ago      
             <span class="s2">&#34;LastTagTime&#34;</span>: <span class="s2">&#34;0001-01-01T00:00:00Z&#34;</span>
         <span class="o">}</span>
     <span class="o">}</span>
-<span class="o">]</span></code></pre></td></tr></table>
+<span class="o">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>docker inspect</code>返回的是一个JSON格式的信息，如果我们只要其中一项内容时，可以使用-f参数来指定，例如，获取镜像的<code>Os</code>信息：</p>
+</div><p><code>docker inspect</code>返回的是一个JSON格式的信息，如果我们只要其中一项内容时，可以使用-f参数来指定，例如，获取镜像的<code>Os</code>信息：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">docker inspect -f <span class="o">{{</span><span class="s2">&#34;.Os&#34;</span><span class="o">}}</span> 5e35e350aded
-linux</code></pre></td></tr></table>
+linux
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>在指定镜像ID的时候通常使用该ID的前若干个字符组成的可区分字串来替代完整的ID。</p>
-
+</div><p>在指定镜像ID的时候通常使用该ID的前若干个字符组成的可区分字串来替代完整的ID。</p>
 <h4 id="搜寻镜像">搜寻镜像</h4>
-
 <p>使用<code>docker search</code>命令可以搜索远端仓库中共享的镜像，默认搜索Docker Hub官方仓库上的镜像。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -943,15 +918,16 @@ NAME                      DESCRIPTION                                     STARS 
 mysql                     MySQL is a widely used, open-source relation…   <span class="m">9226</span>                <span class="o">[</span>OK<span class="o">]</span>
 mariadb                   MariaDB is a community-developed fork of MyS…   <span class="m">3288</span>                <span class="o">[</span>OK<span class="o">]</span>
 mysql/mysql-server        Optimized MySQL Server Docker images. Create…   <span class="m">681</span>                                     <span class="o">[</span>OK<span class="o">]</span>
-centos/mysql-57-centos7   MySQL <span class="m">5</span>.7 SQL database server                   <span class="m">71</span>
+centos/mysql-57-centos7   MySQL 5.7 SQL database server                   <span class="m">71</span>
 mysql/mysql-cluster       Experimental MySQL Cluster Docker images. Cr…   <span class="m">65</span>
 centurylink/mysql         Image containing mysql. Optimized to be link…   <span class="m">61</span>                                      <span class="o">[</span>OK<span class="o">]</span>
 deitch/mysql-backup       REPLACED! Please use http://hub.docker.com/r…   <span class="m">41</span>                                      <span class="o">[</span>OK<span class="o">]</span>
 bitnami/mysql             Bitnami MySQL Docker Image                      <span class="m">36</span>                                      <span class="o">[</span>OK<span class="o">]</span>
-tutum/mysql               Base docker image to run a MySQL database se…   <span class="m">34</span></code></pre></td></tr></table>
+tutum/mysql               Base docker image to run a MySQL database se…   <span class="m">34</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>返回信息包括了镜像名字、描述信息、星级、是否官方创建、是否自动创建。</p>
+</div><p>返回信息包括了镜像名字、描述信息、星级、是否官方创建、是否自动创建。</p>
+<h4 id="删除镜像">删除镜像</h4>
 
     </div>
 

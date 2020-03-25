@@ -6,7 +6,7 @@
     <description>Recent content on Beyourself - a gopher</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 01 Mar 2020 22:02:23 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 20 Aug 2017 21:38:52 +0800</lastBuildDate>
     
         <atom:link href="http://beuself.xyz/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,31 +18,26 @@
       
       <guid>http://beuself.xyz/about/</guid>
       
-        <description>&lt;p&gt;&lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=370 height=86 src=&#34;//music.163.com/outchain/player?type=2&amp;id=22712173&amp;auto=1&amp;height=66&#34;&gt;&lt;/iframe&gt;
-欢迎来到Beyourself的博客（hugo+主题jane+utteranc评论+GitHub搭建）。&lt;/p&gt;
-
+        <description>&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;我原来是位C开发师，现在正在转型为一名go开发工程师。&lt;/p&gt;
-
 &lt;p&gt;博客主要写了一些关于自己的学习笔记，主要包含以下几部分内容：&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;学习笔记：
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&#34;&gt;Go基础知识&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Docker&lt;/li&gt;
 &lt;li&gt;Go设计模式&lt;/li&gt;
 &lt;li&gt;Redis&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;项目实战：
-
 &lt;ul&gt;
 &lt;li&gt;用Go搭建微服务&lt;/li&gt;
 &lt;li&gt;Go爬虫&lt;/li&gt;
 &lt;li&gt;likou题库（Go解答）&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;更多内容请看我的&lt;a href=&#34;https://github.com/zhaojiaming110/&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 </description>
       

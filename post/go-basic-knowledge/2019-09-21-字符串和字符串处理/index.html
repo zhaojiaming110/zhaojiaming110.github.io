@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-basic-knowledge/2019-09-21-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
 <meta itemprop="name" content="字符和字符串处理">
 <meta itemprop="description" content="ASCII ASCII是基于拉丁字母的一套电脑编码系统，主要用于显示英文字母和其它西欧语言。 标准ASCII码也叫基础ASCII码，使用7位二进制数（剩">
-
-
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="1990">
+<meta itemprop="wordCount" content="1949">
 
 
 
-<meta itemprop="keywords" content="内建容器," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="内建容器," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="字符和字符串处理"/>
 <meta name="twitter:description" content="ASCII ASCII是基于拉丁字母的一套电脑编码系统，主要用于显示英文字母和其它西欧语言。 标准ASCII码也叫基础ASCII码，使用7位二进制数（剩"/>
 
@@ -539,7 +536,7 @@ if (!doNotTrack) {
             <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
             
           </div>
-        <span class="more-meta"> 1990 words </span>
+        <span class="more-meta"> 1949 words </span>
           <span class="more-meta"> 4 min read </span>
 
         
@@ -559,80 +556,99 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#ascii">ASCII</a></li>
-<li><a href="#unicode">Unicode</a></li>
-<li><a href="#utf-8">UTF-8</a></li>
-<li><a href="#字符串">字符串</a></li>
-<li><a href="#字符串基本操作">字符串基本操作</a></li>
-<li><a href="#遍历字符串">遍历字符串</a></li>
-<li><a href="#utf-8库">UTF-8库</a></li>
-<li><a href="#其它字符串操作">其它字符串操作</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="ascii">ASCII</h1>
-
+      <h1 id="ascii">ASCII</h1>
 <ul>
-<li><p>ASCII是基于拉丁字母的一套电脑编码系统，主要用于显示英文字母和其它西欧语言。</p></li>
-
-<li><p>标准ASCII码也叫基础ASCII码，使用7位二进制数（剩下的一位二进制为0）来表示所有的大写和小写字母，数字0到9、标点符号，以及在美式英语中使用的特殊控制字符。</p></li>
-
-<li><p>在标准ASCII码中，其最高位用作奇偶校验位。</p></li>
-
-<li><p>ASCII码表中部分具体如下表示：</p></li>
+<li>
+<p>ASCII是基于拉丁字母的一套电脑编码系统，主要用于显示英文字母和其它西欧语言。</p>
+</li>
+<li>
+<p>标准ASCII码也叫基础ASCII码，使用7位二进制数（剩下的一位二进制为0）来表示所有的大写和小写字母，数字0到9、标点符号，以及在美式英语中使用的特殊控制字符。</p>
+</li>
+<li>
+<p>在标准ASCII码中，其最高位用作奇偶校验位。</p>
+</li>
+<li>
+<p>ASCII码表中部分具体如下表示：</p>
+<table>
+<thead>
+<tr>
+<th align="center">Bin(二进制)</th>
+<th align="center">Oct(八进制)</th>
+<th align="center">Dec(十进制)</th>
+<th align="center">Hex(十六进制)</th>
+<th align="center">缩写/字符</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0000 0000</td>
+<td align="center">00</td>
+<td align="center">0</td>
+<td align="center">0x00</td>
+<td align="center">NULL(null)</td>
+<td align="center">空字符</td>
+</tr>
+<tr>
+<td align="center">0011 0001</td>
+<td align="center">061</td>
+<td align="center">49</td>
+<td align="center">0x31</td>
+<td align="center">1</td>
+<td align="center">字符1</td>
+</tr>
+<tr>
+<td align="center">0100 0001</td>
+<td align="center">0101</td>
+<td align="center">65</td>
+<td align="center">0x41</td>
+<td align="center">A</td>
+<td align="center">大写字母A</td>
+</tr>
+</tbody>
+</table>
+</li>
 </ul>
-
-<p>| Bin(二进制) | Oct(八进制) | Dec(十进制) | Hex(十六进制) | 缩写/字符  |   解释    |
-  | :&mdash;&mdash;&mdash;: | :&mdash;&mdash;&mdash;: | :&mdash;&mdash;&mdash;: | :&mdash;&mdash;&mdash;&ndash;: | :&mdash;&mdash;&ndash;: | :&mdash;&mdash;-: |
-  |  0000 0000  |     00      |      0      |     0x00      | NULL(null) |  空字符   |
-  |  0011 0001  |     061     |     49      |     0x31      |     1      |   字符1   |
-  |  0100 0001  |    0101     |     65      |     0x41      |     A      | 大写字母A |</p>
-
 <h1 id="unicode">Unicode</h1>
-
 <ul>
 <li>Unicode（<a href="https://baike.baidu.com/item/%E7%BB%9F%E4%B8%80%E7%A0%81">统一码</a>、万国码、单一码）是计算机科学领域里的一项业界标准，包括字符集、编码方案等。Unicode 是为了解决传统的字符编码方案的局限而产生的，它为每种语言中的每个字符设定了统一并且唯一的<a href="https://baike.baidu.com/item/%E4%BA%8C%E8%BF%9B%E5%88%B6">二进制</a>编码，以满足跨语言、跨平台进行文本转换、处理的要求。</li>
 <li>Unicode 是用两个字节表示每个字符的字符编码方案。国际标准组织 (ISO) 几乎为每种语言的每个字符和符号在 0 到 65,535 (216 – 1) 范围内定义了一个数字（再加上为将来发展保留的一些空余空间）。</li>
 </ul>
-
 <h1 id="utf-8">UTF-8</h1>
-
 <ul>
 <li>UTF-8是针对Unicode的一种可变长度字符编码。</li>
 <li>UTF-8使用1~4个字节为每个字符编码。</li>
 <li>UTF-8编码规则：如果只有一个字节则其最高二进制位为0；如果是多字节，其第一个字节从最高位开始，连续的二进制位值为1的个数决定了其编码的字节数，其余各字节均以10开头。UTF-8转换表表示如下：</li>
 </ul>
-
 <h1 id="字符串">字符串</h1>
-
 <ul>
-<li><p>Go编译器支持UTF-8的源代码文件格式；Go语言仅支持UTF-8和Unicode编码。对于其他编码，Go语言标准库并没有内置的编码转 换支持。不过，所幸的是我们可以很容易基于iconv库用Cgo包装一个。这里有一个开源项目: <a href="https://github.com/xushiwei/go-iconv。">https://github.com/xushiwei/go-iconv。</a></p></li>
-
-<li><p>文本字符串通常被解释为采用UTF8编码的Unicode码点 (rune)序列。</p></li>
-
-<li><p>字符串的内容可以用类似与数组下标的方式获取，但与数组不同，字符串的内容不能在初始 化后被修改。注意：以数组下标获取到的字符的类型是byte。</p>
+<li>
+<p>Go编译器支持UTF-8的源代码文件格式；Go语言仅支持UTF-8和Unicode编码。对于其他编码，Go语言标准库并没有内置的编码转 换支持。不过，所幸的是我们可以很容易基于iconv库用Cgo包装一个。这里有一个开源项目: <a href="https://github.com/xushiwei/go-iconv">https://github.com/xushiwei/go-iconv</a>。</p>
+</li>
+<li>
+<p>文本字符串通常被解释为采用UTF8编码的Unicode码点 (rune)序列。</p>
+</li>
+<li>
+<p>字符串的内容可以用类似与数组下标的方式获取，但与数组不同，字符串的内容不能在初始 化后被修改。注意：以数组下标获取到的字符的类型是byte。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">str :<span class="o">=</span> <span class="s2">&#34;hello, go&#34;</span>
-fmt.Println<span class="o">(</span>str<span class="o">[</span><span class="m">0</span><span class="o">]</span>, str<span class="o">[</span><span class="m">1</span><span class="o">])</span>	//h, e</code></pre></td></tr></table>
+fmt.Println<span class="o">(</span>str<span class="o">[</span>0<span class="o">]</span>, str<span class="o">[</span>1<span class="o">])</span>	//h, e
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
-
 <h1 id="字符串基本操作">字符串基本操作</h1>
-
 <table>
 <thead>
 <tr>
@@ -642,7 +658,6 @@ fmt.Println<span class="o">(</span>str<span class="o">[</span><span class="m">0<
 <th align="center">结果</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td align="center">x + y</td>
@@ -650,21 +665,18 @@ fmt.Println<span class="o">(</span>str<span class="o">[</span><span class="m">0<
 <td align="center">“Hello&rdquo; + &ldquo;linux&rdquo;</td>
 <td align="center">&ldquo;Hellolinux&rdquo;</td>
 </tr>
-
 <tr>
 <td align="center">len(s)</td>
 <td align="center">字符串长度</td>
 <td align="center">len(&ldquo;hello&rdquo;)</td>
 <td align="center">5</td>
 </tr>
-
 <tr>
 <td align="center">s[i]</td>
 <td align="center">取字符</td>
 <td align="center">”Hello&rdquo; s[1]</td>
 <td align="center">e</td>
 </tr>
-
 <tr>
 <td align="center">s[i:j]</td>
 <td align="center">取子字符串</td>
@@ -673,14 +685,13 @@ fmt.Println<span class="o">(</span>str<span class="o">[</span><span class="m">0<
 </tr>
 </tbody>
 </table>
-
 <h1 id="遍历字符串">遍历字符串</h1>
-
 <ol>
-<li><p>以字节数组的方式遍历字符串：</p>
+<li>
+<p>以字节数组的方式遍历字符串：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -698,27 +709,28 @@ fmt.Println<span class="o">(</span>str<span class="o">[</span><span class="m">0<
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">func main<span class="o">()</span> <span class="o">{</span>
-	str :<span class="o">=</span> <span class="s2">&#34;Hello, 世界&#34;</span>		//UTF-8编码 中文汉字占三个字节
-	n :<span class="o">=</span> len<span class="o">(</span>str<span class="o">)</span>
-	<span class="k">for</span> i :<span class="o">=</span> <span class="m">0</span><span class="p">;</span> i &lt; n<span class="p">;</span> i++ <span class="o">{</span>
-		ch :<span class="o">=</span> str<span class="o">[</span>i<span class="o">]</span>
-		fmt.Println<span class="o">(</span>i, ch<span class="o">)</span>
-	<span class="o">}</span>
+ str :<span class="o">=</span> <span class="s2">&#34;Hello, 世界&#34;</span>		//UTF-8编码 中文汉字占三个字节
+ n :<span class="o">=</span> len<span class="o">(</span>str<span class="o">)</span>
+ <span class="k">for</span> i :<span class="o">=</span> 0<span class="p">;</span> i &lt; n<span class="p">;</span> i++ <span class="o">{</span>
+     ch :<span class="o">=</span> str<span class="o">[</span>i<span class="o">]</span>
+     fmt.Println<span class="o">(</span>i, ch<span class="o">)</span>
+ <span class="o">}</span>
    
-	fmt.Println<span class="o">()</span>
+ fmt.Println<span class="o">()</span>
    
-	str1 :<span class="o">=</span> <span class="s2">&#34;Hello, 世界&#34;</span>
-	<span class="k">for</span> i, v :<span class="o">=</span> range <span class="o">[]</span>byte<span class="o">(</span>str1<span class="o">)</span> <span class="o">{</span>
-		fmt.Println<span class="o">(</span>i, v<span class="o">)</span>
-	<span class="o">}</span>
-<span class="o">}</span></code></pre></td></tr></table>
+ str1 :<span class="o">=</span> <span class="s2">&#34;Hello, 世界&#34;</span>
+ <span class="k">for</span> i, v :<span class="o">=</span> range <span class="o">[]</span>byte<span class="o">(</span>str1<span class="o">)</span> <span class="o">{</span>
+     fmt.Println<span class="o">(</span>i, v<span class="o">)</span>
+ <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>以Unicode字符遍历：</p>
+<li>
+<p>以Unicode字符遍历：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -727,34 +739,35 @@ fmt.Println<span class="o">(</span>str<span class="o">[</span><span class="m">0<
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">func main<span class="o">()</span> <span class="o">{</span>
-	str :<span class="o">=</span> <span class="s2">&#34;Hello, 世界&#34;</span>	//UTF-8编码
-	<span class="k">for</span> i, v :<span class="o">=</span> range str <span class="o">{</span>	//先将UTF-8解码为Unicode格式再将数据放到类型为rune的变量中
-		fmt.Println<span class="o">(</span>i, v<span class="o">)</span> //v的类型为rune
-	<span class="o">}</span>
-<span class="o">}</span></code></pre></td></tr></table>
+ str :<span class="o">=</span> <span class="s2">&#34;Hello, 世界&#34;</span>	//UTF-8编码
+ <span class="k">for</span> i, v :<span class="o">=</span> range str <span class="o">{</span>	//先将UTF-8解码为Unicode格式再将数据放到类型为rune的变量中
+     fmt.Println<span class="o">(</span>i, v<span class="o">)</span> //v的类型为rune
+ <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ol>
-
 <h1 id="utf-8库">UTF-8库</h1>
-
 <ul>
-<li><p>RuneCountInString；统计字符串转换成rune类型的个数。</p>
+<li>
+<p>RuneCountInString；统计字符串转换成rune类型的个数。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">str :<span class="o">=</span> <span class="s2">&#34;Hello, 世界&#34;</span>
-fmt.Println<span class="o">(</span>utf8.RuneCountInString<span class="o">(</span>str<span class="o">))</span>	//9</code></pre></td></tr></table>
+fmt.Println<span class="o">(</span>utf8.RuneCountInString<span class="o">(</span>str<span class="o">))</span>	//9
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>DecodeRune;decoderRune解包p中的第一个utf-8编码，并返回rune和它的宽度（字节）。</p>
+<li>
+<p>DecodeRune;decoderRune解包p中的第一个utf-8编码，并返回rune和它的宽度（字节）。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -770,44 +783,43 @@ fmt.Println<span class="o">(</span>utf8.RuneCountInString<span class="o">(</span
 <pre class="chroma"><code class="language-shell" data-lang="shell">func DecodeRune<span class="o">(</span>p <span class="o">[]</span>byte<span class="o">)</span> <span class="o">(</span>r rune, size int<span class="o">)</span> <span class="o">{}</span>
 //将字符串的内容以单个字符拿出来
 func main<span class="o">()</span> <span class="o">{</span>
-	str :<span class="o">=</span> <span class="s2">&#34;Hello, 世界&#34;</span>
-	p :<span class="o">=</span> <span class="o">[]</span>byte<span class="o">(</span>str<span class="o">)</span>
-	<span class="k">for</span> len<span class="o">(</span>p<span class="o">)</span> &gt; <span class="m">0</span> <span class="o">{</span>
-		ch, size :<span class="o">=</span> utf8.DecodeRune<span class="o">(</span>p<span class="o">)</span>
-		<span class="nv">p</span> <span class="o">=</span> p<span class="o">[</span>size:<span class="o">]</span>
-		fmt.Printf<span class="o">(</span><span class="s2">&#34;%c &#34;</span>, ch<span class="o">)</span>
-	<span class="o">}</span>
-<span class="o">}</span></code></pre></td></tr></table>
+  str :<span class="o">=</span> <span class="s2">&#34;Hello, 世界&#34;</span>
+  p :<span class="o">=</span> <span class="o">[]</span>byte<span class="o">(</span>str<span class="o">)</span>
+  <span class="k">for</span> len<span class="o">(</span>p<span class="o">)</span> &gt; <span class="m">0</span> <span class="o">{</span>
+      ch, size :<span class="o">=</span> utf8.DecodeRune<span class="o">(</span>p<span class="o">)</span>
+      <span class="nv">p</span> <span class="o">=</span> p<span class="o">[</span>size:<span class="o">]</span>
+      fmt.Printf<span class="o">(</span><span class="s2">&#34;%c &#34;</span>, ch<span class="o">)</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
-
 <h1 id="其它字符串操作">其它字符串操作</h1>
-
 <ul>
-<li><p>Fields</p>
-
+<li>
+<p>Fields</p>
 <ul>
-<li><p>定义：</p>
+<li>
+<p>定义：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">func Fields<span class="o">(</span>s string<span class="o">)</span> <span class="o">[]</span>string</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">func Fields<span class="o">(</span>s string<span class="o">)</span> <span class="o">[]</span>string
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>功能：</p></li>
-</ul>
-
+<li>
+<p>功能：</p>
 <p>字段根据unicode.IsSpace的定义，将字符串s围绕一个或多个连续的空白字符的每个实例进行拆分，返回s的子字符串片段，如果s仅包含空格，则返回空片段。</p>
-
-<ul>
-<li><p>Example Code:</p>
+</li>
+<li>
+<p>Example Code:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -818,60 +830,60 @@ func main<span class="o">()</span> <span class="o">{</span>
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">func main<span class="o">()</span> <span class="o">{</span>
-str :<span class="o">=</span> <span class="s2">&#34;I LOVE CHINA&#34;</span>
-value :<span class="o">=</span> strings.Fields<span class="o">(</span>str<span class="o">)</span>
-fmt.Println<span class="o">(</span>len<span class="o">(</span>value<span class="o">))</span>
-<span class="k">for</span> i, v :<span class="o">=</span> range value <span class="o">{</span>
-    fmt.Printf<span class="o">(</span><span class="s2">&#34;%d, %q\n&#34;</span>, i, v<span class="o">)</span>
+    str :<span class="o">=</span> <span class="s2">&#34;I LOVE CHINA&#34;</span>
+    value :<span class="o">=</span> strings.Fields<span class="o">(</span>str<span class="o">)</span>
+    fmt.Println<span class="o">(</span>len<span class="o">(</span>value<span class="o">))</span>
+    <span class="k">for</span> i, v :<span class="o">=</span> range value <span class="o">{</span>
+        fmt.Printf<span class="o">(</span><span class="s2">&#34;%d, %q\n&#34;</span>, i, v<span class="o">)</span>
+    <span class="o">}</span>
 <span class="o">}</span>
-<span class="o">}</span></code></pre></td></tr></table>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>Output:</p>
+<li>
+<p>Output:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="m">3</span>
-<span class="m">0</span>, <span class="s2">&#34;I&#34;</span>
-<span class="m">1</span>, <span class="s2">&#34;LOVE&#34;</span>
-<span class="m">2</span>, <span class="s2">&#34;CHINA&#34;</span></code></pre></td></tr></table>
+0, <span class="s2">&#34;I&#34;</span>
+1, <span class="s2">&#34;LOVE&#34;</span>
+2, <span class="s2">&#34;CHINA&#34;</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-</ul></li>
-
-<li><p>Split</p>
-
+</ul>
+</li>
+<li>
+<p>Split</p>
 <ul>
-<li><p>定义：</p>
+<li>
+<p>定义：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">func Split<span class="o">(</span>s, sep string<span class="o">)</span> <span class="o">[]</span>string</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">func Split<span class="o">(</span>s, sep string<span class="o">)</span> <span class="o">[]</span>string
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>功能：</p></li>
-</ul>
-
+<li>
+<p>功能：</p>
 <p>将s分割为所有由sep分隔的子字符串，并返回这些分隔符之间的子字符串的一部分。</p>
-
 <p>如果sfunc Join(a []string, sep string) string不包含sep且sep不为空，则Split返回长度为1的切片，其唯一元素为s。</p>
-
 <p>如果sep为空，则Split在每个UTF-8序列之后拆分。如果s和sep均为空，则Split返回一个空切片。</p>
-
-<ul>
-<li><p>Example Code:</p>
+</li>
+<li>
+<p>Example Code:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -880,14 +892,15 @@ fmt.Println<span class="o">(</span>len<span class="o">(</span>value<span class="
 <pre class="chroma"><code class="language-shell" data-lang="shell">fmt.Printf<span class="o">(</span><span class="s2">&#34;%q\n&#34;</span>, strings.Split<span class="o">(</span><span class="s2">&#34;a,b,c&#34;</span>, <span class="s2">&#34;,&#34;</span><span class="o">))</span>
 fmt.Printf<span class="o">(</span><span class="s2">&#34;%q\n&#34;</span>, strings.Split<span class="o">(</span><span class="s2">&#34;a man a plan a canal panama&#34;</span>, <span class="s2">&#34;a &#34;</span><span class="o">))</span>
 fmt.Printf<span class="o">(</span><span class="s2">&#34;%q\n&#34;</span>, strings.Split<span class="o">(</span><span class="s2">&#34; xyz &#34;</span>, <span class="s2">&#34;&#34;</span><span class="o">))</span>
-fmt.Printf<span class="o">(</span><span class="s2">&#34;%q\n&#34;</span>, strings.Split<span class="o">(</span><span class="s2">&#34;&#34;</span>, <span class="s2">&#34;Bernardo O&#39;Higgins&#34;</span><span class="o">))</span></code></pre></td></tr></table>
+fmt.Printf<span class="o">(</span><span class="s2">&#34;%q\n&#34;</span>, strings.Split<span class="o">(</span><span class="s2">&#34;&#34;</span>, <span class="s2">&#34;Bernardo O&#39;Higgins&#34;</span><span class="o">))</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>Output:</p>
+<li>
+<p>Output:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -896,76 +909,79 @@ fmt.Printf<span class="o">(</span><span class="s2">&#34;%q\n&#34;</span>, string
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span><span class="s2">&#34;a&#34;</span> <span class="s2">&#34;b&#34;</span> <span class="s2">&#34;c&#34;</span><span class="o">]</span>
 <span class="o">[</span><span class="s2">&#34;&#34;</span> <span class="s2">&#34;man &#34;</span> <span class="s2">&#34;plan &#34;</span> <span class="s2">&#34;canal panama&#34;</span><span class="o">]</span>
 <span class="o">[</span><span class="s2">&#34; &#34;</span> <span class="s2">&#34;x&#34;</span> <span class="s2">&#34;y&#34;</span> <span class="s2">&#34;z&#34;</span> <span class="s2">&#34; &#34;</span><span class="o">]</span>
-<span class="o">[</span><span class="s2">&#34;&#34;</span><span class="o">]</span></code></pre></td></tr></table>
+<span class="o">[</span><span class="s2">&#34;&#34;</span><span class="o">]</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-</ul></li>
-
-<li><p>Join</p>
-
+</ul>
+</li>
+<li>
+<p>Join</p>
 <ul>
-<li><p>定义：</p>
+<li>
+<p>定义：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">func Join<span class="o">(</span>a <span class="o">[]</span>string, sep string<span class="o">)</span> string</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">func Join<span class="o">(</span>a <span class="o">[]</span>string, sep string<span class="o">)</span> string
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>功能：</p></li>
-</ul>
-
+<li>
+<p>功能：</p>
 <p>Join将a的元素连接起来以创建单个字符串。分隔符字符串sep放置在结果字符串中的元素之间。</p>
-
-<ul>
-<li><p>Example Code:</p>
+</li>
+<li>
+<p>Example Code:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">s：<span class="o">=</span> <span class="o">[]</span> string <span class="o">{</span>“ foo”，“ bar”，“ baz”<span class="o">}</span>
-fmt.Println（strings.Join（s，“，”））</code></pre></td></tr></table>
+fmt.Println（strings.Join（s，“，”））
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>Oupput:</p>
+<li>
+<p>Oupput:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">foo，bar，baz</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">foo，bar，baz
+</code></pre></td></tr></table>
 </div>
 </div></li>
-</ul></li>
-
-<li><p>Contains:</p>
-
-<ul>
-<li><p>定义：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">func Contains<span class="o">(</span>s, substr string<span class="o">)</span> bool</code></pre></td></tr></table>
-</div>
-</div></li>
-
-<li><p>功能：</p></li>
 </ul>
-
-<p>判断字符串s是否包含于字符串substr中。</p>
-
+</li>
+<li>
+<p>Contains:</p>
 <ul>
-<li><p>Exzmple Code:</p>
+<li>
+<p>定义：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">func Contains<span class="o">(</span>s, substr string<span class="o">)</span> bool
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>功能：</p>
+<p>判断字符串s是否包含于字符串substr中。</p>
+</li>
+<li>
+<p>Exzmple Code:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -974,14 +990,15 @@ fmt.Println（strings.Join（s，“，”））</code></pre></td></tr></table>
 <pre class="chroma"><code class="language-shell" data-lang="shell">fmt.Println<span class="o">(</span>strings.Contains<span class="o">(</span><span class="s2">&#34;seafood&#34;</span>, <span class="s2">&#34;foo&#34;</span><span class="o">))</span>
 fmt.Println<span class="o">(</span>strings.Contains<span class="o">(</span><span class="s2">&#34;seafood&#34;</span>, <span class="s2">&#34;bar&#34;</span><span class="o">))</span>
 fmt.Println<span class="o">(</span>strings.Contains<span class="o">(</span><span class="s2">&#34;seafood&#34;</span>, <span class="s2">&#34;&#34;</span><span class="o">))</span>
-fmt.Println<span class="o">(</span>strings.Contains<span class="o">(</span><span class="s2">&#34;&#34;</span>, <span class="s2">&#34;&#34;</span><span class="o">))</span></code></pre></td></tr></table>
+fmt.Println<span class="o">(</span>strings.Contains<span class="o">(</span><span class="s2">&#34;&#34;</span>, <span class="s2">&#34;&#34;</span><span class="o">))</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>Output:</p>
+<li>
+<p>Output:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -990,54 +1007,58 @@ fmt.Println<span class="o">(</span>strings.Contains<span class="o">(</span><span
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">true</span>
 <span class="nb">false</span>
 <span class="nb">true</span>
-true</code></pre></td></tr></table>
+<span class="nb">true</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-</ul></li>
-
-<li><p>Index</p>
-
+</ul>
+</li>
+<li>
+<p>Index</p>
 <ul>
-<li><p>定义：</p>
+<li>
+<p>定义：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">func Index<span class="o">(</span>s, substr string<span class="o">)</span> int</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">func Index<span class="o">(</span>s, substr string<span class="o">)</span> int
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>功能：</p></li>
-</ul>
-
+<li>
+<p>功能：</p>
 <p>Index返回s中substr的第一个实例的索引；如果s中不存在substr，则返回-1。</p>
-
-<ul>
-<li><p>ExampleCode:</p>
+</li>
+<li>
+<p>ExampleCode:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">fmt.Println<span class="o">(</span>strings.Index<span class="o">(</span><span class="s2">&#34;chicken&#34;</span>, <span class="s2">&#34;ken&#34;</span><span class="o">))</span>
-fmt.Println<span class="o">(</span>strings.Index<span class="o">(</span><span class="s2">&#34;chicken&#34;</span>, <span class="s2">&#34;dmr&#34;</span><span class="o">))</span></code></pre></td></tr></table>
+fmt.Println<span class="o">(</span>strings.Index<span class="o">(</span><span class="s2">&#34;chicken&#34;</span>, <span class="s2">&#34;dmr&#34;</span><span class="o">))</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>Output:</p>
+<li>
+<p>Output:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="m">4</span>
--1</code></pre></td></tr></table>
+-1
+</code></pre></td></tr></table>
 </div>
 </div></li>
-</ul></li>
+</ul>
+</li>
 </ul>
 
     </div>

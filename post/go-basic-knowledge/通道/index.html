@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-basic-knowledge/%E9%80%9A%E9%81%93/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
 <meta itemprop="name" content="通道">
 <meta itemprop="description" content="无缓冲的通道(unbuffered channel)是指在接收前没有能力保存任何值的通道。这种类型的通 道要求发送 goroutine 和接收 goroutine 同时准备好，才能完成">
-
-
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="459">
 
 
 
-<meta itemprop="keywords" content="并发编程," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="并发编程," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="通道"/>
 <meta name="twitter:description" content="无缓冲的通道(unbuffered channel)是指在接收前没有能力保存任何值的通道。这种类型的通 道要求发送 goroutine 和接收 goroutine 同时准备好，才能完成"/>
 
@@ -559,20 +556,16 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8dvkilb5yj313r0mbgmw.jpg" alt="" /></p>
-
+      <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8dvkilb5yj313r0mbgmw.jpg" alt=""></p>
 <p>无缓冲的通道(unbuffered channel)是指在接收前没有能力保存任何值的通道。这种类型的通 道要求发送 goroutine 和接收 goroutine 同时准备好，才能完成发送和接收操作。如果两个 goroutine 没有同时准备好，通道会导致先执行发送或接收操作的 goroutine 阻塞等待。这种对通道进行发送 和接收的交互行为本身就是同步的。其中任意一个操作都无法离开另一个操作单独存在。</p>
-
 <p>下图展示了，两个goroutine如何利用无缓冲的通道来共享一个值。</p>
-
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g94kucrh82j30jm0hdwfb.jpg" alt="" /></p>
-
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g94kucrh82j30jm0hdwfb.jpg" alt=""></p>
 <ol>
 <li>在第一步，两个goroutine都到达了通道，但哪个都没有开始执行发送或接收数据。</li>
 <li>在第二步，左侧的goroutine将它的手伸进了通道，这模拟了向通道发送数据的行为。这时，这个goroutine会在通道中被锁住，直到交换完成。</li>

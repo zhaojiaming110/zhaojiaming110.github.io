@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Go microservices on Beyourself - a gopher</title>
@@ -17,7 +17,7 @@
       <pubDate>Thu, 10 Oct 2019 23:01:23 +0800</pubDate>
       
       <guid>http://beuself.xyz/post/go-microservices/0-%E5%89%8D%E8%A8%80/</guid>
-      <description>说明 本博客主要是记录对building-microservices-go这本书的学习笔记。 博客涵盖的内容 1.微服务简介 微服务*简介*，*介绍</description>
+      <description>本博客主要是记录对building-microservices-go这本书的学习笔记。 博客涵盖的内容 1.微服务简介 微服务简介，介绍了使Go语</description>
     </item>
     
     <item>

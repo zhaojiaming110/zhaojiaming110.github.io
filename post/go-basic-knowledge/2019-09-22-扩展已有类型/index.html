@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-basic-knowledge/2019-09-22-%E6%89%A9%E5%B1%95%E5%B7%B2%E6%9C%89%E7%B1%BB%E5%9E%8B/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
 <meta itemprop="name" content="扩展已有类型">
 <meta itemprop="description" content="扩充系统类型或者别人的类型 使用组合： 1 2 3 4 5 6 package tree type Node struct { value int Left, Right *Node } 1 2 3 4 package main type myTreeNode struct { node *tree.Node } 定义别名： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16">
-
-
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="130">
 
 
 
-<meta itemprop="keywords" content="面向对象," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="面向对象," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="扩展已有类型"/>
 <meta name="twitter:description" content="扩充系统类型或者别人的类型 使用组合： 1 2 3 4 5 6 package tree type Node struct { value int Left, Right *Node } 1 2 3 4 package main type myTreeNode struct { node *tree.Node } 定义别名： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16"/>
 
@@ -559,25 +556,19 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#扩充系统类型或者别人的类型">扩充系统类型或者别人的类型</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="扩充系统类型或者别人的类型">扩充系统类型或者别人的类型</h1>
-
+      <h1 id="扩充系统类型或者别人的类型">扩充系统类型或者别人的类型</h1>
 <ul>
-<li><p>使用组合：</p>
+<li>
+<p>使用组合：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -588,13 +579,14 @@ if (!doNotTrack) {
 <pre class="chroma"><code class="language-shell" data-lang="shell">package tree
   
 <span class="nb">type</span> Node struct <span class="o">{</span>
-  value int
-  Left, Right *Node
-<span class="o">}</span></code></pre></td></tr></table>
+    value int
+    Left, Right *Node
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -602,15 +594,16 @@ if (!doNotTrack) {
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">package main
 <span class="nb">type</span> myTreeNode struct <span class="o">{</span>
-  node *tree.Node
-<span class="o">}</span></code></pre></td></tr></table>
+    node *tree.Node
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>定义别名：</p>
+<li>
+<p>定义别名：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -640,18 +633,19 @@ import <span class="s2">&#34;fmt&#34;</span>
 <span class="nb">type</span> queue <span class="o">[]</span>int
   
 func <span class="o">(</span>q *queue<span class="o">)</span> pop<span class="o">(</span>v int<span class="o">)</span> <span class="o">{</span>
-	*q <span class="o">=</span> append<span class="o">(</span>*q, v<span class="o">)</span>
+  *q <span class="o">=</span> append<span class="o">(</span>*q, v<span class="o">)</span>
 <span class="o">}</span>
   
 func <span class="o">(</span>q *queue<span class="o">)</span> push<span class="o">()</span> int <span class="o">{</span>
-	head :<span class="o">=</span> <span class="o">(</span>*q<span class="o">)[</span><span class="m">0</span><span class="o">]</span>
-	*q <span class="o">=</span> <span class="o">(</span>*q<span class="o">)[</span><span class="m">1</span>:<span class="o">]</span>
-	<span class="k">return</span> head
+  head :<span class="o">=</span> <span class="o">(</span>*q<span class="o">)[</span>0<span class="o">]</span>
+  *q <span class="o">=</span> <span class="o">(</span>*q<span class="o">)[</span>1:<span class="o">]</span>
+  <span class="k">return</span> head
 <span class="o">}</span>
   
 func <span class="o">(</span>q *queue<span class="o">)</span> isEmpty<span class="o">()</span> bool <span class="o">{</span>
-	<span class="k">return</span> len<span class="o">(</span>*q<span class="o">)</span> <span class="o">==</span> <span class="m">0</span>
-<span class="o">}</span></code></pre></td></tr></table>
+  <span class="k">return</span> len<span class="o">(</span>*q<span class="o">)</span> <span class="o">==</span> <span class="m">0</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>

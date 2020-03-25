@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-basic-knowledge/2019-09-21-%E5%88%87%E7%89%87/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
 <meta itemprop="name" content="切片">
 <meta itemprop="description" content="1 2 3 4 5 6 7 func main() { arr := [...]int{0, 1, 2, 3, 4, 5, 6, 7} fmt.Println(&#34;arr[2:6] = &#34;, arr[2:6]) fmt.Println(&#34;arr[:6] = &#34;, arr[:6]) fmt.Println(&#34;arr[2:] = &#34;, arr[2:]) fmt.Println(&#34;arr[:] = &#34;, arr[:]) } 运行结果 1 2 3 4 arr[2:6] = [2 3 4 5] arr[:6] = [0 1 2 3 4 5] arr[2:] = [2 3 4 5 6 7] arr[:] = [0">
-
-
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="948">
 
 
 
-<meta itemprop="keywords" content="内建容器," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="内建容器," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="切片"/>
 <meta name="twitter:description" content="1 2 3 4 5 6 7 func main() { arr := [...]int{0, 1, 2, 3, 4, 5, 6, 7} fmt.Println(&#34;arr[2:6] = &#34;, arr[2:6]) fmt.Println(&#34;arr[:6] = &#34;, arr[:6]) fmt.Println(&#34;arr[2:] = &#34;, arr[2:]) fmt.Println(&#34;arr[:] = &#34;, arr[:]) } 运行结果 1 2 3 4 arr[2:6] = [2 3 4 5] arr[:6] = [0 1 2 3 4 5] arr[2:] = [2 3 4 5 6 7] arr[:] = [0"/>
 
@@ -559,27 +556,15 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#slice实现">slice实现</a></li>
-<li><a href="#reslice">Reslice</a></li>
-<li><a href="#slice扩展">slice扩展</a></li>
-<li><a href="#slice创建">slice创建</a></li>
-<li><a href="#slice遍历">slice遍历</a></li>
-<li><a href="#append函数">append函数</a></li>
-<li><a href="#copy">copy</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<div class="highlight"><div class="chroma">
+      <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -589,76 +574,70 @@ if (!doNotTrack) {
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">func main<span class="o">()</span> <span class="o">{</span>
-	arr :<span class="o">=</span> <span class="o">[</span>...<span class="o">]</span>int<span class="o">{</span><span class="m">0</span>, <span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>, <span class="m">4</span>, <span class="m">5</span>, <span class="m">6</span>, <span class="m">7</span><span class="o">}</span>
-	fmt.Println<span class="o">(</span><span class="s2">&#34;arr[2:6] = &#34;</span>, arr<span class="o">[</span><span class="m">2</span>:6<span class="o">])</span>
+	arr :<span class="o">=</span> <span class="o">[</span>...<span class="o">]</span>int<span class="o">{</span>0, 1, 2, 3, 4, 5, 6, 7<span class="o">}</span>
+	fmt.Println<span class="o">(</span><span class="s2">&#34;arr[2:6] = &#34;</span>, arr<span class="o">[</span>2:6<span class="o">])</span>
 	fmt.Println<span class="o">(</span><span class="s2">&#34;arr[:6] = &#34;</span>, arr<span class="o">[</span>:6<span class="o">])</span>
-	fmt.Println<span class="o">(</span><span class="s2">&#34;arr[2:] = &#34;</span>, arr<span class="o">[</span><span class="m">2</span>:<span class="o">])</span>
+	fmt.Println<span class="o">(</span><span class="s2">&#34;arr[2:] = &#34;</span>, arr<span class="o">[</span>2:<span class="o">])</span>
 	fmt.Println<span class="o">(</span><span class="s2">&#34;arr[:] = &#34;</span>, arr<span class="o">[</span>:<span class="o">])</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>运行结果</p>
+</div><p>运行结果</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">arr<span class="o">[</span><span class="m">2</span>:6<span class="o">]</span> <span class="o">=</span>  <span class="o">[</span><span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span><span class="o">]</span>
-arr<span class="o">[</span>:6<span class="o">]</span> <span class="o">=</span>  <span class="o">[</span><span class="m">0</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span><span class="o">]</span>
-arr<span class="o">[</span><span class="m">2</span>:<span class="o">]</span> <span class="o">=</span>  <span class="o">[</span><span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span> <span class="m">6</span> <span class="m">7</span><span class="o">]</span>
-arr<span class="o">[</span>:<span class="o">]</span> <span class="o">=</span>  <span class="o">[</span><span class="m">0</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span> <span class="m">6</span> <span class="m">7</span><span class="o">]</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">arr<span class="o">[</span>2:6<span class="o">]</span> <span class="o">=</span>  <span class="o">[</span><span class="m">2</span> <span class="m">3</span> <span class="m">4</span> 5<span class="o">]</span>
+arr<span class="o">[</span>:6<span class="o">]</span> <span class="o">=</span>  <span class="o">[</span><span class="m">0</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> 5<span class="o">]</span>
+arr<span class="o">[</span>2:<span class="o">]</span> <span class="o">=</span>  <span class="o">[</span><span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span> <span class="m">6</span> 7<span class="o">]</span>
+arr<span class="o">[</span>:<span class="o">]</span> <span class="o">=</span>  <span class="o">[</span><span class="m">0</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span> <span class="m">6</span> 7<span class="o">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="slice实现">slice实现</h1>
-
+</div><h1 id="slice实现">slice实现</h1>
 <p>slice本身是对数组的一个view，切片的数据结构可以抽象为以下三个变量：</p>
-
 <ul>
 <li>一个指向原生数组的指针</li>
 <li>数组切片中的元素个数。可以用len(slice)获取</li>
 <li>数组切片已分配的存储空间。可以用cap(slice)获取</li>
 </ul>
-
 <p>slice本身是对数组的一个view</p>
-
 <h1 id="reslice">Reslice</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">s :<span class="o">=</span> arr<span class="o">[</span><span class="m">2</span>:6<span class="o">]</span>
+<pre class="chroma"><code class="language-shell" data-lang="shell">s :<span class="o">=</span> arr<span class="o">[</span>2:6<span class="o">]</span>
 s :<span class="o">=</span> s<span class="o">[</span>:3<span class="o">]</span>
-s :<span class="o">=</span> s<span class="o">[</span><span class="m">1</span>:<span class="o">]</span></code></pre></td></tr></table>
+s :<span class="o">=</span> s<span class="o">[</span>1:<span class="o">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="slice扩展">slice扩展</h1>
-
+</div><h1 id="slice扩展">slice扩展</h1>
 <ul>
 <li>slice可以向后扩展，不可以向前扩展</li>
 <li>s[i]不可以超越len[s]，向后扩展不可以超越底层数组cap[s]</li>
 <li>slice作为函数的参数时，若底层数值不变，slice的值是可以改变的；若底层数组发生改变，也就是说重新分配了一块更大内存空间的数组作为slice的view，那么此时的slice需要以指针的方式传进去才生效。否则，只是在函数内部生成了一个局部变量slice。</li>
 </ul>
-
 <h1 id="slice创建">slice创建</h1>
-
 <ul>
-<li><p>基于数组创建</p></li>
-
-<li><p>直接创建</p>
-
+<li>
+<p>基于数组创建</p>
+</li>
+<li>
+<p>直接创建</p>
 <ul>
 <li>直接创建的切片是没有索引的，如果直接以数组下标的方式操作元素，会发生索引越界index out of range。</li>
-
-<li><p>需采用appen()函数向slice添加元素。</p>
+<li>需采用appen()函数向slice添加元素。</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -667,109 +646,110 @@ s :<span class="o">=</span> s<span class="o">[</span><span class="m">1</span>:<s
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">//创建一个初始元素个数为5的数组切片，元素初始值为0
-slice1 :<span class="o">=</span> make<span class="o">([]</span>int, <span class="m">5</span><span class="o">)</span>
+slice1 :<span class="o">=</span> make<span class="o">([]</span>int, 5<span class="o">)</span>
 //创建一个初始元素个数为5的数组切片，元素初始值为0，并预留10个元素的存储空间
-slice2 :<span class="o">=</span> make<span class="o">([]</span>int, <span class="m">5</span>, <span class="m">10</span><span class="o">)</span>
+slice2 :<span class="o">=</span> make<span class="o">([]</span>int, 5, 10<span class="o">)</span>
 //直接创建并初始化5个元素的数组切片
-slice3 :<span class="o">=</span> <span class="o">[]</span>int<span class="o">{</span><span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>, <span class="m">4</span>, <span class="m">5</span><span class="o">}</span></code></pre></td></tr></table>
+slice3 :<span class="o">=</span> <span class="o">[]</span>int<span class="o">{</span>1, 2, 3, 4, 5<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-</ul></li>
 </ul>
-
 <h1 id="slice遍历">slice遍历</h1>
-
 <ul>
-<li><p>常规遍历</p>
+<li>
+<p>常规遍历</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">var slice <span class="o">[]</span><span class="nv">int</span> <span class="o">=</span> <span class="o">{</span><span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>, <span class="m">4</span>, <span class="m">5</span><span class="o">}</span>
-<span class="k">for</span> i :<span class="o">=</span> <span class="m">0</span><span class="p">;</span> i &lt; len<span class="o">(</span>slice<span class="o">)</span><span class="p">;</span> i++ <span class="o">{</span>
-  fmt.Println<span class="o">(</span><span class="s2">&#34;Element&#34;</span>, i, <span class="s2">&#34;of slice is&#34;</span>, slice<span class="o">[</span>i<span class="o">])</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">var slice <span class="o">[]</span><span class="nv">int</span> <span class="o">=</span> <span class="o">{</span>1, 2, 3, 4, 5<span class="o">}</span>
+<span class="k">for</span> i :<span class="o">=</span> 0<span class="p">;</span> i &lt; len<span class="o">(</span>slice<span class="o">)</span><span class="p">;</span> i++ <span class="o">{</span>
+    fmt.Println<span class="o">(</span><span class="s2">&#34;Element&#34;</span>, i, <span class="s2">&#34;of slice is&#34;</span>, slice<span class="o">[</span>i<span class="o">])</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>range遍历</p>
+<li>
+<p>range遍历</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">var slice <span class="o">[]</span><span class="nv">int</span> <span class="o">=</span> <span class="o">{</span><span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>, <span class="m">4</span>, <span class="m">5</span><span class="o">}</span>
+<pre class="chroma"><code class="language-shell" data-lang="shell">var slice <span class="o">[]</span><span class="nv">int</span> <span class="o">=</span> <span class="o">{</span>1, 2, 3, 4, 5<span class="o">}</span>
 <span class="k">for</span> i, v :<span class="o">=</span> range slice <span class="o">{</span>
-  fmt.Println<span class="o">(</span><span class="s2">&#34;Element&#34;</span>, i, <span class="s2">&#34;of slice is&#34;</span>, v<span class="o">)</span>
-<span class="o">}</span></code></pre></td></tr></table>
+    fmt.Println<span class="o">(</span><span class="s2">&#34;Element&#34;</span>, i, <span class="s2">&#34;of slice is&#34;</span>, v<span class="o">)</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
-
 <h1 id="append函数">append函数</h1>
-
 <p>func append(slice []Type, elems ..Type)  []Type</p>
-
 <ul>
-<li><p>向slice后增加若干个元素</p>
+<li>
+<p>向slice后增加若干个元素</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">var array <span class="o">[</span>...<span class="o">]</span><span class="nv">int</span> <span class="o">=</span> <span class="o">{</span><span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>, <span class="m">4</span>, <span class="m">5</span>, <span class="m">6</span>, <span class="m">7</span><span class="o">}</span>
+<pre class="chroma"><code class="language-shell" data-lang="shell">var array <span class="o">[</span>...<span class="o">]</span><span class="nv">int</span> <span class="o">=</span> <span class="o">{</span>1, 2, 3, 4, 5, 6, 7<span class="o">}</span>
 slice :<span class="o">=</span> array<span class="o">[</span>:2<span class="o">]</span>
-<span class="nv">slice</span> <span class="o">=</span> append<span class="o">(</span>slice, <span class="m">4</span>, <span class="m">5</span>, <span class="m">6</span><span class="o">)</span></code></pre></td></tr></table>
+<span class="nv">slice</span> <span class="o">=</span> append<span class="o">(</span>slice, 4, 5, 6<span class="o">)</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>将一个数组切片加到另一个数组切片末尾</p>
+<li>
+<p>将一个数组切片加到另一个数组切片末尾</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">var array <span class="o">[</span>...<span class="o">]</span><span class="nv">int</span> <span class="o">=</span> <span class="o">{</span><span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>, <span class="m">4</span>, <span class="m">5</span>, <span class="m">6</span>, <span class="m">7</span><span class="o">}</span>
+<pre class="chroma"><code class="language-shell" data-lang="shell">var array <span class="o">[</span>...<span class="o">]</span><span class="nv">int</span> <span class="o">=</span> <span class="o">{</span>1, 2, 3, 4, 5, 6, 7<span class="o">}</span>
 slice1 :<span class="o">=</span> array<span class="o">[</span>:2<span class="o">]</span>
 slice2 :<span class="o">=</span> array<span class="o">[</span>:3<span class="o">]</span>
-<span class="nv">slice1</span> <span class="o">=</span> append<span class="o">(</span>slice, slice2...<span class="o">)</span>	//注意第二个参数后面的三个点号</code></pre></td></tr></table>
+<span class="nv">slice1</span> <span class="o">=</span> append<span class="o">(</span>slice, slice2...<span class="o">)</span>	//注意第二个参数后面的三个点号
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>添加元素时如果超越cap，系统会重新分配更大的底层数组</p></li>
-
-<li><p>由于值传递的关系，必须接收append的返回值</p></li>
+<li>
+<p>添加元素时如果超越cap，系统会重新分配更大的底层数组</p>
+</li>
+<li>
+<p>由于值传递的关系，必须接收append的返回值</p>
+</li>
 </ul>
-
 <h1 id="copy">copy</h1>
-
 <p>用于将内容从一个数组切片复制到另一个数组切片。</p>
-
 <p>func copy(slice1 []Type, slice2 []Type) int</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">slice1 :<span class="o">=</span> <span class="o">[]</span>int<span class="o">{</span><span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>, <span class="m">4</span>, <span class="m">5</span><span class="o">}</span>
-slice2 :<span class="o">=</span> <span class="o">[]</span>int<span class="o">{</span><span class="m">7</span>, <span class="m">8</span>, <span class="m">9</span><span class="o">}</span>
+<pre class="chroma"><code class="language-shell" data-lang="shell">slice1 :<span class="o">=</span> <span class="o">[]</span>int<span class="o">{</span>1, 2, 3, 4, 5<span class="o">}</span>
+slice2 :<span class="o">=</span> <span class="o">[]</span>int<span class="o">{</span>7, 8, 9<span class="o">}</span>
 copy<span class="o">(</span>slice1, slice2<span class="o">)</span> //只会复制slice2的三个元素到slice1前三个位置中
-copy<span class="o">(</span>slice2, slice1<span class="o">)</span> //只会复制slice1的前三个元素到slice2中</code></pre></td></tr></table>
+copy<span class="o">(</span>slice2, slice1<span class="o">)</span> //只会复制slice1的前三个元素到slice2中
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

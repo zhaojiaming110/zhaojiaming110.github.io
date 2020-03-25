@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/date-structures-with-go/overview/0-4%E9%80%9A%E8%BF%87%E7%AE%80%E5%8D%95%E7%9A%84%E7%A4%BA%E4%BE%8B%E4%BA%86%E8%A7%A3%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2019-11-10T23:01:23+08:00" />
 <meta itemprop="name" content="0-4通过简单的示例了解时间复杂度">
 <meta itemprop="description" content="很多初学者在理解时间复杂度的概念时会感到困惑，但是在本文中，我们将用一个非常简单的示例来解释它： 想象一下一个教室，有100个学生，您将钢笔交">
-
-
 <meta itemprop="datePublished" content="2019-11-10T23:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-10T23:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="952">
+<meta itemprop="wordCount" content="956">
 
 
 
-<meta itemprop="keywords" content="OverView," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="OverView," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="0-4通过简单的示例了解时间复杂度"/>
 <meta name="twitter:description" content="很多初学者在理解时间复杂度的概念时会感到困惑，但是在本文中，我们将用一个非常简单的示例来解释它： 想象一下一个教室，有100个学生，您将钢笔交"/>
 
@@ -539,7 +536,7 @@ if (!doNotTrack) {
             <a href="http://beuself.xyz/categories/data-structures-with-go/"> Data Structures With Go </a>
             
           </div>
-        <span class="more-meta"> 952 words </span>
+        <span class="more-meta"> 956 words </span>
           <span class="more-meta"> 2 min read </span>
 
         
@@ -559,40 +556,29 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
       <p>很多初学者在理解时间复杂度的概念时会感到困惑，但是在本文中，我们将用一个非常简单的示例来解释它：</p>
-
 <p>想象一下一个教室，有100个学生，您将钢笔交给一个人。现在，您想要那支笔。以下是一些查找笔的方法以及O顺序是什么。</p>
-
 <p>O($n^2$)：你去问班上的第一人，他是否有钢笔。另外，你问这个人关于教室中其他99个人是否有笔，这就是我们所说的O($n^2$)。</p>
-
 <p>O(n)：去问每个学生是否有钢笔。</p>
-
 <p>O(log n)：现在我将课堂分为两组，然后问：“是在教室的左侧还是右侧？” 然后，我将该小组分成两部分，然后再次询问，依此类推。重复此过程，直到剩下一名拥有笔的学生。这就是O(log n)的意思。</p>
-
 <p>如果只有一个学生知道笔隐藏在哪个学生上，我可能需要进行O($n^2$)搜索。如果一个学生有钢笔并且只有他们知道，我会使用O(n)。如果所有学生都知道，我会使用O(log n)搜索，但是只有在我猜对了的情况下才告诉我。</p>
-
 <p>注意：</p>
-
-<p>​       我们对程序执行期间，输入的时间的增长率感兴趣。</p>
-
+<p>​		我们对程序执行期间，输入的时间的增长率感兴趣。</p>
 <p><strong>Another Example</strong></p>
-
 <p>算法/代码的时间复杂度<strong>不</strong>等于执行特定代码所需的实际时间，而是语句执行的次数。我们可以通过使用time命令来证明这一点。例如，用Go语言编写代码以查找N个数字之间的最大值，其中N在10、100、1000、10000之间变化。</p>
-
 <p>您会得到令人惊讶的结果，即对于N = 10，您可能会得到0.5毫秒的时间，对于N = 10000，您可能会得到0.2毫秒的时间。另外，您将在不同的计算机上获得不同的时间。因此，可以说执行代码所需的实际时间取决于计算机，并且如果您的计算机位于LAN / WAN中，它还会考虑网络负载。即使您在同一台机器上使用相同的代码也不会获得相同的时间，这是当前网络负载的原因。</p>
-
 <p>现在，如果时间复杂度不是执行代码所需的实际时间，那么就会出现问题，那是什么呢？
-<strong>答案是：</strong>我们没有考虑执行代码中每个语句所需的实际时间，而是考虑每个语句执行多少次。
+**答案是：**我们没有考虑执行代码中每个语句所需的实际时间，而是考虑每个语句执行多少次。
 例如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -603,15 +589,14 @@ if (!doNotTrack) {
 
 <span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Hello, world!&#34;</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>在上面的代码“ Hello World !”中 在屏幕上仅打印一次。因此，时间复杂度是恒定的：O(1)，即无论您使用哪种操作系统或哪种机器配置，每次执行代码的时间都是恒定的。</p>
-
+</div><p>在上面的代码“ Hello World !”中 在屏幕上仅打印一次。因此，时间复杂度是恒定的：O(1)，即无论您使用哪种操作系统或哪种机器配置，每次执行代码的时间都是恒定的。</p>
 <p><strong>现在考虑另一个代码：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -628,10 +613,10 @@ if (!doNotTrack) {
 	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
 		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Hello, world!&#34;</span><span class="p">)</span>
 	<span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>在上面的代码“ Hello World !!!”中 将打印N次。因此，以上代码的时间复杂度为O(N)。</p>
+</div><p>在上面的代码“ Hello World !!!”中 将打印N次。因此，以上代码的时间复杂度为O(N)。</p>
 
     </div>
 

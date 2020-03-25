@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-leetcode/0015%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
 <meta itemprop="name" content="0015-3Sum">
 <meta itemprop="description" content="题目描述 给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a &#43; b &#43; c = 0 ？找出所有满足条件且不重复的三元组。 注意：">
-
-
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="897">
 
 
 
-<meta itemprop="keywords" content="array-leetcode," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="array-leetcode," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="0015-3Sum"/>
 <meta name="twitter:description" content="题目描述 给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a &#43; b &#43; c = 0 ？找出所有满足条件且不重复的三元组。 注意："/>
 
@@ -560,78 +557,52 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#题目描述">题目描述</a></li>
-<li><a href="#解题">解题</a>
-<ul>
-<li><a href="#1-暴力法">1.暴力法</a>
-<ul>
-<li><a href="#算法">算法</a></li>
-<li><a href="#代码实现">代码实现</a></li>
-<li><a href="#复杂度分析">复杂度分析</a></li>
-</ul></li>
-<li><a href="#2-双指针-排序-去重">2.双指针+排序+去重</a>
-<ul>
-<li><a href="#算法-1">算法</a></li>
-<li><a href="#gif演示">GIF演示</a></li>
-<li><a href="#代码实现-1">代码实现</a></li>
-<li><a href="#复杂度分析-1">复杂度分析</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#题目描述">题目描述</a></li>
+        <li><a href="#解题">解题</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g95r6zww73j312k0u0q77.jpg" alt="" /></p>
-
+      <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g95r6zww73j312k0u0q77.jpg" alt=""></p>
 <h3 id="题目描述">题目描述</h3>
-
 <p>给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。</p>
-
 <p>注意：答案中不可以包含重复的三元组。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">例如, 给定数组 nums = [-1, 0, 1, 2, -1, -4]，
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">例如, 给定数组 nums = [-1, 0, 1, 2, -1, -4]，
 
 满足要求的三元组集合为：
 [
   [-1, 0, 1],
   [-1, -1, 2]
-]</pre></td></tr></table>
+]
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="解题">解题</h3>
-
-<h4 id="1-暴力法">1.暴力法</h4>
-
+</div><h3 id="解题">解题</h3>
+<h4 id="1暴力法">1.暴力法</h4>
 <h5 id="算法">算法</h5>
-
 <p>在这种情况下，首先对数组进行排序，三重遍历解决，然后对增量结果用map进行去重。</p>
-
 <h5 id="代码实现">代码实现</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -682,20 +653,16 @@ if (!doNotTrack) {
 		<span class="p">}</span>
 	<span class="p">}</span>
 	<span class="k">return</span> <span class="nx">result</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h5 id="复杂度分析">复杂度分析</h5>
-
+</div><h5 id="复杂度分析">复杂度分析</h5>
 <ul>
 <li>时间复杂度$O(N^3)$，在第311/313个测试用例超时。</li>
 <li>空间复杂度：$O(n)$，使用恒定的额外空间。</li>
 </ul>
-
-<h4 id="2-双指针-排序-去重">2.双指针+排序+去重</h4>
-
+<h4 id="2双指针排序去重">2.双指针+排序+去重</h4>
 <h5 id="算法-1">算法</h5>
-
 <ul>
 <li>首先对数组进行排序，排序后固定一个数nums[i]，再使用左右指针指向nums[i]后面的两端，数字分别为nums[l]和nums[r]，计算三数之和sum，判断sum==0，满足则添加三数到结果集。</li>
 <li>如果nums[i]大于0，则三数之和必然大于0，循环结束。</li>
@@ -704,15 +671,12 @@ if (!doNotTrack) {
 <li>当sum等于0时，nums[r]==nums[r-1]则会导致结果重复，应该跳过，r&ndash;。</li>
 <li>去重也可以考虑用map实现。</li>
 </ul>
-
 <h5 id="gif演示">GIF演示</h5>
-
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9aedmk97xg30m80cit9r.gif" alt="" /></p>
-
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9aedmk97xg30m80cit9r.gif" alt=""></p>
 <h5 id="代码实现-1">代码实现</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -787,11 +751,10 @@ if (!doNotTrack) {
 		<span class="p">}</span>
 	<span class="p">}</span>
 	<span class="k">return</span> <span class="nx">result</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h5 id="复杂度分析-1">复杂度分析</h5>
-
+</div><h5 id="复杂度分析-1">复杂度分析</h5>
 <ul>
 <li>时间复杂度：$O(N^2)$</li>
 <li>空间复杂度：$O(N)$</li>

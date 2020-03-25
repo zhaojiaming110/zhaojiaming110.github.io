@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-microservices/1-1%E4%BD%BF%E7%94%A8nethttp%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2019-10-10T22:02:23+08:00" />
 <meta itemprop="name" content="1-1.使用net/http构建一个简单的web服务器">
 <meta itemprop="description" content="net/http net/http包提供了编写http客户端和服务器所需的所有功能。它使我们能够向使用http协议进行通信的其他服务器发送请求，并使我们能够">
-
-
 <meta itemprop="datePublished" content="2019-10-10T22:02:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-10-10T22:02:23&#43;08:00" />
 <meta itemprop="wordCount" content="1579">
 
 
 
-<meta itemprop="keywords" content="微服务简介," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="微服务简介," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="1-1.使用net/http构建一个简单的web服务器"/>
 <meta name="twitter:description" content="net/http net/http包提供了编写http客户端和服务器所需的所有功能。它使我们能够向使用http协议进行通信的其他服务器发送请求，并使我们能够"/>
 
@@ -559,36 +556,23 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#net-http">net/http</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="net-http">net/http</h1>
-
+      <h1 id="nethttp">net/http</h1>
 <p><strong><code>net/http</code></strong>包提供了编写http客户端和服务器所需的所有功能。它使我们能够向使用http协议进行通信的其他服务器发送请求，并使我们能够运行http服务器，该服务器可以将请求路由到单独的go函数、服务静态文件等。</p>
-
 <p>首先我们应该问一个问题，如果没有一个简单的hello world示例，什么技术书籍是完整的？我说没有，这正是我们要开始的地方。</p>
-
 <p>在本例中，我们将创建一个http服务器，它有一个端点，返回json标准表示的静态文本，这将介绍http服务器和处理程序的基本功能。然后，我们将修改此端点以接受用json编码的请求，并使用encoding/json包将响应返回给客户端。我们还将通过添加返回简单图像的第二个端点来检查路由的工作方式。</p>
-
 <p>在本章结束时，您将基本了解基本包<strong><code>net/http</code></strong>，以及如何使用它们快速高效地构建一个简单的微服务。</p>
-
 <p>它拥有管理路由、处理传输层安全性（TLS）所需的一切，我们将在第8章“安全性、对HTTP/2的开箱即用支持”中介绍，以及运行能够处理大量请求的高效服务器的能力。</p>
-
 <p>让我们看看创建基本服务器的语法，然后我们可以更深入地浏览这些包：</p>
-
 <p>范例1.0 basic_http_example/basic_http_example.go</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -629,26 +613,26 @@ if (!doNotTrack) {
 
 <span class="kd">func</span> <span class="nf">helloWorldHandler</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
 	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Fprint</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="s">&#34;Hello World\n&#34;</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>我们要做的第一件事是调用<strong><code>http</code></strong>包上的<strong><code>handleFunc</code></strong>方法。<strong>handleFunc</strong>方法在<strong>DefaultServeMux</strong>处理程序上创建处理程序类型，将第一个参数中传递的路径映射到第二个参数中的函数：</p>
+</div><p>我们要做的第一件事是调用<strong><code>http</code></strong>包上的<strong><code>handleFunc</code></strong>方法。<strong>handleFunc</strong>方法在<strong>DefaultServeMux</strong>处理程序上创建处理程序类型，将第一个参数中传递的路径映射到第二个参数中的函数：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">HandleFunc</span><span class="p">(</span><span class="nx">pattern</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">handler</span> <span class="kd">func</span><span class="p">(</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="o">*</span><span class="nx">Request</span><span class="p">))</span> <span class="p">{</span>
 	<span class="nx">DefaultServeMux</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="nx">pattern</span><span class="p">,</span> <span class="nx">handler</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>在第15行中，我们启动http服务器，<strong>listenandserve</strong>接受两个参数，将服务器绑定到tcp的网络地址和将用于路由请求的处理程序：</p>
+</div><p>在第15行中，我们启动http服务器，<strong>listenandserve</strong>接受两个参数，将服务器绑定到tcp的网络地址和将用于路由请求的处理程序：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -657,69 +641,64 @@ if (!doNotTrack) {
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">ListenAndServe</span><span class="p">(</span><span class="nx">addr</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">handler</span> <span class="nx">Handler</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
 	<span class="nx">server</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Server</span><span class="p">{</span><span class="nx">Addr</span><span class="p">:</span> <span class="nx">addr</span><span class="p">,</span> <span class="nx">Handler</span><span class="p">:</span> <span class="nx">handler</span><span class="p">}</span>
 	<span class="k">return</span> <span class="nx">server</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">()</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>在我们的示例中，我们传递的是网络地址：8080，这意味着我们希望将服务器绑定到端口8080上的所有可用IP地址。</p>
-
+</div><p>在我们的示例中，我们传递的是网络地址：8080，这意味着我们希望将服务器绑定到端口8080上的所有可用IP地址。</p>
 <p>我们传递的第二个参数是nil，这是因为我们使用的是<strong>defaultservemux</strong>处理程序，它是通过调用<strong>http.handlefunc</strong>设置的。在第3章，Docker的介绍中，当我们介绍更复杂的路由器时，您将看到第二个参数的使用，但是现在我们可以忽略它。</p>
-
 <p>如果<strong>listenandserve</strong>函数无法启动服务器，它将返回一个错误，最常见的原因是您可能试图绑定到服务器上已在使用的端口。在我们的例子中，我们将ListNeNoService的输出直接传递给log.Fatal(error)，这是一个相当于调用fmt.Print(a &hellip;interface{})函数，随后调用os.Exit(1)。因为如果服务器启动正确，ListenAndServe将阻止我们在成功启动时退出。</p>
-
 <p>让我们快速运行并测试我们的新服务器：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">$go</span> run basic_http_server.go</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">$go</span> run basic_http_server.go
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>现在您应该看到应用程序输出：</p>
+</div><p>现在您应该看到应用程序输出：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="m">2019</span>/10/16 <span class="m">13</span>:43:58 Server starting on port <span class="m">8080</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">2019/10/16 13:43:58 Server starting on port <span class="m">8080</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>如果您没有看到前面的输出，而是看到如下内容，会怎么样？</p>
+</div><p>如果您没有看到前面的输出，而是看到如下内容，会怎么样？</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="m">2019</span>/10/16 <span class="m">13</span>:45:16 Server starting on port <span class="m">8080</span>
-<span class="m">2019</span>/10/16 <span class="m">13</span>:45:16 listen tcp :8080: bind: address already in use
-<span class="nb">exit</span> status <span class="m">1</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">2019/10/16 13:45:16 Server starting on port <span class="m">8080</span>
+2019/10/16 13:45:16 listen tcp :8080: bind: address already in use
+<span class="nb">exit</span> status <span class="m">1</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>再看一下<strong>listenandserve</strong>的签名和我们给它调用的方法。还记得我们说的为什么要用log.fatal吗？</p>
-
+</div><p>再看一下<strong>listenandserve</strong>的签名和我们给它调用的方法。还记得我们说的为什么要用log.fatal吗？</p>
 <p>如果确实收到此错误消息，则表示您已经在使用端口8080的计算机上运行应用程序，这可能是程序的另一个实例，也可能是另一个应用程序。通过检查正在运行的进程，可以检查是否有其他实例正在运行：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">ps <span class="p">|</span> grep <span class="s2">&#34;go run&#34;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">ps <span class="p">|</span> grep <span class="s2">&#34;go run&#34;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>如果您确实看到另一个go run ./basic_http_example.go，那么您可以简单地终止它并重试。如果您没有运行另一个实例，则可能有一些其他软件绑定到此端口。尝试在第10行更改端口并重新启动程序。</p>
-
+</div><p>如果您确实看到另一个go run ./basic_http_example.go，那么您可以简单地终止它并重试。如果您没有运行另一个实例，则可能有一些其他软件绑定到此端口。尝试在第10行更改端口并重新启动程序。</p>
 <p>要测试服务器，请打开一个新浏览器并键入<a href="http://127.0.0.1:8080/helloworld">url</a>，如果一切正常，您将看到服务器的以下响应：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-http" data-lang="http"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-http" data-lang="http"><span class="err">Hello World</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-http" data-lang="http"><span class="err">Hello World
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<p>恭喜，这是掌握微服务的第一步。现在我们已经运行了第一个程序，让我们更仔细地看看如何返回和接受json。</p>
+</div><p>恭喜，这是掌握微服务的第一步。现在我们已经运行了第一个程序，让我们更仔细地看看如何返回和接受json。</p>
 
     </div>
 

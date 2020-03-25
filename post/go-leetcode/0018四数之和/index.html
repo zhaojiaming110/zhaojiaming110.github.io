@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-leetcode/0018%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
 <meta itemprop="name" content="0018-4Sum">
 <meta itemprop="description" content="题目描述 给定一个包含 n 个整数的数组 nums 和一个目标值 target，判断 nums 中是否存在四个元素 a，b，c 和 d ，使得 a &#43; b &#43; c &#43; d 的值与 target 相等？找出所">
-
-
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="976">
 
 
 
-<meta itemprop="keywords" content="array-leetcode," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="array-leetcode," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="0018-4Sum"/>
 <meta name="twitter:description" content="题目描述 给定一个包含 n 个整数的数组 nums 和一个目标值 target，判断 nums 中是否存在四个元素 a，b，c 和 d ，使得 a &#43; b &#43; c &#43; d 的值与 target 相等？找出所"/>
 
@@ -560,52 +557,29 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#题目描述">题目描述</a></li>
-<li><a href="#解题">解题</a>
-<ul>
-<li><a href="#1-双指针-排序-map去重-相当于暴力法">1.双指针+排序+map去重（相当于暴力法）</a>
-<ul>
-<li><a href="#代码实现">代码实现</a></li>
-<li><a href="#代码执行结果">代码执行结果</a></li>
-</ul></li>
-<li><a href="#2-优化">2.优化</a>
-<ul>
-<li><a href="#算法">算法</a></li>
-<li><a href="#代码实现-1">代码实现</a></li>
-<li><a href="#复杂度分析">复杂度分析</a></li>
-<li><a href="#执行结果">执行结果</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#题目描述">题目描述</a></li>
+        <li><a href="#解题">解题</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g95r6zww73j312k0u0q77.jpg" alt="" /></p>
-
+      <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g95r6zww73j312k0u0q77.jpg" alt=""></p>
 <h3 id="题目描述">题目描述</h3>
-
 <p>给定一个包含 <code>n</code> 个整数的数组 <code>nums</code> 和一个目标值 <code>target</code>，判断 <code>nums</code> 中是否存在四个元素 <code>a</code>，<code>b</code>，<code>c</code> 和 <code>d</code> ，使得 <code>a + b + c + d</code> 的值与 <code>target</code> 相等？找出所有满足条件且不重复的四元组。</p>
-
 <p>注意：</p>
-
 <p>答案中不可以包含重复的四元组。</p>
-
 <p><strong>示例</strong>：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -613,26 +587,24 @@ if (!doNotTrack) {
 </span><span class="lnt">6
 </span><span class="lnt">7
 </span><span class="lnt">8
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">给定数组 nums = [1, 0, -1, 0, -2, 2]，和 target = 0。
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">给定数组 nums = [1, 0, -1, 0, -2, 2]，和 target = 0。
 
 满足要求的四元组集合为：
 [
   [-1,  0, 0, 1],
   [-2, -1, 1, 2],
   [-2,  0, 0, 2]
-]</pre></td></tr></table>
+]
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="解题">解题</h3>
-
-<h4 id="1-双指针-排序-map去重-相当于暴力法">1.双指针+排序+map去重（相当于暴力法）</h4>
-
+</div><h3 id="解题">解题</h3>
+<h4 id="1双指针排序map去重相当于暴力法">1.双指针+排序+map去重（相当于暴力法）</h4>
 <h5 id="代码实现">代码实现</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -693,17 +665,13 @@ if (!doNotTrack) {
 		<span class="p">}</span>
 	<span class="p">}</span>
 	<span class="k">return</span> <span class="nx">result</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h5 id="代码执行结果">代码执行结果</h5>
-
+</div><h5 id="代码执行结果">代码执行结果</h5>
 <p>在<strong>14 / 282</strong> 个用例超时，使用map去重太耗时了，接下来对上述代码进行优化。</p>
-
-<h4 id="2-优化">2.优化</h4>
-
+<h4 id="2优化">2.优化</h4>
 <h5 id="算法">算法</h5>
-
 <ul>
 <li>首先对数组进行排序，时间复杂度为 $O(nlogn)$。</li>
 <li>对数组<code>nums</code>遍历，每遍历一个值利用其下标i，形成一个固定的值<code>nums[i]</code>。</li>
@@ -715,11 +683,10 @@ if (!doNotTrack) {
 <li>如果<code>nums[start]==nums[start+1]</code>会导致结果重复，故<code>start++</code>。</li>
 <li>如果<code>nums[end]==nums[end-1]</code>会导致结果重复，故<code>end--</code>。</li>
 </ul>
-
 <h5 id="代码实现-1">代码实现</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -798,18 +765,15 @@ if (!doNotTrack) {
 		<span class="p">}</span>
 	<span class="p">}</span>
 	<span class="k">return</span> <span class="nx">result</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h5 id="复杂度分析">复杂度分析</h5>
-
+</div><h5 id="复杂度分析">复杂度分析</h5>
 <ul>
 <li>时间复杂度：$O(N^3)$。</li>
 </ul>
-
 <h5 id="执行结果">执行结果</h5>
-
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9aizg54lrj30l707jjrd.jpg" alt="" /></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9aizg54lrj30l707jjrd.jpg" alt=""></p>
 
     </div>
 

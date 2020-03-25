@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-basic-knowledge/%E6%B5%8B%E8%AF%95%E6%96%87%E6%A1%A3/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
 <meta itemprop="name" content="测试文档">
 <meta itemprop="description" content="并发concurrency 很多人都是冲着Go大肆宣扬的高并发而忍不住跃跃欲试，但其实从源码解析来看，goroutine只是由官方实现的超级“">
-
-
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="1023">
 
 
 
-<meta itemprop="keywords" content="并发编程," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="并发编程," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="测试文档"/>
 <meta name="twitter:description" content="并发concurrency 很多人都是冲着Go大肆宣扬的高并发而忍不住跃跃欲试，但其实从源码解析来看，goroutine只是由官方实现的超级“"/>
 
@@ -559,43 +556,35 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#并发concurrency">并发concurrency</a></li>
-<li><a href="#channel">channel</a></li>
-<li><a href="#select">select</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="并发concurrency">并发concurrency</h1>
-
+      <h1 id="并发concurrency">并发concurrency</h1>
 <ul>
 <li>很多人都是冲着Go大肆宣扬的高并发而忍不住跃跃欲试，但其实从源码解析来看，goroutine只是由官方实现的超级“线程池”而已。不过话说回来，每个实例4-5kb的栈内存占用和由于实现机制而大幅减少的创建和销毁开销，是制造Go号称的高并发的根本原因。另外，goroutine的简单易用，也在语言层面上给予了开发者巨大的便利。</li>
 <li>并发不是并行 concurrency Is Not Parallelism
-
 <ul>
 <li>并发主要由切换时间片来实现“同时运行”，而并行则是直接利用多核实现多线程的运行，但Go可以设置使用核数，以发挥多核计算机的能力。</li>
-</ul></li>
+</ul>
+</li>
 <li>Goroutine奉行通过通信来共享内存，而不是共享内存来通信。</li>
 </ul>
-
 <h1 id="channel">channel</h1>
-
 <ul>
-<li><p>channel是goroutine沟通的桥梁，大都是阻塞同步的。</p></li>
-
-<li><p>通过make创建，close关闭</p></li>
-
-<li><p>Channel是引用类型</p>
+<li>
+<p>channel是goroutine沟通的桥梁，大都是阻塞同步的。</p>
+</li>
+<li>
+<p>通过make创建，close关闭</p>
+</li>
+<li>
+<p>Channel是引用类型</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -614,20 +603,21 @@ if (!doNotTrack) {
 import <span class="s2">&#34;fmt&#34;</span>
   
 func main<span class="o">()</span> <span class="o">{</span>
-c :<span class="o">=</span> make<span class="o">(</span>chan bool<span class="o">)</span>
-go func<span class="o">()</span> <span class="o">{</span>
-    fmt.Println<span class="o">(</span><span class="s2">&#34;go!go!go!!!&#34;</span><span class="o">)</span>
-    c &lt;- <span class="nb">true</span>
-<span class="o">}()</span>
-&lt;-c //阻塞
-<span class="o">}</span></code></pre></td></tr></table>
+  c :<span class="o">=</span> make<span class="o">(</span>chan bool<span class="o">)</span>
+  go func<span class="o">()</span> <span class="o">{</span>
+      fmt.Println<span class="o">(</span><span class="s2">&#34;go!go!go!!!&#34;</span><span class="o">)</span>
+      c &lt;- <span class="nb">true</span>
+  <span class="o">}()</span>
+  &lt;-c //阻塞
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>可以使用for range来迭代不断操作channel</p>
+<li>
+<p>可以使用for range来迭代不断操作channel</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -649,28 +639,30 @@ go func<span class="o">()</span> <span class="o">{</span>
 import <span class="s2">&#34;fmt&#34;</span>
   
 func main<span class="o">()</span> <span class="o">{</span>
-c :<span class="o">=</span> make<span class="o">(</span>chan bool<span class="o">)</span>
-go func<span class="o">()</span> <span class="o">{</span>
-    fmt.Println<span class="o">(</span><span class="s2">&#34;go!go!go!!!&#34;</span><span class="o">)</span>
-    c &lt;- <span class="nb">true</span>
-    close<span class="o">(</span>c<span class="o">)</span>
-<span class="o">}()</span>
-<span class="k">for</span> v :<span class="o">=</span> range c <span class="o">{</span>  //遍历channel c 阻塞等待直到channel被关闭
-    fmt.Println<span class="o">(</span>v<span class="o">)</span>
+  c :<span class="o">=</span> make<span class="o">(</span>chan bool<span class="o">)</span>
+  go func<span class="o">()</span> <span class="o">{</span>
+      fmt.Println<span class="o">(</span><span class="s2">&#34;go!go!go!!!&#34;</span><span class="o">)</span>
+      c &lt;- <span class="nb">true</span>
+      close<span class="o">(</span>c<span class="o">)</span>
+  <span class="o">}()</span>
+  <span class="k">for</span> v :<span class="o">=</span> range c <span class="o">{</span>  //遍历channel c 阻塞等待直到channel被关闭
+      fmt.Println<span class="o">(</span>v<span class="o">)</span>
+  <span class="o">}</span>
 <span class="o">}</span>
-<span class="o">}</span></code></pre></td></tr></table>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>可以设置单向或双向通道</p></li>
-
-<li><p>可以设置缓存大小，在未被填满前不会发生阻塞（异步）</p>
-
+<li>
+<p>可以设置单向或双向通道</p>
+</li>
+<li>
+<p>可以设置缓存大小，在未被填满前不会发生阻塞（异步）</p>
 <ul>
-<li><p>无缓冲：同步阻塞</p>
+<li>
+<p>无缓冲：同步阻塞</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -688,23 +680,24 @@ go func<span class="o">()</span> <span class="o">{</span>
 <pre class="chroma"><code class="language-shell" data-lang="shell">package main
     
 import <span class="o">(</span>
-<span class="s2">&#34;fmt&#34;</span>
+    <span class="s2">&#34;fmt&#34;</span>
 <span class="o">)</span>
 //写缓冲在读缓冲之前执行，main函数直接退出，未等待
 func main<span class="o">()</span> <span class="o">{</span>
-c :<span class="o">=</span> make<span class="o">(</span>chan bool<span class="o">)</span>
-go func<span class="o">()</span> <span class="o">{</span>
-    fmt.Println<span class="o">(</span><span class="s2">&#34;go!go!go!!!&#34;</span><span class="o">)</span>
-    c &lt;- <span class="nb">true</span>
-<span class="o">}()</span>
-<span class="o">}</span></code></pre></td></tr></table>
+    c :<span class="o">=</span> make<span class="o">(</span>chan bool<span class="o">)</span>
+    go func<span class="o">()</span> <span class="o">{</span>
+        fmt.Println<span class="o">(</span><span class="s2">&#34;go!go!go!!!&#34;</span><span class="o">)</span>
+        c &lt;- <span class="nb">true</span>
+    <span class="o">}()</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>有缓冲：异步</p>
+<li>
+<p>有缓冲：异步</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -725,23 +718,24 @@ go func<span class="o">()</span> <span class="o">{</span>
 <pre class="chroma"><code class="language-shell" data-lang="shell">package main
     
 import <span class="o">(</span>
-<span class="s2">&#34;fmt&#34;</span>
+    <span class="s2">&#34;fmt&#34;</span>
 <span class="o">)</span>
     
 func main<span class="o">()</span> <span class="o">{</span>
-c :<span class="o">=</span> make<span class="o">(</span>chan bool, <span class="m">1</span><span class="o">)</span> //有缓存
-go func<span class="o">()</span> <span class="o">{</span>
-    fmt.Println<span class="o">(</span><span class="s2">&#34;go!go!go!!!&#34;</span><span class="o">)</span>
-    &lt;-c //读
-<span class="o">}()</span>
-c &lt;- <span class="nb">true</span> //写   不阻塞 程序继续执行
+    c :<span class="o">=</span> make<span class="o">(</span>chan bool, 1<span class="o">)</span> //有缓存
+    go func<span class="o">()</span> <span class="o">{</span>
+        fmt.Println<span class="o">(</span><span class="s2">&#34;go!go!go!!!&#34;</span><span class="o">)</span>
+        &lt;-c //读
+    <span class="o">}()</span>
+    c &lt;- <span class="nb">true</span> //写   不阻塞 程序继续执行
 <span class="o">}</span>
 //没有输出
-//写缓冲在读缓存之前，main函数直接退出，不等待</code></pre></td></tr></table>
+//写缓冲在读缓存之前，main函数直接退出，不等待
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -760,28 +754,30 @@ c &lt;- <span class="nb">true</span> //写   不阻塞 程序继续执行
 <pre class="chroma"><code class="language-shell" data-lang="shell">package main
     
 import <span class="o">(</span>
-<span class="s2">&#34;fmt&#34;</span>
+    <span class="s2">&#34;fmt&#34;</span>
 <span class="o">)</span>
     
 func main<span class="o">()</span> <span class="o">{</span>
-c :<span class="o">=</span> make<span class="o">(</span>chan bool<span class="o">)</span> //无缓存
-go func<span class="o">()</span> <span class="o">{</span>
-    fmt.Println<span class="o">(</span><span class="s2">&#34;go!go!go!!!&#34;</span><span class="o">)</span>
-    &lt;-c //读
-<span class="o">}()</span>
-c &lt;- <span class="nb">true</span> //写 阻塞的直到channel被读取才结束
-<span class="o">}</span></code></pre></td></tr></table>
+    c :<span class="o">=</span> make<span class="o">(</span>chan bool<span class="o">)</span> //无缓存
+    go func<span class="o">()</span> <span class="o">{</span>
+        fmt.Println<span class="o">(</span><span class="s2">&#34;go!go!go!!!&#34;</span><span class="o">)</span>
+        &lt;-c //读
+    <span class="o">}()</span>
+    c &lt;- <span class="nb">true</span> //写 阻塞的直到channel被读取才结束
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-</ul></li>
-
-<li><p>多个goroutin打印输出内容的实现：</p>
-
+</ul>
+</li>
+<li>
+<p>多个goroutin打印输出内容的实现：</p>
 <ul>
-<li><p>阻塞的channel:</p>
+<li>
+<p>阻塞的channel:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -810,34 +806,35 @@ c &lt;- <span class="nb">true</span> //写 阻塞的直到channel被读取才结
 <pre class="chroma"><code class="language-shell" data-lang="shell">package main
     
 import <span class="o">(</span>
-<span class="s2">&#34;fmt&#34;</span>
+    <span class="s2">&#34;fmt&#34;</span>
 <span class="o">)</span>
     
 func main<span class="o">()</span> <span class="o">{</span>
-c :<span class="o">=</span> make<span class="o">(</span>chan bool, <span class="m">10</span><span class="o">)</span>
-<span class="k">for</span> i :<span class="o">=</span> <span class="m">0</span><span class="p">;</span> i &lt; <span class="m">10</span><span class="p">;</span> i++ <span class="o">{</span>
-    go Go<span class="o">(</span>c, i<span class="o">)</span>
-<span class="o">}</span>
-<span class="k">for</span> i :<span class="o">=</span> <span class="m">0</span><span class="p">;</span> i &lt; <span class="m">10</span><span class="p">;</span> i++ <span class="o">{</span>
-    &lt;-c
-<span class="o">}</span>
+    c :<span class="o">=</span> make<span class="o">(</span>chan bool, 10<span class="o">)</span>
+    <span class="k">for</span> i :<span class="o">=</span> 0<span class="p">;</span> i &lt; 10<span class="p">;</span> i++ <span class="o">{</span>
+        go Go<span class="o">(</span>c, i<span class="o">)</span>
+    <span class="o">}</span>
+    <span class="k">for</span> i :<span class="o">=</span> 0<span class="p">;</span> i &lt; 10<span class="p">;</span> i++ <span class="o">{</span>
+        &lt;-c
+    <span class="o">}</span>
 <span class="o">}</span>
     
 func Go<span class="o">(</span>c chan bool, index int<span class="o">)</span> <span class="o">{</span>
-sum :<span class="o">=</span> <span class="m">1</span>
-<span class="k">for</span> i :<span class="o">=</span> <span class="m">0</span><span class="p">;</span> i &lt; <span class="m">100000</span><span class="p">;</span> i++ <span class="o">{</span>
-    <span class="nv">sum</span> <span class="o">+=</span> i
+    sum :<span class="o">=</span> <span class="m">1</span>
+    <span class="k">for</span> i :<span class="o">=</span> 0<span class="p">;</span> i &lt; 100000<span class="p">;</span> i++ <span class="o">{</span>
+        <span class="nv">sum</span> <span class="o">+=</span> i
+    <span class="o">}</span>
+    fmt.Println<span class="o">(</span>index, sum<span class="o">)</span>
+    c &lt;- <span class="nb">true</span>
 <span class="o">}</span>
-fmt.Println<span class="o">(</span>index, sum<span class="o">)</span>
-c &lt;- <span class="nb">true</span>
-<span class="o">}</span></code></pre></td></tr></table>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>同步包：</p>
+<li>
+<p>同步包：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -868,36 +865,36 @@ c &lt;- <span class="nb">true</span>
 <pre class="chroma"><code class="language-shell" data-lang="shell">package main
     
 import <span class="o">(</span>
-<span class="s2">&#34;fmt&#34;</span>
-<span class="s2">&#34;sync&#34;</span>
+    <span class="s2">&#34;fmt&#34;</span>
+    <span class="s2">&#34;sync&#34;</span>
 <span class="o">)</span>
     
 func main<span class="o">()</span> <span class="o">{</span>
-wg :<span class="o">=</span> sync.WaitGroup<span class="o">{}</span>
-wg.Add<span class="o">(</span><span class="m">10</span><span class="o">)</span>
+    wg :<span class="o">=</span> sync.WaitGroup<span class="o">{}</span>
+    wg.Add<span class="o">(</span>10<span class="o">)</span>
     
-<span class="k">for</span> i :<span class="o">=</span> <span class="m">0</span><span class="p">;</span> i &lt; <span class="m">10</span><span class="p">;</span> i++ <span class="o">{</span>
-    go Go<span class="o">(</span><span class="p">&amp;</span>wg, i<span class="o">)</span>
-<span class="o">}</span>
+    <span class="k">for</span> i :<span class="o">=</span> 0<span class="p">;</span> i &lt; 10<span class="p">;</span> i++ <span class="o">{</span>
+        go Go<span class="o">(</span><span class="p">&amp;</span>wg, i<span class="o">)</span>
+    <span class="o">}</span>
     
-wg.Wait<span class="o">()</span>
+    wg.Wait<span class="o">()</span>
 <span class="o">}</span>
     
 func Go<span class="o">(</span>wg *sync.WaitGroup, index int<span class="o">)</span> <span class="o">{</span>
-sum :<span class="o">=</span> <span class="m">1</span>
-<span class="k">for</span> i :<span class="o">=</span> <span class="m">0</span><span class="p">;</span> i &lt; <span class="m">100000</span><span class="p">;</span> i++ <span class="o">{</span>
-    <span class="nv">sum</span> <span class="o">+=</span> i
+    sum :<span class="o">=</span> <span class="m">1</span>
+    <span class="k">for</span> i :<span class="o">=</span> 0<span class="p">;</span> i &lt; 100000<span class="p">;</span> i++ <span class="o">{</span>
+        <span class="nv">sum</span> <span class="o">+=</span> i
+    <span class="o">}</span>
+    fmt.Println<span class="o">(</span>index, sum<span class="o">)</span>
+    wg.Done<span class="o">()</span>
 <span class="o">}</span>
-fmt.Println<span class="o">(</span>index, sum<span class="o">)</span>
-wg.Done<span class="o">()</span>
-<span class="o">}</span></code></pre></td></tr></table>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h1 id="select">select</h1>
-
 <ul>
 <li>可处理一个或多个chanel的发送与接收</li>
 <li>同时有多个可用的channel时按随机顺序处理</li>

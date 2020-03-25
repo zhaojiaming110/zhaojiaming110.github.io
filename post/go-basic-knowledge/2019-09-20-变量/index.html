@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-basic-knowledge/2019-09-20-%E5%8F%98%E9%87%8F/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
 <meta itemprop="name" content="变量">
 <meta itemprop="description" content="1.单个变量的声明与赋值 变量的声明格式：var &lt;变量名称&gt; &lt;变量类型&gt; 变量的赋值格式：&lt;变量名称&gt; = &l">
-
-
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="1324">
+<meta itemprop="wordCount" content="1323">
 
 
 
-<meta itemprop="keywords" content="基础语法," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="基础语法," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="变量"/>
 <meta name="twitter:description" content="1.单个变量的声明与赋值 变量的声明格式：var &lt;变量名称&gt; &lt;变量类型&gt; 变量的赋值格式：&lt;变量名称&gt; = &l"/>
 
@@ -539,7 +536,7 @@ if (!doNotTrack) {
             <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
             
           </div>
-        <span class="more-meta"> 1324 words </span>
+        <span class="more-meta"> 1323 words </span>
           <span class="more-meta"> 3 min read </span>
 
         
@@ -559,42 +556,31 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#1-单个变量的声明与赋值">1.单个变量的声明与赋值</a></li>
-<li><a href="#2-多个变量的声明与赋值">2.多个变量的声明与赋值</a></li>
-<li><a href="#3-变量的初始化">3.变量的初始化</a></li>
-<li><a href="#4-简短变量声明">4.简短变量声明</a></li>
-<li><a href="#5-new函数语法塘">5.new函数语法塘</a></li>
-<li><a href="#6-变量的生命周期">6.变量的生命周期</a></li>
-<li><a href="#7-go语言的自动垃圾收集器是如何知道一个变量是何时可以被回收的">7.Go语言的自动垃圾收集器是如何知道一个变量是何时可以被回收的？</a></li>
-<li><a href="#8-指针">8.指针</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="1-单个变量的声明与赋值">1.单个变量的声明与赋值</h1>
-
+      <h1 id="1单个变量的声明与赋值">1.单个变量的声明与赋值</h1>
 <ul>
-<li><p>变量的声明格式：var &lt;变量名称&gt; &lt;变量类型&gt;</p></li>
-
-<li><p>变量的赋值格式：&lt;变量名称&gt; = &lt;变量表达式&gt;</p></li>
-
-<li><p>声明的同时赋值：var &lt;变量名称&gt; [变量类型] = &lt;表达式&gt;</p>
-
+<li>
+<p>变量的声明格式：var &lt;变量名称&gt; &lt;变量类型&gt;</p>
+</li>
+<li>
+<p>变量的赋值格式：&lt;变量名称&gt; = &lt;变量表达式&gt;</p>
+</li>
+<li>
+<p>声明的同时赋值：var &lt;变量名称&gt; [变量类型] = &lt;表达式&gt;</p>
 <ul>
-<li><p>其中变量类型或=表达式可以省略其中的一个。</p></li>
-
-<li><p>如果省略的是变量类型信息，那么将根据初始化表达式来推导变量的类型信息。</p></li>
-
-<li><p>如果初始化表达式被省略，那么将用变量类型的零值初始化该变量。</p></li>
-</ul>
-
+<li>
+<p>其中变量类型或=表达式可以省略其中的一个。</p>
+</li>
+<li>
+<p>如果省略的是变量类型信息，那么将根据初始化表达式来推导变量的类型信息。</p>
+</li>
+<li>
+<p>如果初始化表达式被省略，那么将用变量类型的零值初始化该变量。</p>
 <table>
 <thead>
 <tr>
@@ -602,114 +588,114 @@ if (!doNotTrack) {
 <th align="center">零值</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td align="center">数值类型</td>
 <td align="center">0</td>
 </tr>
-
 <tr>
 <td align="center">布尔类型</td>
 <td align="center">false</td>
 </tr>
-
 <tr>
 <td align="center">字符串类型</td>
 <td align="center">空字符串</td>
 </tr>
-
 <tr>
 <td align="center">接口</td>
 <td align="center">nil</td>
 </tr>
-
 <tr>
 <td align="center">引用类型（包括slice、指针、map、chan、和函数）</td>
 <td align="center">nil</td>
 </tr>
-
 <tr>
 <td align="center">数组或结构体等聚合类型</td>
 <td align="center">每个元素或字段都是对应该类型的零值</td>
 </tr>
 </tbody>
 </table>
-
-<ul>
-<li>零值初始化机制可以确保每个声明的变量总是有一个良好定义的值，因此在Go语言中不存在未初始化的变量。</li>
-<li>初始化表达式可以是字面量也可以说是任意的表达式。</li>
-</ul></li>
+</li>
+<li>
+<p>零值初始化机制可以确保每个声明的变量总是有一个良好定义的值，因此在Go语言中不存在未初始化的变量。</p>
+</li>
+<li>
+<p>初始化表达式可以是字面量也可以说是任意的表达式。</p>
+</li>
 </ul>
-
-<h1 id="2-多个变量的声明与赋值">2.多个变量的声明与赋值</h1>
-
+</li>
+</ul>
+<h1 id="2多个变量的声明与赋值">2.多个变量的声明与赋值</h1>
 <ul>
-<li><p>包级别声明的变量可使用var()的方式进行缩写。</p>
+<li>
+<p>包级别声明的变量可使用var()的方式进行缩写。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">var <span class="o">(</span>
-	<span class="nv">a</span> <span class="o">=</span> <span class="s2">&#34;hello&#34;</span>
-	<span class="nv">b</span> <span class="o">=</span> <span class="m">10</span>
-<span class="o">)</span></code></pre></td></tr></table>
+  <span class="nv">a</span> <span class="o">=</span> <span class="s2">&#34;hello&#34;</span>
+  <span class="nv">b</span> <span class="o">=</span> <span class="m">10</span>
+<span class="o">)</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>包级别声明的变量不可以省略关键字var，但可以使用并行的方式</p>
+<li>
+<p>包级别声明的变量不可以省略关键字var，但可以使用并行的方式</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">var a, b, c, d int</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">var a, b, c, d int
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>所有的变量都可以使用类型推断</p>
+<li>
+<p>所有的变量都可以使用类型推断</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">var a, b, <span class="nv">c</span> <span class="o">=</span> <span class="m">1</span>, <span class="s2">&#34;hello&#34;</span>, false</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">var a, b, <span class="nv">c</span> <span class="o">=</span> 1, <span class="s2">&#34;hello&#34;</span>, <span class="nb">false</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>局部变量不可以使用var()的方式简写，只能使用并行的方式。</p></li>
+<li>
+<p>局部变量不可以使用var()的方式简写，只能使用并行的方式。</p>
+</li>
 </ul>
-
-<h1 id="3-变量的初始化">3.变量的初始化</h1>
-
+<h1 id="3变量的初始化">3.变量的初始化</h1>
 <ul>
 <li>包级别声明的变量会在main入口函数执行前完成初始化。</li>
 <li>局部变量将在声明语句被执行到的时候完成初始化。</li>
 </ul>
-
-<h1 id="4-简短变量声明">4.简短变量声明</h1>
-
+<h1 id="4简短变量声明">4.简短变量声明</h1>
 <ul>
-<li><p>简短变量声明语句的形式可用于声明和初始化<u>局部变量</u>。</p></li>
-
-<li><p>声明格式：&lt;变量名称&gt; := &lt;变量表达式&gt;。其中变量的类型根据表达式来自动推导。</p>
+<li>
+<p>简短变量声明语句的形式可用于声明和初始化<!-- raw HTML omitted -->局部变量<!-- raw HTML omitted -->。</p>
+</li>
+<li>
+<p>声明格式：&lt;变量名称&gt; := &lt;变量表达式&gt;。其中变量的类型根据表达式来自动推导。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">a, b, c :<span class="o">=</span> <span class="m">1</span>, <span class="s2">&#34;go&#34;</span>, true</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">a, b, c :<span class="o">=</span> 1, <span class="s2">&#34;go&#34;</span>, <span class="nb">true</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>简短变量声明语句也可以用函数的返回值来声明和初始化变量。</p>
+<li>
+<p>简短变量声明语句也可以用函数的返回值来声明和初始化变量。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -718,71 +704,70 @@ if (!doNotTrack) {
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">f, err :<span class="o">=</span> os.Open<span class="o">(</span>name<span class="o">)</span>
 <span class="k">if</span> err !<span class="o">=</span> nil <span class="o">{</span>
-  <span class="k">return</span>	err
+    <span class="k">return</span>	err
 <span class="o">}</span>
-f.Close</code></pre></td></tr></table>
+f.Close
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>简短变量声明语句中至少要声明一个新的变量。简短变量声明左边的变量可能并不是全部都是刚刚声明的。如果有一些已经在相同的词法域声明过了，那么简短变量声明语句对这些已经声明过的变量就只有赋值行为了。如果变量是在外部词法域声明的，那么简短变量声明语句将会在当前词法域中重新声明一个新的变量。</p></li>
+<li>
+<p>简短变量声明语句中至少要声明一个新的变量。简短变量声明左边的变量可能并不是全部都是刚刚声明的。如果有一些已经在相同的词法域声明过了，那么简短变量声明语句对这些已经声明过的变量就只有赋值行为了。如果变量是在外部词法域声明的，那么简短变量声明语句将会在当前词法域中重新声明一个新的变量。</p>
+</li>
 </ul>
-
-<h1 id="5-new函数语法塘">5.new函数语法塘</h1>
-
+<h1 id="5new函数语法塘">5.new函数语法塘</h1>
 <ul>
-<li><p>表达式new(T)将创建一个T类型的匿名变量，初始化为T类型的零值，然后返回变量地址，返回的指针类型为*T。</p>
+<li>
+<p>表达式new(T)将创建一个T类型的匿名变量，初始化为T类型的零值，然后返回变量地址，返回的指针类型为*T。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">p := new(int)	//p为*int类型，指向匿名的int变量
-fmt.Println(*p)	//0</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">p := new(int)	//p为*int类型，指向匿名的int变量
+fmt.Println(*p)	//0
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
-
-<h1 id="6-变量的生命周期">6.变量的生命周期</h1>
-
+<h1 id="6变量的生命周期">6.变量的生命周期</h1>
 <ul>
 <li>变量的生命周期指的是在程序运行期间变量有效存在的时间间隔。</li>
 <li>包级别声明的变量：生命周期和整个程序的运行周期一致。</li>
 <li>局部变量的生命周期是动态的；从每次创建一个新变量的声明语句开始，直到该变量不再被引用为止，然后变量的存储空间可能被回收。</li>
 <li>函数的参数变量和返回值变量都是局部变量。它们在函数每次被调用时创建。</li>
 </ul>
-
-<h1 id="7-go语言的自动垃圾收集器是如何知道一个变量是何时可以被回收的">7.Go语言的自动垃圾收集器是如何知道一个变量是何时可以被回收的？</h1>
-
-<p>​   基本的实现思路是，从每个包级的变量和每个当前运行函数的每一个局部变量开始，通过指针 或引用的访问路径遍历，是否可以找到该变量。如果不存在这样的访问路径，那么说明该变量是不可达 的，也就是说它是否存在并不会影响程序后续的计算结果。</p>
-
-<h1 id="8-指针">8.指针</h1>
-
+<h1 id="7go语言的自动垃圾收集器是如何知道一个变量是何时可以被回收的">7.Go语言的自动垃圾收集器是如何知道一个变量是何时可以被回收的？</h1>
+<p>​	基本的实现思路是，从每个包级的变量和每个当前运行函数的每一个局部变量开始，通过指针 或引用的访问路径遍历，是否可以找到该变量。如果不存在这样的访问路径，那么说明该变量是不可达 的，也就是说它是否存在并不会影响程序后续的计算结果。</p>
+<h1 id="8指针">8.指针</h1>
 <ul>
 <li>Go语言中的指针不能参与运算</li>
 <li>Go语言中只存在值传递，不存在引用传递</li>
 <li>每次我们对一个变量取地址，或者复制指针，我们都是为原变量创建了新的别名。</li>
 </ul>
-
-<table>
-<thead><tr><th>Bad</th><th>Good</th></tr></thead>
-<tbody>
-<tr><td>
-
-```go
-mu := new(sync.Mutex)
-mu.Lock()
-```
-
-</td><td>
-
-```go
-var mu sync.Mutex
-mu.Lock()
-```
-
-</td></tr>
-</tbody></table>
+<!-- raw HTML omitted -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">mu</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span><span class="p">)</span>
+<span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><!-- raw HTML omitted -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="nx">mu</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span>
+<span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><!-- raw HTML omitted -->
 
     </div>
 

@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-basic-knowledge/2019-09-25-%E9%97%AD%E5%8C%85%E7%9A%84%E5%BA%94%E7%94%A8/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
 <meta itemprop="name" content="闭包的应用">
 <meta itemprop="description" content="1 菲波那切数列 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 package main import &#34;fmt&#34; //1, 1, 2, 3, 5, 7, 11, 18, 29 // a, b // a, b func feibonacee() func() int { a, b := 0, 1 return func() int { a, b = b,">
-
-
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="424">
 
 
 
-<meta itemprop="keywords" content="函数式编程," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="函数式编程," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="闭包的应用"/>
 <meta name="twitter:description" content="1 菲波那切数列 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 package main import &#34;fmt&#34; //1, 1, 2, 3, 5, 7, 11, 18, 29 // a, b // a, b func feibonacee() func() int { a, b := 0, 1 return func() int { a, b = b,"/>
 
@@ -559,24 +556,16 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#1-菲波那切数列">1 菲波那切数列</a></li>
-<li><a href="#2-为函数实现接口">2 为函数实现接口</a></li>
-<li><a href="#3-使用函数遍历二叉树">3 使用函数遍历二叉树</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="1-菲波那切数列">1 菲波那切数列</h1>
+      <h1 id="1-菲波那切数列">1 菲波那切数列</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -608,11 +597,11 @@ if (!doNotTrack) {
 
 import <span class="s2">&#34;fmt&#34;</span>
 
-//1, <span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>, <span class="m">5</span>, <span class="m">7</span>, <span class="m">11</span>, <span class="m">18</span>, <span class="m">29</span>
+//1, 1, 2, 3, 5, 7, 11, 18, <span class="m">29</span>
 //   a, b
 //      a, b
 func feibonacee<span class="o">()</span> func<span class="o">()</span> int <span class="o">{</span>
-	a, b :<span class="o">=</span> <span class="m">0</span>, <span class="m">1</span>
+	a, b :<span class="o">=</span> 0, <span class="m">1</span>
 	<span class="k">return</span> func<span class="o">()</span> int <span class="o">{</span>
 		a, <span class="nv">b</span> <span class="o">=</span> b, a+b
 		<span class="k">return</span> a
@@ -629,21 +618,21 @@ func main<span class="o">()</span> <span class="o">{</span>
 	fmt.Println<span class="o">(</span>f<span class="o">())</span>
 	fmt.Println<span class="o">(</span>f<span class="o">())</span>
 	fmt.Println<span class="o">(</span>f<span class="o">())</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="2-为函数实现接口">2 为函数实现接口</h1>
-
+</div><h1 id="2-为函数实现接口">2 为函数实现接口</h1>
 <ul>
-<li><p>为什么可以为函数实现接口</p>
-
+<li>为什么可以为函数实现接口
 <ul>
 <li>函数可以作为一种类型使用</li>
-
-<li><p>方法的接受者和函数的第一个参数类似，函数可以作为函数的参数来使用</p>
+<li>方法的接受者和函数的第一个参数类似，函数可以作为函数的参数来使用</li>
+</ul>
+</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -700,9 +689,9 @@ import <span class="o">(</span>
 	<span class="s2">&#34;strings&#34;</span>
 <span class="o">)</span>
 
-// <span class="m">1</span>, <span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>, <span class="m">5</span>, <span class="m">8</span>, <span class="m">13</span>, ...
+// 1, 1, 2, 3, 5, 8, 13, ...
 func Fibonacci<span class="o">()</span> func<span class="o">()</span> int <span class="o">{</span>
-	a, b :<span class="o">=</span> <span class="m">0</span>, <span class="m">1</span>
+	a, b :<span class="o">=</span> 0, <span class="m">1</span>
 	<span class="k">return</span> func<span class="o">()</span> int <span class="o">{</span>
 		a, <span class="nv">b</span> <span class="o">=</span> b, a+b
 		<span class="k">return</span> a
@@ -716,7 +705,7 @@ func Fibonacci<span class="o">()</span> func<span class="o">()</span> int <span 
 func <span class="o">(</span>g intGen<span class="o">)</span> Read<span class="o">(</span>p <span class="o">[]</span>byte<span class="o">)</span> <span class="o">(</span>n int, err error<span class="o">)</span> <span class="o">{</span>
 	next :<span class="o">=</span> g<span class="o">()</span>
 	<span class="k">if</span> next &gt; <span class="m">10000</span> <span class="o">{</span>
-		<span class="k">return</span> <span class="m">0</span>, io.EOF
+		<span class="k">return</span> 0, io.EOF
 	<span class="o">}</span>
 	s :<span class="o">=</span> fmt.Sprintf<span class="o">(</span><span class="s2">&#34;%d\n&#34;</span>, next<span class="o">)</span>
 
@@ -736,16 +725,13 @@ func printFileContents<span class="o">(</span>reader io.Reader<span class="o">)<
 func main<span class="o">()</span> <span class="o">{</span>
 	var f <span class="nv">intGen</span> <span class="o">=</span> Fibonacci<span class="o">()</span>
 	printFileContents<span class="o">(</span>f<span class="o">)</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul></li>
-</ul>
-
-<h1 id="3-使用函数遍历二叉树">3 使用函数遍历二叉树</h1>
+</div><h1 id="3-使用函数遍历二叉树">3 使用函数遍历二叉树</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -778,7 +764,8 @@ func <span class="o">(</span>node *Node<span class="o">)</span> TraverseFunc<spa
 	node.Left.TraverseFunc<span class="o">(</span>f<span class="o">)</span>
 	f<span class="o">(</span>node<span class="o">)</span>
 	node.Right.TraverseFunc<span class="o">(</span>f<span class="o">)</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

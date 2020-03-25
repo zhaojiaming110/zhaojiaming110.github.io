@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>创作模式 on Beyourself - a gopher</title>
@@ -17,7 +17,7 @@
       <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
       
       <guid>http://beuself.xyz/post/go-paterns/builder/</guid>
-      <description>无论是在现实世界中还是在软件系统中，都存在一些复杂的对象，它们拥有多个组成部分，如汽车，它包括车轮、方向盘、发送机等各种部件。而对于大多数用</description>
+      <description>建造者模式 概述 建造者模式（Builder Pattern）又名生成器模式，是一种对象构建模式。它可以将复杂对象的建造过程抽象出来（抽象类别），</description>
     </item>
     
     <item>

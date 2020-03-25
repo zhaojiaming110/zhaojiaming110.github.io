@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-basic-knowledge/2019-09-26-%E6%B5%8B%E8%AF%95/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
 <meta itemprop="name" content="测试">
 <meta itemprop="description" content="传统测试 vs 表格驱动测试 go语言采用表格驱动测试 传统测试： 1 2 3 4 5 6 7 @Test public void testAdd() { assertEquals(3, add(1, 2)); assertEquals(2, add(0, 2)); assertEquals(0, add(0, 0)); assertEquals(0, add(1, -1)); assertEqulas(Integer.MIN_VALUE, add(1, Integer.MAX_VALUE)); } 测试数据和测试逻辑混在一起 出">
-
-
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="462">
+<meta itemprop="wordCount" content="461">
 
 
 
-<meta itemprop="keywords" content="函数式编程," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="函数式编程," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="测试"/>
 <meta name="twitter:description" content="传统测试 vs 表格驱动测试 go语言采用表格驱动测试 传统测试： 1 2 3 4 5 6 7 @Test public void testAdd() { assertEquals(3, add(1, 2)); assertEquals(2, add(0, 2)); assertEquals(0, add(0, 0)); assertEquals(0, add(1, -1)); assertEqulas(Integer.MIN_VALUE, add(1, Integer.MAX_VALUE)); } 测试数据和测试逻辑混在一起 出"/>
 
@@ -539,7 +536,7 @@ if (!doNotTrack) {
             <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
             
           </div>
-        <span class="more-meta"> 462 words </span>
+        <span class="more-meta"> 461 words </span>
           <span class="more-meta"> 1 min read </span>
 
         
@@ -559,27 +556,20 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#传统测试-vs-表格驱动测试">传统测试 vs 表格驱动测试</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="传统测试-vs-表格驱动测试">传统测试 vs 表格驱动测试</h1>
-
+      <h1 id="传统测试-vs-表格驱动测试">传统测试 vs 表格驱动测试</h1>
 <p>go语言采用表格驱动测试</p>
-
 <ul>
-<li><p>传统测试：</p>
+<li>
+<p>传统测试：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -589,24 +579,25 @@ if (!doNotTrack) {
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">@Test public void testAdd<span class="o">()</span> <span class="o">{</span>
-  assertEquals<span class="o">(</span><span class="m">3</span>, add<span class="o">(</span><span class="m">1</span>, <span class="m">2</span><span class="o">))</span><span class="p">;</span>
-  assertEquals<span class="o">(</span><span class="m">2</span>, add<span class="o">(</span><span class="m">0</span>, <span class="m">2</span><span class="o">))</span><span class="p">;</span>
-  assertEquals<span class="o">(</span><span class="m">0</span>, add<span class="o">(</span><span class="m">0</span>, <span class="m">0</span><span class="o">))</span><span class="p">;</span>
-  assertEquals<span class="o">(</span><span class="m">0</span>, add<span class="o">(</span><span class="m">1</span>, -1<span class="o">))</span><span class="p">;</span>
-  assertEqulas<span class="o">(</span>Integer.MIN_VALUE, add<span class="o">(</span><span class="m">1</span>, Integer.MAX_VALUE<span class="o">))</span><span class="p">;</span>
-<span class="o">}</span></code></pre></td></tr></table>
+    assertEquals<span class="o">(</span>3, add<span class="o">(</span>1, 2<span class="o">))</span><span class="p">;</span>
+    assertEquals<span class="o">(</span>2, add<span class="o">(</span>0, 2<span class="o">))</span><span class="p">;</span>
+    assertEquals<span class="o">(</span>0, add<span class="o">(</span>0, 0<span class="o">))</span><span class="p">;</span>
+    assertEquals<span class="o">(</span>0, add<span class="o">(</span>1, -1<span class="o">))</span><span class="p">;</span>
+    assertEqulas<span class="o">(</span>Integer.MIN_VALUE, add<span class="o">(</span>1, Integer.MAX_VALUE<span class="o">))</span><span class="p">;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li>测试数据和测试逻辑混在一起</li>
 <li>出错信息不明确</li>
 <li>一旦一个数据出错测试全部结束</li>
-</ul></li>
-
-<li><p>表格驱动测试：</p>
+</ul>
+</li>
+<li>
+<p>表格驱动测试：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -624,33 +615,34 @@ if (!doNotTrack) {
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">test</span> :<span class="o">=</span> <span class="o">[]</span>struct <span class="o">{</span>
-  a, b,, c int32
+    a, b,, c int32
 <span class="o">}{</span>
-  <span class="o">{</span><span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span><span class="o">}</span>
-  <span class="o">{</span><span class="m">0</span>, <span class="m">2</span>, <span class="m">2</span><span class="o">}</span>
-  <span class="o">{</span><span class="m">0</span>, <span class="m">0</span>, <span class="m">0</span><span class="o">}</span>
-  <span class="o">{</span>-1, <span class="m">1</span>, <span class="m">0</span><span class="o">}</span>
-  <span class="o">{</span>math.MaxInt32, <span class="m">1</span>, math.MinInt32<span class="o">}</span>,
+    <span class="o">{</span>1, 2, 3<span class="o">}</span>
+    <span class="o">{</span>0, 2, 2<span class="o">}</span>
+    <span class="o">{</span>0, 0, 0<span class="o">}</span>
+    <span class="o">{</span>-1, 1, 0<span class="o">}</span>
+    <span class="o">{</span>math.MaxInt32, 1, math.MinInt32<span class="o">}</span>,
 <span class="o">}</span>
   
 <span class="k">for</span> _, <span class="nb">test</span> :<span class="o">=</span> range <span class="nb">test</span> <span class="o">{</span>
-  <span class="k">if</span> actual :<span class="o">=</span> add<span class="o">(</span>test.a, test.b<span class="o">)</span><span class="p">;</span> actual !<span class="o">=</span> test.c <span class="o">{</span>
-      //出错信息
-  <span class="o">}</span>
-<span class="o">}</span></code></pre></td></tr></table>
+    <span class="k">if</span> actual :<span class="o">=</span> add<span class="o">(</span>test.a, test.b<span class="o">)</span><span class="p">;</span> actual !<span class="o">=</span> test.c <span class="o">{</span>
+        //出错信息
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li>分离的测试数据和测试逻辑</li>
 <li>明确的出错信息</li>
 <li>可以部分失败</li>
 <li>go语言的语法使得我们更容易实践表格驱动测试</li>
-</ul></li>
-
-<li><p>代码演示:</p>
+</ul>
+</li>
+<li>
+<p>代码演示:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -665,17 +657,18 @@ if (!doNotTrack) {
 <pre class="chroma"><code class="language-shell" data-lang="shell">package main
   
 func Add<span class="o">(</span>a, b int<span class="o">)</span> int <span class="o">{</span>
-	<span class="k">return</span> a + b
+  <span class="k">return</span> a + b
 <span class="o">}</span>
   
 func main<span class="o">()</span> <span class="o">{</span>
-	Add<span class="o">(</span><span class="m">1</span>, <span class="m">2</span><span class="o">)</span>
-	Add<span class="o">(</span><span class="m">3</span>, <span class="m">4</span><span class="o">)</span>
-<span class="o">}</span></code></pre></td></tr></table>
+  Add<span class="o">(</span>1, 2<span class="o">)</span>
+  Add<span class="o">(</span>3, 4<span class="o">)</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -699,52 +692,53 @@ func main<span class="o">()</span> <span class="o">{</span>
 import <span class="s2">&#34;testing&#34;</span>
   
 func TestAdd<span class="o">(</span>t *testing.T<span class="o">)</span> <span class="o">{</span>
-	tests :<span class="o">=</span> <span class="o">[]</span>struct<span class="o">{</span> a, b, c int <span class="o">}{</span>
-		<span class="o">{</span><span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span><span class="o">}</span>,
-		<span class="o">{</span><span class="m">2</span>, <span class="m">3</span>, <span class="m">5</span><span class="o">}</span>,
-		<span class="o">{</span><span class="m">4</span>, <span class="m">8</span>, <span class="m">12</span><span class="o">}</span>,
-	<span class="o">}</span>
+  tests :<span class="o">=</span> <span class="o">[]</span>struct<span class="o">{</span> a, b, c int <span class="o">}{</span>
+      <span class="o">{</span>1, 2, 3<span class="o">}</span>,
+      <span class="o">{</span>2, 3, 5<span class="o">}</span>,
+      <span class="o">{</span>4, 8, 12<span class="o">}</span>,
+  <span class="o">}</span>
   
-	<span class="k">for</span> _, tt :<span class="o">=</span> range tests <span class="o">{</span>
-		<span class="k">if</span> actual :<span class="o">=</span> Add<span class="o">(</span>tt.a, tt.b<span class="o">)</span><span class="p">;</span> actual !<span class="o">=</span> tt.c <span class="o">{</span>
-			t.Errorf<span class="o">(</span><span class="s2">&#34;Add(%d, %d);“ + ”get %d; expected %d&#34;</span>, tt.a, tt.b, actual, tt.c<span class="o">)</span>
-		<span class="o">}</span>
-	<span class="o">}</span>
-<span class="o">}</span></code></pre></td></tr></table>
+  <span class="k">for</span> _, tt :<span class="o">=</span> range tests <span class="o">{</span>
+      <span class="k">if</span> actual :<span class="o">=</span> Add<span class="o">(</span>tt.a, tt.b<span class="o">)</span><span class="p">;</span> actual !<span class="o">=</span> tt.c <span class="o">{</span>
+          t.Errorf<span class="o">(</span><span class="s2">&#34;Add(%d, %d);“ + ”get %d; expected %d&#34;</span>, tt.a, tt.b, actual, tt.c<span class="o">)</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
-<p>shell执行：</p>
+</div><p>shell执行：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">  go <span class="nb">test</span> .</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">go <span class="nb">test</span> .
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>执行结果：</p>
+</div><p>执行结果：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">  ok  	<span class="m">42</span>/p1/test	<span class="m">0</span>.006s</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">ok  	42/p1/test	0.006s
+</code></pre></td></tr></table>
 </div>
-</div>
-<p># 代码覆盖率和性能测试：</p>
-
+</div><h1 id="代码覆盖率和性能测试">代码覆盖率和性能测试：</h1>
 <ul>
-<li><p>go test -coverprofile=c.out</p></li>
-
-<li><p>less c.out</p></li>
-
-<li><p>go tool cover -html=c.out</p></li>
-
-<li><div class="highlight"><div class="chroma">
+<li>
+<p>go test -coverprofile=c.out</p>
+</li>
+<li>
+<p>less c.out</p>
+</li>
+<li>
+<p>go tool cover -html=c.out</p>
+</li>
+<li>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -763,30 +757,32 @@ func TestAdd<span class="o">(</span>t *testing.T<span class="o">)</span> <span c
     s2 :<span class="o">=</span> <span class="m">20000</span>
     ans :<span class="o">=</span> <span class="m">30000</span>
     
-    <span class="k">for</span> i :<span class="o">=</span> <span class="m">0</span><span class="p">;</span> i &lt; b.N<span class="p">;</span> i++ <span class="o">{</span>
+    <span class="k">for</span> i :<span class="o">=</span> 0<span class="p">;</span> i &lt; b.N<span class="p">;</span> i++ <span class="o">{</span>
         actual :<span class="o">=</span> Add<span class="o">(</span>s1, s2<span class="o">)</span>
         <span class="k">if</span> actual !<span class="o">=</span> ans <span class="o">{</span>
             b.Errorf<span class="o">(</span><span class="s2">&#34;got %d for input %d, %d; &#34;</span>+<span class="s2">&#34;expected %d&#34;</span>, actual, s1, s2, ans<span class="o">)</span>
         <span class="o">}</span>
     <span class="o">}</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>shell执行：</p>
+<li>
+<p>shell执行：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">go <span class="nb">test</span> bench .</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">go <span class="nb">test</span> bench .
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>执行结果：</p>
+<li>
+<p>执行结果：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -796,12 +792,15 @@ func TestAdd<span class="o">(</span>t *testing.T<span class="o">)</span> <span c
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">goos: darwin
 goarch: amd64
-pkg: <span class="m">42</span>/p1/test
-BenchmarkAdd-4      <span class="m">2000000000</span>           <span class="m">0</span>.46 ns/op
+pkg: 42/p1/test
+BenchmarkAdd-4   	2000000000	         0.46 ns/op
 PASS
-ok      <span class="m">42</span>/p1/test  <span class="m">0</span>.984s</code></pre></td></tr></table>
+ok  	42/p1/test	0.984s
+</code></pre></td></tr></table>
 </div>
 </div></li>
+</ul>
+</li>
 </ul>
 
     </div>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Date Structures With Go on Beyourself - a gopher</title>
@@ -26,7 +26,7 @@
       <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
       
       <guid>http://beuself.xyz/post/date-structures-with-go/1-6%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8/</guid>
-      <description>C / C ++的算法：遍历链表并一一删除所有节点。 在Go中，会发生自动垃圾收集，因此删除链接列表很容易。我们只需要将head更改为nil。 实现方</description>
+      <description>**C / C ++的算法：**遍历链表并一一删除所有节点。 在Go中，会发生自动垃圾收集，因此删除链接列表很容易。我们只需要将head更改为nil。 实</description>
     </item>
     
     <item>
@@ -81,6 +81,15 @@
       
       <guid>http://beuself.xyz/post/date-structures-with-go/queue/queue/</guid>
       <description>入队与出队 与栈一样，队列(queue)也是存放数据对象的一种容器，其中的数据对象也按线性的逻辑次序排列。队列结构同样支持对象的插入和删除，但</description>
+    </item>
+    
+    <item>
+      <title>Vector</title>
+      <link>http://beuself.xyz/post/date-structures-with-go/vector/vector/</link>
+      <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/date-structures-with-go/vector/vector/</guid>
+      <description>接口 ADT接口 操作接口 功能 适用对象 Size() 报告向量当前的规模（元素总数） 向量 Get(r) 获取秩为r的元素 向量 Put(r, e) 用e替换秩为r元素的数值 向量 Insert(r, e) e作为秩为r</description>
     </item>
     
   </channel>

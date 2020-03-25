@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-basic-knowledge/2019-09-23-%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%AE%9E%E7%8E%B0/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
 <meta itemprop="name" content="接口的定义和实现">
 <meta itemprop="description" content="接口的定义 1 2 3 4 5 6 7 type Retriver interface { Get(source string) string } func download(r Retriver) string { return r.Get(&#34;www.baidu.com&#34;) } 接口是由使用者定义的。 接口的实现 接口的实现是隐式的。 只要实现接口里的方法。">
-
-
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="65">
 
 
 
-<meta itemprop="keywords" content="面向对象," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="面向对象," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="接口的定义和实现"/>
 <meta name="twitter:description" content="接口的定义 1 2 3 4 5 6 7 type Retriver interface { Get(source string) string } func download(r Retriver) string { return r.Get(&#34;www.baidu.com&#34;) } 接口是由使用者定义的。 接口的实现 接口的实现是隐式的。 只要实现接口里的方法。"/>
 
@@ -559,23 +556,16 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#接口的定义">接口的定义</a></li>
-<li><a href="#接口的实现">接口的实现</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="接口的定义">接口的定义</h1>
+      <h1 id="接口的定义">接口的定义</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -590,13 +580,11 @@ if (!doNotTrack) {
 
 func download<span class="o">(</span>r Retriver<span class="o">)</span> string <span class="o">{</span>
     <span class="k">return</span> r.Get<span class="o">(</span><span class="s2">&#34;www.baidu.com&#34;</span><span class="o">)</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>接口是由使用者定义的。</p>
-
+</div><p>接口是由使用者定义的。</p>
 <h1 id="接口的实现">接口的实现</h1>
-
 <ul>
 <li>接口的实现是隐式的。</li>
 <li>只要实现接口里的方法。</li>

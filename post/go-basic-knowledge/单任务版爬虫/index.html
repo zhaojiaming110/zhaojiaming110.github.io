@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-basic-knowledge/%E5%8D%95%E4%BB%BB%E5%8A%A1%E7%89%88%E7%88%AC%E8%99%AB/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2019-10-19T16:01:23+08:00" />
 <meta itemprop="name" content="单任务版爬虫">
 <meta itemprop="description" content="单任务版爬虫 设计目标： 获取并打印所有城市第一页用户的详细信息 获取网页内容（fetch）: 使用http.Get获取内容 使用Encoding来转">
-
-
 <meta itemprop="datePublished" content="2019-10-19T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-10-19T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="801">
 
 
 
-<meta itemprop="keywords" content="相亲网爬虫实战," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="相亲网爬虫实战," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="单任务版爬虫"/>
 <meta name="twitter:description" content="单任务版爬虫 设计目标： 获取并打印所有城市第一页用户的详细信息 获取网页内容（fetch）: 使用http.Get获取内容 使用Encoding来转"/>
 
@@ -559,68 +556,57 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#单任务版爬虫">单任务版爬虫</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g85x29jl2ug30hs0a0jza.gif" alt="" /></p>
-
+      <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g85x29jl2ug30hs0a0jza.gif" alt=""></p>
 <h1 id="单任务版爬虫">单任务版爬虫</h1>
-
 <ul>
-<li>设计目标：</li>
-</ul>
-
+<li>
+<p>设计目标：</p>
 <p>获取并打印所有城市第一页用户的详细信息</p>
-
-<ul>
-<li><p>获取网页内容（fetch）:</p>
-
+</li>
+<li>
+<p>获取网页内容（fetch）:</p>
 <ul>
 <li>使用http.Get获取内容</li>
 <li>使用Encoding来转换编码：gbk-&gt;utf-8</li>
 <li>使用charset.DetermineEncoding来判断编码</li>
-</ul></li>
-
-<li><p>获取城市名称和链接：</p>
-
+</ul>
+</li>
+<li>
+<p>获取城市名称和链接：</p>
 <ul>
 <li>使用css选择器</li>
 <li>使用xpath</li>
 <li>使用正则表达式：本项目仅采用正则表达式</li>
-</ul></li>
-
-<li><p>解析器Parser</p>
-
+</ul>
+</li>
+<li>
+<p>解析器Parser</p>
 <ul>
 <li>输入：utf-8编码的文本</li>
 <li>输出：Request{URL, 对应Parser}列表，Ttem列表</li>
-</ul></li>
-
-<li><p>单任务版爬虫架构</p></li>
 </ul>
-
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g7kwta885cj30wa0hk74s.jpg" alt="" /></p>
-
+</li>
+<li>
+<p>单任务版爬虫架构</p>
+</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g7kwta885cj30wa0hk74s.jpg" alt=""></p>
 <ul>
 <li>爬虫总体算法</li>
 </ul>
-
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g7kwj6rxwoj30pe0hiq3a.jpg" alt="" /></p>
-
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g7kwj6rxwoj30pe0hiq3a.jpg" alt=""></p>
 <ul>
-<li><p>城市列表解析器</p>
+<li>
+<p>城市列表解析器</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -662,45 +648,46 @@ if (!doNotTrack) {
 </span><span class="c1"></span><span class="kn">package</span> <span class="nx">parser</span>
   
 <span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;crawler/engine&#34;</span>
-	<span class="s">&#34;fmt&#34;</span>
-	<span class="s">&#34;regexp&#34;</span>
+  <span class="s">&#34;crawler/engine&#34;</span>
+  <span class="s">&#34;fmt&#34;</span>
+  <span class="s">&#34;regexp&#34;</span>
 <span class="p">)</span>
   
 <span class="kd">const</span> <span class="p">(</span>
-	<span class="nx">cityRe</span> <span class="p">=</span> <span class="s">`&lt;a href=&#34;(http://album.zhenai.com/u/[0-9]+)&#34;[^&gt;]*&gt;([^&lt;]+)&lt;/a&gt;`</span>
+  <span class="nx">cityRe</span> <span class="p">=</span> <span class="s">`&lt;a href=&#34;(http://album.zhenai.com/u/[0-9]+)&#34;[^&gt;]*&gt;([^&lt;]+)&lt;/a&gt;`</span>
 <span class="p">)</span>
   
 <span class="kd">func</span> <span class="nf">ParseCity</span><span class="p">(</span><span class="nx">contents</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">,</span> <span class="nx">gender</span> <span class="kt">string</span><span class="p">)</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">ParseResult</span> <span class="p">{</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;ParseCity&#34;</span><span class="p">)</span>
-	<span class="nx">re</span> <span class="o">:=</span> <span class="nx">regexp</span><span class="p">.</span><span class="nf">MustCompile</span><span class="p">(</span><span class="nx">cityRe</span><span class="p">)</span>
-	<span class="nx">matches</span> <span class="o">:=</span> <span class="nx">re</span><span class="p">.</span><span class="nf">FindAllSubmatch</span><span class="p">(</span><span class="nx">contents</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;ParseCity&#34;</span><span class="p">)</span>
+  <span class="nx">re</span> <span class="o">:=</span> <span class="nx">regexp</span><span class="p">.</span><span class="nf">MustCompile</span><span class="p">(</span><span class="nx">cityRe</span><span class="p">)</span>
+  <span class="nx">matches</span> <span class="o">:=</span> <span class="nx">re</span><span class="p">.</span><span class="nf">FindAllSubmatch</span><span class="p">(</span><span class="nx">contents</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
   
-	<span class="nx">result</span> <span class="o">:=</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">ParseResult</span><span class="p">{}</span>
+  <span class="nx">result</span> <span class="o">:=</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">ParseResult</span><span class="p">{}</span>
   
-	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">m</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">matches</span> <span class="p">{</span>
-		<span class="nx">name</span> <span class="o">:=</span> <span class="nb">string</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-		<span class="nx">result</span><span class="p">.</span><span class="nx">Items</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">Items</span><span class="p">,</span> <span class="s">&#34;User &#34;</span><span class="o">+</span><span class="nb">string</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
-		<span class="nx">result</span><span class="p">.</span><span class="nx">Requests</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">Requests</span><span class="p">,</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">Request</span><span class="p">{</span>
-			<span class="nx">Url</span><span class="p">:</span> <span class="nb">string</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
-			<span class="c1">// ParserFunc: func(c []byte) engine.ParseResult {
-</span><span class="c1"></span>			<span class="c1">// 	return ParseProfile(c, string(m[2])) 此处的循环取的是最后一次for循环m[2]的值
-</span><span class="c1"></span>			<span class="c1">// },
-</span><span class="c1"></span>			<span class="nx">ParserFunc</span><span class="p">:</span> <span class="kd">func</span><span class="p">(</span><span class="nx">c</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">ParseResult</span> <span class="p">{</span>
-				<span class="k">return</span> <span class="nf">ParseProfile</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">gender</span><span class="p">)</span>
-			<span class="p">},</span>
-		<span class="p">})</span>
-	<span class="p">}</span>
+  <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">m</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">matches</span> <span class="p">{</span>
+      <span class="nx">name</span> <span class="o">:=</span> <span class="nb">string</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nx">Items</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">Items</span><span class="p">,</span> <span class="s">&#34;User &#34;</span><span class="o">+</span><span class="nb">string</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nx">Requests</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">Requests</span><span class="p">,</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">Request</span><span class="p">{</span>
+          <span class="nx">Url</span><span class="p">:</span> <span class="nb">string</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+          <span class="c1">// ParserFunc: func(c []byte) engine.ParseResult {
+</span><span class="c1"></span>          <span class="c1">// 	return ParseProfile(c, string(m[2])) 此处的循环取的是最后一次for循环m[2]的值
+</span><span class="c1"></span>          <span class="c1">// },
+</span><span class="c1"></span>          <span class="nx">ParserFunc</span><span class="p">:</span> <span class="kd">func</span><span class="p">(</span><span class="nx">c</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">ParseResult</span> <span class="p">{</span>
+              <span class="k">return</span> <span class="nf">ParseProfile</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">gender</span><span class="p">)</span>
+          <span class="p">},</span>
+      <span class="p">})</span>
+  <span class="p">}</span>
   
-	<span class="k">return</span> <span class="nx">result</span>
-<span class="p">}</span></code></pre></td></tr></table>
+  <span class="k">return</span> <span class="nx">result</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>性别解析器</p>
+<li>
+<p>性别解析器</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -740,45 +727,46 @@ if (!doNotTrack) {
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">parser</span>
   
 <span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;crawler/engine&#34;</span>
-	<span class="s">&#34;fmt&#34;</span>
-	<span class="s">&#34;regexp&#34;</span>
+  <span class="s">&#34;crawler/engine&#34;</span>
+  <span class="s">&#34;fmt&#34;</span>
+  <span class="s">&#34;regexp&#34;</span>
 <span class="p">)</span>
   
 <span class="kd">const</span> <span class="p">(</span>
-	<span class="nx">GenderRe</span> <span class="p">=</span> <span class="s">`&lt;span class=&#34;m21&#34; data-v-690ff80c&gt;&lt;a href=&#34;(http://www.zhenai.com/zhenghun/[0-9a-z]+/[0-9a-z]+)&#34; class=&#34;black&#34; data-v-690ff80c&gt;([^&lt;]+)&lt;/a&gt;&lt;/span&gt;`</span>
+  <span class="nx">GenderRe</span> <span class="p">=</span> <span class="s">`&lt;span class=&#34;m21&#34; data-v-690ff80c&gt;&lt;a href=&#34;(http://www.zhenai.com/zhenghun/[0-9a-z]+/[0-9a-z]+)&#34; class=&#34;black&#34; data-v-690ff80c&gt;([^&lt;]+)&lt;/a&gt;&lt;/span&gt;`</span>
 <span class="p">)</span>
   
 <span class="kd">func</span> <span class="nf">ParseGenderList</span><span class="p">(</span><span class="nx">contents</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">ParseResult</span> <span class="p">{</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;GenderList&#34;</span><span class="p">)</span>
-	<span class="nx">re</span> <span class="o">:=</span> <span class="nx">regexp</span><span class="p">.</span><span class="nf">MustCompile</span><span class="p">(</span><span class="nx">GenderRe</span><span class="p">)</span>
-	<span class="nx">matches</span> <span class="o">:=</span> <span class="nx">re</span><span class="p">.</span><span class="nf">FindAllSubmatch</span><span class="p">(</span><span class="nx">contents</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;GenderList&#34;</span><span class="p">)</span>
+  <span class="nx">re</span> <span class="o">:=</span> <span class="nx">regexp</span><span class="p">.</span><span class="nf">MustCompile</span><span class="p">(</span><span class="nx">GenderRe</span><span class="p">)</span>
+  <span class="nx">matches</span> <span class="o">:=</span> <span class="nx">re</span><span class="p">.</span><span class="nf">FindAllSubmatch</span><span class="p">(</span><span class="nx">contents</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
   
-	<span class="c1">//fmt.Println(len(matches)) //2
+  <span class="c1">//fmt.Println(len(matches)) //2
 </span><span class="c1"></span>  
-	<span class="nx">result</span> <span class="o">:=</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">ParseResult</span><span class="p">{}</span>
+  <span class="nx">result</span> <span class="o">:=</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">ParseResult</span><span class="p">{}</span>
   
-	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">m</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">matches</span> <span class="p">{</span>
-		<span class="c1">//fmt.Println(string(m[1]))
-</span><span class="c1"></span>		<span class="nx">Gender</span> <span class="o">:=</span> <span class="nb">string</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-		<span class="nx">result</span><span class="p">.</span><span class="nx">Items</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">Items</span><span class="p">,</span> <span class="s">&#34;Gender &#34;</span><span class="o">+</span><span class="nx">Gender</span><span class="p">)</span>
-		<span class="nx">result</span><span class="p">.</span><span class="nx">Requests</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">Requests</span><span class="p">,</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">Request</span><span class="p">{</span>
-			<span class="nx">Url</span><span class="p">:</span> <span class="nb">string</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
-			<span class="c1">//ParserFunc: ParseCity, //解析器
-</span><span class="c1"></span>			<span class="nx">ParserFunc</span><span class="p">:</span> <span class="kd">func</span><span class="p">(</span><span class="nx">c</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">ParseResult</span> <span class="p">{</span>
-				<span class="k">return</span> <span class="nf">ParseCity</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">Gender</span><span class="p">)</span>
-			<span class="p">},</span>
-		<span class="p">})</span>
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="nx">result</span>
-<span class="p">}</span></code></pre></td></tr></table>
+  <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">m</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">matches</span> <span class="p">{</span>
+      <span class="c1">//fmt.Println(string(m[1]))
+</span><span class="c1"></span>      <span class="nx">Gender</span> <span class="o">:=</span> <span class="nb">string</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nx">Items</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">Items</span><span class="p">,</span> <span class="s">&#34;Gender &#34;</span><span class="o">+</span><span class="nx">Gender</span><span class="p">)</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nx">Requests</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">Requests</span><span class="p">,</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">Request</span><span class="p">{</span>
+          <span class="nx">Url</span><span class="p">:</span> <span class="nb">string</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+          <span class="c1">//ParserFunc: ParseCity, //解析器
+</span><span class="c1"></span>          <span class="nx">ParserFunc</span><span class="p">:</span> <span class="kd">func</span><span class="p">(</span><span class="nx">c</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">ParseResult</span> <span class="p">{</span>
+              <span class="k">return</span> <span class="nf">ParseCity</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">Gender</span><span class="p">)</span>
+          <span class="p">},</span>
+      <span class="p">})</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">result</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>客户列表解析器</p>
+<li>
+<p>客户列表解析器</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -820,45 +808,46 @@ if (!doNotTrack) {
 </span><span class="c1"></span><span class="kn">package</span> <span class="nx">parser</span>
   
 <span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;crawler/engine&#34;</span>
-	<span class="s">&#34;fmt&#34;</span>
-	<span class="s">&#34;regexp&#34;</span>
+  <span class="s">&#34;crawler/engine&#34;</span>
+  <span class="s">&#34;fmt&#34;</span>
+  <span class="s">&#34;regexp&#34;</span>
 <span class="p">)</span>
   
 <span class="kd">const</span> <span class="p">(</span>
-	<span class="nx">cityRe</span> <span class="p">=</span> <span class="s">`&lt;a href=&#34;(http://album.zhenai.com/u/[0-9]+)&#34;[^&gt;]*&gt;([^&lt;]+)&lt;/a&gt;`</span>
+  <span class="nx">cityRe</span> <span class="p">=</span> <span class="s">`&lt;a href=&#34;(http://album.zhenai.com/u/[0-9]+)&#34;[^&gt;]*&gt;([^&lt;]+)&lt;/a&gt;`</span>
 <span class="p">)</span>
   
 <span class="kd">func</span> <span class="nf">ParseCity</span><span class="p">(</span><span class="nx">contents</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">,</span> <span class="nx">gender</span> <span class="kt">string</span><span class="p">)</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">ParseResult</span> <span class="p">{</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;ParseCity&#34;</span><span class="p">)</span>
-	<span class="nx">re</span> <span class="o">:=</span> <span class="nx">regexp</span><span class="p">.</span><span class="nf">MustCompile</span><span class="p">(</span><span class="nx">cityRe</span><span class="p">)</span>
-	<span class="nx">matches</span> <span class="o">:=</span> <span class="nx">re</span><span class="p">.</span><span class="nf">FindAllSubmatch</span><span class="p">(</span><span class="nx">contents</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;ParseCity&#34;</span><span class="p">)</span>
+  <span class="nx">re</span> <span class="o">:=</span> <span class="nx">regexp</span><span class="p">.</span><span class="nf">MustCompile</span><span class="p">(</span><span class="nx">cityRe</span><span class="p">)</span>
+  <span class="nx">matches</span> <span class="o">:=</span> <span class="nx">re</span><span class="p">.</span><span class="nf">FindAllSubmatch</span><span class="p">(</span><span class="nx">contents</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
   
-	<span class="nx">result</span> <span class="o">:=</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">ParseResult</span><span class="p">{}</span>
+  <span class="nx">result</span> <span class="o">:=</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">ParseResult</span><span class="p">{}</span>
   
-	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">m</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">matches</span> <span class="p">{</span>
-		<span class="nx">name</span> <span class="o">:=</span> <span class="nb">string</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-		<span class="nx">result</span><span class="p">.</span><span class="nx">Items</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">Items</span><span class="p">,</span> <span class="s">&#34;User &#34;</span><span class="o">+</span><span class="nb">string</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
-		<span class="nx">result</span><span class="p">.</span><span class="nx">Requests</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">Requests</span><span class="p">,</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">Request</span><span class="p">{</span>
-			<span class="nx">Url</span><span class="p">:</span> <span class="nb">string</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
-			<span class="c1">// ParserFunc: func(c []byte) engine.ParseResult {
-</span><span class="c1"></span>			<span class="c1">// 	return ParseProfile(c, string(m[2])) 此处的循环取的是最后一次for循环m[2]的值
-</span><span class="c1"></span>			<span class="c1">// },
-</span><span class="c1"></span>			<span class="nx">ParserFunc</span><span class="p">:</span> <span class="kd">func</span><span class="p">(</span><span class="nx">c</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">ParseResult</span> <span class="p">{</span>
-				<span class="k">return</span> <span class="nf">ParseProfile</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">gender</span><span class="p">)</span>
-			<span class="p">},</span>
-		<span class="p">})</span>
-	<span class="p">}</span>
+  <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">m</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">matches</span> <span class="p">{</span>
+      <span class="nx">name</span> <span class="o">:=</span> <span class="nb">string</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nx">Items</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">Items</span><span class="p">,</span> <span class="s">&#34;User &#34;</span><span class="o">+</span><span class="nb">string</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nx">Requests</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">Requests</span><span class="p">,</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">Request</span><span class="p">{</span>
+          <span class="nx">Url</span><span class="p">:</span> <span class="nb">string</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+          <span class="c1">// ParserFunc: func(c []byte) engine.ParseResult {
+</span><span class="c1"></span>          <span class="c1">// 	return ParseProfile(c, string(m[2])) 此处的循环取的是最后一次for循环m[2]的值
+</span><span class="c1"></span>          <span class="c1">// },
+</span><span class="c1"></span>          <span class="nx">ParserFunc</span><span class="p">:</span> <span class="kd">func</span><span class="p">(</span><span class="nx">c</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">ParseResult</span> <span class="p">{</span>
+              <span class="k">return</span> <span class="nf">ParseProfile</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">gender</span><span class="p">)</span>
+          <span class="p">},</span>
+      <span class="p">})</span>
+  <span class="p">}</span>
   
-	<span class="k">return</span> <span class="nx">result</span>
-<span class="p">}</span></code></pre></td></tr></table>
+  <span class="k">return</span> <span class="nx">result</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>客户信息解析器</p>
+<li>
+<p>客户信息解析器</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -902,60 +891,53 @@ if (!doNotTrack) {
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">parser</span>
   
 <span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;crawler/engine&#34;</span>
-	<span class="s">&#34;fmt&#34;</span>
-	<span class="s">&#34;regexp&#34;</span>
+  <span class="s">&#34;crawler/engine&#34;</span>
+  <span class="s">&#34;fmt&#34;</span>
+  <span class="s">&#34;regexp&#34;</span>
 <span class="p">)</span>
   
 <span class="kd">const</span> <span class="p">(</span>
-	<span class="c1">// [\d]所有数字
-</span><span class="c1"></span>	<span class="nx">ProfileRe</span>  <span class="p">=</span> <span class="s">`&lt;div class=&#34;m-btn purple&#34; data-v-8b1eac0c&gt;([^&lt;]+)&lt;/div&gt;`</span>
-	<span class="nx">ProfileRe1</span> <span class="p">=</span> <span class="s">`&lt;div class=&#34;m-btn pink&#34; data-v-8b1eac0c&gt;([^&lt;]+)&lt;/div&gt;`</span>
+  <span class="c1">// [\d]所有数字
+</span><span class="c1"></span>  <span class="nx">ProfileRe</span>  <span class="p">=</span> <span class="s">`&lt;div class=&#34;m-btn purple&#34; data-v-8b1eac0c&gt;([^&lt;]+)&lt;/div&gt;`</span>
+  <span class="nx">ProfileRe1</span> <span class="p">=</span> <span class="s">`&lt;div class=&#34;m-btn pink&#34; data-v-8b1eac0c&gt;([^&lt;]+)&lt;/div&gt;`</span>
 <span class="p">)</span>
   
 <span class="kd">func</span> <span class="nf">ParseProfile</span><span class="p">(</span><span class="nx">contents</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">gender</span> <span class="kt">string</span><span class="p">)</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">ParseResult</span> <span class="p">{</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;ParseProfile&#34;</span><span class="p">)</span>
+  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;ParseProfile&#34;</span><span class="p">)</span>
   
-	<span class="nx">profile</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">string</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+  <span class="nx">profile</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">string</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
   
-	<span class="nx">profile</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">profile</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">gender</span><span class="p">)</span>
+  <span class="nx">profile</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">profile</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">gender</span><span class="p">)</span>
   
-	<span class="nf">findCompile</span><span class="p">(</span><span class="nx">contents</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">profile</span><span class="p">,</span> <span class="nx">ProfileRe</span><span class="p">)</span>
-	<span class="nf">findCompile</span><span class="p">(</span><span class="nx">contents</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">profile</span><span class="p">,</span> <span class="nx">ProfileRe1</span><span class="p">)</span>
+  <span class="nf">findCompile</span><span class="p">(</span><span class="nx">contents</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">profile</span><span class="p">,</span> <span class="nx">ProfileRe</span><span class="p">)</span>
+  <span class="nf">findCompile</span><span class="p">(</span><span class="nx">contents</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">profile</span><span class="p">,</span> <span class="nx">ProfileRe1</span><span class="p">)</span>
   
-	<span class="nx">result</span> <span class="o">:=</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">ParseResult</span><span class="p">{</span>
-		<span class="nx">Items</span><span class="p">:</span> <span class="p">[]</span><span class="kd">interface</span><span class="p">{}{</span><span class="nx">profile</span><span class="p">},</span>
-	<span class="p">}</span>
+  <span class="nx">result</span> <span class="o">:=</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">ParseResult</span><span class="p">{</span>
+      <span class="nx">Items</span><span class="p">:</span> <span class="p">[]</span><span class="kd">interface</span><span class="p">{}{</span><span class="nx">profile</span><span class="p">},</span>
+  <span class="p">}</span>
   
-	<span class="k">return</span> <span class="nx">result</span>
+  <span class="k">return</span> <span class="nx">result</span>
 <span class="p">}</span>
   
 <span class="kd">func</span> <span class="nf">findCompile</span><span class="p">(</span><span class="nx">contents</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">,</span> <span class="nx">profile</span> <span class="o">*</span><span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">flag</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">re</span> <span class="o">:=</span> <span class="nx">regexp</span><span class="p">.</span><span class="nf">MustCompile</span><span class="p">(</span><span class="nx">ProfileRe</span><span class="p">)</span>
-	<span class="nx">matches</span> <span class="o">:=</span> <span class="nx">re</span><span class="p">.</span><span class="nf">FindAllSubmatch</span><span class="p">(</span><span class="nx">contents</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+  <span class="nx">re</span> <span class="o">:=</span> <span class="nx">regexp</span><span class="p">.</span><span class="nf">MustCompile</span><span class="p">(</span><span class="nx">ProfileRe</span><span class="p">)</span>
+  <span class="nx">matches</span> <span class="o">:=</span> <span class="nx">re</span><span class="p">.</span><span class="nf">FindAllSubmatch</span><span class="p">(</span><span class="nx">contents</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
   
-	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">m</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">matches</span> <span class="p">{</span>
-		<span class="o">*</span><span class="nx">profile</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="o">*</span><span class="nx">profile</span><span class="p">,</span> <span class="nb">string</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
-	<span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+  <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">m</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">matches</span> <span class="p">{</span>
+      <span class="o">*</span><span class="nx">profile</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="o">*</span><span class="nx">profile</span><span class="p">,</span> <span class="nb">string</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
-
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g85x3c1qj3g30qo0dwwyn.gif" alt="" /></p>
-
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g874nbn5tyj31040h8wfh.jpg" alt="" /></p>
-
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g874prilbgj30j209adfv.jpg" alt="" /></p>
-
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g874s3dvlzj30qe0cywfh.jpg" alt="" /></p>
-
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8752cyj0zj30j209adfv.jpg" alt="" /></p>
-
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g875dw00ybj30j209adfv.jpg" alt="" /></p>
-
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8765uiqixg30rs0m8e84.gif" alt="" /></p>
-
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g85x3c1qj3g30qo0dwwyn.gif" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g874nbn5tyj31040h8wfh.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g874prilbgj30j209adfv.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g874s3dvlzj30qe0cywfh.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8752cyj0zj30j209adfv.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g875dw00ybj30j209adfv.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8765uiqixg30rs0m8e84.gif" alt=""></p>
 <p>121</p>
 
     </div>

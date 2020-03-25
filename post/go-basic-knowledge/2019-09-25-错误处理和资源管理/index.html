@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-basic-knowledge/2019-09-25-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E5%92%8C%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
 <meta itemprop="name" content="错误处理和资源管理">
 <meta itemprop="description" content="defer defer调用： 确保调用在函数结束时发生。 参数在defer语句时计算。 defer列表为后进先出。 何时使用defer: Open/Close Lock/Unlock PrintHeader/PrintFooter 1 2 3 4 5 6 7 8">
-
-
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="584">
 
 
 
-<meta itemprop="keywords" content="错误处理," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="错误处理," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="错误处理和资源管理"/>
 <meta name="twitter:description" content="defer defer调用： 确保调用在函数结束时发生。 参数在defer语句时计算。 defer列表为后进先出。 何时使用defer: Open/Close Lock/Unlock PrintHeader/PrintFooter 1 2 3 4 5 6 7 8"/>
 
@@ -559,42 +556,32 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#defer">defer</a></li>
-<li><a href="#错误处理">错误处理：</a></li>
-<li><a href="#error-vs-panic">error vs panic</a></li>
-<li><a href="#错误处理综合示例">错误处理综合示例</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="defer">defer</h1>
-
+      <h1 id="defer">defer</h1>
 <ul>
 <li>defer调用：
-
 <ul>
 <li>确保调用在函数结束时发生。</li>
 <li>参数在defer语句时计算。</li>
 <li>defer列表为后进先出。</li>
-</ul></li>
-
-<li><p>何时使用defer:</p>
-
+</ul>
+</li>
+<li>何时使用defer:
 <ul>
 <li>Open/Close</li>
 <li>Lock/Unlock</li>
-
-<li><p>PrintHeader/PrintFooter</p>
+<li>PrintHeader/PrintFooter</li>
+</ul>
+</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -640,7 +627,7 @@ import <span class="o">(</span>
 <span class="o">)</span>
 
 func feibonacee<span class="o">()</span> func<span class="o">()</span> int <span class="o">{</span>
-	a, b :<span class="o">=</span> <span class="m">0</span>, <span class="m">1</span>
+	a, b :<span class="o">=</span> 0, <span class="m">1</span>
 	<span class="k">return</span> func<span class="o">()</span> int <span class="o">{</span>
 		a, <span class="nv">b</span> <span class="o">=</span> b, a+b
 		<span class="k">return</span> a
@@ -658,23 +645,20 @@ func writeFile<span class="o">(</span>filename string<span class="o">)</span> <s
 	defer writer.Flush<span class="o">()</span>
 
 	f :<span class="o">=</span> feibonacee<span class="o">()</span>
-	<span class="k">for</span> i :<span class="o">=</span> <span class="m">0</span><span class="p">;</span> i &lt; <span class="m">20</span><span class="p">;</span> i++ <span class="o">{</span>
+	<span class="k">for</span> i :<span class="o">=</span> 0<span class="p">;</span> i &lt; 20<span class="p">;</span> i++ <span class="o">{</span>
 		fmt.Fprintln<span class="o">(</span>writer, f<span class="o">())</span>
 	<span class="o">}</span>
 
 <span class="o">}</span>
 func main<span class="o">()</span> <span class="o">{</span>
 	writeFile<span class="o">(</span><span class="s2">&#34;abc.txt&#34;</span><span class="o">)</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul></li>
-</ul>
-
-<h1 id="错误处理">错误处理：</h1>
+</div><h1 id="错误处理">错误处理：</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -691,29 +675,30 @@ func main<span class="o">()</span> <span class="o">{</span>
     <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
         fmt.Println<span class="o">(</span>pathError.Err, pathError.Error<span class="o">())</span>
     <span class="o">}</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="error-vs-panic">error vs panic</h1>
-
+</div><h1 id="error-vs-panic">error vs panic</h1>
 <ul>
 <li>意料之中的：使用error。如：文件打不开</li>
 <li>意料之外的：使用panic。如：数组越界</li>
 </ul>
-
 <h1 id="错误处理综合示例">错误处理综合示例</h1>
-
 <ul>
-<li><p>defer + panic + recover</p></li>
-
-<li><p>Type Assersion</p></li>
-
-<li><p>函数式编程的应用</p></li>
-
-<li><p>代码示例：</p>
+<li>
+<p>defer + panic + recover</p>
+</li>
+<li>
+<p>Type Assersion</p>
+</li>
+<li>
+<p>函数式编程的应用</p>
+</li>
+<li>
+<p>代码示例：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -806,11 +791,11 @@ func main<span class="o">()</span> <span class="o">{</span>
 <pre class="chroma"><code class="language-shell" data-lang="shell">package main
   
 import <span class="o">(</span>
-	<span class="s2">&#34;io/ioutil&#34;</span>
-	<span class="s2">&#34;log&#34;</span>
-	<span class="s2">&#34;net/http&#34;</span>
-	<span class="s2">&#34;os&#34;</span>
-	<span class="s2">&#34;strings&#34;</span>
+  <span class="s2">&#34;io/ioutil&#34;</span>
+  <span class="s2">&#34;log&#34;</span>
+  <span class="s2">&#34;net/http&#34;</span>
+  <span class="s2">&#34;os&#34;</span>
+  <span class="s2">&#34;strings&#34;</span>
 <span class="o">)</span>
   
 const <span class="nv">prefix</span> <span class="o">=</span> <span class="s2">&#34;/Users/zhaojiaming/&#34;</span>
@@ -818,79 +803,80 @@ const <span class="nv">prefix</span> <span class="o">=</span> <span class="s2">&
 <span class="nb">type</span> userError string
   
 func <span class="o">(</span>e userError<span class="o">)</span> Error<span class="o">()</span> string <span class="o">{</span>
-	<span class="k">return</span> e.Message<span class="o">()</span>
+  <span class="k">return</span> e.Message<span class="o">()</span>
 <span class="o">}</span>
   
 func <span class="o">(</span>e userError<span class="o">)</span> Message<span class="o">()</span> string <span class="o">{</span>
-	<span class="k">return</span> string<span class="o">(</span>e<span class="o">)</span>
+  <span class="k">return</span> string<span class="o">(</span>e<span class="o">)</span>
 <span class="o">}</span>
   
 func handlelist<span class="o">(</span>writer http.ResponseWriter, request *http.Request<span class="o">)</span> error <span class="o">{</span>
-	<span class="k">if</span> strings.Index<span class="o">(</span>request.URL.Path, prefix<span class="o">)</span> !<span class="o">=</span> <span class="m">0</span> <span class="o">{</span>
-		<span class="k">return</span> userError<span class="o">(</span><span class="s2">&#34;path must start &#34;</span> + <span class="s2">&#34;with&#34;</span> + prefix<span class="o">)</span>
-	<span class="o">}</span>
-	path :<span class="o">=</span> request.URL.Path<span class="o">[</span>len<span class="o">(</span>prefix<span class="o">)</span>:<span class="o">]</span>
-	file, err :<span class="o">=</span> os.Open<span class="o">(</span>path<span class="o">)</span>
-	<span class="k">if</span> err !<span class="o">=</span> nil <span class="o">{</span>
-		http.Error<span class="o">(</span>writer, err.Error<span class="o">()</span>, http.StatusInternalServerError<span class="o">)</span>
-		<span class="k">return</span> err
-	<span class="o">}</span>
-	defer file.Close<span class="o">()</span>
-	all, err :<span class="o">=</span> ioutil.ReadAll<span class="o">(</span>file<span class="o">)</span>
-	<span class="k">if</span> err !<span class="o">=</span> nil <span class="o">{</span>
-		<span class="k">return</span> err
-	<span class="o">}</span>
-	writer.Write<span class="o">(</span>all<span class="o">)</span>
-	<span class="k">return</span> nil
+  <span class="k">if</span> strings.Index<span class="o">(</span>request.URL.Path, prefix<span class="o">)</span> !<span class="o">=</span> <span class="m">0</span> <span class="o">{</span>
+      <span class="k">return</span> userError<span class="o">(</span><span class="s2">&#34;path must start &#34;</span> + <span class="s2">&#34;with&#34;</span> + prefix<span class="o">)</span>
+  <span class="o">}</span>
+  path :<span class="o">=</span> request.URL.Path<span class="o">[</span>len<span class="o">(</span>prefix<span class="o">)</span>:<span class="o">]</span>
+  file, err :<span class="o">=</span> os.Open<span class="o">(</span>path<span class="o">)</span>
+  <span class="k">if</span> err !<span class="o">=</span> nil <span class="o">{</span>
+      http.Error<span class="o">(</span>writer, err.Error<span class="o">()</span>, http.StatusInternalServerError<span class="o">)</span>
+      <span class="k">return</span> err
+  <span class="o">}</span>
+  defer file.Close<span class="o">()</span>
+  all, err :<span class="o">=</span> ioutil.ReadAll<span class="o">(</span>file<span class="o">)</span>
+  <span class="k">if</span> err !<span class="o">=</span> nil <span class="o">{</span>
+      <span class="k">return</span> err
+  <span class="o">}</span>
+  writer.Write<span class="o">(</span>all<span class="o">)</span>
+  <span class="k">return</span> nil
 <span class="o">}</span>
   
 <span class="nb">type</span> appHandle func<span class="o">(</span>writer http.ResponseWriter, request *http.Request<span class="o">)</span> error
   
 func errWrapper<span class="o">(</span>handler appHandle<span class="o">)</span> func<span class="o">(</span>http.ResponseWriter, *http.Request<span class="o">)</span> <span class="o">{</span>
   
-	<span class="k">return</span> func<span class="o">(</span>writer http.ResponseWriter, request *http.Request<span class="o">)</span> <span class="o">{</span>
-		defer func<span class="o">()</span> <span class="o">{</span>
-			<span class="k">if</span> r :<span class="o">=</span> recover<span class="o">()</span><span class="p">;</span> r !<span class="o">=</span> nil <span class="o">{</span>
-				log.Printf<span class="o">(</span><span class="s2">&#34;panic: %v&#34;</span>, r<span class="o">)</span>
-				http.Error<span class="o">(</span>writer, http.StatusText<span class="o">(</span>http.StatusInternalServerError<span class="o">)</span>,
-					http.StatusInternalServerError<span class="o">)</span>
-			<span class="o">}</span>
-		<span class="o">}()</span>
-		err :<span class="o">=</span> handler<span class="o">(</span>writer, request<span class="o">)</span>
-		<span class="k">if</span> err !<span class="o">=</span> nil <span class="o">{</span>
+  <span class="k">return</span> func<span class="o">(</span>writer http.ResponseWriter, request *http.Request<span class="o">)</span> <span class="o">{</span>
+      defer func<span class="o">()</span> <span class="o">{</span>
+          <span class="k">if</span> r :<span class="o">=</span> recover<span class="o">()</span><span class="p">;</span> r !<span class="o">=</span> nil <span class="o">{</span>
+              log.Printf<span class="o">(</span><span class="s2">&#34;panic: %v&#34;</span>, r<span class="o">)</span>
+              http.Error<span class="o">(</span>writer, http.StatusText<span class="o">(</span>http.StatusInternalServerError<span class="o">)</span>,
+                  http.StatusInternalServerError<span class="o">)</span>
+          <span class="o">}</span>
+      <span class="o">}()</span>
+      err :<span class="o">=</span> handler<span class="o">(</span>writer, request<span class="o">)</span>
+      <span class="k">if</span> err !<span class="o">=</span> nil <span class="o">{</span>
   
-			<span class="k">if</span> userErr, ok :<span class="o">=</span> err.<span class="o">(</span>userError1<span class="o">)</span><span class="p">;</span> ok <span class="o">{</span>
-				http.Error<span class="o">(</span>writer, userErr.Message<span class="o">()</span>, http.StatusBadRequest<span class="o">)</span>
-				<span class="k">return</span>
-			<span class="o">}</span>
+          <span class="k">if</span> userErr, ok :<span class="o">=</span> err.<span class="o">(</span>userError1<span class="o">)</span><span class="p">;</span> ok <span class="o">{</span>
+              http.Error<span class="o">(</span>writer, userErr.Message<span class="o">()</span>, http.StatusBadRequest<span class="o">)</span>
+              <span class="k">return</span>
+          <span class="o">}</span>
   
-			code :<span class="o">=</span> http.StatusOK
-			switch <span class="o">{</span>
-			<span class="k">case</span> os.IsNotExist<span class="o">(</span>err<span class="o">)</span>:
-				<span class="nv">code</span> <span class="o">=</span> http.StatusNotFound
-			<span class="k">case</span> os.IsPermission<span class="o">(</span>err<span class="o">)</span>:
-				<span class="nv">code</span> <span class="o">=</span> http.StatusForbidden
-			default:
-				<span class="nv">code</span> <span class="o">=</span> http.StatusInternalServerError
-			<span class="o">}</span>
-			http.Error<span class="o">(</span>writer, http.StatusText<span class="o">(</span>code<span class="o">)</span>, code<span class="o">)</span>
+          code :<span class="o">=</span> http.StatusOK
+          switch <span class="o">{</span>
+          <span class="k">case</span> os.IsNotExist<span class="o">(</span>err<span class="o">)</span>:
+              <span class="nv">code</span> <span class="o">=</span> http.StatusNotFound
+          <span class="k">case</span> os.IsPermission<span class="o">(</span>err<span class="o">)</span>:
+              <span class="nv">code</span> <span class="o">=</span> http.StatusForbidden
+          default:
+              <span class="nv">code</span> <span class="o">=</span> http.StatusInternalServerError
+          <span class="o">}</span>
+          http.Error<span class="o">(</span>writer, http.StatusText<span class="o">(</span>code<span class="o">)</span>, code<span class="o">)</span>
   
-		<span class="o">}</span>
-	<span class="o">}</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
 <span class="o">}</span>
   
 <span class="nb">type</span> userError1 interface <span class="o">{</span>
-	error
-	Message<span class="o">()</span> string //给用户看得error
+  error
+  Message<span class="o">()</span> string //给用户看得error
 <span class="o">}</span>
   
 func main<span class="o">()</span> <span class="o">{</span>
-	http.HandleFunc<span class="o">(</span><span class="s2">&#34;/&#34;</span>, errWrapper<span class="o">(</span>handlelist<span class="o">))</span>
-	err :<span class="o">=</span> http.ListenAndServe<span class="o">(</span><span class="s2">&#34;:8888&#34;</span>, nil<span class="o">)</span>
-	<span class="k">if</span> err !<span class="o">=</span> nil <span class="o">{</span>
-		panic<span class="o">(</span>err<span class="o">)</span>
-	<span class="o">}</span>
-<span class="o">}</span></code></pre></td></tr></table>
+  http.HandleFunc<span class="o">(</span><span class="s2">&#34;/&#34;</span>, errWrapper<span class="o">(</span>handlelist<span class="o">))</span>
+  err :<span class="o">=</span> http.ListenAndServe<span class="o">(</span><span class="s2">&#34;:8888&#34;</span>, nil<span class="o">)</span>
+  <span class="k">if</span> err !<span class="o">=</span> nil <span class="o">{</span>
+      panic<span class="o">(</span>err<span class="o">)</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>

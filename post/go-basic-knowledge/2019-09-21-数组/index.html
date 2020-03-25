@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-basic-knowledge/2019-09-21-%E6%95%B0%E7%BB%84/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
 <meta itemprop="name" content="数组">
 <meta itemprop="description" content="数组就是指一系列同一类型数据 的集合。数组中包含的每个数据被称为数组元素(element)，一个数组包含的元素个数被称为数 组的长度。 常规数组的">
-
-
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="450">
 
 
 
-<meta itemprop="keywords" content="内建容器," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="内建容器," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="数组"/>
 <meta name="twitter:description" content="数组就是指一系列同一类型数据 的集合。数组中包含的每个数据被称为数组元素(element)，一个数组包含的元素个数被称为数 组的长度。 常规数组的"/>
 
@@ -559,26 +556,17 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#常规数组的声明方法">常规数组的声明方法</a></li>
-<li><a href="#数组的遍历">数组的遍历</a></li>
-<li><a href="#值类型">值类型</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<p>数组就是指一系列同一类型数据 的集合。数组中包含的每个数据被称为数组元素(element)，一个数组包含的元素个数被称为数 组的长度。</p>
-
+      <p>数组就是指一系列同一类型数据 的集合。数组中包含的每个数据被称为数组元素(element)，一个数组包含的元素个数被称为数 组的长度。</p>
 <h1 id="常规数组的声明方法">常规数组的声明方法</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -586,57 +574,56 @@ if (!doNotTrack) {
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span><span class="m">32</span><span class="o">]</span>byte 					// 长度为32的数组，每个元素为一个字节 
-<span class="o">[</span><span class="m">10</span><span class="o">]</span> struct <span class="o">{</span> x, y int32 <span class="o">}</span> 	// 复杂类型数组
-<span class="o">[</span><span class="m">1000</span><span class="o">]</span>*float64				// 指针数组	本质上是一个数组，数组元素为指向float64类型的变量
-*<span class="o">[</span><span class="m">1000</span><span class="o">]</span>float64				// 数组指针 本质上是一个指针，指向type<span class="o">[</span><span class="m">1000</span><span class="o">]</span>float64的变量
-<span class="o">[</span><span class="m">3</span><span class="o">][</span><span class="m">5</span><span class="o">]</span>int					// 二维数组 
-<span class="o">[</span><span class="m">2</span><span class="o">][</span><span class="m">2</span><span class="o">][</span><span class="m">2</span><span class="o">]</span>float64			// 等同于<span class="o">[</span><span class="m">2</span><span class="o">]([</span><span class="m">2</span><span class="o">]([</span><span class="m">2</span><span class="o">]</span>float64<span class="o">))</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>32<span class="o">]</span>byte 					// 长度为32的数组，每个元素为一个字节 
+<span class="o">[</span>10<span class="o">]</span> struct <span class="o">{</span> x, y int32 <span class="o">}</span> 	// 复杂类型数组
+<span class="o">[</span>1000<span class="o">]</span>*float64				// 指针数组	本质上是一个数组，数组元素为指向float64类型的变量
+*<span class="o">[</span>1000<span class="o">]</span>float64				// 数组指针 本质上是一个指针，指向type<span class="o">[</span>1000<span class="o">]</span>float64的变量
+<span class="o">[</span>3<span class="o">][</span>5<span class="o">]</span>int					// 二维数组 
+<span class="o">[</span>2<span class="o">][</span>2<span class="o">][</span>2<span class="o">]</span>float64			// 等同于<span class="o">[</span>2<span class="o">]([</span>2<span class="o">]([</span>2<span class="o">]</span>float64<span class="o">))</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li>数组长度在定义后就不可以更改，在声明时长度可以为常量或一个常量表达式。</li>
 <li>数组的长度是该数组类型的一个内置常量，可以用len()内置函数来获得。</li>
 </ul>
-
 <h1 id="数组的遍历">数组的遍历</h1>
-
 <ul>
-<li><p>常规遍历</p>
+<li>
+<p>常规遍历</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">var array <span class="o">[</span><span class="m">5</span><span class="o">]</span><span class="nv">int</span> <span class="o">=</span> <span class="o">{</span><span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>, <span class="m">4</span>, <span class="m">5</span><span class="o">}</span>
-<span class="k">for</span> i :<span class="o">=</span> <span class="m">0</span><span class="p">;</span> i &lt; len<span class="o">(</span>array<span class="o">)</span><span class="p">;</span> i++ <span class="o">{</span>
-  fmt.Println<span class="o">(</span><span class="s2">&#34;Element&#34;</span>, i, <span class="s2">&#34;of array is&#34;</span>, array<span class="o">[</span>i<span class="o">])</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">var array <span class="o">[</span>5<span class="o">]</span><span class="nv">int</span> <span class="o">=</span> <span class="o">{</span>1, 2, 3, 4, 5<span class="o">}</span>
+<span class="k">for</span> i :<span class="o">=</span> 0<span class="p">;</span> i &lt; len<span class="o">(</span>array<span class="o">)</span><span class="p">;</span> i++ <span class="o">{</span>
+    fmt.Println<span class="o">(</span><span class="s2">&#34;Element&#34;</span>, i, <span class="s2">&#34;of array is&#34;</span>, array<span class="o">[</span>i<span class="o">])</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>range遍历</p>
+<li>
+<p>range遍历</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">var array <span class="o">[</span><span class="m">5</span><span class="o">]</span><span class="nv">int</span> <span class="o">=</span> <span class="o">{</span><span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>, <span class="m">4</span>, <span class="m">5</span><span class="o">}</span>
+<pre class="chroma"><code class="language-shell" data-lang="shell">var array <span class="o">[</span>5<span class="o">]</span><span class="nv">int</span> <span class="o">=</span> <span class="o">{</span>1, 2, 3, 4, 5<span class="o">}</span>
 <span class="k">for</span> i, v :<span class="o">=</span> range array <span class="o">{</span>
-  fmt.Println<span class="o">(</span><span class="s2">&#34;Element&#34;</span>, i, <span class="s2">&#34;of array is&#34;</span>, v<span class="o">)</span>
-<span class="o">}</span></code></pre></td></tr></table>
+    fmt.Println<span class="o">(</span><span class="s2">&#34;Element&#34;</span>, i, <span class="s2">&#34;of array is&#34;</span>, v<span class="o">)</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
-
 <h1 id="值类型">值类型</h1>
-
 <p>在Go语言中数组是一个值类型（value type）。所有的值类型变量在赋值和作为参数传递时都将产生一次复制操作。如果将数组作为函数的参数类型，则在函数调用时该参数将发生数据复制。</p>
 
     </div>

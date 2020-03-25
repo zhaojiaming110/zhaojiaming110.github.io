@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/go-leetcode/0027%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2018-03-01T16:01:23+08:00" />
 <meta itemprop="name" content="0027-Remove Element">
 <meta itemprop="description" content="题目： 给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。 不要使用额外的数组空间，你必须在原地修改输入">
-
-
 <meta itemprop="datePublished" content="2019-09-20T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-01T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="179">
 
 
 
-<meta itemprop="keywords" content="数组," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="数组," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="0027-Remove Element"/>
 <meta name="twitter:description" content="题目： 给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。 不要使用额外的数组空间，你必须在原地修改输入"/>
 
@@ -559,40 +556,37 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g95r6zww73j312k0u0q77.jpg" alt="" /></p>
-
+      <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g95r6zww73j312k0u0q77.jpg" alt=""></p>
 <ul>
-<li>题目：</li>
-</ul>
-
+<li>
+<p>题目：</p>
 <p>给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。</p>
-
 <p>不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。</p>
-
 <p>元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。</p>
-
-<ul>
-<li><p>示例：</p>
+</li>
+<li>
+<p>示例：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">给定 <span class="nv">nums</span> <span class="o">=</span> <span class="o">[</span><span class="m">3</span>,2,2,3<span class="o">]</span>, <span class="nv">val</span> <span class="o">=</span> <span class="m">3</span>,
+<pre class="chroma"><code class="language-shell" data-lang="shell">给定 <span class="nv">nums</span> <span class="o">=</span> <span class="o">[</span>3,2,2,3<span class="o">]</span>, <span class="nv">val</span> <span class="o">=</span> 3,
   
-函数应该返回新的长度 <span class="m">2</span>, 并且 nums 中的前两个元素均为 <span class="m">2</span>。
+函数应该返回新的长度 2, 并且 nums 中的前两个元素均为 2。
   
-你不需要考虑数组中超出新长度后面的元素。</code></pre></td></tr></table>
+你不需要考虑数组中超出新长度后面的元素。
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>

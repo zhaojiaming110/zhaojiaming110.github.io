@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>基础语法 on Beyourself - a gopher</title>
@@ -35,7 +35,7 @@
       <pubDate>Fri, 20 Sep 2019 16:01:23 +0800</pubDate>
       
       <guid>http://beuself.xyz/post/go-basic-knowledge/2019-09-20-%E5%86%85%E5%BB%BA%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/</guid>
-      <description>bool, string int, (u)int8, (u)int16, (u)int32, (u)int64, uintptr(没有指定具体的bit大小但是足以容纳指针) byte(uint8等价类型)，byte类型一般用于强调数值是一个原</description>
+      <description>bool, string (u)int, (u)int8, (u)int16, (u)int32, (u)int64, uintptr(没有指定具体的bit大小但是足以容纳指针) byte(uint8等价类型)，byte类型一般用于强调数值是一个原</description>
     </item>
     
     <item>

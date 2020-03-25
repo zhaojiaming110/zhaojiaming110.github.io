@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <link rel="canonical" href="http://beuself.xyz/post/date-structures-with-go/1-7%E9%93%BE%E8%A1%A8%E7%9A%84%E9%95%BF%E5%BA%A6%E8%BF%AD%E4%BB%A3%E5%92%8C%E9%80%92%E5%BD%92/" />
@@ -65,16 +65,13 @@
 <meta property="article:modified_time" content="2019-11-10T23:01:23+08:00" />
 <meta itemprop="name" content="1-7链表的长度（迭代和递归）">
 <meta itemprop="description" content="编写一个函数以计算给定单链表中的节点数。 Example 对于链接列表1-&gt; 3-&gt; 1-&gt; 2-&gt; 1，该函数应返回5。 迭代 初始化计数为0 循环迭代 实现 1 2 3 4 5 6 7 8 9">
-
-
 <meta itemprop="datePublished" content="2019-11-10T23:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-10T23:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="381">
 
 
 
-<meta itemprop="keywords" content="Singly Linked List," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Singly Linked List," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="1-7链表的长度（迭代和递归）"/>
 <meta name="twitter:description" content="编写一个函数以计算给定单链表中的节点数。 Example 对于链接列表1-&gt; 3-&gt; 1-&gt; 2-&gt; 1，该函数应返回5。 迭代 初始化计数为0 循环迭代 实现 1 2 3 4 5 6 7 8 9"/>
 
@@ -560,56 +557,32 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#example">Example</a></li>
-<li><a href="#迭代">迭代</a>
-<ul>
-<li><a href="#实现">实现</a></li>
-<li><a href="#输出">输出</a></li>
-</ul></li>
-<li><a href="#递归">递归</a>
-<ul>
-<li><a href="#算法实现">算法实现</a></li>
-<li><a href="#代码实现">代码实现</a></li>
-<li><a href="#输出-1">输出</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<p>编写一个函数以计算给定单链表中的节点数。</p>
-
-<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9odltdj3bj30oe054wea.jpg" alt="" /></p>
-
+      <p>编写一个函数以计算给定单链表中的节点数。</p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9odltdj3bj30oe054wea.jpg" alt=""></p>
 <h4 id="example">Example</h4>
-
 <p>对于链接列表1-&gt; 3-&gt; 1-&gt; 2-&gt; 1，该函数应返回5。</p>
-
 <h4 id="迭代">迭代</h4>
-
 <ul>
 <li>初始化计数为0</li>
 <li>循环迭代</li>
 </ul>
-
 <h5 id="实现">实现</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -638,11 +611,12 @@ if (!doNotTrack) {
 	<span class="p">}</span>
 
 	<span class="k">return</span> <span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -681,43 +655,42 @@ if (!doNotTrack) {
 	<span class="nx">head</span> <span class="p">=</span> <span class="nx">head</span><span class="p">.</span><span class="nf">Push</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
 	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Count of node is &#34;</span><span class="p">,</span> <span class="nx">head</span><span class="p">.</span><span class="nf">GetCount1</span><span class="p">())</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h5 id="输出">输出</h5>
+</div><h5 id="输出">输出</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">Link list is empty
 Count of node is  <span class="m">0</span>
-Count of node is  <span class="m">4</span></code></pre></td></tr></table>
+Count of node is  <span class="m">4</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="递归">递归</h4>
-
+</div><h4 id="递归">递归</h4>
 <h5 id="算法实现">算法实现</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">func (head *Node) GetCount2() int 
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">func (head *Node) GetCount2() int 
 1.如果链表是空链表，直接返回0
 2.如果head.next是nil,return 1
-3.return 1 + head.next.GetCount2()</pre></td></tr></table>
+3.return 1 + head.next.GetCount2()
+</code></pre></td></tr></table>
 </div>
-</div>
-<h5 id="代码实现">代码实现</h5>
+</div><h5 id="代码实现">代码实现</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -742,11 +715,12 @@ Count of node is  <span class="m">4</span></code></pre></td></tr></table>
 	<span class="p">}</span>
 
 	<span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="nx">head</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nf">GetCount2</span><span class="p">()</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -785,18 +759,19 @@ Count of node is  <span class="m">4</span></code></pre></td></tr></table>
 	<span class="nx">head</span> <span class="p">=</span> <span class="nx">head</span><span class="p">.</span><span class="nf">Push</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
 	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Count of node is &#34;</span><span class="p">,</span> <span class="nx">head</span><span class="p">.</span><span class="nf">GetCount2</span><span class="p">())</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h5 id="输出-1">输出</h5>
+</div><h5 id="输出-1">输出</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">Count of node is  <span class="m">0</span>
-Count of node is  <span class="m">4</span></code></pre></td></tr></table>
+Count of node is  <span class="m">4</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

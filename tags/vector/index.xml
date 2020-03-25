@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vector on Beyourself - a gopher</title>
+    <link>http://beuself.xyz/tags/vector/</link>
+    <description>Recent content in Vector on Beyourself - a gopher</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 10 Nov 2019 23:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="http://beuself.xyz/tags/vector/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vector</title>
+      <link>http://beuself.xyz/post/date-structures-with-go/vector/vector/</link>
+      <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/date-structures-with-go/vector/vector/</guid>
+      <description>接口 ADT接口 操作接口 功能 适用对象 Size() 报告向量当前的规模（元素总数） 向量 Get(r) 获取秩为r的元素 向量 Put(r, e) 用e替换秩为r元素的数值 向量 Insert(r, e) e作为秩为r</description>
+    </item>
+    
+  </channel>
+</rss>

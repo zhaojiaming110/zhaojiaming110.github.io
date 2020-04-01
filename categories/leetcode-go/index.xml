@@ -39,6 +39,15 @@
     </item>
     
     <item>
+      <title>0024-两两交换链表中的节点</title>
+      <link>http://beuself.xyz/post/go-leetcode/linkedlist/0024-%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/</link>
+      <pubDate>Tue, 31 Mar 2020 16:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/go-leetcode/linkedlist/0024-%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/</guid>
+      <description>题目描述 给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。 你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。 示例 1 给定 1-&amp;gt;2-&amp;gt;3-&amp;gt;4,</description>
+    </item>
+    
+    <item>
       <title>0026-Remove Duplicates from Sorted Array</title>
       <link>http://beuself.xyz/post/go-leetcode/0026%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/</link>
       <pubDate>Sun, 13 Oct 2019 16:01:23 +0800</pubDate>

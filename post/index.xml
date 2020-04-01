@@ -39,6 +39,15 @@
     </item>
     
     <item>
+      <title>0024-两两交换链表中的节点</title>
+      <link>http://beuself.xyz/post/go-leetcode/linkedlist/0024-%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/</link>
+      <pubDate>Tue, 31 Mar 2020 16:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/go-leetcode/linkedlist/0024-%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/</guid>
+      <description>题目描述 给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。 你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。 示例 1 给定 1-&amp;gt;2-&amp;gt;3-&amp;gt;4,</description>
+    </item>
+    
+    <item>
       <title>LeetCode</title>
       <link>http://beuself.xyz/post/leetcode/</link>
       <pubDate>Sun, 01 Mar 2020 22:02:23 +0800</pubDate>
@@ -180,15 +189,6 @@
       
       <guid>http://beuself.xyz/post/date-structures-with-go/double-linked-list/2-1%E5%8F%8C%E9%93%BE%E8%A1%A8%E7%AE%80%E4%BB%8B%E5%8F%8A%E6%8F%92%E5%85%A5/</guid>
       <description>在前面的一些文章Singly Linked List我们介绍了单链表，接下来我们继续学习双链表（Double Linked List 简称DLL）。 介绍 一个双链表包含一个额外的</description>
-    </item>
-    
-    <item>
-      <title>3-插入节点</title>
-      <link>http://beuself.xyz/post/date-structures-with-go/%E6%8F%92%E5%85%A5%E8%8A%82%E7%82%B9/</link>
-      <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
-      
-      <guid>http://beuself.xyz/post/date-structures-with-go/%E6%8F%92%E5%85%A5%E8%8A%82%E7%82%B9/</guid>
-      <description>在上一篇文章中，我们介绍了链表。我们还创建了一个具有3个节点的简单链表，并讨论了链表遍历。 本文中讨论的所有程序均考虑以下链表的表示形式。 1 2</description>
     </item>
     
   </channel>

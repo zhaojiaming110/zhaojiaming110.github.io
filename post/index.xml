@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>0019-删除链表的倒数第n个节点</title>
+      <link>http://beuself.xyz/post/go-leetcode/linkedlist/0019%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACn%E4%B8%AA%E8%8A%82%E7%82%B9/</link>
+      <pubDate>Tue, 31 Mar 2020 16:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/go-leetcode/linkedlist/0019%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACn%E4%B8%AA%E8%8A%82%E7%82%B9/</guid>
+      <description>题目描述 给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。 示例 1 2 3 给定一个链表: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5, 和 n = 2. 当删除了倒数第二个节点后，链表变为 1-&amp;gt;2-&amp;gt;3-&amp;gt;5.</description>
+    </item>
+    
+    <item>
       <title>LeetCode</title>
       <link>http://beuself.xyz/post/leetcode/</link>
       <pubDate>Sun, 01 Mar 2020 22:02:23 +0800</pubDate>
@@ -180,15 +189,6 @@
       
       <guid>http://beuself.xyz/post/date-structures-with-go/1-4%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9%E6%8C%87%E5%AE%9Akey/</guid>
       <description>我们在前面几篇文章讨论了关于单链表的“链表介绍”和“插入节点”。 让我们制定问题陈述以了解删除过程。给定一个“key”，删除此键在链表中的第一</description>
-    </item>
-    
-    <item>
-      <title>Queue</title>
-      <link>http://beuself.xyz/post/date-structures-with-go/queue/queue/</link>
-      <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
-      
-      <guid>http://beuself.xyz/post/date-structures-with-go/queue/queue/</guid>
-      <description>入队与出队 与栈一样，队列(queue)也是存放数据对象的一种容器，其中的数据对象也按线性的逻辑次序排列。队列结构同样支持对象的插入和删除，但</description>
     </item>
     
   </channel>

@@ -29,5 +29,14 @@
       <description>题目描述 给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。 示例 1 2 3 给定一个链表: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5, 和 n = 2. 当删除了倒数第二个节点后，链表变为 1-&amp;gt;2-&amp;gt;3-&amp;gt;5.</description>
     </item>
     
+    <item>
+      <title>0021-合并两个有序链表</title>
+      <link>http://beuself.xyz/post/go-leetcode/linkedlist/0021%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Tue, 31 Mar 2020 16:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/go-leetcode/linkedlist/0021%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/</guid>
+      <description>题目描述 将两个升序链表合并为一个新的升序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 示例 1 2 输入：1-&amp;gt;2-&amp;gt;4</description>
+    </item>
+    
   </channel>
 </rss>

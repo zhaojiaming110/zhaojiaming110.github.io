@@ -67,7 +67,7 @@
 <meta itemprop="description" content="题目描述 将两个升序链表合并为一个新的升序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 示例 1 2 输入：1-&gt;2-&gt;4">
 <meta itemprop="datePublished" content="2020-03-31T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2020-03-31T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="696">
+<meta itemprop="wordCount" content="689">
 
 
 
@@ -536,7 +536,7 @@ if (!doNotTrack) {
             <a href="http://beuself.xyz/categories/leetcode-go/"> leetcode-Go </a>
             
           </div>
-        <span class="more-meta"> 696 words </span>
+        <span class="more-meta"> 689 words </span>
           <span class="more-meta"> 2 min read </span>
 
         
@@ -614,9 +614,12 @@ if (!doNotTrack) {
 </span><span class="lnt">19
 </span><span class="lnt">20
 </span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">list</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">ListNode</span><span class="p">{}</span>
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">mergeTwoLists</span><span class="p">(</span><span class="nx">l1</span> <span class="o">*</span><span class="nx">ListNode</span><span class="p">,</span> <span class="nx">l2</span> <span class="o">*</span><span class="nx">ListNode</span><span class="p">)</span> <span class="o">*</span><span class="nx">ListNode</span> <span class="p">{</span>
+	<span class="nx">list</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">ListNode</span><span class="p">{}</span>
 	<span class="nx">cur</span> <span class="o">:=</span> <span class="nx">list</span>
 	<span class="nx">value</span> <span class="o">:=</span> <span class="mi">0</span>
 	<span class="k">for</span> <span class="nx">l1</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="o">&amp;&amp;</span> <span class="nx">l2</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
@@ -637,6 +640,7 @@ if (!doNotTrack) {
 		<span class="nx">cur</span><span class="p">.</span><span class="nx">Next</span> <span class="p">=</span> <span class="nx">l1</span>
 	<span class="p">}</span>
 	<span class="k">return</span> <span class="nx">list</span><span class="p">.</span><span class="nx">Next</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><h5 id="复杂度分析">复杂度分析</h5>
@@ -646,15 +650,8 @@ if (!doNotTrack) {
 </ul>
 <h4 id="递归法">递归法</h4>
 <h5 id="解题思路-1">解题思路</h5>
-<p>我们可以如下递归地定义在两个链表里的<code>merge</code>操作（忽略边界情况，比如空链表等）；
-$$
-\left{
-\begin{aligned}
-list1[0] + merge(list1[1:], list2);	list1[0]&lt;list2[0] \<br>
-list2[0] + merge(list1, list2[1:]);	list2[0]&lt;list1[0]
-\end{aligned}
-\right.
-$$</p>
+<p>我们可以如下递归地定义在两个链表里的<code>merge</code>操作（忽略边界情况，比如空链表等）；</p>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gde8cklv13j30ma029mx2.jpg" alt=""></p>
 <p>也就是说两个链表的头部较小的一个与剩下元素的<code>merge</code>操作结果合并。</p>
 <h5 id="代码-1">代码</h5>
 <div class="highlight"><div class="chroma">

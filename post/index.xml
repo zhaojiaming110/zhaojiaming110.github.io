@@ -48,12 +48,21 @@
     </item>
     
     <item>
+      <title>0061-旋转链表</title>
+      <link>http://beuself.xyz/post/go-leetcode/linkedlist/0061%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Tue, 31 Mar 2020 16:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/go-leetcode/linkedlist/0061%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/</guid>
+      <description>题目描述 给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。 示例 1 2 3 4 5 输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL, k = 2 输出: 4-&amp;gt;5-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;NULL 解释: 向右旋转 1 步: 5-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;NULL 向</description>
+    </item>
+    
+    <item>
       <title>LeetCode</title>
       <link>http://beuself.xyz/post/leetcode/</link>
       <pubDate>Sun, 01 Mar 2020 22:02:23 +0800</pubDate>
       
       <guid>http://beuself.xyz/post/leetcode/</guid>
-      <description>使用Go解答LeetCode  Linkedlist Github 0002两数相加 0019删除链表的倒数第n个节点 0021合并两个有序链表 0024两两交换链表中的节点</description>
+      <description>使用Go解答LeetCode Github链接 Linkedlist 0002两数相加 0019删除链表的倒数第n个节点 0021合并两个有序链表 0024两两交换链表中</description>
     </item>
     
     <item>
@@ -180,15 +189,6 @@
       
       <guid>http://beuself.xyz/post/date-structures-with-go/%E9%93%BE%E8%A1%A8%E7%AE%80%E4%BB%8B/</guid>
       <description>像数组一样，链表是一个线性数据结构。与数组不同，链接列表元素不存储在连续位置；元素使用指针链接。 为什么要使用链表？ 数组可用于存储相似类型的线</description>
-    </item>
-    
-    <item>
-      <title>2-1双链表简介及插入</title>
-      <link>http://beuself.xyz/post/date-structures-with-go/double-linked-list/2-1%E5%8F%8C%E9%93%BE%E8%A1%A8%E7%AE%80%E4%BB%8B%E5%8F%8A%E6%8F%92%E5%85%A5/</link>
-      <pubDate>Sun, 10 Nov 2019 23:01:23 +0800</pubDate>
-      
-      <guid>http://beuself.xyz/post/date-structures-with-go/double-linked-list/2-1%E5%8F%8C%E9%93%BE%E8%A1%A8%E7%AE%80%E4%BB%8B%E5%8F%8A%E6%8F%92%E5%85%A5/</guid>
-      <description>在前面的一些文章Singly Linked List我们介绍了单链表，接下来我们继续学习双链表（Double Linked List 简称DLL）。 介绍 一个双链表包含一个额外的</description>
     </item>
     
   </channel>

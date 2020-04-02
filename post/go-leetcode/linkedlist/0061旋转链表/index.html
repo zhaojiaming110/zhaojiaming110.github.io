@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Beyourself - a gopher</title>
+  <title>0061-旋转链表 - Beyourself - a gopher</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Beyourself" />
-  <meta name="description" content="Beyourself&#39;s blog." />
+  <meta name="description" content="题目描述 给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。 示例 1 2 3 4 5 输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL, k = 2 输出: 4-&amp;gt;5-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;NULL 解释: 向右旋转 1 步: 5-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;NULL 向" />
+
   <meta name="keywords" content="Beyourslef, go, golang" />
 
 
@@ -34,8 +35,7 @@
 <meta name="generator" content="Hugo 0.68.3" />
 
 
-<link rel="canonical" href="http://beuself.xyz/" />
-<link href="%7balternate%20%7bRSS%20application/rss&#43;xml%20%20index%20alternate%20%20false%20false%20true%20false%20false%200%7d%20/index.xml%20http://beuself.xyz/index.xml%7d" rel="alternate" type="application/rss+xml" title="Beyourself - a gopher" />
+<link rel="canonical" href="http://beuself.xyz/post/go-leetcode/linkedlist/0061%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/" />
 
 
 
@@ -57,15 +57,23 @@
 
 
 
-<meta property="og:title" content="Beyourself - a gopher" />
-<meta property="og:description" content="Beyourself&#39;s blog." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://beuself.xyz/" />
-<meta property="og:updated_time" content="2017-08-20T21:38:52+08:00" />
-<meta itemprop="name" content="Beyourself - a gopher">
-<meta itemprop="description" content="Beyourself&#39;s blog."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Beyourself - a gopher"/>
-<meta name="twitter:description" content="Beyourself&#39;s blog."/>
+<meta property="og:title" content="0061-旋转链表" />
+<meta property="og:description" content="题目描述 给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。 示例 1 2 3 4 5 输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, k = 2 输出: 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL 解释: 向右旋转 1 步: 5-&gt;1-&gt;2-&gt;3-&gt;4-&gt;NULL 向" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://beuself.xyz/post/go-leetcode/linkedlist/0061%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/" />
+<meta property="article:published_time" content="2020-03-31T16:01:23+08:00" />
+<meta property="article:modified_time" content="2020-03-31T16:01:23+08:00" />
+<meta itemprop="name" content="0061-旋转链表">
+<meta itemprop="description" content="题目描述 给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。 示例 1 2 3 4 5 输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, k = 2 输出: 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL 解释: 向右旋转 1 步: 5-&gt;1-&gt;2-&gt;3-&gt;4-&gt;NULL 向">
+<meta itemprop="datePublished" content="2020-03-31T16:01:23&#43;08:00" />
+<meta itemprop="dateModified" content="2020-03-31T16:01:23&#43;08:00" />
+<meta itemprop="wordCount" content="379">
+
+
+
+<meta itemprop="keywords" content="linkedlist-leetcode," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="0061-旋转链表"/>
+<meta name="twitter:description" content="题目描述 给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。 示例 1 2 3 4 5 输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, k = 2 输出: 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL 解释: 向右旋转 1 步: 5-&gt;1-&gt;2-&gt;3-&gt;4-&gt;NULL 向"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -338,7 +346,7 @@ if (!doNotTrack) {
   <ul id="menu" class="menu">
     
     
-        <li class="menu-item active">
+        <li class="menu-item">
         
           
           
@@ -515,759 +523,272 @@ if (!doNotTrack) {
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-<section id="posts" class="posts">
-  
-  
+          <article class="post bg-white">
     
-  
-  
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
+    <header class="post-header">
+      <h1 class="post-title">0061-旋转链表</h1>
       
-      <a class="post-link" href="/post/go-paterns/go-paterns%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6/">Go-Paterns项目进度</a>
-    </h1>
+      <div class="post-meta">
+        <time datetime="2020-03-31" class="post-time">
+          2020-03-31
+        </time>
+        <div class="post-category">
+            <a href="http://beuself.xyz/categories/leetcode-go/"> leetcode-Go </a>
+            
+          </div>
+        <span class="more-meta"> 379 words </span>
+          <span class="more-meta"> 1 min read </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
     
-    <div class="post-meta">
-      <time datetime="2019-10-14" class="post-time">
-        2019-10-14
-      </time>
-      <div class="post-category">
-          <a href="http://beuself.xyz/categories/go-design-paterns/"> Go Design Paterns </a>
-          
-        </div>
-      <span class="more-meta"> 43 words </span>
-      <span class="more-meta"> 1 min read </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
     
-    <div class="post-summary">
-      分类 Creational Patterns Pattern Description URL Builder Provides an interface for creating families of releated objects Go Factory Method Defers instantiation of an object to a specialized function for creating instances Go Singleton Restricts instantiation of a type to one object Go
-    </div>
-    <div class="read-more">
-      <a href="/post/go-paterns/go-paterns%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/docker/%E9%95%9C%E5%83%8F/">镜像</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2019-10-14" class="post-time">
-        2019-10-14
-      </time>
-      <div class="post-category">
-          <a href="http://beuself.xyz/categories/docker/"> Docker </a>
-          
-        </div>
-      <span class="more-meta"> 1526 words </span>
-      <span class="more-meta"> 4 min read </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      镜像是Docker的三大核心概念之一。 Docker运行容器前需要本地存在对应的镜像，如果镜像不存在本地，Docker会尝试先从默认镜像仓库下
-    </div>
-    <div class="read-more">
-      <a href="/post/docker/%E9%95%9C%E5%83%8F/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/go-paterns/factory_method/">1-2工厂方法-Factory Method</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2019-10-14" class="post-time">
-        2019-10-14
-      </time>
-      <div class="post-category">
-          <a href="http://beuself.xyz/categories/go-design-paterns/"> Go Design Paterns </a>
-          
-        </div>
-      <span class="more-meta"> 1054 words </span>
-      <span class="more-meta"> 3 min read </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      工厂方法（Factory Method）属于创建型模式，它提供了一种创建对象的最佳方式。在工厂方法中，我们在创建对象时不会对客户端暴露创建逻辑
-    </div>
-    <div class="read-more">
-      <a href="/post/go-paterns/factory_method/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/go-paterns/singleton/">1-3单例模式-Singleton</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2019-10-14" class="post-time">
-        2019-10-14
-      </time>
-      <div class="post-category">
-          <a href="http://beuself.xyz/categories/go-design-paterns/"> Go Design Paterns </a>
-          
-        </div>
-      <span class="more-meta"> 121 words </span>
-      <span class="more-meta"> 1 min read </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      单例设计模式-在整个程序中有一个类型的唯一实例 您是否曾经对软件工程师进行过采访？有趣的是，当您向他们询问设计模式时，超过80％的人会提及 Si
-    </div>
-    <div class="read-more">
-      <a href="/post/go-paterns/singleton/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-</section>
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-    <nav class="pagination">
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#题目描述">题目描述</a></li>
+    <li><a href="#解题">解题</a></li>
+    <li><a href="#解题思路">解题思路</a>
       <ul>
-
-      
-      
-      <li><a href="/">««</a></li>
-      
-
-      
-      
-      <li><a href="/page/8/">«</a></li>
-      
-
-      
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-              
-            
-
-          
-
-        
-        
-
-        
-        
-          <li class="">
-            <a href="/page/3/">
-              3
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-              
-            
-
-          
-
-        
-        
-
-        
-        
-          <li class="">
-            <a href="/page/4/">
-              4
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-              
-            
-
-          
-
-        
-        
-
-        
-        
-          <li class="">
-            <a href="/page/5/">
-              5
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-              
-            
-
-          
-
-        
-        
-
-        
-        
-          <li class="">
-            <a href="/page/6/">
-              6
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-              
-            
-
-          
-
-        
-        
-
-        
-        
-          <li class="">
-            <a href="/page/7/">
-              7
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-              
-            
-
-          
-
-        
-        
-
-        
-        
-          <li class="">
-            <a href="/page/8/">
-              8
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-              
-            
-
-          
-
-        
-        
-
-        
-        
-          <li class="active">
-            <a href="/page/9/">
-              9
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-              
-            
-
-          
-
-        
-        
-
-        
-        
-          <li class="">
-            <a href="/page/10/">
-              10
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-              
-            
-
-          
-
-        
-        
-
-        
-        
-          <li class="">
-            <a href="/page/11/">
-              11
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-              
-            
-
-          
-
-        
-        
-
-        
-        
-          <li class="">
-            <a href="/page/12/">
-              12
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-              
-            
-
-          
-
-        
-        
-
-        
-        
-          <li class="">
-            <a href="/page/13/">
-              13
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-              
-            
-
-          
-
-        
-        
-
-        
-        
-          <li class="">
-            <a href="/page/14/">
-              14
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-              
-            
-
-          
-
-        
-        
-
-        
-        
-          <li class="">
-            <a href="/page/15/">
-              15
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-
-          
-
-        
-        
-
-        
-        
-
-      
-
-      
-      
-      <li><a href="/page/10/">»</a></li>
-      
-
-      
-      
-      <li><a href="/page/21/">»»</a></li>
-      
-
+        <li><a href="#解题-1">解题</a></li>
+        <li><a href="#复杂度分析">复杂度分析</a></li>
       </ul>
-    </nav>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g95r6zww73j312k0u0q77.jpg" alt=""></p>
+<h2 id="题目描述">题目描述</h2>
+<p>给定一个链表，旋转链表，将链表每个节点向右移动 <em>k</em> 个位置，其中 <em>k</em> 是非负数。</p>
+<p>示例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, k = 2
+输出: 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL
+解释:
+向右旋转 1 步: 5-&gt;1-&gt;2-&gt;3-&gt;4-&gt;NULL
+向右旋转 2 步: 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="解题">解题</h2>
+<h2 id="解题思路">解题思路</h2>
+<p>首先考虑如何找出旋转位置，剩下的只需将链表首尾相连形成闭环，在旋转位置将闭环链表分成两部分。</p>
+<h3 id="解题-1">解题</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">rotateRight</span><span class="p">(</span><span class="nx">head</span> <span class="o">*</span><span class="nx">ListNode</span><span class="p">,</span> <span class="nx">k</span> <span class="kt">int</span><span class="p">)</span> <span class="o">*</span><span class="nx">ListNode</span> <span class="p">{</span>
+    <span class="c1">// base case
+</span><span class="c1"></span>	<span class="k">if</span> <span class="nx">head</span> <span class="o">==</span> <span class="kc">nil</span> <span class="o">||</span> <span class="nx">head</span><span class="p">.</span><span class="nx">Next</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">head</span>
+	<span class="p">}</span>
+
+	<span class="c1">// 首先计算链表的长度
+</span><span class="c1"></span>	<span class="nx">length</span> <span class="o">:=</span> <span class="mi">1</span>
+	<span class="nx">tmp</span> <span class="o">:=</span> <span class="nx">head</span>
+	<span class="k">for</span> <span class="nx">tmp</span><span class="p">.</span><span class="nx">Next</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">tmp</span> <span class="p">=</span> <span class="nx">tmp</span><span class="p">.</span><span class="nx">Next</span>
+		<span class="nx">length</span><span class="o">++</span>
+	<span class="p">}</span>
+	<span class="c1">// 使链表首尾相连，形成闭环
+</span><span class="c1"></span>	<span class="nx">tmp</span><span class="p">.</span><span class="nx">Next</span> <span class="p">=</span> <span class="nx">head</span>
+
+	<span class="c1">// 重新计算k的大小
+</span><span class="c1"></span>	<span class="nx">k</span> <span class="o">%=</span> <span class="nx">length</span>
+	<span class="c1">// 下面注释的代码在leetCode会超时，应该是LeetCode的bug.
+</span><span class="c1"></span>	<span class="c1">//if k == 0 {
+</span><span class="c1"></span>	<span class="c1">//	return head
+</span><span class="c1"></span>	<span class="c1">//}
+</span><span class="c1"></span>
+	<span class="c1">// 找出旋转位置 将初始链表分成两部分
+</span><span class="c1"></span>	<span class="nx">cur</span> <span class="o">:=</span> <span class="nx">head</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">length</span> <span class="o">-</span> <span class="nx">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">cur</span> <span class="p">=</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">Next</span>
+	<span class="p">}</span>
+
+	<span class="nx">result</span> <span class="o">:=</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">Next</span>
+	<span class="nx">cur</span><span class="p">.</span><span class="nx">Next</span> <span class="p">=</span> <span class="kc">nil</span>
+
+	<span class="k">return</span> <span class="nx">result</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="复杂度分析">复杂度分析</h3>
+<ul>
+<li>时间复杂度：O(N)，链表共有N个节点。</li>
+<li>空间复杂度：O(1)，只需要常量级的空间。</li>
+</ul>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Beyourself</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2020-03-31
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="https://tva1.sinaimg.cn/large/006y8mN6ly1g92kccissoj30u00u0gmg.jpg">
+        <span>Wechat</span>
+      </label>
+    
+  </div>
+</div>
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://beuself.xyz/tags/linkedlist-leetcode/">linkedlist-leetcode</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/go-leetcode/linkedlist/0024-%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">0024-两两交换链表中的节点</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/leetcode/">
+            <span class="next-text nav-default">LeetCode</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+
+
+  
   
 
+  
+  
 
+  
 
+  
+  
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "zhaojiaming110/comments-myblog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+  
 
+  
+
+  
+
+  
+
+    
+
+  
 
         </div>
       </div>

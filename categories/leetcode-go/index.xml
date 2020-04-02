@@ -66,6 +66,15 @@
     </item>
     
     <item>
+      <title>0083-删除排序链表中的重复元素</title>
+      <link>http://beuself.xyz/post/go-leetcode/linkedlist/0083%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/</link>
+      <pubDate>Tue, 31 Mar 2020 16:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/go-leetcode/linkedlist/0083%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/</guid>
+      <description>题目描述 给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。 示例 1 2 输入: 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;3 输出: 1-&amp;gt;2-&amp;gt;3 解题 迭代法 解题思路 直接遍历链表，比较当前节点和</description>
+    </item>
+    
+    <item>
       <title>0026-Remove Duplicates from Sorted Array</title>
       <link>http://beuself.xyz/post/go-leetcode/0026%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/</link>
       <pubDate>Sun, 13 Oct 2019 16:01:23 +0800</pubDate>

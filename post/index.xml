@@ -48,21 +48,21 @@
     </item>
     
     <item>
-      <title>0061-删除排序链表中的重复元素 II</title>
-      <link>http://beuself.xyz/post/go-leetcode/linkedlist/0082%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0-ii/</link>
-      <pubDate>Tue, 31 Mar 2020 16:01:23 +0800</pubDate>
-      
-      <guid>http://beuself.xyz/post/go-leetcode/linkedlist/0082%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0-ii/</guid>
-      <description>题目描述 给定一个排序链表，删除所有含有重复数字的节点，只保留原始链表中 没有重复出现 的数字。 示例 1 2 输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;3-&amp;gt;4-&amp;gt;4-&amp;gt;5 输出: 1-&amp;gt;2-&amp;gt;5 解题 迭代法 解题思路 使用快慢</description>
-    </item>
-    
-    <item>
       <title>0061-旋转链表</title>
       <link>http://beuself.xyz/post/go-leetcode/linkedlist/0061%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/</link>
       <pubDate>Tue, 31 Mar 2020 16:01:23 +0800</pubDate>
       
       <guid>http://beuself.xyz/post/go-leetcode/linkedlist/0061%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/</guid>
       <description>题目描述 给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。 示例 1 2 3 4 5 输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL, k = 2 输出: 4-&amp;gt;5-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;NULL 解释: 向右旋转 1 步: 5-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;NULL 向</description>
+    </item>
+    
+    <item>
+      <title>0082-删除排序链表中的重复元素 II</title>
+      <link>http://beuself.xyz/post/go-leetcode/linkedlist/0082%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0-ii/</link>
+      <pubDate>Tue, 31 Mar 2020 16:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/go-leetcode/linkedlist/0082%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0-ii/</guid>
+      <description>题目描述 给定一个排序链表，删除所有含有重复数字的节点，只保留原始链表中 没有重复出现 的数字。 示例 1 2 输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;3-&amp;gt;4-&amp;gt;4-&amp;gt;5 输出: 1-&amp;gt;2-&amp;gt;5 解题 迭代法 解题思路 使用快慢</description>
     </item>
     
     <item>
@@ -98,7 +98,7 @@
       <pubDate>Sun, 01 Mar 2020 22:02:23 +0800</pubDate>
       
       <guid>http://beuself.xyz/post/leetcode/</guid>
-      <description>使用Go解答LeetCode Github链接 Linkedlist 0002两数相加 0019删除链表的倒数第n个节点 0021合并两个有序链表 0024两两交换链表中</description>
+      <description>Linkedlist # Title Github Blog 0002 Add Two Numbers Go Go 0019 Remove Nth Node From End of List Go Go 0021 Merge Two Sorted Lists Go Go 0024 Swap Nodes in Pairs Go Go 0061 Rotate List Go Go 0082 Remove Duplicates from Sorted List II Go Go 0083 Remove Duplicates from Sorted List Go Go 0086 Partition List Go Go 0206 Reverse Linked List Go Go</description>
     </item>
     
     <item>

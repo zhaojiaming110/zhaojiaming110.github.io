@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Creational Patterns on Beyourself - a gopher</title>
+    <link>http://beuself.xyz/tags/creational-patterns/</link>
+    <description>Recent content in Creational Patterns on Beyourself - a gopher</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 14 Oct 2019 23:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="http://beuself.xyz/tags/creational-patterns/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>单例模式-Singleton</title>
+      <link>http://beuself.xyz/post/go-paterns/creational/singleton/</link>
+      <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/go-paterns/creational/singleton/</guid>
+      <description>描述 Singleton，顾名思义，它将为您提供一个对象的单个实例，并保证没有重复项。这种类型的设计模式，属于创建型模式，它提供了一种创建对象</description>
+    </item>
+    
+  </channel>
+</rss>

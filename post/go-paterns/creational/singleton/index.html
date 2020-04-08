@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Archive - Beyourself - a gopher</title>
+  <title>单例模式-Singleton - Beyourself - a gopher</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Beyourself" />
-  <meta name="description" content="Beyourself&#39;s blog." />
+  <meta name="description" content="描述 Singleton，顾名思义，它将为您提供一个对象的单个实例，并保证没有重复项。这种类型的设计模式，属于创建型模式，它提供了一种创建对象" />
+
   <meta name="keywords" content="Beyourslef, go, golang" />
 
 
@@ -34,8 +35,7 @@
 <meta name="generator" content="Hugo 0.68.3" />
 
 
-<link rel="canonical" href="http://beuself.xyz/post/" />
-<link href="%7balternate%20%7bRSS%20application/rss&#43;xml%20%20index%20alternate%20%20false%20false%20true%20false%20false%200%7d%20/post/index.xml%20http://beuself.xyz/post/index.xml%7d" rel="alternate" type="application/rss+xml" title="Beyourself - a gopher" />
+<link rel="canonical" href="http://beuself.xyz/post/go-paterns/creational/singleton/" />
 
 
 
@@ -57,15 +57,23 @@
 
 
 
-<meta property="og:title" content="Posts" />
-<meta property="og:description" content="Beyourself&#39;s blog." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://beuself.xyz/post/" />
-<meta property="og:updated_time" content="2020-03-31T16:01:23+08:00" />
-<meta itemprop="name" content="Posts">
-<meta itemprop="description" content="Beyourself&#39;s blog."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content="Beyourself&#39;s blog."/>
+<meta property="og:title" content="单例模式-Singleton" />
+<meta property="og:description" content="描述 Singleton，顾名思义，它将为您提供一个对象的单个实例，并保证没有重复项。这种类型的设计模式，属于创建型模式，它提供了一种创建对象" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://beuself.xyz/post/go-paterns/creational/singleton/" />
+<meta property="article:published_time" content="2019-10-14T23:01:23+08:00" />
+<meta property="article:modified_time" content="2019-10-14T23:01:23+08:00" />
+<meta itemprop="name" content="单例模式-Singleton">
+<meta itemprop="description" content="描述 Singleton，顾名思义，它将为您提供一个对象的单个实例，并保证没有重复项。这种类型的设计模式，属于创建型模式，它提供了一种创建对象">
+<meta itemprop="datePublished" content="2019-10-14T23:01:23&#43;08:00" />
+<meta itemprop="dateModified" content="2019-10-14T23:01:23&#43;08:00" />
+<meta itemprop="wordCount" content="929">
+
+
+
+<meta itemprop="keywords" content="Creational Patterns," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="单例模式-Singleton"/>
+<meta name="twitter:description" content="描述 Singleton，顾名思义，它将为您提供一个对象的单个实例，并保证没有重复项。这种类型的设计模式，属于创建型模式，它提供了一种创建对象"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -349,7 +357,7 @@ if (!doNotTrack) {
 
       </li>
     
-        <li class="menu-item active">
+        <li class="menu-item">
         
           
           
@@ -515,200 +523,312 @@ if (!doNotTrack) {
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-<section id="archive" class="archive">
+          <article class="post bg-white">
     
-      <div class="collection-title">
-        <h2 class="archive-year">2019</h2>
+    <header class="post-header">
+      <h1 class="post-title">单例模式-Singleton</h1>
+      
+      <div class="post-meta">
+        <time datetime="2019-10-14" class="post-time">
+          2019-10-14
+        </time>
+        <div class="post-category">
+            <a href="http://beuself.xyz/categories/go-design-paterns/"> Go Design Paterns </a>
+            
+          </div>
+        <span class="more-meta"> 929 words </span>
+          <span class="more-meta"> 2 min read </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
       </div>
+    </header>
 
-    <div class="archive-post">
-      <time datetime="2019-10-14" class="archive-post-time">
-        2019-10-14
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/go-paterns/singleton/" class="archive-post-link">
-          1-3单例模式-Singleton
-        </a>
-      </span>
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#描述">描述</a>
+      <ul>
+        <li><a href="#注意">注意</a></li>
+      </ul>
+    </li>
+    <li><a href="#意图">意图</a></li>
+    <li><a href="#主要解决">主要解决</a></li>
+    <li><a href="#何时使用">何时使用</a></li>
+    <li><a href="#应用实例">应用实例</a></li>
+    <li><a href="#优点">优点</a></li>
+    <li><a href="#缺点">缺点</a></li>
+    <li><a href="#实现-唯一计数器">实现-唯一计数器</a></li>
+    <li><a href="#测试">测试</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8dvkilb5yj313r0mbgmw.jpg" alt=""></p>
+<h2 id="描述">描述</h2>
+<p><code>Singleton</code>，顾名思义，它将为您提供一个对象的单个实例，并保证没有重复项。这种类型的设计模式，属于创建型模式，它提供了一种创建对象的最佳方式。</p>
+<p>这种模式涉及到一个<code>Package</code>，其中<code>Package</code>内包含需要创建的对象（只在包内可见），该Package负责创建该对象。这个<code>Package</code>提供了初始化该对象的唯一方式和对外访问其唯一对象的方式。</p>
+<h3 id="注意">注意</h3>
+<ul>
+<li>单例对象所在的包只能有一个该对象的实例。</li>
+<li>单例对象所在的包必须自己创建该对象的唯一实例。Go语言中可以创建一个该类型的指针。</li>
+<li>单例对象必须向外提供这一实例。</li>
+</ul>
+<h2 id="意图">意图</h2>
+<p>保证一个对象只有一个实例，并提供一个访问它的全局访问点。</p>
+<h2 id="主要解决">主要解决</h2>
+<p>一个全局使用的对象频繁地创建与销毁。</p>
+<h2 id="何时使用">何时使用</h2>
+<ul>
+<li>对于特定的类型，我们需要一个单一的、共享的值。</li>
+<li>将某种类型的对象创建限制为整个程序中的单个单元。</li>
+</ul>
+<h2 id="应用实例">应用实例</h2>
+<ul>
+<li>当你想使用与数据库的相同连接进行单个查询时</li>
+<li>当你打开到服务器的安全Shell(SSH)连接以执行一些任务时，并且不想为每个任务重新打开连接</li>
+<li>当你需要限制对某些变量或空间的访问，可以使用Singleton作为访问它们的入口。</li>
+</ul>
+<h2 id="优点">优点</h2>
+<ul>
+<li>在内存中只有一个实例，减少了内存的开销，尤其是频繁的创建和销毁实例。</li>
+<li>避免对资源的多重占用（比如写文件操作）。</li>
+</ul>
+<h2 id="缺点">缺点</h2>
+<ul>
+<li>不适用与变化的对象，如果同一类型的对象总是要在不同的用例场景发生变化，单例就会引起数据的错误，不能保存彼此的状态。</li>
+<li>由于单例模式没有抽象层，因此扩展有很大的困难。</li>
+<li>单例类的职责过重，在一定程度上违背了“单一职责原则”。</li>
+<li>滥用单例将带来一些负面的问题，如为了节省资源将数据库连接池对象设计为单例类，可能会导致共享连接池对象的程序过多而出现连接池溢出。</li>
+</ul>
+<h2 id="实现-唯一计数器">实现-唯一计数器</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">singleton</span>
+
+<span class="c1">// 单例类型
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">singleton</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">count</span> <span class="kt">int</span>
+<span class="p">}</span>
+
+<span class="c1">// 创建唯一的实例
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">instance</span> <span class="o">*</span><span class="nx">singleton</span>
+
+<span class="c1">// 对外提供该对象的唯一实例
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">GetInstance</span><span class="p">()</span> <span class="o">*</span><span class="nx">singleton</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="nx">instance</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="c1">// 初始化
+</span><span class="c1"></span>		<span class="nx">instance</span> <span class="p">=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">singleton</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="nx">instance</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">singleton</span><span class="p">)</span> <span class="nf">AddOne</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="nx">s</span><span class="p">.</span><span class="nx">count</span><span class="o">++</span>
+	<span class="k">return</span>  <span class="nx">s</span><span class="p">.</span><span class="nx">count</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="测试">测试</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">Test_singleton_GetInstance</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">couter1</span> <span class="o">:=</span> <span class="nf">GetInstance</span><span class="p">()</span>
+	<span class="k">if</span> <span class="nx">couter1</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="s">&#34;A new connection object must have been made&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="k">if</span> <span class="nx">couter1</span><span class="p">.</span><span class="nf">AddOne</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="s">&#34;the count must be 1 &#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="nx">counter2</span> <span class="o">:=</span> <span class="nf">GetInstance</span><span class="p">()</span>
+	<span class="k">if</span> <span class="nx">couter1</span> <span class="o">!=</span> <span class="nx">counter2</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="s">&#34;Singleton instences must be same&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="k">if</span> <span class="nx">counter2</span><span class="p">.</span><span class="nf">AddOne</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">2</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="s">&#34;the count must be 2&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在这里我们仅仅实现了单线程上下文的经典单例实现，该实现不是线程安全的！接下来我们将实现并发版的单例实现。</p>
+
     </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Beyourself</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2019-10-14
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="https://tva1.sinaimg.cn/large/006y8mN6ly1g92kccissoj30u00u0gmg.jpg">
+        <span>Wechat</span>
+      </label>
+    
+  </div>
+</div>
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://beuself.xyz/tags/creational-patterns/">Creational Patterns</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/go-paterns/go-paterns%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Go-Paterns项目进度</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/docker/%E9%95%9C%E5%83%8F/">
+            <span class="next-text nav-default">镜像</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "zhaojiaming110/comments-myblog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+  
+
+  
+
+  
+
+  
+
     
 
-    <div class="archive-post">
-      <time datetime="2019-10-14" class="archive-post-time">
-        2019-10-14
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/go-basic-knowledge/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E7%AE%97%E6%B3%95/" class="archive-post-link">
-          广度优先算法
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-10-13" class="archive-post-time">
-        2019-10-13
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/go-leetcode/0026%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/" class="archive-post-link">
-          0026-Remove Duplicates from Sorted Array
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-10-10" class="archive-post-time">
-        2019-10-10
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/go-microservices/0-%E5%89%8D%E8%A8%80/" class="archive-post-link">
-          0-前言
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-10-10" class="archive-post-time">
-        2019-10-10
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/go-microservices/1-1%E4%BD%BF%E7%94%A8nethttp%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="archive-post-link">
-          1-1.使用net/http构建一个简单的web服务器
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-10-10" class="archive-post-time">
-        2019-10-10
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/go-microservices/1-2%E8%AF%BB%E5%86%99json/" class="archive-post-link">
-          1-2.读写json
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-09-21" class="archive-post-time">
-        2019-09-21
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/go-basic-knowledge/%E6%90%AD%E5%BB%BAgolang%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="archive-post-link">
-          搭建Golang开发环境
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-09-20" class="archive-post-time">
-        2019-09-20
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/go-basic-knowledge/http%E6%A0%87%E5%87%86%E5%BA%93/" class="archive-post-link">
-          http标准库
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-09-20" class="archive-post-time">
-        2019-09-20
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/go-basic-knowledge/2019-09-25-%E9%97%AD%E5%8C%85%E7%9A%84%E5%BA%94%E7%94%A8/" class="archive-post-link">
-          闭包的应用
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-09-20" class="archive-post-time">
-        2019-09-20
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/go-basic-knowledge/2019-09-25-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E5%92%8C%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86/" class="archive-post-link">
-          错误处理和资源管理
-        </a>
-      </span>
-    </div></section>
-
-
-
-
-
-
   
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-  <nav class="pagination">
-    <ul>
-      
-      <li >
-        <a href="/post/">1</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/2/">2</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/3/">3</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/4/">4</a>
-      </li>
-      
-      <li  class="active" >
-        <a href="/post/page/5/">5</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/6/">6</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/7/">7</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/8/">8</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/9/">9</a>
-      </li>
-      
-    </ul>
-  </nav>
-
-  
-  
-
-
-
-
 
         </div>
       </div>

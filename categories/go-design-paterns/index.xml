@@ -30,6 +30,15 @@
     </item>
     
     <item>
+      <title>单例模式-Singleton</title>
+      <link>http://beuself.xyz/post/go-paterns/creational/singleton/</link>
+      <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/go-paterns/creational/singleton/</guid>
+      <description>描述 Singleton，顾名思义，它将为您提供一个对象的单个实例，并保证没有重复项。这种类型的设计模式，属于创建型模式，它提供了一种创建对象</description>
+    </item>
+    
+    <item>
       <title>1-2工厂方法-Factory Method</title>
       <link>http://beuself.xyz/post/go-paterns/factory_method/</link>
       <pubDate>Mon, 14 Oct 2019 22:01:23 +0800</pubDate>

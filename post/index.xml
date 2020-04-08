@@ -98,7 +98,7 @@
       <pubDate>Sun, 01 Mar 2020 22:02:23 +0800</pubDate>
       
       <guid>http://beuself.xyz/post/leetcode/</guid>
-      <description>Linkedlist # Title Github Blog 0002 Add Two Numbers Go Go 0019 Remove Nth Node From End of List Go Go 0021 Merge Two Sorted Lists Go Go 0024 Swap Nodes in Pairs Go Go 0061 Rotate List Go Go 0082 Remove Duplicates from Sorted List II Go Go 0083 Remove Duplicates from Sorted List Go Go 0086 Partition List Go Go 0206 Reverse Linked List Go Go</description>
+      <description>Linkedlist # Title Blog Github 0002 Add Two Numbers Go Go 0019 Remove Nth Node From End of List Go Go 0021 Merge Two Sorted Lists Go Go 0024 Swap Nodes in Pairs Go Go 0061 Rotate List Go Go 0082 Remove Duplicates from Sorted List II Go Go 0083 Remove Duplicates from Sorted List Go Go 0086 Partition List Go Go 0206 Reverse Linked List Go Go</description>
     </item>
     
     <item>
@@ -134,7 +134,7 @@
       <pubDate>Sun, 01 Mar 2020 22:02:23 +0800</pubDate>
       
       <guid>http://beuself.xyz/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
-      <description>Go Patterns Creational Patterns Pattern Description Blog Github Singleton 将类型的实例化限制为一个对象 Go Go Buider 使用简单对象生成复杂对象 Go Go Factory Method 将对象的实例化推迟到用于创建实例的专用函数 Go Go Abstract Factory Prototype Structural Patterns</description>
+      <description>Go Patterns Creational Patterns Pattern Description Blog Github Singleton 在整个程序中，类型具有唯一的实例 Go Go Buider 使用简单对象生成复杂对象 Go Go Factory Method 将对象的实例化推迟到用于创建实例的专用函数 Go Go Abstract Factory Prototype</description>
     </item>
     
     <item>

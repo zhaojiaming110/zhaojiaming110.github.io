@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>单例模式-Singleton - Beyourself - a gopher</title>
+  <title>工厂方法-Factory Method - Beyourself - a gopher</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Beyourself" />
-  <meta name="description" content="描述 Singleton，顾名思义，它将为您提供一个对象的单个实例，并保证没有重复项。这种类型的设计模式，属于创建型模式，它提供了一种创建对象" />
+  <meta name="description" content="描述 工厂方法（Factory Method）可能是业内已知第二个好用的设计模式。其目的是使用户从特定目的所需实现的结构知识中抽象出来。例如，从" />
 
   <meta name="keywords" content="Beyourslef, go, golang" />
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.68.3" />
 
 
-<link rel="canonical" href="http://beuself.xyz/post/go-paterns/creational/singleton/" />
+<link rel="canonical" href="http://beuself.xyz/post/go-paterns/creational/factory-method/" />
 
 
 
@@ -57,23 +57,23 @@
 
 
 
-<meta property="og:title" content="单例模式-Singleton" />
-<meta property="og:description" content="描述 Singleton，顾名思义，它将为您提供一个对象的单个实例，并保证没有重复项。这种类型的设计模式，属于创建型模式，它提供了一种创建对象" />
+<meta property="og:title" content="工厂方法-Factory Method" />
+<meta property="og:description" content="描述 工厂方法（Factory Method）可能是业内已知第二个好用的设计模式。其目的是使用户从特定目的所需实现的结构知识中抽象出来。例如，从" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://beuself.xyz/post/go-paterns/creational/singleton/" />
+<meta property="og:url" content="http://beuself.xyz/post/go-paterns/creational/factory-method/" />
 <meta property="article:published_time" content="2019-10-14T23:01:23+08:00" />
 <meta property="article:modified_time" content="2019-10-14T23:01:23+08:00" />
-<meta itemprop="name" content="单例模式-Singleton">
-<meta itemprop="description" content="描述 Singleton，顾名思义，它将为您提供一个对象的单个实例，并保证没有重复项。这种类型的设计模式，属于创建型模式，它提供了一种创建对象">
+<meta itemprop="name" content="工厂方法-Factory Method">
+<meta itemprop="description" content="描述 工厂方法（Factory Method）可能是业内已知第二个好用的设计模式。其目的是使用户从特定目的所需实现的结构知识中抽象出来。例如，从">
 <meta itemprop="datePublished" content="2019-10-14T23:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-10-14T23:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="929">
+<meta itemprop="wordCount" content="1629">
 
 
 
 <meta itemprop="keywords" content="Creational Patterns," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="单例模式-Singleton"/>
-<meta name="twitter:description" content="描述 Singleton，顾名思义，它将为您提供一个对象的单个实例，并保证没有重复项。这种类型的设计模式，属于创建型模式，它提供了一种创建对象"/>
+<meta name="twitter:title" content="工厂方法-Factory Method"/>
+<meta name="twitter:description" content="描述 工厂方法（Factory Method）可能是业内已知第二个好用的设计模式。其目的是使用户从特定目的所需实现的结构知识中抽象出来。例如，从"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -526,7 +526,7 @@ if (!doNotTrack) {
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">单例模式-Singleton</h1>
+      <h1 class="post-title">工厂方法-Factory Method</h1>
       
       <div class="post-meta">
         <time datetime="2019-10-14" class="post-time">
@@ -536,8 +536,8 @@ if (!doNotTrack) {
             <a href="http://beuself.xyz/categories/go-design-paterns/"> Go Design Paterns </a>
             
           </div>
-        <span class="more-meta"> 929 words </span>
-          <span class="more-meta"> 2 min read </span>
+        <span class="more-meta"> 1629 words </span>
+          <span class="more-meta"> 4 min read </span>
 
         
         
@@ -558,19 +558,17 @@ if (!doNotTrack) {
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#描述">描述</a>
-      <ul>
-        <li><a href="#注意">注意</a></li>
-      </ul>
-    </li>
+    <li><a href="#描述">描述</a></li>
     <li><a href="#意图">意图</a></li>
     <li><a href="#主要解决">主要解决</a></li>
     <li><a href="#何时使用">何时使用</a></li>
-    <li><a href="#应用实例">应用实例</a></li>
+    <li><a href="#使用场景">使用场景</a></li>
     <li><a href="#优点">优点</a></li>
     <li><a href="#缺点">缺点</a></li>
-    <li><a href="#实现-唯一计数器">实现-唯一计数器</a></li>
+    <li><a href="#实现-工厂付款方式的工厂">实现-工厂付款方式的工厂</a></li>
+    <li><a href="#完整示例">完整示例</a></li>
     <li><a href="#测试">测试</a></li>
+    <li><a href="#总结">总结</a></li>
   </ul>
 </nav>
   </div>
@@ -580,42 +578,127 @@ if (!doNotTrack) {
     <div class="post-content">
       <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8dvkilb5yj313r0mbgmw.jpg" alt=""></p>
 <h2 id="描述">描述</h2>
-<p><code>Singleton</code>，顾名思义，它将为您提供一个对象的单个实例，并保证没有重复项。这种类型的设计模式，属于创建型模式，它提供了一种创建对象的最佳方式。</p>
-<p>这种模式涉及到一个<code>Package</code>，其中<code>Package</code>内包含需要创建的对象（只在包内可见），该Package负责创建该对象。这个<code>Package</code>提供了初始化该对象的唯一方式和对外访问其唯一对象的方式。</p>
-<h3 id="注意">注意</h3>
-<ul>
-<li>单例对象所在的包只能有一个该对象的实例。</li>
-<li>单例对象所在的包必须自己创建该对象的唯一实例。Go语言中可以创建一个该类型的指针。</li>
-<li>单例对象必须向外提供这一实例。</li>
-</ul>
+<p>工厂方法（<code>Factory Method</code>）可能是业内已知第二个好用的设计模式。其目的是使用户从特定目的所需实现的结构知识中抽象出来。例如，从Web服务或数据库中或许某些数据，用户仅需要为接口提供一个类型，通过将此决定委托给工厂，该工厂可以提供适合用户需求的界面。如果需要，还可以简化对基础类型的实现进行降级或升级过程。</p>
+<p>使用<code>Factory Method</code>时，我们获得了额外的封装层，以便我们的程序可以在受控的环境中增长。使用<code>Factory Method</code>，我们将对象族委派给不同的包或对象，使得我们从使用的可能对象库中的知识抽象出来。</p>
 <h2 id="意图">意图</h2>
-<p>保证一个对象只有一个实例，并提供一个访问它的全局访问点。</p>
-<h2 id="主要解决">主要解决</h2>
-<p>一个全局使用的对象频繁地创建与销毁。</p>
-<h2 id="何时使用">何时使用</h2>
 <ul>
-<li>对于特定的类型，我们需要一个单一的、共享的值。</li>
-<li>将某种类型的对象创建限制为整个程序中的单个单元。</li>
+<li>将创建新的结构实例委托给程序的其它部分。</li>
+<li>在接口级别工作，而不是具体的实现。</li>
+<li>对对象族进行分组以获得族对象的创建者。</li>
 </ul>
-<h2 id="应用实例">应用实例</h2>
+<h2 id="主要解决">主要解决</h2>
+<p>主要解决接口选择的问题。</p>
+<h2 id="何时使用">何时使用</h2>
+<p>我们明确地计划不同条件下创造不同实例时。</p>
+<h2 id="使用场景">使用场景</h2>
 <ul>
-<li>当你想使用与数据库的相同连接进行单个查询时</li>
-<li>当你打开到服务器的安全Shell(SSH)连接以执行一些任务时，并且不想为每个任务重新打开连接</li>
-<li>当你需要限制对某些变量或空间的访问，可以使用Singleton作为访问它们的入口。</li>
+<li>日志记录器：记录可能记录到本地硬盘、系统事件、远程服务器等，用户可以选择记录日志到什么地方。</li>
+<li>数据库访问，当用户不知道最后系统采用哪一类数据库，以及数据库可能有变化时。</li>
+<li>设计一个连接服务器的框架，需要三个协议，&ldquo;POP3&rdquo;、&ldquo;IMAP&rdquo;、&ldquo;HTTP&rdquo;，可以把这三个作为产品类，共同实现一个接口。</li>
 </ul>
 <h2 id="优点">优点</h2>
 <ul>
-<li>在内存中只有一个实例，减少了内存的开销，尤其是频繁的创建和销毁实例。</li>
-<li>避免对资源的多重占用（比如写文件操作）。</li>
+<li>一个调用者想创建一个对象，只要知道其名称就可以了。</li>
+<li>扩展性高，如果想增加一个产品，只要在对象族中扩展一个对象就可以。</li>
+<li>屏蔽产品的具体实现，调用者只关心产品的接口。</li>
 </ul>
 <h2 id="缺点">缺点</h2>
-<ul>
-<li>不适用与变化的对象，如果同一类型的对象总是要在不同的用例场景发生变化，单例就会引起数据的错误，不能保存彼此的状态。</li>
-<li>由于单例模式没有抽象层，因此扩展有很大的困难。</li>
-<li>单例类的职责过重，在一定程度上违背了“单一职责原则”。</li>
-<li>滥用单例将带来一些负面的问题，如为了节省资源将数据库连接池对象设计为单例类，可能会导致共享连接池对象的程序过多而出现连接池溢出。</li>
-</ul>
-<h2 id="实现-唯一计数器">实现-唯一计数器</h2>
+<p>每次增加一个产品时，都需要增加一个对象和其实现接口的方法，使得系统中类的个数成倍增加，在一定程度上增加了系统的复杂度，同时也增加了系统具体类的依赖。这并不是什么好事。</p>
+<h2 id="实现-工厂付款方式的工厂">实现-工厂付款方式的工厂</h2>
+<p><code>Factory Method</code>有一个非常简单的结构，我们仅仅需要确定接口<code>PaymentMethod</code>中需要存储多少实现方式。然后提供一种方法<code>GetPaymentMethod</code>，将付款类型参数在<code>GetPaymentMethod</code>中传递。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// PaymentMethod 定义了在商店中付款的支付方式
+</span><span class="c1">// 此Factory Method返回实现此接口的对象
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">PaymentMethod</span> <span class="kd">interface</span> <span class="p">{</span>
+	<span class="nf">Pay</span><span class="p">(</span><span class="nx">amount</span> <span class="kt">float32</span><span class="p">)</span> <span class="kt">string</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>上述代码定义了付款方式的接口，其中定义了付款所需要的方式。Factory Method方法将返回此接口的实例。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// 我们目前实现的支付方式如下
+</span><span class="c1"></span><span class="kd">const</span> <span class="p">(</span>
+   <span class="nx">Cash</span> <span class="p">=</span> <span class="mi">1</span>
+   <span class="nx">DebitCard</span> <span class="p">=</span> <span class="mi">2</span>
+<span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>我们必须将工厂方法确定的付款方式定义为常量，以便我们可以从包外部调用并检查可能支持的付款方式。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">CashPM</span> <span class="kd">struct</span><span class="p">{}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">CashPM</span><span class="p">)</span> <span class="nf">Pay</span><span class="p">(</span><span class="nx">amount</span> <span class="kt">float32</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%0.2f payed using cash\n&#34;</span><span class="p">,</span> <span class="nx">amount</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">DebitCardPM</span> <span class="kd">struct</span><span class="p">{}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">DebitCardPM</span><span class="p">)</span> <span class="nf">Pay</span><span class="p">(</span><span class="nx">amount</span> <span class="kt">float32</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%#0.2f payed using debit card\n&#34;</span><span class="p">,</span> <span class="nx">amount</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>上述代码，我们创建了两种付款方式，实现了<code>PaymentMethod</code>接口。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// GetPaymentMethod returns a pointer to a PaymentMethod object or an error
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">GetPaymentMethod</span><span class="p">(</span><span class="nx">m</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="nx">PaymentMethod</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">switch</span> <span class="nx">m</span> <span class="p">{</span>
+	<span class="k">case</span> <span class="nx">Cash</span><span class="p">:</span>
+		<span class="k">return</span> <span class="nb">new</span><span class="p">(</span><span class="nx">CashPM</span><span class="p">),</span> <span class="kc">nil</span>
+	<span class="k">case</span> <span class="nx">DebitCard</span><span class="p">:</span>
+		<span class="k">return</span> <span class="nb">new</span><span class="p">(</span><span class="nx">DebitCardPM</span><span class="p">),</span> <span class="kc">nil</span>
+	<span class="k">default</span><span class="p">:</span>
+		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;Payment method %d not recognized\n&#34;</span><span class="p">,</span> <span class="nx">m</span><span class="p">))</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>上述代码是我们创建具体付款对象的函数。它返回了一个指针，该指针必须是实现<code>PaymentMethod</code>接口的对象，如果输入未注册的方法，则会返回一个错误。</p>
+<h2 id="完整示例">完整示例</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -642,31 +725,75 @@ if (!doNotTrack) {
 </span><span class="lnt">22
 </span><span class="lnt">23
 </span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">singleton</span>
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// Copyright (c) 2020, beuself. All rights reserved.
+</span><span class="c1">// license that can be found in the LICENSE file.
+</span><span class="c1">// @Date: 2020/4/9 下午2:59
+</span><span class="c1"></span>
+<span class="kn">package</span> <span class="nx">factory_method</span>
 
-<span class="c1">// 单例类型
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">singleton</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">count</span> <span class="kt">int</span>
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;errors&#34;</span>
+	<span class="s">&#34;fmt&#34;</span>
+<span class="p">)</span>
+
+<span class="c1">// PaymentMethod 定义了在商店中付款的支付方式
+</span><span class="c1">// 此Factory Method返回实现此接口的对象
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">PaymentMethod</span> <span class="kd">interface</span> <span class="p">{</span>
+	<span class="nf">Pay</span><span class="p">(</span><span class="nx">amount</span> <span class="kt">float32</span><span class="p">)</span> <span class="kt">string</span>
 <span class="p">}</span>
 
-<span class="c1">// 创建唯一的实例
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">instance</span> <span class="o">*</span><span class="nx">singleton</span>
+<span class="c1">// 我们目前实现的支付方式如下
+</span><span class="c1"></span><span class="kd">const</span> <span class="p">(</span>
+	<span class="nx">Cash</span> <span class="p">=</span> <span class="mi">1</span>
+	<span class="nx">DebitCard</span> <span class="p">=</span> <span class="mi">2</span>
+<span class="p">)</span>
 
-<span class="c1">// 对外提供该对象的唯一实例
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">GetInstance</span><span class="p">()</span> <span class="o">*</span><span class="nx">singleton</span> <span class="p">{</span>
-	<span class="k">if</span> <span class="nx">instance</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="c1">// 初始化
-</span><span class="c1"></span>		<span class="nx">instance</span> <span class="p">=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">singleton</span><span class="p">)</span>
+<span class="c1">// GetPaymentMethod returns a pointer to a PaymentMethod object or an error
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">GetPaymentMethod</span><span class="p">(</span><span class="nx">m</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="nx">PaymentMethod</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">switch</span> <span class="nx">m</span> <span class="p">{</span>
+	<span class="k">case</span> <span class="nx">Cash</span><span class="p">:</span>
+		<span class="k">return</span> <span class="nb">new</span><span class="p">(</span><span class="nx">CashPM</span><span class="p">),</span> <span class="kc">nil</span>
+	<span class="k">case</span> <span class="nx">DebitCard</span><span class="p">:</span>
+		<span class="k">return</span> <span class="nb">new</span><span class="p">(</span><span class="nx">DebitCardPM</span><span class="p">),</span> <span class="kc">nil</span>
+	<span class="k">default</span><span class="p">:</span>
+		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;Payment method %d not recognized\n&#34;</span><span class="p">,</span> <span class="nx">m</span><span class="p">))</span>
 	<span class="p">}</span>
-
-	<span class="k">return</span> <span class="nx">instance</span>
 <span class="p">}</span>
 
-<span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">singleton</span><span class="p">)</span> <span class="nf">AddOne</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
-	<span class="nx">s</span><span class="p">.</span><span class="nx">count</span><span class="o">++</span>
-	<span class="k">return</span>  <span class="nx">s</span><span class="p">.</span><span class="nx">count</span>
+<span class="kd">type</span> <span class="nx">CashPM</span> <span class="kd">struct</span><span class="p">{}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">CashPM</span><span class="p">)</span> <span class="nf">Pay</span><span class="p">(</span><span class="nx">amount</span> <span class="kt">float32</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%0.2f payed using cash\n&#34;</span><span class="p">,</span> <span class="nx">amount</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">DebitCardPM</span> <span class="kd">struct</span><span class="p">{}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">DebitCardPM</span><span class="p">)</span> <span class="nf">Pay</span><span class="p">(</span><span class="nx">amount</span> <span class="kt">float32</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%#0.2f payed using debit card\n&#34;</span><span class="p">,</span> <span class="nx">amount</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
@@ -690,32 +817,29 @@ if (!doNotTrack) {
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">Test_singleton_GetInstance</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">couter1</span> <span class="o">:=</span> <span class="nf">GetInstance</span><span class="p">()</span>
-	<span class="k">if</span> <span class="nx">couter1</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">t</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="s">&#34;A new connection object must have been made&#34;</span><span class="p">)</span>
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">TestGetPaymentMethodCash</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">paymet</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">GetPaymentMethod</span><span class="p">(</span><span class="nx">Cash</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="s">&#34;A Payment method of type &#39;Cash&#39; must exit&#34;</span><span class="p">)</span>
 	<span class="p">}</span>
+	<span class="nx">msg</span> <span class="o">:=</span> <span class="nx">paymet</span><span class="p">.</span><span class="nf">Pay</span><span class="p">(</span><span class="mf">11.22</span><span class="p">)</span>
+	<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;LOG:&#34;</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span>
+<span class="p">}</span>
 
-	<span class="k">if</span> <span class="nx">couter1</span><span class="p">.</span><span class="nf">AddOne</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">{</span>
-		<span class="nx">t</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="s">&#34;the count must be 1 &#34;</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">TestGetPaymentMethodDebitCard</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">paymet</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">GetPaymentMethod</span><span class="p">(</span><span class="nx">DebitCard</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="s">&#34;A Payment method of type &#39;Cash&#39; must exit&#34;</span><span class="p">)</span>
 	<span class="p">}</span>
-
-	<span class="nx">counter2</span> <span class="o">:=</span> <span class="nf">GetInstance</span><span class="p">()</span>
-	<span class="k">if</span> <span class="nx">couter1</span> <span class="o">!=</span> <span class="nx">counter2</span> <span class="p">{</span>
-		<span class="nx">t</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="s">&#34;Singleton instences must be same&#34;</span><span class="p">)</span>
-	<span class="p">}</span>
-
-	<span class="k">if</span> <span class="nx">counter2</span><span class="p">.</span><span class="nf">AddOne</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">2</span> <span class="p">{</span>
-		<span class="nx">t</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="s">&#34;the count must be 2&#34;</span><span class="p">)</span>
-	<span class="p">}</span>
+	<span class="nx">msg</span> <span class="o">:=</span> <span class="nx">paymet</span><span class="p">.</span><span class="nf">Pay</span><span class="p">(</span><span class="mf">33.18</span><span class="p">)</span>
+	<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;LOG:&#34;</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>在这里我们仅仅实现了单线程上下文的经典单例实现，该实现不是线程安全的！接下来我们将实现并发版的单例实现。</p>
+</div><h2 id="总结">总结</h2>
+<p>作为一种创建类模式，在任何需要生成复杂对象的地方，都可以使用工厂方法模式。有一点需要注意的地方就是复杂对象适合使用工厂模式，而简单对象，特别是只需要通过 new 就可以完成创建的对象，无需使用工厂模式。</p>
 
     </div>
 
@@ -766,7 +890,7 @@ if (!doNotTrack) {
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/go-paterns/go-paterns%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6/">
+          <a class="prev" href="/post/go-paterns/creational/singleton/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -776,12 +900,12 @@ if (!doNotTrack) {
 </svg>
 
             </i>
-            <span class="prev-text nav-default">Go-Paterns项目进度</span>
+            <span class="prev-text nav-default">单例模式-Singleton</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
-          <a class="next" href="/post/go-paterns/creational/factory-method/">
-            <span class="next-text nav-default">工厂方法-Factory Method</span>
+          <a class="next" href="/post/go-paterns/creational/builder/">
+            <span class="next-text nav-default">建造者模式-Builder</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

@@ -39,6 +39,15 @@
     </item>
     
     <item>
+      <title>工厂方法-Factory Method</title>
+      <link>http://beuself.xyz/post/go-paterns/creational/factory-method/</link>
+      <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/go-paterns/creational/factory-method/</guid>
+      <description>描述 工厂方法（Factory Method）可能是业内已知第二个好用的设计模式。其目的是使用户从特定目的所需实现的结构知识中抽象出来。例如，从</description>
+    </item>
+    
+    <item>
       <title>建造者模式-Builder</title>
       <link>http://beuself.xyz/post/go-paterns/creational/builder/</link>
       <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>

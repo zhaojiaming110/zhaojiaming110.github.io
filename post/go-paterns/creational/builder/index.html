@@ -67,7 +67,7 @@
 <meta itemprop="description" content="描述 建造者模式（Builder Pattern）使用多个简单的对象一步一步构建成一个复杂的对象。这种类型的设计模式属于创建型模式，它提供了一种">
 <meta itemprop="datePublished" content="2019-10-14T23:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-10-14T23:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="2713">
+<meta itemprop="wordCount" content="2720">
 
 
 
@@ -536,7 +536,7 @@ if (!doNotTrack) {
             <a href="http://beuself.xyz/categories/go-design-paterns/"> Go Design Paterns </a>
             
           </div>
-        <span class="more-meta"> 2713 words </span>
+        <span class="more-meta"> 2720 words </span>
           <span class="more-meta"> 6 min read </span>
 
         
@@ -1049,7 +1049,7 @@ if (!doNotTrack) {
 </div>
 </div><h2 id="总结builder-pattern">总结Builder Pattern</h2>
 <p><code>Builder</code>设计模式通过使用<code>Director</code>中的通用构造算法，帮助我们维护了数量无法预测的产品。构造过程始终从产品用户那里提取。</p>
-<p>同时，当我们需要向管道添加新的产品时，具有定义的构造模式会有所帮助。该<code>BuildProcess</code>接口指定了它必须实现哪些方法才能成为合格的<code>builder</code>。</p>
+<p>同时，当我们需要向<code>Director</code>中添加新的产品时，具有定义的构造模式会有所帮助。该<code>BuildProcess</code>接口指定了它必须实现哪些方法才能成为合格的<code>builder</code>。</p>
 <p>但是，当我们不能完全确定算法会变得更稳定或更不稳定时，请尝试避免使用<code>Builder Pattern</code>，因为此接口中的任何细微更改都会影响到我们所有的构建器<code>builders</code>，并且如果我们添加了一些新方法可能会很尴尬。比如刚刚新建的<code>builder</code>需要，而其它<code>builders</code>则不需要。</p>
 
     </div>
@@ -1101,7 +1101,7 @@ if (!doNotTrack) {
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/go-paterns/creational/singleton/">
+          <a class="prev" href="/post/go-paterns/creational/factory-method/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -1111,7 +1111,7 @@ if (!doNotTrack) {
 </svg>
 
             </i>
-            <span class="prev-text nav-default">单例模式-Singleton</span>
+            <span class="prev-text nav-default">工厂方法-Factory Method</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         

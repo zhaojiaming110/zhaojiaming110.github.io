@@ -39,6 +39,15 @@
     </item>
     
     <item>
+      <title>建造者模式-Builder</title>
+      <link>http://beuself.xyz/post/go-paterns/creational/builder/</link>
+      <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/go-paterns/creational/builder/</guid>
+      <description>描述 建造者模式（Builder Pattern）使用多个简单的对象一步一步构建成一个复杂的对象。这种类型的设计模式属于创建型模式，它提供了一种</description>
+    </item>
+    
+    <item>
       <title>1-2工厂方法-Factory Method</title>
       <link>http://beuself.xyz/post/go-paterns/factory_method/</link>
       <pubDate>Mon, 14 Oct 2019 22:01:23 +0800</pubDate>

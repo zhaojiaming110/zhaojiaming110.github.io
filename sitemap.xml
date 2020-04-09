@@ -9,6 +9,20 @@
   </url>
   
   <url>
+    <loc>http://beuself.xyz/post/</loc>
+    <lastmod>2020-04-08T22:02:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://beuself.xyz/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2020-04-08T22:02:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://beuself.xyz/post/go-leetcode/linkedlist/0002%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/</loc>
     <lastmod>2020-03-31T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -93,13 +107,6 @@
   </url>
   
   <url>
-    <loc>http://beuself.xyz/post/</loc>
-    <lastmod>2020-03-31T16:01:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://beuself.xyz/tags/</loc>
     <lastmod>2020-03-31T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -129,13 +136,6 @@
   
   <url>
     <loc>http://beuself.xyz/post/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2020-03-01T22:02:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://beuself.xyz/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2020-03-01T22:02:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Vector - Beyourself - a gopher</title>
+  <title>Golang标准库与Go名库 - Beyourself - a gopher</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Beyourself" />
-  <meta name="description" content="接口 ADT接口 操作接口 功能 适用对象 Size() 报告向量当前的规模（元素总数） 向量 Get(r) 获取秩为r的元素 向量 Put(r, e) 用e替换秩为r元素的数值 向量 Insert(r, e) e作为秩为r" />
+  <meta name="description" content="Go语言常用标准库整理 Go语言标准库之fmt与格式化占位符 Go语言标准库之time Go语言标准库之flag Go语言标准库之log Go语言基础" />
 
   <meta name="keywords" content="Beyourslef, go, golang" />
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.68.3" />
 
 
-<link rel="canonical" href="http://beuself.xyz/post/date-structures-with-go/vector/vector/" />
+<link rel="canonical" href="http://beuself.xyz/post/go%E6%A0%87%E5%87%86%E5%BA%93%E4%B8%8Ego%E5%90%8D%E5%BA%93/" />
 
 
 
@@ -57,23 +57,23 @@
 
 
 
-<meta property="og:title" content="Vector" />
-<meta property="og:description" content="接口 ADT接口 操作接口 功能 适用对象 Size() 报告向量当前的规模（元素总数） 向量 Get(r) 获取秩为r的元素 向量 Put(r, e) 用e替换秩为r元素的数值 向量 Insert(r, e) e作为秩为r" />
+<meta property="og:title" content="Golang标准库与Go名库" />
+<meta property="og:description" content="Go语言常用标准库整理 Go语言标准库之fmt与格式化占位符 Go语言标准库之time Go语言标准库之flag Go语言标准库之log Go语言基础" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://beuself.xyz/post/date-structures-with-go/vector/vector/" />
-<meta property="article:published_time" content="2019-11-10T23:01:23+08:00" />
-<meta property="article:modified_time" content="2019-11-10T23:01:23+08:00" />
-<meta itemprop="name" content="Vector">
-<meta itemprop="description" content="接口 ADT接口 操作接口 功能 适用对象 Size() 报告向量当前的规模（元素总数） 向量 Get(r) 获取秩为r的元素 向量 Put(r, e) 用e替换秩为r元素的数值 向量 Insert(r, e) e作为秩为r">
-<meta itemprop="datePublished" content="2019-11-10T23:01:23&#43;08:00" />
-<meta itemprop="dateModified" content="2019-11-10T23:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="196">
+<meta property="og:url" content="http://beuself.xyz/post/go%E6%A0%87%E5%87%86%E5%BA%93%E4%B8%8Ego%E5%90%8D%E5%BA%93/" />
+<meta property="article:published_time" content="2008-10-10T22:02:23+08:00" />
+<meta property="article:modified_time" content="2008-10-10T22:02:23+08:00" />
+<meta itemprop="name" content="Golang标准库与Go名库">
+<meta itemprop="description" content="Go语言常用标准库整理 Go语言标准库之fmt与格式化占位符 Go语言标准库之time Go语言标准库之flag Go语言标准库之log Go语言基础">
+<meta itemprop="datePublished" content="2008-10-10T22:02:23&#43;08:00" />
+<meta itemprop="dateModified" content="2008-10-10T22:02:23&#43;08:00" />
+<meta itemprop="wordCount" content="342">
 
 
 
-<meta itemprop="keywords" content="Vector," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Vector"/>
-<meta name="twitter:description" content="接口 ADT接口 操作接口 功能 适用对象 Size() 报告向量当前的规模（元素总数） 向量 Get(r) 获取秩为r的元素 向量 Put(r, e) 用e替换秩为r元素的数值 向量 Insert(r, e) e作为秩为r"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Golang标准库与Go名库"/>
+<meta name="twitter:description" content="Go语言常用标准库整理 Go语言标准库之fmt与格式化占位符 Go语言标准库之time Go语言标准库之flag Go语言标准库之log Go语言基础"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -405,7 +405,7 @@ if (!doNotTrack) {
 
       </li>
     
-        <li class="menu-item">
+        <li class="menu-item active">
         
           
           <a class="menu-item-link menu-parent" href="http://beuself.xyz/">语言相关</a>
@@ -534,17 +534,14 @@ if (!doNotTrack) {
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">Vector</h1>
+      <h1 class="post-title">Golang标准库与Go名库</h1>
       
       <div class="post-meta">
-        <time datetime="2019-11-10" class="post-time">
-          2019-11-10
+        <time datetime="2008-10-10" class="post-time">
+          2008-10-10
         </time>
-        <div class="post-category">
-            <a href="http://beuself.xyz/categories/date-structures-with-go/"> Date Structures With Go </a>
-            
-          </div>
-        <span class="more-meta"> 196 words </span>
+        
+        <span class="more-meta"> 342 words </span>
           <span class="more-meta"> 1 min read </span>
 
         
@@ -566,11 +563,9 @@ if (!doNotTrack) {
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#接口">接口</a></li>
-      </ul>
-    </li>
+    <li><a href="#go语言常用标准库整理">Go语言常用标准库整理</a></li>
+    <li><a href="#go名库">Go名库</a></li>
+    <li><a href="#开源项目">开源项目</a></li>
   </ul>
 </nav>
   </div>
@@ -578,117 +573,33 @@ if (!doNotTrack) {
 
     
     <div class="post-content">
-      <h3 id="接口">接口</h3>
-<h4 id="adt接口">ADT接口</h4>
-<table>
-<thead>
-<tr>
-<th align="center">操作接口</th>
-<th align="center">功能</th>
-<th align="center">适用对象</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">Size()</td>
-<td align="center">报告向量当前的规模（元素总数）</td>
-<td align="center">向量</td>
-</tr>
-<tr>
-<td align="center">Get(r)</td>
-<td align="center">获取秩为r的元素</td>
-<td align="center">向量</td>
-</tr>
-<tr>
-<td align="center">Put(r, e)</td>
-<td align="center">用e替换秩为r元素的数值</td>
-<td align="center">向量</td>
-</tr>
-<tr>
-<td align="center">Insert(r, e)</td>
-<td align="center">e作为秩为r元素插入，原后继元素依次后移</td>
-<td align="center">向量</td>
-</tr>
-<tr>
-<td align="center">Remove(r)</td>
-<td align="center">删除秩为r的元素，返回该元素中原存放的对象</td>
-<td align="center">向量</td>
-</tr>
-</tbody>
-</table>
-<h4 id="操作实例">操作实例</h4>
-<table>
-<thead>
-<tr>
-<th align="center">操作</th>
-<th align="center">输出</th>
-<th>向量组成（自左向右）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">初始化</td>
-<td align="center"></td>
-<td></td>
-</tr>
-<tr>
-<td align="center">Insert(0, 9)</td>
-<td align="center"></td>
-<td>9</td>
-</tr>
-<tr>
-<td align="center">Insert(0, 4)</td>
-<td align="center"></td>
-<td>4  9</td>
-</tr>
-<tr>
-<td align="center">Insert(1, 5)</td>
-<td align="center"></td>
-<td>4  5  9</td>
-</tr>
-<tr>
-<td align="center">Put(1, 2)</td>
-<td align="center"></td>
-<td>4  2  9</td>
-</tr>
-<tr>
-<td align="center">Get(2)</td>
-<td align="center">9</td>
-<td>4  2  9</td>
-</tr>
-<tr>
-<td align="center">Insert(3, 6)</td>
-<td align="center"></td>
-<td>4  2  9  6</td>
-</tr>
-</tbody>
-</table>
-<h4 id="interface">interface</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span>	<span class="nx">Rank</span>	<span class="kt">int</span>
+      <h2 id="go语言常用标准库整理">Go语言常用标准库整理</h2>
+<p><a href="https://www.liwenzhou.com/posts/Go/go_fmt/">Go语言标准库之fmt与格式化占位符</a></p>
+<p><a href="https://www.liwenzhou.com/posts/Go/go_time/">Go语言标准库之time</a></p>
+<p><a href="https://www.liwenzhou.com/posts/Go/go_flag/">Go语言标准库之flag</a></p>
+<p><a href="https://www.liwenzhou.com/posts/Go/go_log/">Go语言标准库之log</a></p>
+<p><a href="https://www.liwenzhou.com/posts/Go/go_file/">Go语言基础之os</a></p>
+<p><a href="https://www.liwenzhou.com/posts/Go/go_strconv/">Go语言标准库之strconv</a></p>
+<p><a href="https://www.liwenzhou.com/posts/Go/go_http/">Go语言标准库之net/http</a></p>
+<p><a href="https://www.liwenzhou.com/posts/Go/go_context/">Go语言标准库之context</a></p>
+<p><a href="https://www.liwenzhou.com/posts/Go/go_template/">Go语言标准库之template</a></p>
+<p><a href="">Go语言标准库之encoding/json</a></p>
+<p><a href="">Go语言标准库之reflect</a></p>
+<p>持续更新中&hellip;</p>
+<h2 id="go名库">Go名库</h2>
+<p><a href="https://www.liwenzhou.com/posts/Go/go_redis/">Go操作Redis-go-redis库使用指南</a></p>
+<p><a href="https://www.liwenzhou.com/posts/Go/zap/">Go语言项目中使用zap日志库（翻译）</a></p>
+<p><a href="https://www.liwenzhou.com/posts/Go/gorm/">GORM入门指南</a></p>
+<p><a href="https://www.liwenzhou.com/posts/Go/gorm_crud/">GORM CRUD操作指南</a></p>
+<p><a href="https://www.liwenzhou.com/posts/Go/go_nsq/">Go操作NSQ</a></p>
+<p><a href="">Go单元\集成测试之Testify</a></p>
+<p><a href="">Go行为测试之GoConvey</a></p>
+<p><a href="">Go任务调度之gron</a></p>
+<p><a href="">Go命令行界面cobra</a></p>
+<p>持续更新中&hellip;</p>
+<h2 id="开源项目">开源项目</h2>
+<p><a href="">日志管理系统之Sentry.io</a></p>
 
-<span class="kd">type</span> <span class="nx">Vector</span> <span class="kd">interface</span> <span class="p">{</span>
-	<span class="nf">Size</span><span class="p">()</span>
-	<span class="nf">Get</span><span class="p">(</span><span class="nx">r</span> <span class="nx">Rank</span><span class="p">)</span> <span class="p">(</span><span class="kd">interface</span><span class="p">{},</span> <span class="kt">bool</span><span class="p">)</span>
-	<span class="nf">Put</span><span class="p">(</span><span class="nx">r</span> <span class="nx">Rank</span><span class="p">,</span> <span class="nx">e</span> <span class="kd">interface</span><span class="p">{})</span> <span class="kt">bool</span>
-	<span class="nf">Insert</span><span class="p">(</span><span class="nx">r</span> <span class="nx">Rank</span><span class="p">,</span> <span class="nx">e</span> <span class="kd">interface</span><span class="p">{})</span> <span class="kt">bool</span>
-	<span class="nf">Remove</span><span class="p">(</span><span class="nx">r</span> <span class="nx">Rank</span><span class="p">)</span> <span class="p">(</span><span class="kd">interface</span><span class="p">{},</span> <span class="kt">bool</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div>
     </div>
 
     
@@ -701,7 +612,7 @@ if (!doNotTrack) {
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-      2019-11-10
+      2008-10-10
       
     </span>
   </p>
@@ -730,15 +641,12 @@ if (!doNotTrack) {
 </div>
 
     <footer class="post-footer">
-      <div class="post-tags">
-          <a href="http://beuself.xyz/tags/vector/">Vector</a>
-          
-        </div>
+      
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/date-structures-with-go/queue/queue/">
+          <a class="prev" href="/post/golang/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -748,12 +656,12 @@ if (!doNotTrack) {
 </svg>
 
             </i>
-            <span class="prev-text nav-default">Queue</span>
+            <span class="prev-text nav-default">Golang</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
-          <a class="next" href="/post/algorithms/overview/%E6%B8%90%E8%BF%9B%E5%A4%8D%E6%9D%82%E5%BA%A6/">
-            <span class="next-text nav-default">渐进复杂度</span>
+          <a class="next" href="/post/shell/">
+            <span class="next-text nav-default">shell</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

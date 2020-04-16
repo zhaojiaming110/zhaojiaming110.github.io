@@ -38,5 +38,14 @@
       <description>描述 建造者模式（Builder Pattern）使用多个简单的对象一步一步构建成一个复杂的对象。这种类型的设计模式属于创建型模式，它提供了一种</description>
     </item>
     
+    <item>
+      <title>抽象工厂-Abstract Factory</title>
+      <link>http://beuself.xyz/post/go-paterns/creational/abstract-factory/</link>
+      <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/go-paterns/creational/abstract-factory/</guid>
+      <description>描述 抽象工厂模式（Abstract Factory Pattern）是围绕一个超级工厂创建其他工厂。该工厂又被称为其它工厂的工厂。 抽象工厂设计模式是一个新的</description>
+    </item>
+    
   </channel>
 </rss>

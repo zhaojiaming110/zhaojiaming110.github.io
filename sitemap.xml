@@ -436,6 +436,13 @@
   </url>
   
   <url>
+    <loc>http://beuself.xyz/post/go-paterns/creational/abstract-factory/</loc>
+    <lastmod>2019-10-14T23:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://beuself.xyz/post/docker/%E9%95%9C%E5%83%8F/</loc>
     <lastmod>2019-10-14T23:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -885,6 +892,13 @@
   
   <url>
     <loc>http://beuself.xyz/post/golang/</loc>
+    <lastmod>2008-10-10T22:02:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://beuself.xyz/post/go%E6%A0%87%E5%87%86%E5%BA%93%E4%B8%8Ego%E5%90%8D%E5%BA%93/</loc>
     <lastmod>2008-10-10T22:02:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

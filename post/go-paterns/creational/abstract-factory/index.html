@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Vector - Beyourself - a gopher</title>
+  <title>抽象工厂-Abstract Factory - Beyourself - a gopher</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Beyourself" />
-  <meta name="description" content="接口 ADT接口 操作接口 功能 适用对象 Size() 报告向量当前的规模（元素总数） 向量 Get(r) 获取秩为r的元素 向量 Put(r, e) 用e替换秩为r元素的数值 向量 Insert(r, e) e作为秩为r" />
+  <meta name="description" content="描述 抽象工厂模式（Abstract Factory Pattern）是围绕一个超级工厂创建其他工厂。该工厂又被称为其它工厂的工厂。 抽象工厂设计模式是一个新的" />
 
   <meta name="keywords" content="Beyourslef, go, golang" />
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.68.3" />
 
 
-<link rel="canonical" href="http://beuself.xyz/post/date-structures-with-go/vector/vector/" />
+<link rel="canonical" href="http://beuself.xyz/post/go-paterns/creational/abstract-factory/" />
 
 
 
@@ -57,23 +57,23 @@
 
 
 
-<meta property="og:title" content="Vector" />
-<meta property="og:description" content="接口 ADT接口 操作接口 功能 适用对象 Size() 报告向量当前的规模（元素总数） 向量 Get(r) 获取秩为r的元素 向量 Put(r, e) 用e替换秩为r元素的数值 向量 Insert(r, e) e作为秩为r" />
+<meta property="og:title" content="抽象工厂-Abstract Factory" />
+<meta property="og:description" content="描述 抽象工厂模式（Abstract Factory Pattern）是围绕一个超级工厂创建其他工厂。该工厂又被称为其它工厂的工厂。 抽象工厂设计模式是一个新的" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://beuself.xyz/post/date-structures-with-go/vector/vector/" />
-<meta property="article:published_time" content="2019-11-10T23:01:23+08:00" />
-<meta property="article:modified_time" content="2019-11-10T23:01:23+08:00" />
-<meta itemprop="name" content="Vector">
-<meta itemprop="description" content="接口 ADT接口 操作接口 功能 适用对象 Size() 报告向量当前的规模（元素总数） 向量 Get(r) 获取秩为r的元素 向量 Put(r, e) 用e替换秩为r元素的数值 向量 Insert(r, e) e作为秩为r">
-<meta itemprop="datePublished" content="2019-11-10T23:01:23&#43;08:00" />
-<meta itemprop="dateModified" content="2019-11-10T23:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="196">
+<meta property="og:url" content="http://beuself.xyz/post/go-paterns/creational/abstract-factory/" />
+<meta property="article:published_time" content="2019-10-14T23:01:23+08:00" />
+<meta property="article:modified_time" content="2019-10-14T23:01:23+08:00" />
+<meta itemprop="name" content="抽象工厂-Abstract Factory">
+<meta itemprop="description" content="描述 抽象工厂模式（Abstract Factory Pattern）是围绕一个超级工厂创建其他工厂。该工厂又被称为其它工厂的工厂。 抽象工厂设计模式是一个新的">
+<meta itemprop="datePublished" content="2019-10-14T23:01:23&#43;08:00" />
+<meta itemprop="dateModified" content="2019-10-14T23:01:23&#43;08:00" />
+<meta itemprop="wordCount" content="1141">
 
 
 
-<meta itemprop="keywords" content="Vector," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Vector"/>
-<meta name="twitter:description" content="接口 ADT接口 操作接口 功能 适用对象 Size() 报告向量当前的规模（元素总数） 向量 Get(r) 获取秩为r的元素 向量 Put(r, e) 用e替换秩为r元素的数值 向量 Insert(r, e) e作为秩为r"/>
+<meta itemprop="keywords" content="Creational Patterns," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="抽象工厂-Abstract Factory"/>
+<meta name="twitter:description" content="描述 抽象工厂模式（Abstract Factory Pattern）是围绕一个超级工厂创建其他工厂。该工厂又被称为其它工厂的工厂。 抽象工厂设计模式是一个新的"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -534,18 +534,18 @@ if (!doNotTrack) {
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">Vector</h1>
+      <h1 class="post-title">抽象工厂-Abstract Factory</h1>
       
       <div class="post-meta">
-        <time datetime="2019-11-10" class="post-time">
-          2019-11-10
+        <time datetime="2019-10-14" class="post-time">
+          2019-10-14
         </time>
         <div class="post-category">
-            <a href="http://beuself.xyz/categories/date-structures-with-go/"> Date Structures With Go </a>
+            <a href="http://beuself.xyz/categories/go-design-paterns/"> Go Design Paterns </a>
             
           </div>
-        <span class="more-meta"> 196 words </span>
-          <span class="more-meta"> 1 min read </span>
+        <span class="more-meta"> 1141 words </span>
+          <span class="more-meta"> 3 min read </span>
 
         
         
@@ -566,11 +566,15 @@ if (!doNotTrack) {
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#接口">接口</a></li>
-      </ul>
-    </li>
+    <li><a href="#描述">描述</a></li>
+    <li><a href="#意图">意图</a></li>
+    <li><a href="#主要解决">主要解决</a></li>
+    <li><a href="#何时使用">何时使用</a></li>
+    <li><a href="#使用场景">使用场景</a></li>
+    <li><a href="#优点">优点</a></li>
+    <li><a href="#缺点">缺点</a></li>
+    <li><a href="#实现-以车辆工厂为例">实现-以车辆工厂为例</a></li>
+    <li><a href="#测试">测试</a></li>
   </ul>
 </nav>
   </div>
@@ -578,113 +582,276 @@ if (!doNotTrack) {
 
     
     <div class="post-content">
-      <h3 id="接口">接口</h3>
-<h4 id="adt接口">ADT接口</h4>
-<table>
-<thead>
-<tr>
-<th align="center">操作接口</th>
-<th align="center">功能</th>
-<th align="center">适用对象</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">Size()</td>
-<td align="center">报告向量当前的规模（元素总数）</td>
-<td align="center">向量</td>
-</tr>
-<tr>
-<td align="center">Get(r)</td>
-<td align="center">获取秩为r的元素</td>
-<td align="center">向量</td>
-</tr>
-<tr>
-<td align="center">Put(r, e)</td>
-<td align="center">用e替换秩为r元素的数值</td>
-<td align="center">向量</td>
-</tr>
-<tr>
-<td align="center">Insert(r, e)</td>
-<td align="center">e作为秩为r元素插入，原后继元素依次后移</td>
-<td align="center">向量</td>
-</tr>
-<tr>
-<td align="center">Remove(r)</td>
-<td align="center">删除秩为r的元素，返回该元素中原存放的对象</td>
-<td align="center">向量</td>
-</tr>
-</tbody>
-</table>
-<h4 id="操作实例">操作实例</h4>
-<table>
-<thead>
-<tr>
-<th align="center">操作</th>
-<th align="center">输出</th>
-<th>向量组成（自左向右）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">初始化</td>
-<td align="center"></td>
-<td></td>
-</tr>
-<tr>
-<td align="center">Insert(0, 9)</td>
-<td align="center"></td>
-<td>9</td>
-</tr>
-<tr>
-<td align="center">Insert(0, 4)</td>
-<td align="center"></td>
-<td>4  9</td>
-</tr>
-<tr>
-<td align="center">Insert(1, 5)</td>
-<td align="center"></td>
-<td>4  5  9</td>
-</tr>
-<tr>
-<td align="center">Put(1, 2)</td>
-<td align="center"></td>
-<td>4  2  9</td>
-</tr>
-<tr>
-<td align="center">Get(2)</td>
-<td align="center">9</td>
-<td>4  2  9</td>
-</tr>
-<tr>
-<td align="center">Insert(3, 6)</td>
-<td align="center"></td>
-<td>4  2  9  6</td>
-</tr>
-</tbody>
-</table>
-<h4 id="interface">interface</h4>
+      <h2 id="描述">描述</h2>
+<p>抽象工厂模式（Abstract Factory Pattern）是围绕一个超级工厂创建其他工厂。该工厂又被称为其它工厂的工厂。</p>
+<p>抽象工厂设计模式是一个新的分组层，通过对其接口的使用，用于实现更大和更复杂的组合对象。</p>
+<p>在抽象工厂模式中，接口是负责创建一个相关对象族的工厂。不需要显示指定他们的类，每个生成的工厂都能按照工厂模式提供对象。</p>
+<h2 id="意图">意图</h2>
+<ul>
+<li>为Factory Method提供新的封装层，以返回所有工厂的公共接口。</li>
+<li>把普通工厂归为超级工厂。</li>
+</ul>
+<h2 id="主要解决">主要解决</h2>
+<p>主要解决接口选择的问题。</p>
+<h2 id="何时使用">何时使用</h2>
+<p>系统的产品有有多于一个的产品族，而系统只消费其中某一族的产品。</p>
+<h2 id="使用场景">使用场景</h2>
+<ul>
+<li>QQ换皮肤，一整套一起换。</li>
+<li>生成不同操作系统的程序。</li>
+</ul>
+<h2 id="优点">优点</h2>
+<p>当一个产品族中的多个对象被设计成一起工作时，它能保证客户端始终只使用同一产品族中的一个对象。</p>
+<h2 id="缺点">缺点</h2>
+<p>产品族扩展非常困难。</p>
+<h2 id="实现-以车辆工厂为例">实现-以车辆工厂为例</h2>
+<p>目标：</p>
+<ul>
+<li>我们必须使用抽象工厂返回的工厂来检索<code>Vehicle</code>对象。</li>
+<li><code>Vehicle</code>对象必须实现了<code>vehicle</code>接口和<code>Car</code>或<code>Motorbike</code>接口。</li>
+</ul>
+<p>这是一个很长的例子，所以请注意，我们将具有以下实体：</p>
+<ul>
+<li><code>Vehicle</code>：在我们工厂中的所有对象必须要实现的接口。
+<ul>
+<li><code>Car</code>：car类型的对象所需要实现的接口。</li>
+<li><code>Motorbike</code>：motorbike类型的对象必须要实现的接口。</li>
+</ul>
+</li>
+<li><code>VehicleFactory</code>：用于检索实现<code>VehicleFactory</code>方法的工厂的接口（抽象工厂）：
+<ul>
+<li><code>Car Factory</code>：该工厂实现<code>VehicleFactory</code>接口以返回实现<code>Vehicle</code>和<code>Car</code>接口的车辆。</li>
+<li><code>Motorbike Factory</code>：该工厂实现<code>VehicleFactory</code>接口以返回实现<code>Vehicle</code>和<code>motorbike</code>接口的车辆。</li>
+</ul>
+</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span>	<span class="nx">Rank</span>	<span class="kt">int</span>
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// 抽象工厂
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">VehicleFactory</span> <span class="kd">interface</span> <span class="p">{</span>
+	<span class="nf">GetVehicle</span><span class="p">(</span><span class="nx">v</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="nx">Vehicle</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+<span class="p">}</span>
 
-<span class="kd">type</span> <span class="nx">Vector</span> <span class="kd">interface</span> <span class="p">{</span>
-	<span class="nf">Size</span><span class="p">()</span>
-	<span class="nf">Get</span><span class="p">(</span><span class="nx">r</span> <span class="nx">Rank</span><span class="p">)</span> <span class="p">(</span><span class="kd">interface</span><span class="p">{},</span> <span class="kt">bool</span><span class="p">)</span>
-	<span class="nf">Put</span><span class="p">(</span><span class="nx">r</span> <span class="nx">Rank</span><span class="p">,</span> <span class="nx">e</span> <span class="kd">interface</span><span class="p">{})</span> <span class="kt">bool</span>
-	<span class="nf">Insert</span><span class="p">(</span><span class="nx">r</span> <span class="nx">Rank</span><span class="p">,</span> <span class="nx">e</span> <span class="kd">interface</span><span class="p">{})</span> <span class="kt">bool</span>
-	<span class="nf">Remove</span><span class="p">(</span><span class="nx">r</span> <span class="nx">Rank</span><span class="p">)</span> <span class="p">(</span><span class="kd">interface</span><span class="p">{},</span> <span class="kt">bool</span><span class="p">)</span>
+<span class="kd">const</span> <span class="p">(</span>
+	<span class="nx">CarFactoryType</span> <span class="p">=</span> <span class="mi">1</span>
+	<span class="nx">MotorbikeFactoryType</span> <span class="p">=</span> <span class="mi">2</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">GetVehicleFactory</span><span class="p">(</span><span class="nx">v</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="nx">VehicleFactory</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">switch</span> <span class="nx">v</span> <span class="p">{</span>
+	<span class="k">case</span> <span class="nx">CarFactoryType</span><span class="p">:</span>
+		<span class="k">return</span> <span class="nb">new</span><span class="p">(</span><span class="nx">CarFactory</span><span class="p">),</span> <span class="kc">nil</span>
+	<span class="k">case</span> <span class="nx">MotorbikeFactoryType</span><span class="p">:</span>
+		<span class="k">return</span> <span class="nb">new</span><span class="p">(</span><span class="nx">MotorbikeFactory</span><span class="p">),</span> <span class="kc">nil</span>
+	<span class="k">default</span><span class="p">:</span>
+		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;Factory with id %d not recognized\n&#34;</span><span class="p">,</span> <span class="nx">v</span><span class="p">))</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>全部代码详见<a href="https://github.com/zhaojiaming110/go-paterns/tree/master/creational/abstractFactory">Github</a>。</p>
+<h2 id="测试">测试</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// Copyright (c) 2020, beuself. All rights reserved.
+</span><span class="c1">// license that can be found in the LICENSE file.
+</span><span class="c1">// @Date: 2020/4/14 上午10:54
+</span><span class="c1"></span>
+<span class="kn">package</span> <span class="nx">abstractFactory</span>
+
+<span class="kn">import</span> <span class="s">&#34;testing&#34;</span>
+
+<span class="kd">func</span> <span class="nf">TestMotorbikeFactory</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">motorbikeF</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">GetVehicleFactory</span><span class="p">(</span><span class="nx">MotorbikeFactoryType</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="nx">motorbikeVehicle</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">motorbikeF</span><span class="p">.</span><span class="nf">GetVehicle</span><span class="p">(</span><span class="nx">SportMotorbikeType</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="nx">t</span><span class="p">.</span><span class="nf">Logf</span><span class="p">(</span><span class="s">&#34;Motorbike vehicle has %d wheels and %d seats\n&#34;</span><span class="p">,</span> <span class="nx">motorbikeVehicle</span><span class="p">.</span><span class="nf">GetWheels</span><span class="p">(),</span> <span class="nx">motorbikeVehicle</span><span class="p">.</span><span class="nf">GetSeats</span><span class="p">())</span>
+
+	<span class="nx">sportBike</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">motorbikeVehicle</span><span class="p">.(</span><span class="nx">Motorbike</span><span class="p">)</span>
+	<span class="k">if</span> <span class="p">!</span><span class="nx">ok</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="s">&#34;Struct assertion has failed&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="nx">t</span><span class="p">.</span><span class="nf">Logf</span><span class="p">(</span><span class="s">&#34;Sport motorbike has type %d\n&#34;</span><span class="p">,</span> <span class="nx">sportBike</span><span class="p">.</span><span class="nf">GetType</span><span class="p">())</span>
+
+	<span class="nx">motorbikeVehicle</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">motorbikeF</span><span class="p">.</span><span class="nf">GetVehicle</span><span class="p">(</span><span class="nx">CruiseMotorbikeType</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="nx">t</span><span class="p">.</span><span class="nf">Logf</span><span class="p">(</span><span class="s">&#34;Motorbike vehicle has %d wheels\n&#34;</span><span class="p">,</span> <span class="nx">motorbikeVehicle</span><span class="p">.</span><span class="nf">GetWheels</span><span class="p">())</span>
+
+	<span class="nx">cruiseBike</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">motorbikeVehicle</span><span class="p">.(</span><span class="nx">Motorbike</span><span class="p">)</span>
+	<span class="k">if</span> <span class="p">!</span><span class="nx">ok</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="s">&#34;Struct assertion has failed&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="nx">t</span><span class="p">.</span><span class="nf">Logf</span><span class="p">(</span><span class="s">&#34;Cruise motorbike has type %d\n&#34;</span><span class="p">,</span> <span class="nx">cruiseBike</span><span class="p">.</span><span class="nf">GetType</span><span class="p">())</span>
+
+	<span class="nx">motorbikeVehicle</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">motorbikeF</span><span class="p">.</span><span class="nf">GetVehicle</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="s">&#34;Motorbike of type 3 should not be recognized&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">TestCarFactory</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">carF</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">GetVehicleFactory</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="s">&#34;Car factory with id 3 should not be recognized&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="nx">carF</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nf">GetVehicleFactory</span><span class="p">(</span><span class="nx">CarFactoryType</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="nx">carVehicle</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">carF</span><span class="p">.</span><span class="nf">GetVehicle</span><span class="p">(</span><span class="nx">LuxuryCarType</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="nx">t</span><span class="p">.</span><span class="nf">Logf</span><span class="p">(</span><span class="s">&#34;Car vehicle has %d seats and %d wheels\n&#34;</span><span class="p">,</span> <span class="nx">carVehicle</span><span class="p">.</span><span class="nf">GetSeats</span><span class="p">(),</span> <span class="nx">carVehicle</span><span class="p">.</span><span class="nf">GetWheels</span><span class="p">())</span>
+
+	<span class="nx">luxuryCar</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">carVehicle</span><span class="p">.(</span><span class="nx">Car</span><span class="p">)</span>
+	<span class="k">if</span> <span class="p">!</span><span class="nx">ok</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="s">&#34;Struct assertion has failed&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="nx">t</span><span class="p">.</span><span class="nf">Logf</span><span class="p">(</span><span class="s">&#34;Luxury car has %d doors.\n&#34;</span><span class="p">,</span> <span class="nx">luxuryCar</span><span class="p">.</span><span class="nf">GetDoors</span><span class="p">())</span>
+
+	<span class="nx">carVehicle</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">carF</span><span class="p">.</span><span class="nf">GetVehicle</span><span class="p">(</span><span class="nx">FamiliarCarType</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="nx">t</span><span class="p">.</span><span class="nf">Logf</span><span class="p">(</span><span class="s">&#34;Car vehicle has %d seats\n&#34;</span><span class="p">,</span> <span class="nx">carVehicle</span><span class="p">.</span><span class="nf">GetWheels</span><span class="p">())</span>
+
+	<span class="nx">familiarCar</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">carVehicle</span><span class="p">.(</span><span class="nx">Car</span><span class="p">)</span>
+	<span class="k">if</span> <span class="p">!</span><span class="nx">ok</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="s">&#34;Struct assertion has failed&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="nx">t</span><span class="p">.</span><span class="nf">Logf</span><span class="p">(</span><span class="s">&#34;Familiar car has %d doors.\n&#34;</span><span class="p">,</span> <span class="nx">familiarCar</span><span class="p">.</span><span class="nf">GetDoors</span><span class="p">())</span>
+
+	<span class="nx">carVehicle</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">carF</span><span class="p">.</span><span class="nf">GetVehicle</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="s">&#34;Car of type 3 should not be recognized&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
@@ -701,7 +868,7 @@ if (!doNotTrack) {
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-      2019-11-10
+      2019-10-14
       
     </span>
   </p>
@@ -731,14 +898,14 @@ if (!doNotTrack) {
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="http://beuself.xyz/tags/vector/">Vector</a>
+          <a href="http://beuself.xyz/tags/creational-patterns/">Creational Patterns</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/date-structures-with-go/queue/queue/">
+          <a class="prev" href="/post/go-paterns/creational/builder/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -748,12 +915,12 @@ if (!doNotTrack) {
 </svg>
 
             </i>
-            <span class="prev-text nav-default">Queue</span>
+            <span class="prev-text nav-default">建造者模式-Builder</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
-          <a class="next" href="/post/algorithms/overview/%E6%B8%90%E8%BF%9B%E5%A4%8D%E6%9D%82%E5%BA%A6/">
-            <span class="next-text nav-default">渐进复杂度</span>
+          <a class="next" href="/post/docker/%E9%95%9C%E5%83%8F/">
+            <span class="next-text nav-default">镜像</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

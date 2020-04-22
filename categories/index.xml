@@ -75,6 +75,24 @@
     </item>
     
     <item>
+      <title>Redis</title>
+      <link>http://beuself.xyz/categories/redis/</link>
+      <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/categories/redis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shell</title>
+      <link>http://beuself.xyz/categories/shell/</link>
+      <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/categories/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Go基础学习笔记</title>
       <link>http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 14 Oct 2019 16:01:23 +0800</pubDate>

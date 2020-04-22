@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>1-1建造者模式-Builder - Beyourself - a gopher</title>
+  <title>shell变量 - Beyourself - a gopher</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Beyourself" />
-  <meta name="description" content="建造者模式 概述 建造者模式（Builder Pattern）又名生成器模式，是一种对象构建模式。它可以将复杂对象的建造过程抽象出来（抽象类别），" />
+  <meta name="description" content="变量的替换 语法 说明 ${变量名#匹配规则} 从变量开头进行规则匹配，将符合最短的数据删除 ${变量名##匹配规则} 从变量开头进行规则匹配，将符合最" />
 
   <meta name="keywords" content="Beyourslef, go, golang" />
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.68.3" />
 
 
-<link rel="canonical" href="http://beuself.xyz/post/go-paterns/builder/" />
+<link rel="canonical" href="http://beuself.xyz/post/shell/%E5%8F%98%E9%87%8F/" />
 
 
 
@@ -57,23 +57,23 @@
 
 
 
-<meta property="og:title" content="1-1建造者模式-Builder" />
-<meta property="og:description" content="建造者模式 概述 建造者模式（Builder Pattern）又名生成器模式，是一种对象构建模式。它可以将复杂对象的建造过程抽象出来（抽象类别），" />
+<meta property="og:title" content="shell变量" />
+<meta property="og:description" content="变量的替换 语法 说明 ${变量名#匹配规则} 从变量开头进行规则匹配，将符合最短的数据删除 ${变量名##匹配规则} 从变量开头进行规则匹配，将符合最" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://beuself.xyz/post/go-paterns/builder/" />
+<meta property="og:url" content="http://beuself.xyz/post/shell/%E5%8F%98%E9%87%8F/" />
 <meta property="article:published_time" content="2019-10-14T23:01:23+08:00" />
 <meta property="article:modified_time" content="2019-10-14T23:01:23+08:00" />
-<meta itemprop="name" content="1-1建造者模式-Builder">
-<meta itemprop="description" content="建造者模式 概述 建造者模式（Builder Pattern）又名生成器模式，是一种对象构建模式。它可以将复杂对象的建造过程抽象出来（抽象类别），">
+<meta itemprop="name" content="shell变量">
+<meta itemprop="description" content="变量的替换 语法 说明 ${变量名#匹配规则} 从变量开头进行规则匹配，将符合最短的数据删除 ${变量名##匹配规则} 从变量开头进行规则匹配，将符合最">
 <meta itemprop="datePublished" content="2019-10-14T23:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-10-14T23:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="1698">
+<meta itemprop="wordCount" content="491">
 
 
 
-<meta itemprop="keywords" content="创作模式," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="1-1建造者模式-Builder"/>
-<meta name="twitter:description" content="建造者模式 概述 建造者模式（Builder Pattern）又名生成器模式，是一种对象构建模式。它可以将复杂对象的建造过程抽象出来（抽象类别），"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="shell变量"/>
+<meta name="twitter:description" content="变量的替换 语法 说明 ${变量名#匹配规则} 从变量开头进行规则匹配，将符合最短的数据删除 ${变量名##匹配规则} 从变量开头进行规则匹配，将符合最"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -534,18 +534,18 @@ if (!doNotTrack) {
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">1-1建造者模式-Builder</h1>
+      <h1 class="post-title">shell变量</h1>
       
       <div class="post-meta">
         <time datetime="2019-10-14" class="post-time">
           2019-10-14
         </time>
         <div class="post-category">
-            <a href="http://beuself.xyz/categories/go-design-paterns/"> Go Design Paterns </a>
+            <a href="http://beuself.xyz/categories/shell/"> Shell </a>
             
           </div>
-        <span class="more-meta"> 1698 words </span>
-          <span class="more-meta"> 4 min read </span>
+        <span class="more-meta"> 491 words </span>
+          <span class="more-meta"> 1 min read </span>
 
         
         
@@ -566,12 +566,13 @@ if (!doNotTrack) {
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#概述">概述</a></li>
-    <li><a href="#为什么要用建造者模式优点">为什么要用建造者模式（<strong><code>优点</code></strong>）？</a></li>
-    <li><a href="#哪些情况不要用建造者模式缺点">哪些情况不要用建造者模式（<strong><code>缺点</code></strong>）？</a></li>
-    <li><a href="#抽象工厂模式vs建造者模式">抽象工厂模式vs建造者模式</a></li>
-    <li><a href="#模式结构">模式结构</a></li>
-    <li><a href="#类图时序图">类图&amp;&amp;时序图</a></li>
+    <li><a href="#变量的替换">变量的替换</a></li>
+    <li><a href="#字符串处理">字符串处理</a>
+      <ul>
+        <li><a href="#计算字符串长度">计算字符串长度</a></li>
+        <li><a href="#获取子串字符在字符串中的索引位置">获取子串字符在字符串中的索引位置</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -579,104 +580,41 @@ if (!doNotTrack) {
 
     
     <div class="post-content">
-      <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9766d83t9g30m80cie82.gif" alt=""></p>
-<!-- raw HTML omitted -->
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g7y0k0kfm2j30c008k3zb.jpg" alt=""></p>
-<h1 id="建造者模式">建造者模式</h1>
-<h2 id="概述">概述</h2>
-<p><strong><code>建造者模式（Builder Pattern）</code></strong>又名<strong><code>生成器模式</code></strong>，是一种对象构建模式。它可以将复杂对象的建造过程抽象出来（抽象类别），使这个抽象过程的不同实现方法可以构造出不同表现（属性）的对象。</p>
-<p><strong><code>建造者模式</code></strong> 是一步一步创建一个复杂的对象，它允许用户只通过指定复杂对象的类型和内容就可以构建它们，用户不需要知道内部的具体构建细节。</p>
-<p>直白一点的说，就是将我们在开发过程中遇到的大型对象，拆分成多个小对象，然后将多个小对象组装成大对象，并且对外部隐藏建造过程。</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g7y0o6wl0uj30lx0bsmzp.jpg" alt="建造过程"></p>
-<h2 id="为什么要用建造者模式优点">为什么要用建造者模式（<strong><code>优点</code></strong>）？</h2>
-<ul>
-<li>客户端不必知道产品内部组成的细节，将产品本身与产品的创建过程解耦，使得相同的创建过程可以创建不同的产品对象。</li>
-<li>每一个具体建造者都相对独立，而与其他的具体建造者无关，因此可以很方便地替换具体建造者或增加新的具体建造者， 用户使用不同的具体建造者即可得到不同的产品对象 。</li>
-<li>可以更加精细地控制产品的创建过程。将复杂产品的创建步骤分解在不同的方法中，使得创建过程更加清晰，也更方便使用程序来控制创建过程。</li>
-<li>增加新的具体建造者无须修改原有类库的代码，指挥者类针对抽象建造者类编程，系统扩展方便，符合 <strong>“开闭原则”</strong></li>
-</ul>
-<h2 id="哪些情况不要用建造者模式缺点">哪些情况不要用建造者模式（<strong><code>缺点</code></strong>）？</h2>
-<ul>
-<li><strong>产品之间差异性很大的情况：</strong> 建造者模式所创建的产品一般具有较多的共同点，其组成部分相似，如果产品之间的差异性很大，则不适合使用建造者模式，因此其使用范围受到一定的限制。</li>
-<li><strong>产品内部变化很复杂的情况：</strong> 如果产品的内部变化复杂，可能会导致需要定义很多具体建造者类来实现这种变化，导致系统变得很庞大。</li>
-</ul>
-<h2 id="抽象工厂模式vs建造者模式">抽象工厂模式vs建造者模式</h2>
-<p>抽象工厂模式实现对产品家族的创建，一个产品家族是这样的一系列产品：具有不同分类维度的产品组合，采用抽象工厂模式不需要关心构建过程，只关心什么产品由什么工厂生产即可。而建造者模式则是要求按照指定的蓝图建造产品，它的主要目的是通过组装零配件而产生一个新产品。</p>
-<h2 id="模式结构">模式结构</h2>
-<p>建造者模式主要由以下四部分构成：</p>
-<ul>
-<li><strong><code>Product（产品角色</code></strong>）：一个具体的产品对象。</li>
-<li><strong><code>Builder（抽象建造者）</code></strong>：创建一个Product对象的各个部件指定的抽象接口。</li>
-<li><strong><code>ConCreateBuilder（具体建造者</code></strong>）：实现抽象接口，构建和装配各个配件。</li>
-<li><strong><code>Director（指挥者）</code></strong>：构建一个使用Builder接口的对象。它主要是用于创建一个复杂的对象。它主要有两个作用，一是：隔离了客户与对象的生产过程，二是：负责控制产品对象的生产过程。</li>
-</ul>
-<h2 id="类图时序图">类图&amp;&amp;时序图</h2>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g7y13q9x9sj30fa0790sz.jpg" alt=""></p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g7y14dntsbj30em0bdglu.jpg" alt=""></p>
-<h1 id="建造者模式分析">建造者模式分析</h1>
-<ul>
-<li>
-<p><strong><code>Product</code></strong>（一个典型的复杂对象），其结构代码表示如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">car</span>
-  
-<span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
-  
-<span class="kd">type</span> <span class="nx">Car</span> <span class="kd">struct</span> <span class="p">{</span>
-  <span class="nx">Speed</span>  <span class="kt">float64</span>
-  <span class="nx">Color</span>  <span class="kt">string</span>
-  <span class="nx">Wheels</span> <span class="kt">string</span>
-<span class="p">}</span>
-  
-<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Car</span><span class="p">)</span> <span class="nf">Show</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;this car&#39;s Color:&#34;</span><span class="o">+</span><span class="nx">c</span><span class="p">.</span><span class="nx">Color</span><span class="o">+</span><span class="s">&#34; wheels:&#34;</span><span class="o">+</span><span class="nx">c</span><span class="p">.</span><span class="nx">Wheels</span><span class="o">+</span><span class="s">&#34; speed:&#34;</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">Speed</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p><strong><code>Builder</code></strong>（抽象建造者），其中定义了产品的创建方法和返回方法，其典型代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">car</span>
-  
-<span class="kd">type</span> <span class="nx">Builder</span> <span class="kd">interface</span> <span class="p">{</span>
-  <span class="nf">BuildSpeed</span><span class="p">(</span><span class="nx">speed</span> <span class="kt">float64</span><span class="p">)</span> <span class="nx">Builder</span>
-  <span class="nf">BuildColor</span><span class="p">(</span><span class="nx">color</span> <span class="kt">string</span><span class="p">)</span> <span class="nx">Builder</span>
-  <span class="nf">BuildWheels</span><span class="p">(</span><span class="nx">wheels</span> <span class="kt">string</span><span class="p">)</span> <span class="nx">Builder</span>
-  <span class="nf">GetResult</span><span class="p">()</span> <span class="kd">interface</span><span class="p">{}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p><strong><code>ConCreateBuilder</code></strong>（具体建造者），实现抽象接口构建和装配各个部件实现代码如下：</p>
+      <h2 id="变量的替换">变量的替换</h2>
+<table>
+<thead>
+<tr>
+<th align="center">语法</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">${变量名#匹配规则}</td>
+<td align="center">从变量开头进行规则匹配，将符合最短的数据删除</td>
+</tr>
+<tr>
+<td align="center">${变量名##匹配规则}</td>
+<td align="center">从变量开头进行规则匹配，将符合最长的数据删除</td>
+</tr>
+<tr>
+<td align="center">${变量名%匹配规则}</td>
+<td align="center">从变量末尾进行规则匹配，将符合最短的数据删除</td>
+</tr>
+<tr>
+<td align="center">${变量名%%匹配规则}</td>
+<td align="center">从变量末尾进行规则匹配，将符合最长的数据删除</td>
+</tr>
+<tr>
+<td align="center">${变量名/旧字符串/新字符串}</td>
+<td align="center">变量内容符合旧字符串，则第一个旧字符串会被新字符串取代</td>
+</tr>
+<tr>
+<td align="center">${变量名/、旧字符串/新字符串}</td>
+<td align="center">变量内容符合旧字符串，则全部的旧字符串会被新字符串取代</td>
+</tr>
+</tbody>
+</table>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -700,158 +638,108 @@ if (!doNotTrack) {
 </span><span class="lnt">19
 </span><span class="lnt">20
 </span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">car</span>
-  
-<span class="kd">type</span> <span class="nx">CarBuilder</span> <span class="kd">struct</span> <span class="p">{</span>
-  <span class="nx">Car</span> <span class="o">*</span><span class="nx">Car</span>
-<span class="p">}</span>
-  
-<span class="kd">func</span> <span class="p">(</span><span class="nx">cb</span> <span class="o">*</span><span class="nx">CarBuilder</span><span class="p">)</span> <span class="nf">BuildSpeed</span><span class="p">(</span><span class="nx">speed</span> <span class="kt">float64</span><span class="p">)</span> <span class="nx">Builder</span> <span class="p">{</span>
-  
-  <span class="k">if</span> <span class="nx">cb</span><span class="p">.</span><span class="nx">Car</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
-      <span class="nx">cb</span><span class="p">.</span><span class="nx">Car</span> <span class="p">=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">Car</span><span class="p">)</span>
-  <span class="p">}</span>
-  <span class="nx">cb</span><span class="p">.</span><span class="nx">Car</span><span class="p">.</span><span class="nx">Speed</span> <span class="p">=</span> <span class="nx">speed</span>
-  
-  <span class="k">return</span> <span class="nx">cb</span>
-<span class="p">}</span>
-  
-<span class="kd">func</span> <span class="p">(</span><span class="nx">cb</span> <span class="o">*</span><span class="nx">CarBuilder</span><span class="p">)</span> <span class="nf">BuildColor</span><span class="p">(</span><span class="nx">color</span> <span class="kt">string</span><span class="p">)</span> <span class="nx">Builder</span> <span class="p">{</span>
-  
-  <span class="k">if</span> <span class="nx">cb</span><span class="p">.</span><span class="nx">Car</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
-      <span class="nx">cb</span><span class="p">.</span><span class="nx">Car</span> <span class="p">=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">Car</span><span class="p">)</span>
-  <span class="p">}</span>
-  
-  <span class="nx">cb</span><span class="p">.</span><span class="nx">Car</span><span class="p">.</span><span class="nx">Color</span> <span class="p">=</span> <span class="nx">color</span>
-  
-  <span class="k">return</span> <span class="nx">cb</span>
-<span class="p">}</span>
-  
-<span class="kd">func</span> <span class="p">(</span><span class="nx">cb</span> <span class="o">*</span><span class="nx">CarBuilder</span><span class="p">)</span> <span class="nf">BuildWheels</span><span class="p">(</span><span class="nx">wheels</span> <span class="kt">string</span><span class="p">)</span> <span class="nx">Builder</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="nx">cb</span><span class="p">.</span><span class="nx">Car</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
-      <span class="nx">cb</span><span class="p">.</span><span class="nx">Car</span> <span class="p">=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">Car</span><span class="p">)</span>
-  <span class="p">}</span>
-  
-  <span class="nx">cb</span><span class="p">.</span><span class="nx">Car</span><span class="p">.</span><span class="nx">Wheels</span> <span class="p">=</span> <span class="nx">wheels</span>
-  
-  <span class="k">return</span> <span class="nx">cb</span>
-<span class="p">}</span>
-  
-<span class="kd">func</span> <span class="p">(</span><span class="nx">cb</span> <span class="o">*</span><span class="nx">CarBuilder</span><span class="p">)</span> <span class="nf">GetResult</span><span class="p">()</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">cb</span><span class="p">.</span><span class="nx">Car</span>
-<span class="p">}</span>
+<pre class="chroma"><code class="language-shell" data-lang="shell"> ~  varibale<span class="o">=</span><span class="s2">&#34;I love you, do you love me ?&#34;</span>
+ ~  <span class="nb">echo</span> <span class="nv">$varibale</span>
+I love you, <span class="k">do</span> you love me ?
+ ~  <span class="nv">v1</span><span class="o">=</span><span class="si">${</span><span class="nv">varibale</span><span class="p">#*ov</span><span class="si">}</span>
+ ~  <span class="nb">echo</span> <span class="nv">$v1</span>
+e you, <span class="k">do</span> you love me ?
+ ~  <span class="nv">v2</span><span class="o">=</span><span class="si">${</span><span class="nv">varibale</span><span class="p">##*ov</span><span class="si">}</span>
+ ~  <span class="nb">echo</span> <span class="nv">$v2</span>
+e me ?
+ ~  <span class="nv">v3</span><span class="o">=</span><span class="si">${</span><span class="nv">varibale</span><span class="p">%ov*</span><span class="si">}</span>
+ ~  <span class="nb">echo</span> <span class="nv">$v3</span>
+I love you, <span class="k">do</span> you l
+ ~  <span class="nv">v4</span><span class="o">=</span><span class="si">${</span><span class="nv">varibale</span><span class="p">%%ov*</span><span class="si">}</span>
+ ~  <span class="nb">echo</span> <span class="nv">$v4</span>
+I l
+ ~  <span class="nv">v4</span><span class="o">=</span><span class="si">${</span><span class="nv">varibale</span><span class="p">/love/LOVE</span><span class="si">}</span>
+ ~  <span class="nb">echo</span> <span class="nv">$v4</span>
+I LOVE you, <span class="k">do</span> you love me ?
+ ~  <span class="nv">v5</span><span class="o">=</span><span class="si">${</span><span class="nv">varibale</span><span class="p">//love/LOVE</span><span class="si">}</span>
+ ~  <span class="nb">echo</span> <span class="nv">$v5</span>
+I LOVE you, <span class="k">do</span> you LOVE me ?
 </code></pre></td></tr></table>
 </div>
-</div></li>
-<li>
-<p><strong><code>Director</code></strong>（指挥者），其代码实现如下：</p>
-<p>建造者模式的结构中还引入了一个指挥者类Director，该类的作用主要有两个：一方面它隔离了客户与生产过程；另一方面它负责控制产品的生成过程。指挥者针对抽象建造者编程，客户端只需要知道具体建造者的类型，即<strong>可通过指挥者类调用建造者的相关方法，返回一个完整的产品对象。</strong></p>
+</div><h2 id="字符串处理">字符串处理</h2>
+<h3 id="计算字符串长度">计算字符串长度</h3>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">语法</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">方法一</td>
+<td align="center">${#string}</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center">方法二</td>
+<td align="center">expr length &ldquo;$string&rdquo;</td>
+<td align="center">string有空格，则必须加双引号</td>
+</tr>
+</tbody>
+</table>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">car</span>
-  
-<span class="kd">type</span> <span class="nx">Director</span> <span class="kd">struct</span> <span class="p">{</span>
-  <span class="nx">builder</span> <span class="nx">Builder</span>
-<span class="p">}</span>
-  
-<span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">Director</span><span class="p">)</span> <span class="nf">SetBuilder</span><span class="p">(</span><span class="nx">builder</span> <span class="nx">Builder</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">d</span><span class="p">.</span><span class="nx">builder</span> <span class="p">=</span> <span class="nx">builder</span>
-<span class="p">}</span>
-  
-<span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">Director</span><span class="p">)</span> <span class="nf">Create</span><span class="p">(</span><span class="nx">color</span><span class="p">,</span> <span class="nx">wheels</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">speed</span> <span class="kt">float64</span><span class="p">)</span> <span class="o">*</span><span class="nx">Car</span> <span class="p">{</span>
-  <span class="nx">d</span><span class="p">.</span><span class="nx">builder</span><span class="p">.</span><span class="nf">BuildColor</span><span class="p">(</span><span class="nx">color</span><span class="p">)</span>
-  <span class="nx">d</span><span class="p">.</span><span class="nx">builder</span><span class="p">.</span><span class="nf">BuildSpeed</span><span class="p">(</span><span class="nx">speed</span><span class="p">)</span>
-  <span class="nx">d</span><span class="p">.</span><span class="nx">builder</span><span class="p">.</span><span class="nf">BuildWheels</span><span class="p">(</span><span class="nx">wheels</span><span class="p">)</span>
-  <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">builder</span><span class="p">.</span><span class="nf">GetResult</span><span class="p">().(</span><span class="o">*</span><span class="nx">Car</span><span class="p">)</span>
-  
-<span class="p">}</span>
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@fe718d4d634f /<span class="o">]</span><span class="c1"># clear</span>
+<span class="o">[</span>root@fe718d4d634f /<span class="o">]</span><span class="c1"># val=&#34;hello world&#34;</span>
+<span class="o">[</span>root@fe718d4d634f /<span class="o">]</span><span class="c1"># echo ${#val}</span>
+<span class="m">11</span>
+<span class="o">[</span>root@fe718d4d634f /<span class="o">]</span><span class="c1"># len=`expr length &#34;$val&#34;`</span>
+<span class="o">[</span>root@fe718d4d634f /<span class="o">]</span><span class="c1"># echo $len</span>
+<span class="m">11</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-<li>
-<p><strong><code>客户端实现代码如下</code></strong>：</p>
-<p>在客户端代码中，无须关心产品对象的具体组装过程，只需确定具体建造者的类型即可，<strong>建造者模式将复杂对象的构建与对象的表现分离开来，这样使得同样的构建过程可以创建出不同的表现</strong>。</p>
+</div><h3 id="获取子串字符在字符串中的索引位置">获取子串字符在字符串中的索引位置</h3>
+<table>
+<thead>
+<tr>
+<th align="center">语法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">expr index &ldquo;$string&rdquo; substring</td>
+</tr>
+</tbody>
+</table>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
-  
-<span class="kn">import</span> <span class="p">(</span>
-  <span class="s">&#34;go-paterns/creational/builder/car&#34;</span>
-<span class="p">)</span>
-  
-<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">builder</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">car</span><span class="p">.</span><span class="nx">CarBuilder</span><span class="p">)</span>
-  <span class="nx">director</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">car</span><span class="p">.</span><span class="nx">Director</span><span class="p">)</span>
-  <span class="nx">director</span><span class="p">.</span><span class="nf">SetBuilder</span><span class="p">(</span><span class="nx">builder</span><span class="p">)</span>
-  <span class="nx">car</span> <span class="o">:=</span> <span class="nx">director</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">&#34;red&#34;</span><span class="p">,</span> <span class="s">&#34;sport&#34;</span><span class="p">,</span> <span class="mf">180.64</span><span class="p">)</span>
-  <span class="nx">car</span><span class="p">.</span><span class="nf">Show</span><span class="p">()</span>
-<span class="p">}</span>
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@fe718d4d634f /<span class="o">]</span><span class="c1"># val=&#34;hello world&#34;</span>
+<span class="o">[</span>root@fe718d4d634f /<span class="o">]</span><span class="c1"># index=`expr index &#34;$val&#34; llo`</span>
+<span class="o">[</span>root@fe718d4d634f /<span class="o">]</span><span class="c1"># echo $index</span>
+<span class="m">3</span>
+<span class="o">[</span>root@fe718d4d634f /<span class="o">]</span><span class="c1"># index=`expr index &#34;$val&#34; cceo`</span>
+<span class="o">[</span>root@fe718d4d634f /<span class="o">]</span><span class="c1"># echo $index</span>
+<span class="m">2</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-<li>
-<p>全部代码请见<a href="https://github.com/zhaojiaming110/go-paterns/tree/master/creational/builder/car">Github</a>.</p>
-</li>
-<li>
-<p>KFC实现代码请见<a href="https://github.com/zhaojiaming110/go-paterns/tree/master/creational/builder/kfc">KFC</a>.</p>
-</li>
-</ul>
-
+</div>
     </div>
 
     
@@ -893,15 +781,12 @@ if (!doNotTrack) {
 </div>
 
     <footer class="post-footer">
-      <div class="post-tags">
-          <a href="http://beuself.xyz/tags/%E5%88%9B%E4%BD%9C%E6%A8%A1%E5%BC%8F/">创作模式</a>
-          
-        </div>
+      
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/docker/docker%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/">
+          <a class="prev" href="/post/go-paterns/go-paterns%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -911,12 +796,12 @@ if (!doNotTrack) {
 </svg>
 
             </i>
-            <span class="prev-text nav-default">1-1Docker核心概念</span>
+            <span class="prev-text nav-default">Go-Paterns项目进度</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
-          <a class="next" href="/post/redis/api%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E4%BD%BF%E7%94%A8/">
-            <span class="next-text nav-default">API的理解和使用</span>
+          <a class="next" href="/post/go-paterns/creational/singleton/">
+            <span class="next-text nav-default">单例模式-Singleton</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

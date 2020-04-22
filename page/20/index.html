@@ -535,6 +535,78 @@ if (!doNotTrack) {
   <header class="post-header">
     <h1 class="post-title">
       
+      <a class="post-link" href="/post/go-basic-knowledge/2019-09-22-%E6%89%A9%E5%B1%95%E5%B7%B2%E6%9C%89%E7%B1%BB%E5%9E%8B/">扩展已有类型</a>
+    </h1>
+    
+    <div class="post-meta">
+      <time datetime="2019-09-20" class="post-time">
+        2019-09-20
+      </time>
+      <div class="post-category">
+          <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
+          
+        </div>
+      <span class="more-meta"> 130 words </span>
+      <span class="more-meta"> 1 min read </span>
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      扩充系统类型或者别人的类型 使用组合： 1 2 3 4 5 6 package tree type Node struct { value int Left, Right *Node } 1 2 3 4 package main type myTreeNode struct { node *tree.Node } 定义别名： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+    </div>
+    <div class="read-more">
+      <a href="/post/go-basic-knowledge/2019-09-22-%E6%89%A9%E5%B1%95%E5%B7%B2%E6%9C%89%E7%B1%BB%E5%9E%8B/" class="read-more-link">Read more</a>
+    </div>
+    
+  </div>
+</article>
+
+  
+    <article class="post bg-white">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/post/go-basic-knowledge/2019-09-23-%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%80%BC%E7%B1%BB%E5%9E%8B/">接口的值类型</a>
+    </h1>
+    
+    <div class="post-meta">
+      <time datetime="2019-09-20" class="post-time">
+        2019-09-20
+      </time>
+      <div class="post-category">
+          <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
+          
+        </div>
+      <span class="more-meta"> 143 words </span>
+      <span class="more-meta"> 1 min read </span>
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      接口变量里有什么？ 实现者的类型和实现者的值。 实现者的类型和指向实现者的指针。 接口变量自带指针。 接口变量同样采用值传递，由于接口变量可以带指针
+    </div>
+    <div class="read-more">
+      <a href="/post/go-basic-knowledge/2019-09-23-%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%80%BC%E7%B1%BB%E5%9E%8B/" class="read-more-link">Read more</a>
+    </div>
+    
+  </div>
+</article>
+
+  
+    <article class="post bg-white">
+  <header class="post-header">
+    <h1 class="post-title">
+      
       <a class="post-link" href="/post/go-basic-knowledge/2019-09-23-%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%AE%9E%E7%8E%B0/">接口的定义和实现</a>
     </h1>
     
@@ -597,78 +669,6 @@ if (!doNotTrack) {
     </div>
     <div class="read-more">
       <a href="/post/go-basic-knowledge/2019-09-23-%E6%8E%A5%E5%8F%A3%E7%9A%84%E7%BB%84%E5%90%88/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/go-basic-knowledge/2019-09-21-%E6%95%B0%E7%BB%84/">数组</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2019-09-20" class="post-time">
-        2019-09-20
-      </time>
-      <div class="post-category">
-          <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
-          
-        </div>
-      <span class="more-meta"> 450 words </span>
-      <span class="more-meta"> 1 min read </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      数组就是指一系列同一类型数据 的集合。数组中包含的每个数据被称为数组元素(element)，一个数组包含的元素个数被称为数 组的长度。 常规数组的
-    </div>
-    <div class="read-more">
-      <a href="/post/go-basic-knowledge/2019-09-21-%E6%95%B0%E7%BB%84/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/go-basic-knowledge/2019-09-20-%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/">条件语句</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2019-09-20" class="post-time">
-        2019-09-20
-      </time>
-      <div class="post-category">
-          <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
-          
-        </div>
-      <span class="more-meta"> 671 words </span>
-      <span class="more-meta"> 2 min read </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      条件语句if 条件语句不需要使用括号将条件包含起来() 无论语句体内有几条语句，花括号{}都是必须存在的 左花括号{必须与if或者else处于同一
-    </div>
-    <div class="read-more">
-      <a href="/post/go-basic-knowledge/2019-09-20-%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -955,8 +955,6 @@ if (!doNotTrack) {
 
             
             
-              
-            
 
           
           
@@ -965,12 +963,6 @@ if (!doNotTrack) {
         
 
         
-        
-          <li class="">
-            <a href="/page/11/">
-              11
-            </a>
-          </li>
         
 
       
@@ -1347,6 +1339,37 @@ if (!doNotTrack) {
 
       
 
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/24/">
+              24
+            </a>
+          </li>
+        
+
+      
+
       
       
       <li><a href="/page/21/">»</a></li>
@@ -1354,7 +1377,7 @@ if (!doNotTrack) {
 
       
       
-      <li><a href="/page/23/">»»</a></li>
+      <li><a href="/page/24/">»»</a></li>
       
 
       </ul>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shell on Beyourself - a gopher</title>
+    <link>http://beuself.xyz/categories/shell/</link>
+    <description>Recent content in Shell on Beyourself - a gopher</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 14 Oct 2019 23:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="http://beuself.xyz/categories/shell/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>shell变量</title>
+      <link>http://beuself.xyz/post/shell/%E5%8F%98%E9%87%8F/</link>
+      <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/shell/%E5%8F%98%E9%87%8F/</guid>
+      <description>变量的替换 语法 说明 ${变量名#匹配规则} 从变量开头进行规则匹配，将符合最短的数据删除 ${变量名##匹配规则} 从变量开头进行规则匹配，将符合最</description>
+    </item>
+    
+  </channel>
+</rss>

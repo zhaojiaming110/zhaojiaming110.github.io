@@ -67,7 +67,7 @@
 <meta itemprop="description" content="概述 Redis 是速度非常快的非关系型（NoSQL）内存键值数据库，可以存储键和五种不同类型的值之间的映射。 键的类型只能为字符串，值支持五种数据类型：">
 <meta itemprop="datePublished" content="2015-10-10T22:02:23&#43;08:00" />
 <meta itemprop="dateModified" content="2015-10-10T22:02:23&#43;08:00" />
-<meta itemprop="wordCount" content="416">
+<meta itemprop="wordCount" content="851">
 
 
 
@@ -541,8 +541,8 @@ if (!doNotTrack) {
           2015-10-10
         </time>
         
-        <span class="more-meta"> 416 words </span>
-          <span class="more-meta"> 1 min read </span>
+        <span class="more-meta"> 851 words </span>
+          <span class="more-meta"> 2 min read </span>
 
         
         
@@ -567,6 +567,12 @@ if (!doNotTrack) {
     <li><a href="#单线程为什么这么快">单线程为什么这么快？</a></li>
     <li><a href="#数据类型">数据类型</a></li>
     <li><a href="#数据结构和内部编码">数据结构和内部编码</a></li>
+    <li><a href="#redis中的字符串">Redis中的字符串</a>
+      <ul>
+        <li><a href="#数据结构">数据结构</a></li>
+      </ul>
+    </li>
+    <li><a href="#redis中的列表">Redis中的列表</a></li>
   </ul>
 </nav>
   </div>
@@ -623,6 +629,53 @@ if (!doNotTrack) {
 </table>
 <h2 id="数据结构和内部编码">数据结构和内部编码</h2>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ge3k6dj2u5j30jv0rodg3.jpg" alt=""></p>
+<h2 id="redis中的字符串">Redis中的字符串</h2>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ge3kxu717nj30kv0a1dg6.jpg" alt=""></p>
+<h3 id="数据结构">数据结构</h3>
+<p>Redis中没有直接使用C语言传统的字符串表示（以空字符结尾的字符数组），而是自己构建了一种名为简单动态字符串（simple dynamic string，SDS）的抽象类型，并将SDS用作Redis的默认字符串表示。</p>
+<p>举个例子，如果客户端执行如下命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">127.0.0.1:6379&gt; <span class="nb">set</span> msg <span class="s2">&#34;hello world&#34;</span>
+OK
+</code></pre></td></tr></table>
+</div>
+</div><p>那么Redis将在数据库中创建一个新的键值对，其中：</p>
+<ul>
+<li><input disabled="" type="checkbox"> 键值对的键是一个字符串对象，对象的底层实现是一个保存着字符串&quot;msg&quot;的SDS。</li>
+<li><input disabled="" type="checkbox"> 键值对的值也是一个字符串对象，对象的底层实现是一个保存着字符串&quot;hello world&quot;的SDS。</li>
+</ul>
+<p>除了用来保存数据库中的字符串值之外，SDS还被用作缓冲区（buffer）：AOF模块中的AOF缓冲区，以及客户端状态中的输入缓存区。</p>
+<p>SDS定义：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="k">struct</span> <span class="n">sdshdr</span> <span class="p">{</span>
+	<span class="c1">// 记录buf数组中已使用字节的数量
+</span><span class="c1"></span>	<span class="c1">// 等于SDS所保存字符串的长度
+</span><span class="c1"></span>	<span class="kt">int</span> <span class="n">len</span><span class="p">;</span>
+	<span class="c1">// 记录buf数组中未使用字节的数量
+</span><span class="c1"></span>	<span class="kt">int</span>	<span class="n">free</span><span class="p">;</span>
+	<span class="c1">// 字节数组，用于保存字符串
+</span><span class="c1"></span>	<span class="kt">char</span> <span class="n">buf</span><span class="p">[];</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="redis中的列表">Redis中的列表</h2>
 
     </div>
 

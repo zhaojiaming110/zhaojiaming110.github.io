@@ -67,7 +67,7 @@
 <meta itemprop="description" content="Redis客户端 以下实例讲解了如何在golang中创建Redis客户端。 1 2 3 4 5 6 7 8 9 10 11 12 13 func main() { client := redis.NewClient(&amp;redis.Options{ Addr: &#34;localhost:6379&#34;, Password: &#34;&#34;, DB: 0, }) pong, err := client.Ping().Result() if err != nil">
 <meta itemprop="datePublished" content="2019-10-14T23:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-10-14T23:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="123">
+<meta itemprop="wordCount" content="238">
 
 
 
@@ -544,7 +544,7 @@ if (!doNotTrack) {
             <a href="http://beuself.xyz/categories/redis/"> Redis </a>
             
           </div>
-        <span class="more-meta"> 123 words </span>
+        <span class="more-meta"> 238 words </span>
           <span class="more-meta"> 1 min read </span>
 
         
@@ -622,40 +622,40 @@ if (!doNotTrack) {
 <thead>
 <tr>
 <th align="center">通用命令</th>
-<th align="center">描述</th>
-<th></th>
+<th align="left">描述</th>
+<th>Go-redis</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">keys</td>
-<td align="center"></td>
-<td></td>
-</tr>
-<tr>
-<td align="center">dbsize</td>
-<td align="center"></td>
-<td></td>
-</tr>
-<tr>
-<td align="center">exists key</td>
-<td align="center"></td>
-<td></td>
-</tr>
-<tr>
-<td align="center">del key [key&hellip;]</td>
-<td align="center">该命令用于在key存在时删除key</td>
+<td align="center">keys pattern</td>
+<td align="left">查找所有符合给定模式（pattern）的key</td>
 <td><code>func (c cmdable) Keys(pattern string) *StringSliceCmd {}</code></td>
 </tr>
 <tr>
+<td align="center">dbsize</td>
+<td align="left">返回redis中key的个数</td>
+<td><code>func (c cmdable) DBSize() *IntCmd {}</code></td>
+</tr>
+<tr>
+<td align="center">exists key</td>
+<td align="left">检查给定key是否存在</td>
+<td><code>func (c cmdable) Exists(keys ...string) *IntCmd {}</code></td>
+</tr>
+<tr>
+<td align="center">del key [key&hellip;]</td>
+<td align="left">该命令用于在key存在时删除key</td>
+<td><code>func (c cmdable) Del(keys ...string) *IntCmd {</code></td>
+</tr>
+<tr>
 <td align="center">expire key seconds</td>
-<td align="center"></td>
-<td></td>
+<td align="left">为给定key设置过期时间，以秒计</td>
+<td><code>func (c cmdable) Expire(key string, expiration time.Duration) *BoolCmd {}</code></td>
 </tr>
 <tr>
 <td align="center">type key</td>
-<td align="center"></td>
-<td></td>
+<td align="left">返回key中所存储值的类型</td>
+<td><code>func (c cmdable) Type(key string) *StatusCmd {}</code></td>
 </tr>
 </tbody>
 </table>

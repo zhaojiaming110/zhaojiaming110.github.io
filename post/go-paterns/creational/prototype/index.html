@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>工厂方法-Factory Method - Beyourself - a gopher</title>
+  <title>原型模式-Prototype Pattern - Beyourself - a gopher</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Beyourself" />
-  <meta name="description" content="描述 工厂方法（Factory Method）可能是业内已知第二个好用的设计模式。其目的是使用户从特定目的所需实现的结构知识中抽象出来。例如，从" />
+  <meta name="description" content="描述 原型模式（prototype pattern）的目的是拥有一个或一组在编译时已经创建好的对象，但是您可以在运行时将其克隆任意多次。通常用于" />
 
   <meta name="keywords" content="Beyourslef, go, golang" />
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.68.3" />
 
 
-<link rel="canonical" href="http://beuself.xyz/post/go-paterns/creational/factory-method/" />
+<link rel="canonical" href="http://beuself.xyz/post/go-paterns/creational/prototype/" />
 
 
 
@@ -57,23 +57,23 @@
 
 
 
-<meta property="og:title" content="工厂方法-Factory Method" />
-<meta property="og:description" content="描述 工厂方法（Factory Method）可能是业内已知第二个好用的设计模式。其目的是使用户从特定目的所需实现的结构知识中抽象出来。例如，从" />
+<meta property="og:title" content="原型模式-Prototype Pattern" />
+<meta property="og:description" content="描述 原型模式（prototype pattern）的目的是拥有一个或一组在编译时已经创建好的对象，但是您可以在运行时将其克隆任意多次。通常用于" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://beuself.xyz/post/go-paterns/creational/factory-method/" />
+<meta property="og:url" content="http://beuself.xyz/post/go-paterns/creational/prototype/" />
 <meta property="article:published_time" content="2019-10-14T23:01:23+08:00" />
 <meta property="article:modified_time" content="2019-10-14T23:01:23+08:00" />
-<meta itemprop="name" content="工厂方法-Factory Method">
-<meta itemprop="description" content="描述 工厂方法（Factory Method）可能是业内已知第二个好用的设计模式。其目的是使用户从特定目的所需实现的结构知识中抽象出来。例如，从">
+<meta itemprop="name" content="原型模式-Prototype Pattern">
+<meta itemprop="description" content="描述 原型模式（prototype pattern）的目的是拥有一个或一组在编译时已经创建好的对象，但是您可以在运行时将其克隆任意多次。通常用于">
 <meta itemprop="datePublished" content="2019-10-14T23:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-10-14T23:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="1629">
+<meta itemprop="wordCount" content="1213">
 
 
 
 <meta itemprop="keywords" content="Creational Patterns," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="工厂方法-Factory Method"/>
-<meta name="twitter:description" content="描述 工厂方法（Factory Method）可能是业内已知第二个好用的设计模式。其目的是使用户从特定目的所需实现的结构知识中抽象出来。例如，从"/>
+<meta name="twitter:title" content="原型模式-Prototype Pattern"/>
+<meta name="twitter:description" content="描述 原型模式（prototype pattern）的目的是拥有一个或一组在编译时已经创建好的对象，但是您可以在运行时将其克隆任意多次。通常用于"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -534,7 +534,7 @@ if (!doNotTrack) {
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">工厂方法-Factory Method</h1>
+      <h1 class="post-title">原型模式-Prototype Pattern</h1>
       
       <div class="post-meta">
         <time datetime="2019-10-14" class="post-time">
@@ -544,8 +544,8 @@ if (!doNotTrack) {
             <a href="http://beuself.xyz/categories/go-design-paterns/"> Go Design Paterns </a>
             
           </div>
-        <span class="more-meta"> 1629 words </span>
-          <span class="more-meta"> 4 min read </span>
+        <span class="more-meta"> 1213 words </span>
+          <span class="more-meta"> 3 min read </span>
 
         
         
@@ -573,10 +573,8 @@ if (!doNotTrack) {
     <li><a href="#使用场景">使用场景</a></li>
     <li><a href="#优点">优点</a></li>
     <li><a href="#缺点">缺点</a></li>
-    <li><a href="#实现-工厂付款方式的工厂">实现-工厂付款方式的工厂</a></li>
-    <li><a href="#完整示例">完整示例</a></li>
-    <li><a href="#测试">测试</a></li>
-    <li><a href="#总结">总结</a></li>
+    <li><a href="#实现">实现</a></li>
+    <li><a href="#单元测试">单元测试</a></li>
   </ul>
 </nav>
   </div>
@@ -586,127 +584,44 @@ if (!doNotTrack) {
     <div class="post-content">
       <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8dvkilb5yj313r0mbgmw.jpg" alt=""></p>
 <h2 id="描述">描述</h2>
-<p>工厂方法（<code>Factory Method</code>）可能是业内已知第二个好用的设计模式。其目的是使用户从特定目的所需实现的结构知识中抽象出来。例如，从Web服务或数据库中或许某些数据，用户仅需要为接口提供一个类型，通过将此决定委托给工厂，该工厂可以提供适合用户需求的界面。如果需要，还可以简化对基础类型的实现进行降级或升级过程。</p>
-<p>使用<code>Factory Method</code>时，我们获得了额外的封装层，以便我们的程序可以在受控的环境中增长。使用<code>Factory Method</code>，我们将对象族委派给不同的包或对象，使得我们从使用的可能对象库中的知识抽象出来。</p>
+<p>原型模式（prototype pattern）的目的是拥有一个或一组在编译时已经创建好的对象，但是您可以在运行时将其克隆任意多次。通常用于创建重复的对象，同时又能保证性能。</p>
+<p>这种模式是实现了一个原型接口，该接口用于创建当前对象的克隆。当直接创建对象的代价比较大时，则采用这种模式。例如，一个对象需要在一个高代价的数据库操作之后被创建。我们可以缓存该对象，在下一个请求时返回它的克隆，在需要的时候更新数据库，以此来减少数据库调用。</p>
+<p>prototype与builder之间的主要区别在于，将为用户克隆对象，而不是在运行时去构建它。</p>
 <h2 id="意图">意图</h2>
 <ul>
-<li>将创建新的结构实例委托给程序的其它部分。</li>
-<li>在接口级别工作，而不是具体的实现。</li>
-<li>对对象族进行分组以获得族对象的创建者。</li>
+<li>维护一组将被克隆以创建新实例的对象</li>
+<li>提供某种类型的默认值以开始对其进行操作</li>
+<li>避免复杂对象初始化时，占用更多的内存资源。</li>
 </ul>
 <h2 id="主要解决">主要解决</h2>
-<p>主要解决接口选择的问题。</p>
+<p>在运行期建立和删除原型。</p>
 <h2 id="何时使用">何时使用</h2>
-<p>我们明确地计划不同条件下创造不同实例时。</p>
+<ul>
+<li>当一个系统应该独立于它的产品创建，构成和表示时。</li>
+<li>当要实例化的类是在运行时刻指定时，例如，通过动态装载。</li>
+<li>为了避免创建一个与产品类层次平行的工厂类层次时。</li>
+<li>当一个类的实例只能有几个不同状态组合中的一种时。建立相应数目的原型并克隆它们可能比每次用合适的状态手工实例化该类更方便一些。</li>
+</ul>
 <h2 id="使用场景">使用场景</h2>
 <ul>
-<li>日志记录器：记录可能记录到本地硬盘、系统事件、远程服务器等，用户可以选择记录日志到什么地方。</li>
-<li>数据库访问，当用户不知道最后系统采用哪一类数据库，以及数据库可能有变化时。</li>
-<li>设计一个连接服务器的框架，需要三个协议，&ldquo;POP3&rdquo;、&ldquo;IMAP&rdquo;、&ldquo;HTTP&rdquo;，可以把这三个作为产品类，共同实现一个接口。</li>
+<li>资源优化场景。</li>
+<li>类初始化需要消化非常多的资源，这个资源包括数据、硬件资源等。</li>
+<li>性能和安全要求的场景。</li>
+<li>一个对象多个修改者的场景。</li>
+<li>一个对象需要提供给其他对象访问，而且各个调用者可能都需要修改其值时，可以考虑使用原型模式拷贝多个对象供调用者使用。</li>
+<li>在实际项目中，原型模式很少单独出现，一般是和工厂方法模式一起出现，通过 clone 的方法创建一个对象，然后由工厂方法提供给调用者。</li>
 </ul>
 <h2 id="优点">优点</h2>
 <ul>
-<li>一个调用者想创建一个对象，只要知道其名称就可以了。</li>
-<li>扩展性高，如果想增加一个产品，只要在对象族中扩展一个对象就可以。</li>
-<li>屏蔽产品的具体实现，调用者只关心产品的接口。</li>
+<li>性能提高。</li>
+<li>逃避构造函数的约束。</li>
 </ul>
 <h2 id="缺点">缺点</h2>
-<p>每次增加一个产品时，都需要增加一个对象和其实现接口的方法，使得系统中类的个数成倍增加，在一定程度上增加了系统的复杂度，同时也增加了系统具体类的依赖。这并不是什么好事。</p>
-<h2 id="实现-工厂付款方式的工厂">实现-工厂付款方式的工厂</h2>
-<p><code>Factory Method</code>有一个非常简单的结构，我们仅仅需要确定接口<code>PaymentMethod</code>中需要存储多少实现方式。然后提供一种方法<code>GetPaymentMethod</code>，将付款类型参数在<code>GetPaymentMethod</code>中传递。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// PaymentMethod 定义了在商店中付款的支付方式
-</span><span class="c1">// 此Factory Method返回实现此接口的对象
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">PaymentMethod</span> <span class="kd">interface</span> <span class="p">{</span>
-	<span class="nf">Pay</span><span class="p">(</span><span class="nx">amount</span> <span class="kt">float32</span><span class="p">)</span> <span class="kt">string</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>上述代码定义了付款方式的接口，其中定义了付款所需要的方式。Factory Method方法将返回此接口的实例。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// 我们目前实现的支付方式如下
-</span><span class="c1"></span><span class="kd">const</span> <span class="p">(</span>
-   <span class="nx">Cash</span> <span class="p">=</span> <span class="mi">1</span>
-   <span class="nx">DebitCard</span> <span class="p">=</span> <span class="mi">2</span>
-<span class="p">)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>我们必须将工厂方法确定的付款方式定义为常量，以便我们可以从包外部调用并检查可能支持的付款方式。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">CashPM</span> <span class="kd">struct</span><span class="p">{}</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">CashPM</span><span class="p">)</span> <span class="nf">Pay</span><span class="p">(</span><span class="nx">amount</span> <span class="kt">float32</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%0.2f payed using cash\n&#34;</span><span class="p">,</span> <span class="nx">amount</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="kd">type</span> <span class="nx">DebitCardPM</span> <span class="kd">struct</span><span class="p">{}</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">DebitCardPM</span><span class="p">)</span> <span class="nf">Pay</span><span class="p">(</span><span class="nx">amount</span> <span class="kt">float32</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%#0.2f payed using debit card\n&#34;</span><span class="p">,</span> <span class="nx">amount</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>上述代码，我们创建了两种付款方式，实现了<code>PaymentMethod</code>接口。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// GetPaymentMethod returns a pointer to a PaymentMethod object or an error
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">GetPaymentMethod</span><span class="p">(</span><span class="nx">m</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="nx">PaymentMethod</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">switch</span> <span class="nx">m</span> <span class="p">{</span>
-	<span class="k">case</span> <span class="nx">Cash</span><span class="p">:</span>
-		<span class="k">return</span> <span class="nb">new</span><span class="p">(</span><span class="nx">CashPM</span><span class="p">),</span> <span class="kc">nil</span>
-	<span class="k">case</span> <span class="nx">DebitCard</span><span class="p">:</span>
-		<span class="k">return</span> <span class="nb">new</span><span class="p">(</span><span class="nx">DebitCardPM</span><span class="p">),</span> <span class="kc">nil</span>
-	<span class="k">default</span><span class="p">:</span>
-		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;Payment method %d not recognized\n&#34;</span><span class="p">,</span> <span class="nx">m</span><span class="p">))</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>上述代码是我们创建具体付款对象的函数。它返回了一个指针，该指针必须是实现<code>PaymentMethod</code>接口的对象，如果输入未注册的方法，则会返回一个错误。</p>
-<h2 id="完整示例">完整示例</h2>
+<ul>
+<li>配备克隆方法需要对类的功能进行通盘考虑，这对于全新的类不是很难，但对于已有的类不一定很容易，特别当一个类引用不支持串行化的间接对象，或者引用含有循环结构的时候。</li>
+<li>必须实现 Clone 接口。</li>
+</ul>
+<h2 id="实现">实现</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -755,57 +670,113 @@ if (!doNotTrack) {
 </span><span class="lnt">44
 </span><span class="lnt">45
 </span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// Copyright (c) 2020, beuself. All rights reserved.
 </span><span class="c1">// license that can be found in the LICENSE file.
-</span><span class="c1">// @Date: 2020/4/9 下午2:59
+</span><span class="c1">// @Date: 2020/4/24 下午7:09
 </span><span class="c1"></span>
-<span class="kn">package</span> <span class="nx">factory_method</span>
+<span class="kn">package</span> <span class="nx">prototype</span>
 
 <span class="kn">import</span> <span class="p">(</span>
 	<span class="s">&#34;errors&#34;</span>
 	<span class="s">&#34;fmt&#34;</span>
 <span class="p">)</span>
 
-<span class="c1">// PaymentMethod 定义了在商店中付款的支付方式
-</span><span class="c1">// 此Factory Method返回实现此接口的对象
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">PaymentMethod</span> <span class="kd">interface</span> <span class="p">{</span>
-	<span class="nf">Pay</span><span class="p">(</span><span class="nx">amount</span> <span class="kt">float32</span><span class="p">)</span> <span class="kt">string</span>
+<span class="c1">// 定义一个衬衫克隆的接口
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">ShirtCloner</span> <span class="kd">interface</span> <span class="p">{</span>
+	<span class="nf">GetClone</span><span class="p">(</span><span class="nx">m</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="nx">ItemInfoGetter</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="c1">// 我们目前实现的支付方式如下
-</span><span class="c1"></span><span class="kd">const</span> <span class="p">(</span>
-	<span class="nx">Cash</span> <span class="p">=</span> <span class="mi">1</span>
-	<span class="nx">DebitCard</span> <span class="p">=</span> <span class="mi">2</span>
+<span class="c1">// 定义一个包级函数用来获取实现ShirtCloner的具体函数
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">GetShirtsCloner</span><span class="p">()</span> <span class="nx">ShirtCloner</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nb">new</span><span class="p">(</span><span class="nx">ShirtsCache</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// 实现ShirtCloner接口
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">ShirtsCache</span> <span class="kd">struct</span><span class="p">{}</span>
+
+<span class="kd">const</span> <span class="p">(</span>
+	<span class="nx">White</span> <span class="p">=</span> <span class="mi">1</span>
+	<span class="nx">Black</span> <span class="p">=</span> <span class="mi">2</span>
+	<span class="nx">Blue</span> <span class="p">=</span> <span class="mi">3</span>
 <span class="p">)</span>
 
-<span class="c1">// GetPaymentMethod returns a pointer to a PaymentMethod object or an error
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">GetPaymentMethod</span><span class="p">(</span><span class="nx">m</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="nx">PaymentMethod</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">ShirtsCache</span><span class="p">)</span> <span class="nf">GetClone</span><span class="p">(</span><span class="nx">m</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="nx">ItemInfoGetter</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
 	<span class="k">switch</span> <span class="nx">m</span> <span class="p">{</span>
-	<span class="k">case</span> <span class="nx">Cash</span><span class="p">:</span>
-		<span class="k">return</span> <span class="nb">new</span><span class="p">(</span><span class="nx">CashPM</span><span class="p">),</span> <span class="kc">nil</span>
-	<span class="k">case</span> <span class="nx">DebitCard</span><span class="p">:</span>
-		<span class="k">return</span> <span class="nb">new</span><span class="p">(</span><span class="nx">DebitCardPM</span><span class="p">),</span> <span class="kc">nil</span>
+	<span class="k">case</span> <span class="nx">White</span><span class="p">:</span>
+		<span class="nx">newItem</span> <span class="o">:=</span> <span class="o">*</span><span class="nx">whitePrototype</span>
+		<span class="k">return</span> <span class="o">&amp;</span><span class="nx">newItem</span><span class="p">,</span> <span class="kc">nil</span>
+	<span class="k">case</span> <span class="nx">Black</span><span class="p">:</span>
+		<span class="nx">newItem</span> <span class="o">:=</span> <span class="o">*</span><span class="nx">blackPrototype</span>
+		<span class="k">return</span> <span class="o">&amp;</span><span class="nx">newItem</span><span class="p">,</span> <span class="kc">nil</span>
+	<span class="k">case</span> <span class="nx">Blue</span><span class="p">:</span>
+		<span class="nx">newItem</span> <span class="o">:=</span> <span class="o">*</span><span class="nx">bluePrototype</span>
+		<span class="k">return</span> <span class="o">&amp;</span><span class="nx">newItem</span><span class="p">,</span> <span class="kc">nil</span>
 	<span class="k">default</span><span class="p">:</span>
-		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;Payment method %d not recognized\n&#34;</span><span class="p">,</span> <span class="nx">m</span><span class="p">))</span>
+		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;Shirt model not recognized&#34;</span><span class="p">)</span>
 	<span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">type</span> <span class="nx">CashPM</span> <span class="kd">struct</span><span class="p">{}</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">CashPM</span><span class="p">)</span> <span class="nf">Pay</span><span class="p">(</span><span class="nx">amount</span> <span class="kt">float32</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%0.2f payed using cash\n&#34;</span><span class="p">,</span> <span class="nx">amount</span><span class="p">)</span>
+<span class="kd">type</span> <span class="nx">ItemInfoGetter</span> <span class="kd">interface</span> <span class="p">{</span>
+	<span class="nf">GetInfo</span><span class="p">()</span> <span class="kt">string</span>
 <span class="p">}</span>
 
-<span class="kd">type</span> <span class="nx">DebitCardPM</span> <span class="kd">struct</span><span class="p">{}</span>
+<span class="kd">type</span> <span class="nx">Shirt</span> <span class="kd">struct</span><span class="p">{</span>
+	<span class="nx">Price</span>	<span class="kt">float32</span>
+	<span class="nx">Color</span> 	<span class="kt">int</span>
+<span class="p">}</span>
 
-<span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">DebitCardPM</span><span class="p">)</span> <span class="nf">Pay</span><span class="p">(</span><span class="nx">amount</span> <span class="kt">float32</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%#0.2f payed using debit card\n&#34;</span><span class="p">,</span> <span class="nx">amount</span><span class="p">)</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">Shirt</span><span class="p">)</span> <span class="nf">GetInfo</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;Shirt Price is %f, Color is %d\n&#34;</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">Price</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">Color</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// 原型 在编译时已创建好
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">whitePrototype</span> <span class="o">*</span><span class="nx">Shirt</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">Shirt</span><span class="p">{</span>
+	<span class="nx">Price</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+	<span class="nx">Color</span><span class="p">:</span> <span class="nx">White</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">blackPrototype</span> <span class="o">*</span><span class="nx">Shirt</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">Shirt</span><span class="p">{</span>
+	<span class="nx">Price</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span>
+	<span class="nx">Color</span><span class="p">:</span> <span class="nx">Black</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">bluePrototype</span> <span class="o">*</span><span class="nx">Shirt</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">Shirt</span><span class="p">{</span>
+	<span class="nx">Price</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span>
+	<span class="nx">Color</span><span class="p">:</span> <span class="nx">Blue</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="测试">测试</h2>
+</div><h2 id="单元测试">单元测试</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -825,30 +796,58 @@ if (!doNotTrack) {
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">TestGetPaymentMethodCash</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">paymet</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">GetPaymentMethod</span><span class="p">(</span><span class="nx">Cash</span><span class="p">)</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">t</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="s">&#34;A Payment method of type &#39;Cash&#39; must exit&#34;</span><span class="p">)</span>
-	<span class="p">}</span>
-	<span class="nx">msg</span> <span class="o">:=</span> <span class="nx">paymet</span><span class="p">.</span><span class="nf">Pay</span><span class="p">(</span><span class="mf">11.22</span><span class="p">)</span>
-	<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;LOG:&#34;</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span>
-<span class="p">}</span>
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// Copyright (c) 2020, beuself. All rights reserved.
+</span><span class="c1">// license that can be found in the LICENSE file.
+</span><span class="c1">// @Date: 2020/4/24 下午7:33
+</span><span class="c1"></span>
+<span class="kn">package</span> <span class="nx">prototype</span>
 
-<span class="kd">func</span> <span class="nf">TestGetPaymentMethodDebitCard</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">paymet</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">GetPaymentMethod</span><span class="p">(</span><span class="nx">DebitCard</span><span class="p">)</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">t</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="s">&#34;A Payment method of type &#39;Cash&#39; must exit&#34;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;testing&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">TestClone</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">shirtsCache</span> <span class="o">:=</span> <span class="nf">GetShirtsCloner</span><span class="p">()</span>
+	<span class="k">if</span> <span class="nx">shirtsCache</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="s">&#34;shirtCache was nil&#34;</span><span class="p">)</span>
 	<span class="p">}</span>
-	<span class="nx">msg</span> <span class="o">:=</span> <span class="nx">paymet</span><span class="p">.</span><span class="nf">Pay</span><span class="p">(</span><span class="mf">33.18</span><span class="p">)</span>
-	<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;LOG:&#34;</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span>
+
+	<span class="nx">item1</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">shirtsCache</span><span class="p">.</span><span class="nf">GetClone</span><span class="p">(</span><span class="nx">White</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="k">if</span> <span class="nx">item1</span> <span class="o">==</span> <span class="nx">whitePrototype</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="s">&#34;item1 cannot be equal to the whitePrototype&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="nx">shirt1</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">item1</span><span class="p">.(</span><span class="o">*</span><span class="nx">Shirt</span><span class="p">)</span>
+	<span class="k">if</span> <span class="p">!</span><span class="nx">ok</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="s">&#34;Type assertion for shirt1 couldn&#39;t be done successfully&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="nx">shirt1</span><span class="p">.</span><span class="nx">Price</span> <span class="p">=</span> <span class="mf">123.32</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="总结">总结</h2>
-<p>作为一种创建类模式，在任何需要生成复杂对象的地方，都可以使用工厂方法模式。有一点需要注意的地方就是复杂对象适合使用工厂模式，而简单对象，特别是只需要通过 new 就可以完成创建的对象，无需使用工厂模式。</p>
-
+</div>
     </div>
 
     
@@ -898,7 +897,7 @@ if (!doNotTrack) {
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/go-paterns/creational/prototype/">
+          <a class="prev" href="/post/go-paterns/creational/singleton/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -908,12 +907,12 @@ if (!doNotTrack) {
 </svg>
 
             </i>
-            <span class="prev-text nav-default">原型模式-Prototype Pattern</span>
+            <span class="prev-text nav-default">单例模式-Singleton</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
-          <a class="next" href="/post/go-paterns/creational/builder/">
-            <span class="next-text nav-default">建造者模式-Builder</span>
+          <a class="next" href="/post/go-paterns/creational/factory-method/">
+            <span class="next-text nav-default">工厂方法-Factory Method</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

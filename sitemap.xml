@@ -450,6 +450,13 @@
   </url>
   
   <url>
+    <loc>http://beuself.xyz/post/go-paterns/creational/prototype/</loc>
+    <lastmod>2019-10-14T23:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://beuself.xyz/post/go-paterns/creational/factory-method/</loc>
     <lastmod>2019-10-14T23:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>

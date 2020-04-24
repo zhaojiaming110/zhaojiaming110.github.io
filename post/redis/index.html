@@ -67,7 +67,7 @@
 <meta itemprop="description" content="概述 Redis 是速度非常快的非关系型（NoSQL）内存键值数据库，可以存储键和五种不同类型的值之间的映射。 键的类型只能为字符串，值支持五种数据类型：">
 <meta itemprop="datePublished" content="2015-10-10T22:02:23&#43;08:00" />
 <meta itemprop="dateModified" content="2015-10-10T22:02:23&#43;08:00" />
-<meta itemprop="wordCount" content="851">
+<meta itemprop="wordCount" content="1170">
 
 
 
@@ -541,8 +541,8 @@ if (!doNotTrack) {
           2015-10-10
         </time>
         
-        <span class="more-meta"> 851 words </span>
-          <span class="more-meta"> 2 min read </span>
+        <span class="more-meta"> 1170 words </span>
+          <span class="more-meta"> 3 min read </span>
 
         
         
@@ -572,7 +572,10 @@ if (!doNotTrack) {
         <li><a href="#数据结构">数据结构</a></li>
       </ul>
     </li>
+    <li><a href="#redis中的散列">Redis中的散列</a></li>
     <li><a href="#redis中的列表">Redis中的列表</a></li>
+    <li><a href="#redis中的集合">Redis中的集合</a></li>
+    <li><a href="#redis中的有序集合">Redis中的有序集合</a></li>
   </ul>
 </nav>
   </div>
@@ -629,6 +632,7 @@ if (!doNotTrack) {
 </table>
 <h2 id="数据结构和内部编码">数据结构和内部编码</h2>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ge3k6dj2u5j30jv0rodg3.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ge3ly6p476j31120ku758.jpg" alt=""></p>
 <h2 id="redis中的字符串">Redis中的字符串</h2>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ge3kxu717nj30kv0a1dg6.jpg" alt=""></p>
 <h3 id="数据结构">数据结构</h3>
@@ -669,13 +673,24 @@ OK
 </span><span class="c1"></span>	<span class="c1">// 等于SDS所保存字符串的长度
 </span><span class="c1"></span>	<span class="kt">int</span> <span class="n">len</span><span class="p">;</span>
 	<span class="c1">// 记录buf数组中未使用字节的数量
-</span><span class="c1"></span>	<span class="kt">int</span>	<span class="n">free</span><span class="p">;</span>
+</span><span class="c1"></span>	<span class="kt">int</span> <span class="n">free</span><span class="p">;</span>
 	<span class="c1">// 字节数组，用于保存字符串
 </span><span class="c1"></span>	<span class="kt">char</span> <span class="n">buf</span><span class="p">[];</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="redis中的列表">Redis中的列表</h2>
+</div><h2 id="redis中的散列">Redis中的散列</h2>
+<p>Redis的散列可以存储多个键值对之间的映射。和字符串一样，散列存储的值即可以是字符串又可以是数字值，并且用户同样可以对散列存储的数字值执行自增操作或者自减操作。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ge4odzgvatj30o309vq3l.jpg" alt=""></p>
+<h2 id="redis中的列表">Redis中的列表</h2>
+<p>Redis对链表结构的支持使得它在键值存储的世界中独树一帜。一个列表结构可以有序地存储多个字符串。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ge4ojdfc2ej30cg08raak.jpg" alt=""></p>
+<h2 id="redis中的集合">Redis中的集合</h2>
+<p>Redis的集合和列表都可以存储多个字符串，它们之间的不同在于，列表可以存储多个相同的字符串，而集合则通过使用散列表来保证自己存储的每个字符串都是各不相同的。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ge4omzon0cj30ax09aaad.jpg" alt=""></p>
+<h2 id="redis中的有序集合">Redis中的有序集合</h2>
+<p>有序集合和散列一样，都用于存储键值对；有序集合的键被称为成员（member），每个成员都是各不相同的；而有序集合的值则被称为分值（score），分值必须为浮点数。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ge4opwl9a9j30bq09l0t7.jpg" alt=""></p>
 
     </div>
 

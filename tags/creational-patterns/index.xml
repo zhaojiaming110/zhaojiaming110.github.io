@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>原型模式-Prototype Pattern</title>
+      <link>http://beuself.xyz/post/go-paterns/creational/prototype/</link>
+      <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/go-paterns/creational/prototype/</guid>
+      <description>描述 原型模式（prototype pattern）的目的是拥有一个或一组在编译时已经创建好的对象，但是您可以在运行时将其克隆任意多次。通常用于</description>
+    </item>
+    
+    <item>
       <title>工厂方法-Factory Method</title>
       <link>http://beuself.xyz/post/go-paterns/creational/factory-method/</link>
       <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>

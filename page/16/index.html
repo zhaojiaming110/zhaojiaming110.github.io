@@ -163,10 +163,6 @@ if (!doNotTrack) {
                 <a href="http://beuself.xyz/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
               </li>
             
-              <li>
-                <a href="http://beuself.xyz/post/shell/">shell</a>
-              </li>
-            
           </ul>
         
       </li><li class="mobile-menu-item">
@@ -182,10 +178,6 @@ if (!doNotTrack) {
             
               <li>
                 <a href="http://beuself.xyz/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
-              </li>
-            
-              <li>
-                <a href="http://beuself.xyz/post/%E7%AE%97%E6%B3%95/">算法</a>
               </li>
             
               <li>
@@ -415,10 +407,6 @@ if (!doNotTrack) {
                 <a href="http://beuself.xyz/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
               </li>
             
-              <li>
-                <a href="http://beuself.xyz/post/shell/">shell</a>
-              </li>
-            
           </ul>
 
         
@@ -433,10 +421,6 @@ if (!doNotTrack) {
             
               <li>
                 <a href="http://beuself.xyz/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
-              </li>
-            
-              <li>
-                <a href="http://beuself.xyz/post/%E7%AE%97%E6%B3%95/">算法</a>
               </li>
             
               <li>
@@ -535,7 +519,7 @@ if (!doNotTrack) {
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/go-basic-knowledge/2019-09-22-gopath%E5%8F%8A%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/">GOPATH及目录结构</a>
+      <a class="post-link" href="/post/go-basic-knowledge/2019-09-20-%E5%86%85%E5%BB%BA%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/">内建变量类型</a>
     </h1>
     
     <div class="post-meta">
@@ -546,7 +530,7 @@ if (!doNotTrack) {
           <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
           
         </div>
-      <span class="more-meta"> 189 words </span>
+      <span class="more-meta"> 226 words </span>
       <span class="more-meta"> 1 min read </span>
       
       
@@ -557,10 +541,10 @@ if (!doNotTrack) {
   <div class="post-content">
     
     <div class="post-summary">
-      GOPATH环境变量： 默认在~/go(unix,linux)，%USERPROFIEL%\go(windows) 官方推荐：所有项目和第三方库
+      bool, string (u)int, (u)int8, (u)int16, (u)int32, (u)int64, uintptr(没有指定具体的bit大小但是足以容纳指针) byte(uint8等价类型)，byte类型一般用于强调数值是一个原
     </div>
     <div class="read-more">
-      <a href="/post/go-basic-knowledge/2019-09-22-gopath%E5%8F%8A%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/" class="read-more-link">Read more</a>
+      <a href="/post/go-basic-knowledge/2019-09-20-%E5%86%85%E5%BB%BA%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -571,7 +555,7 @@ if (!doNotTrack) {
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/go-basic-knowledge/20919-09-27-goroutine/">Goroutine</a>
+      <a class="post-link" href="/post/go-basic-knowledge/2019-09-21-%E5%87%BD%E6%95%B0/">函数</a>
     </h1>
     
     <div class="post-meta">
@@ -582,7 +566,7 @@ if (!doNotTrack) {
           <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
           
         </div>
-      <span class="more-meta"> 1408 words </span>
+      <span class="more-meta"> 1298 words </span>
       <span class="more-meta"> 3 min read </span>
       
       
@@ -593,10 +577,10 @@ if (!doNotTrack) {
   <div class="post-content">
     
     <div class="post-summary">
-      并发concurrency 很多人都是冲着Go大肆宣扬的高并发而忍不住跃跃欲试，但其实从源码解析来看，goroutine只是由官方实现的超级“
+      1 2 3 4 5 6 7 func Add(a int, b int) (ret int, err error) { if a &lt; 0 || b &lt; 0 { // 假设这个函数只支持两个非负数字的加法 err = errors.New(&#34;Should be non-negative numbers!&#34;) return } return a + b, nil // 支持多重返回值 } 函数定
     </div>
     <div class="read-more">
-      <a href="/post/go-basic-knowledge/20919-09-27-goroutine/" class="read-more-link">Read more</a>
+      <a href="/post/go-basic-knowledge/2019-09-21-%E5%87%BD%E6%95%B0/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -607,7 +591,7 @@ if (!doNotTrack) {
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/go-basic-knowledge/2019-05-26-go%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E6%8C%87%E5%8D%97/">Go开发学习路线指南</a>
+      <a class="post-link" href="/post/go-basic-knowledge/2019-09-24-%E5%87%BD%E6%95%B0%E4%B8%8E%E9%97%AD%E5%8C%85/">函数与闭包</a>
     </h1>
     
     <div class="post-meta">
@@ -618,8 +602,8 @@ if (!doNotTrack) {
           <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
           
         </div>
-      <span class="more-meta"> 0 words </span>
-      <span class="more-meta"> 0 min read </span>
+      <span class="more-meta"> 530 words </span>
+      <span class="more-meta"> 2 min read </span>
       
       
       
@@ -629,10 +613,10 @@ if (!doNotTrack) {
   <div class="post-content">
     
     <div class="post-summary">
-      
+      函数可以作为一种类型使用 匿名函数 在Go里面，函数可以像普通变量一样被传递或使用。 Go语言支持随时在代码里定义匿名函数。 匿名函数由一个不带函数
     </div>
     <div class="read-more">
-      <a href="/post/go-basic-knowledge/2019-05-26-go%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E6%8C%87%E5%8D%97/" class="read-more-link">Read more</a>
+      <a href="/post/go-basic-knowledge/2019-09-24-%E5%87%BD%E6%95%B0%E4%B8%8E%E9%97%AD%E5%8C%85/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -643,7 +627,7 @@ if (!doNotTrack) {
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/go-leetcode/leetcode%E8%A7%A3%E9%A2%98%E8%BF%9B%E5%BA%A6/">LeetCode解题进度</a>
+      <a class="post-link" href="/post/go-basic-knowledge/2019-09-21-%E5%88%87%E7%89%87/">切片</a>
     </h1>
     
     <div class="post-meta">
@@ -651,11 +635,11 @@ if (!doNotTrack) {
         2019-09-20
       </time>
       <div class="post-category">
-          <a href="http://beuself.xyz/categories/leetcode-go/"> leetcode-Go </a>
+          <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
           
         </div>
-      <span class="more-meta"> 18 words </span>
-      <span class="more-meta"> 1 min read </span>
+      <span class="more-meta"> 948 words </span>
+      <span class="more-meta"> 2 min read </span>
       
       
       
@@ -665,10 +649,10 @@ if (!doNotTrack) {
   <div class="post-content">
     
     <div class="post-summary">
-      分类 array 题号 题目 等级 解答 LeetCode 1 Two Sum Easy Go LeetCode
+      1 2 3 4 5 6 7 func main() { arr := [...]int{0, 1, 2, 3, 4, 5, 6, 7} fmt.Println(&#34;arr[2:6] = &#34;, arr[2:6]) fmt.Println(&#34;arr[:6] = &#34;, arr[:6]) fmt.Println(&#34;arr[2:] = &#34;, arr[2:]) fmt.Println(&#34;arr[:] = &#34;, arr[:]) } 运行结果 1 2 3 4 arr[2:6] = [2 3 4 5] arr[:6] = [0 1 2 3 4 5] arr[2:] = [2 3 4 5 6 7] arr[:] = [0
     </div>
     <div class="read-more">
-      <a href="/post/go-leetcode/leetcode%E8%A7%A3%E9%A2%98%E8%BF%9B%E5%BA%A6/" class="read-more-link">Read more</a>
+      <a href="/post/go-basic-knowledge/2019-09-21-%E5%88%87%E7%89%87/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -724,7 +708,9 @@ if (!doNotTrack) {
           
 
             
+            
 
+          
           
 
         
@@ -745,7 +731,9 @@ if (!doNotTrack) {
           
 
             
+            
 
+          
           
 
         
@@ -766,7 +754,9 @@ if (!doNotTrack) {
           
 
             
+            
 
+          
           
 
         
@@ -787,7 +777,9 @@ if (!doNotTrack) {
           
 
             
+            
 
+          
           
 
         
@@ -808,7 +800,9 @@ if (!doNotTrack) {
           
 
             
+            
 
+          
           
 
         
@@ -829,7 +823,9 @@ if (!doNotTrack) {
           
 
             
+            
 
+          
           
 
         
@@ -850,7 +846,9 @@ if (!doNotTrack) {
           
 
             
+            
 
+          
           
 
         
@@ -871,7 +869,9 @@ if (!doNotTrack) {
           
 
             
+            
 
+          
           
 
         
@@ -892,7 +892,9 @@ if (!doNotTrack) {
           
 
             
+            
 
+          
           
 
         
@@ -912,10 +914,12 @@ if (!doNotTrack) {
           
           
 
+            
             
               
             
 
+          
           
 
         
@@ -942,9 +946,11 @@ if (!doNotTrack) {
           
 
             
+            
               
             
 
+          
           
 
         
@@ -971,9 +977,11 @@ if (!doNotTrack) {
           
 
             
+            
               
             
 
+          
           
 
         
@@ -1000,9 +1008,11 @@ if (!doNotTrack) {
           
 
             
+            
               
             
 
+          
           
 
         
@@ -1029,9 +1039,11 @@ if (!doNotTrack) {
           
 
             
+            
               
             
 
+          
           
 
         
@@ -1058,9 +1070,11 @@ if (!doNotTrack) {
           
 
             
+            
               
             
 
+          
           
 
         
@@ -1087,9 +1101,11 @@ if (!doNotTrack) {
           
 
             
+            
               
             
 
+          
           
 
         
@@ -1116,9 +1132,11 @@ if (!doNotTrack) {
           
 
             
+            
               
             
 
+          
           
 
         
@@ -1145,9 +1163,11 @@ if (!doNotTrack) {
           
 
             
+            
               
             
 
+          
           
 
         
@@ -1174,9 +1194,11 @@ if (!doNotTrack) {
           
 
             
+            
               
             
 
+          
           
 
         
@@ -1203,9 +1225,11 @@ if (!doNotTrack) {
           
 
             
+            
               
             
 
+          
           
 
         
@@ -1232,9 +1256,11 @@ if (!doNotTrack) {
           
 
             
+            
               
             
 
+          
           
 
         
@@ -1261,9 +1287,11 @@ if (!doNotTrack) {
           
 
             
+            
               
             
 
+          
           
 
         
@@ -1280,48 +1308,6 @@ if (!doNotTrack) {
 
       
 
-        
-
-        
-        
-
-          
-          
-          
-
-            
-
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-
-          
-
-        
-        
-
-        
-        
-
-      
-
       
       
       <li><a href="/page/17/">»</a></li>
@@ -1329,7 +1315,7 @@ if (!doNotTrack) {
 
       
       
-      <li><a href="/page/24/">»»</a></li>
+      <li><a href="/page/22/">»»</a></li>
       
 
       </ul>

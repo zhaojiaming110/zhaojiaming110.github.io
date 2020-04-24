@@ -12,24 +12,6 @@
     
     
     <item>
-      <title>1-1建造者模式-Builder</title>
-      <link>http://beuself.xyz/post/go-paterns/builder/</link>
-      <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
-      
-      <guid>http://beuself.xyz/post/go-paterns/builder/</guid>
-      <description>建造者模式 概述 建造者模式（Builder Pattern）又名生成器模式，是一种对象构建模式。它可以将复杂对象的建造过程抽象出来（抽象类别），</description>
-    </item>
-    
-    <item>
-      <title>Go-Paterns项目进度</title>
-      <link>http://beuself.xyz/post/go-paterns/go-paterns%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6/</link>
-      <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
-      
-      <guid>http://beuself.xyz/post/go-paterns/go-paterns%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6/</guid>
-      <description>分类 Creational Patterns Pattern Description URL Builder Provides an interface for creating families of releated objects Go Factory Method Defers instantiation of an object to a specialized function for creating instances Go Singleton Restricts instantiation of a type to one object Go HH VVV Go</description>
-    </item>
-    
-    <item>
       <title>单例模式-Singleton</title>
       <link>http://beuself.xyz/post/go-paterns/creational/singleton/</link>
       <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
@@ -72,24 +54,6 @@
       
       <guid>http://beuself.xyz/post/go-paterns/creational/abstract-factory/</guid>
       <description>描述 抽象工厂模式（Abstract Factory Pattern）是围绕一个超级工厂创建其他工厂。该工厂又被称为其它工厂的工厂。 抽象工厂设计模式是一个新的</description>
-    </item>
-    
-    <item>
-      <title>1-2工厂方法-Factory Method</title>
-      <link>http://beuself.xyz/post/go-paterns/factory_method/</link>
-      <pubDate>Mon, 14 Oct 2019 22:01:23 +0800</pubDate>
-      
-      <guid>http://beuself.xyz/post/go-paterns/factory_method/</guid>
-      <description>工厂方法（Factory Method）属于创建型模式，它提供了一种创建对象的最佳方式。在工厂方法中，我们在创建对象时不会对客户端暴露创建逻辑</description>
-    </item>
-    
-    <item>
-      <title>1-3单例模式-Singleton</title>
-      <link>http://beuself.xyz/post/go-paterns/singleton/</link>
-      <pubDate>Mon, 14 Oct 2019 20:01:23 +0800</pubDate>
-      
-      <guid>http://beuself.xyz/post/go-paterns/singleton/</guid>
-      <description>单例设计模式-在整个程序中有一个类型的唯一实例 您是否曾经对软件工程师进行过采访？有趣的是，当您向他们询问设计模式时，超过80％的人会提及 Si</description>
     </item>
     
   </channel>

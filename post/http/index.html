@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Beyourself" />
-  <meta name="description" content="[TOC] 一 、基础概念 URI URI 包含 URL 和 URN。 请求和响应报文 1. 请求报文 2. 响应报文 二、HTTP 方法 客户端发送的 请求报文 第一行为请求行，包含了方法字段。 GET 获" />
+  <meta name="description" content="一 、基础概念 URI 请求和响应报文 二、HTTP 方法 GET HEAD POST PUT PATCH DELETE OPTIONS CONNECT TRACE 三、HTTP 状态码 1XX 信息 2XX 成功 3XX 重定向 4XX 客户端错误 5XX 服务器错误 四、HTTP 首部" />
 
   <meta name="keywords" content="Beyourslef, go, golang" />
 
@@ -58,22 +58,22 @@
 
 
 <meta property="og:title" content="HTTP" />
-<meta property="og:description" content="[TOC] 一 、基础概念 URI URI 包含 URL 和 URN。 请求和响应报文 1. 请求报文 2. 响应报文 二、HTTP 方法 客户端发送的 请求报文 第一行为请求行，包含了方法字段。 GET 获" />
+<meta property="og:description" content="一 、基础概念 URI 请求和响应报文 二、HTTP 方法 GET HEAD POST PUT PATCH DELETE OPTIONS CONNECT TRACE 三、HTTP 状态码 1XX 信息 2XX 成功 3XX 重定向 4XX 客户端错误 5XX 服务器错误 四、HTTP 首部" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://beuself.xyz/post/http/" />
 <meta property="article:published_time" content="2010-01-10T23:01:23+08:00" />
 <meta property="article:modified_time" content="2010-01-10T23:01:23+08:00" />
 <meta itemprop="name" content="HTTP">
-<meta itemprop="description" content="[TOC] 一 、基础概念 URI URI 包含 URL 和 URN。 请求和响应报文 1. 请求报文 2. 响应报文 二、HTTP 方法 客户端发送的 请求报文 第一行为请求行，包含了方法字段。 GET 获">
+<meta itemprop="description" content="一 、基础概念 URI 请求和响应报文 二、HTTP 方法 GET HEAD POST PUT PATCH DELETE OPTIONS CONNECT TRACE 三、HTTP 状态码 1XX 信息 2XX 成功 3XX 重定向 4XX 客户端错误 5XX 服务器错误 四、HTTP 首部">
 <meta itemprop="datePublished" content="2010-01-10T23:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2010-01-10T23:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="8955">
+<meta itemprop="wordCount" content="9929">
 
 
 
 <meta itemprop="keywords" content="CS," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="HTTP"/>
-<meta name="twitter:description" content="[TOC] 一 、基础概念 URI URI 包含 URL 和 URN。 请求和响应报文 1. 请求报文 2. 响应报文 二、HTTP 方法 客户端发送的 请求报文 第一行为请求行，包含了方法字段。 GET 获"/>
+<meta name="twitter:description" content="一 、基础概念 URI 请求和响应报文 二、HTTP 方法 GET HEAD POST PUT PATCH DELETE OPTIONS CONNECT TRACE 三、HTTP 状态码 1XX 信息 2XX 成功 3XX 重定向 4XX 客户端错误 5XX 服务器错误 四、HTTP 首部"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -541,8 +541,8 @@ if (!doNotTrack) {
           2010-01-10
         </time>
         
-        <span class="more-meta"> 8955 words </span>
-          <span class="more-meta"> 18 min read </span>
+        <span class="more-meta"> 9929 words </span>
+          <span class="more-meta"> 20 min read </span>
 
         
         
@@ -563,28 +563,14 @@ if (!doNotTrack) {
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#uri">URI</a></li>
-    <li><a href="#请求和响应报文">请求和响应报文</a>
-      <ul>
-        <li><a href="#1-请求报文">1. 请求报文</a></li>
-        <li><a href="#2-响应报文">2. 响应报文</a></li>
-      </ul>
-    </li>
+    <li><a href="#什么是http">什么是HTTP</a></li>
+    <li><a href="#dns域名解析">DNS域名解析</a></li>
+    <li><a href="#uri与url的区别与联系">URI与URL的区别与联系</a></li>
+    <li><a href="#报文结构分析">报文结构分析</a></li>
   </ul>
 
   <ul>
-    <li><a href="#get">GET</a></li>
-    <li><a href="#head">HEAD</a></li>
-    <li><a href="#post">POST</a></li>
-    <li><a href="#put">PUT</a></li>
-    <li><a href="#patch">PATCH</a></li>
-    <li><a href="#delete">DELETE</a></li>
-    <li><a href="#options">OPTIONS</a></li>
-    <li><a href="#connect">CONNECT</a></li>
-    <li><a href="#trace">TRACE</a></li>
-  </ul>
-
-  <ul>
+    <li><a href="#状态码">状态码</a></li>
     <li><a href="#1xx-信息">1XX 信息</a></li>
     <li><a href="#2xx-成功">2XX 成功</a></li>
     <li><a href="#3xx-重定向">3XX 重定向</a></li>
@@ -688,125 +674,168 @@ if (!doNotTrack) {
 
     
     <div class="post-content">
-      <p>[TOC]</p>
+      <!-- raw HTML omitted -->
+<ul>
+<li>
+<p><a href="#%E4%B8%80-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5">一 、基础概念</a></p>
+<ul>
+<li><a href="#uri">URI</a></li>
+<li><a href="#%E8%AF%B7%E6%B1%82%E5%92%8C%E5%93%8D%E5%BA%94%E6%8A%A5%E6%96%87">请求和响应报文</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#%E4%BA%8Chttp-%E6%96%B9%E6%B3%95">二、HTTP 方法</a></p>
+<ul>
+<li><a href="#get">GET</a></li>
+<li><a href="#head">HEAD</a></li>
+<li><a href="#post">POST</a></li>
+<li><a href="#put">PUT</a></li>
+<li><a href="#patch">PATCH</a></li>
+<li><a href="#delete">DELETE</a></li>
+<li><a href="#options">OPTIONS</a></li>
+<li><a href="#connect">CONNECT</a></li>
+<li><a href="#trace">TRACE</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#%E4%B8%89http-%E7%8A%B6%E6%80%81%E7%A0%81">三、HTTP 状态码</a></p>
+<ul>
+<li><a href="#1xx-%E4%BF%A1%E6%81%AF">1XX 信息</a></li>
+<li><a href="#2xx-%E6%88%90%E5%8A%9F">2XX 成功</a></li>
+<li><a href="#3xx-%E9%87%8D%E5%AE%9A%E5%90%91">3XX 重定向</a></li>
+<li><a href="#4xx-%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%94%99%E8%AF%AF">4XX 客户端错误</a></li>
+<li><a href="#5xx-%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%94%99%E8%AF%AF">5XX 服务器错误</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#%E5%9B%9Bhttp-%E9%A6%96%E9%83%A8">四、HTTP 首部</a></p>
+<ul>
+<li><a href="#%E9%80%9A%E7%94%A8%E9%A6%96%E9%83%A8%E5%AD%97%E6%AE%B5">通用首部字段</a></li>
+<li><a href="#%E8%AF%B7%E6%B1%82%E9%A6%96%E9%83%A8%E5%AD%97%E6%AE%B5">请求首部字段</a></li>
+<li><a href="#%E5%93%8D%E5%BA%94%E9%A6%96%E9%83%A8%E5%AD%97%E6%AE%B5">响应首部字段</a></li>
+<li><a href="#%E5%AE%9E%E4%BD%93%E9%A6%96%E9%83%A8%E5%AD%97%E6%AE%B5">实体首部字段</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#%E4%BA%94%E5%85%B7%E4%BD%93%E5%BA%94%E7%94%A8">五、具体应用</a></p>
+<ul>
+<li><a href="#%E8%BF%9E%E6%8E%A5%E7%AE%A1%E7%90%86">连接管理</a></li>
+<li><a href="#cookie">Cookie</a></li>
+<li><a href="#%E7%BC%93%E5%AD%98">缓存</a></li>
+<li><a href="#%E5%86%85%E5%AE%B9%E5%8D%8F%E5%95%86">内容协商</a></li>
+<li><a href="#%E5%86%85%E5%AE%B9%E7%BC%96%E7%A0%81">内容编码</a></li>
+<li><a href="#%E8%8C%83%E5%9B%B4%E8%AF%B7%E6%B1%82">范围请求</a></li>
+<li><a href="#%E5%88%86%E5%9D%97%E4%BC%A0%E8%BE%93%E7%BC%96%E7%A0%81">分块传输编码</a></li>
+<li><a href="#%E5%A4%9A%E9%83%A8%E5%88%86%E5%AF%B9%E8%B1%A1%E9%9B%86%E5%90%88">多部分对象集合</a></li>
+<li><a href="#%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA">虚拟主机</a></li>
+<li><a href="#%E9%80%9A%E4%BF%A1%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8F%91">通信数据转发</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#%E5%85%ADhttps">六、HTTPS</a></p>
+<ul>
+<li><a href="#%E5%8A%A0%E5%AF%86">加密</a></li>
+<li><a href="#%E8%AE%A4%E8%AF%81">认证</a></li>
+<li><a href="#%E5%AE%8C%E6%95%B4%E6%80%A7%E4%BF%9D%E6%8A%A4">完整性保护</a></li>
+<li><a href="#https-%E7%9A%84%E7%BC%BA%E7%82%B9">HTTPS 的缺点</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#%E4%B8%83http20">七、HTTP/2.0</a></p>
+<ul>
+<li><a href="#http1x-%E7%BC%BA%E9%99%B7">HTTP/1.x 缺陷</a></li>
+<li><a href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E5%B8%A7%E5%B1%82">二进制分帧层</a></li>
+<li><a href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%8E%A8%E9%80%81">服务端推送</a></li>
+<li><a href="#%E9%A6%96%E9%83%A8%E5%8E%8B%E7%BC%A9">首部压缩</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#%E5%85%ABhttp11-%E6%96%B0%E7%89%B9%E6%80%A7">八、HTTP/1.1 新特性</a></p>
+</li>
+<li>
+<p><a href="#%E4%B9%9Dget-%E5%92%8C-post-%E6%AF%94%E8%BE%83">九、GET 和 POST 比较</a></p>
+<ul>
+<li><a href="#%E4%BD%9C%E7%94%A8">作用</a></li>
+<li><a href="#%E5%8F%82%E6%95%B0">参数</a></li>
+<li><a href="#%E5%AE%89%E5%85%A8">安全</a></li>
+<li><a href="#%E5%B9%82%E7%AD%89%E6%80%A7">幂等性</a></li>
+<li><a href="#%E5%8F%AF%E7%BC%93%E5%AD%98">可缓存</a></li>
+<li><a href="#xmlhttprequest">XMLHttpRequest</a></li>
+</ul>
+<!-- raw HTML omitted -->
+</li>
+</ul>
 <h1 id="一-基础概念">一 、基础概念</h1>
-<h2 id="uri">URI</h2>
-<p>URI 包含 URL 和 URN。</p>
-<!-- raw HTML omitted -->
-<h2 id="请求和响应报文">请求和响应报文</h2>
-<h3 id="1-请求报文">1. 请求报文</h3>
-<!-- raw HTML omitted -->
-<h3 id="2-响应报文">2. 响应报文</h3>
-<!-- raw HTML omitted -->
-<h1 id="二http-方法">二、HTTP 方法</h1>
-<p>客户端发送的   <strong>请求报文</strong>   第一行为请求行，包含了方法字段。</p>
-<h2 id="get">GET</h2>
-<blockquote>
-<p>获取资源</p>
-</blockquote>
-<p>当前网络请求中，绝大部分使用的是 GET 方法。</p>
-<h2 id="head">HEAD</h2>
-<blockquote>
-<p>获取报文首部</p>
-</blockquote>
-<p>和 GET 方法类似，但是不返回报文实体主体部分。</p>
-<p>主要用于确认 URL 的有效性以及资源更新的日期时间等。</p>
-<h2 id="post">POST</h2>
-<blockquote>
-<p>传输实体主体</p>
-</blockquote>
-<p>POST 主要用来传输数据，而 GET 主要用来获取资源。</p>
-<p>更多 POST 与 GET 的比较请见第九章。</p>
-<h2 id="put">PUT</h2>
-<blockquote>
-<p>上传文件</p>
-</blockquote>
-<p>由于自身不带验证机制，任何人都可以上传文件，因此存在安全性问题，一般不使用该方法。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html">PUT /new.html HTTP/1.1
-Host: example.com
-Content-type: text/html
-Content-length: 16
-
-<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>New File<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="patch">PATCH</h2>
-<blockquote>
-<p>对资源进行部分修改</p>
-</blockquote>
-<p>PUT 也可以用于修改资源，但是只能完全替代原始资源，PATCH 允许部分修改。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html">PATCH /file.txt HTTP/1.1
-Host: www.example.com
-Content-Type: application/example
-If-Match: &#34;e0023aa4e&#34;
-Content-Length: 100
-
-[description of changes]
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="delete">DELETE</h2>
-<blockquote>
-<p>删除文件</p>
-</blockquote>
-<p>与 PUT 功能相反，并且同样不带验证机制。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html">DELETE /file.html HTTP/1.1
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="options">OPTIONS</h2>
-<blockquote>
-<p>查询支持的方法</p>
-</blockquote>
-<p>查询指定的 URL 能够支持的方法。</p>
-<p>会返回 <code>Allow: GET, POST, HEAD, OPTIONS</code> 这样的内容。</p>
-<h2 id="connect">CONNECT</h2>
-<blockquote>
-<p>要求在与代理服务器通信时建立隧道</p>
-</blockquote>
-<p>使用 SSL（Secure Sockets Layer，安全套接层）和 TLS（Transport Layer Security，传输层安全）协议把通信内容加密后经网络隧道传输。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html">CONNECT www.example.com:443 HTTP/1.1
-</code></pre></td></tr></table>
-</div>
-</div><!-- raw HTML omitted -->
-<h2 id="trace">TRACE</h2>
-<blockquote>
-<p>追踪路径</p>
-</blockquote>
-<p>服务器会将通信路径返回给客户端。</p>
-<p>发送请求时，在 Max-Forwards 首部字段中填入数值，每经过一个服务器就会减 1，当数值为 0 时就停止传输。</p>
-<p>通常不会使用 TRACE，并且它容易受到 XST 攻击（Cross-Site Tracing，跨站追踪）。</p>
-<h1 id="三http-状态码">三、HTTP 状态码</h1>
-<p>服务器返回的   <strong>响应报文</strong>   中第一行为状态行，包含了状态码以及原因短语，用来告知客户端请求的结果。</p>
+<h2 id="什么是http">什么是HTTP</h2>
+<ul>
+<li>超文本传输协议（HTTP）是一种<strong>通信协议</strong>，它允许我们将超文本标记语言（HTML)文档从Web服务器传送到客户端的浏览器。</li>
+<li>HTTP是一个属于<strong>应用层的面向对象的协议</strong>，由于其简捷、快速的方式，适用于分布式超媒体信息系统。它于1990年提出，经过几年的使用与发展，得到不断地完善和扩展。</li>
+<li>HTTP协议是构建在TCP/IP协议之上的，是TCP/IP协议的一个子集。</li>
+</ul>
+<h2 id="dns域名解析">DNS域名解析</h2>
+<p>DNS服务提供域名到IP地址之间的解析服务。</p>
+<h2 id="uri与url的区别与联系">URI与URL的区别与联系</h2>
+<ul>
+<li>URI（统一资源标示符）可以分为URL（统一资源定位符），URN（统一资源名称）或同时具备locators和names特性的一个东西。</li>
+<li>URN作用就好像一个人的名字，URL就像一个人的地址。</li>
+<li>换句话说，URN确定了东西的身份，URL提供了找到它的地址。</li>
+</ul>
+<h2 id="报文结构分析">报文结构分析</h2>
+<ul>
+<li>请求报文</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ge9kaeid88j30lp0awabz.jpg" alt=""></p>
+<ul>
+<li>响应报文</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ge9kiy481zj30jr0bf75p.jpg" alt=""></p>
+<h1 id="二http-请求方法剖析">二、HTTP 请求方法剖析</h1>
+<table>
+<thead>
+<tr>
+<th align="center">常用方法</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">GET</td>
+<td align="center">GET方法用来请求访问已被URI识别的资源<!-- raw HTML omitted -->指定的资源经服务器端解析后返回响应内容<!-- raw HTML omitted -->GET方法也可以用来提交表单和其它数据</td>
+</tr>
+<tr>
+<td align="center">POST</td>
+<td align="center">POST方法一般用来传输实体的主体<!-- raw HTML omitted -->POST方法的主要目的不是获取响应主体的内容</td>
+</tr>
+<tr>
+<td align="center">PUT</td>
+<td align="center">PUT方法用作传输资源</td>
+</tr>
+<tr>
+<td align="center">HEAD</td>
+<td align="center">获取报文首部</td>
+</tr>
+<tr>
+<td align="center">DELETE</td>
+<td align="center">请求服务器删除指定的资源</td>
+</tr>
+<tr>
+<td align="center">OPTIONS</td>
+<td align="center">用来查询针对请求URI指定的资源支持的方法</td>
+</tr>
+<tr>
+<td align="center">TRACE</td>
+<td align="center">回显服务器收到的请求，主要用于测试和诊断</td>
+</tr>
+<tr>
+<td align="center">CONNECT</td>
+<td align="center">开启一个客户端与所请求资源之间的双向沟通的通道，它可以用来创建隧道</td>
+</tr>
+</tbody>
+</table>
+<h1 id="三http响应状态码拆解">三、HTTP响应状态码拆解</h1>
+<h2 id="状态码">状态码</h2>
+<p>服务器返回的<strong>响应报文</strong>中第一行为状态行，包含了状态码以及原因短语，用来告知客户端请求的结果。</p>
+<p>状态码是用以表示网页服务器超文本传输协议响应状态的3位数字码。</p>
 <table>
 <thead>
 <tr>
@@ -848,62 +877,108 @@ Content-Length: 100
 <li><strong>100 Continue</strong>  ：表明到目前为止都很正常，客户端可以继续发送请求或者忽略这个响应。</li>
 </ul>
 <h2 id="2xx-成功">2XX 成功</h2>
-<ul>
-<li>
-<p><strong>200 OK</strong></p>
-</li>
-<li>
-<p><strong>204 No Content</strong>  ：请求已经成功处理，但是返回的响应报文不包含实体的主体部分。一般在只需要从客户端往服务器发送信息，而不需要返回数据时使用。</p>
-</li>
-<li>
-<p><strong>206 Partial Content</strong>  ：表示客户端进行了范围请求，响应报文包含由 Content-Range 指定范围的实体内容。</p>
-</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th align="center">状态码</th>
+<th align="center">状态码英文名称</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">200</td>
+<td align="center">OK</td>
+<td align="center">请求已成功，请求所希望的响应头或数据体将随此响应返回</td>
+</tr>
+<tr>
+<td align="center">202</td>
+<td align="center">Accepted</td>
+<td align="center">已接受，已经接受请求，但未处理完成</td>
+</tr>
+<tr>
+<td align="center">206</td>
+<td align="center">Partial Content</td>
+<td align="center">部分内容，服务器成功处理了部分GET请求</td>
+</tr>
+</tbody>
+</table>
 <h2 id="3xx-重定向">3XX 重定向</h2>
-<ul>
-<li>
-<p><strong>301 Moved Permanently</strong>  ：永久性重定向</p>
-</li>
-<li>
-<p><strong>302 Found</strong>  ：临时性重定向</p>
-</li>
-<li>
-<p><strong>303 See Other</strong>  ：和 302 有着相同的功能，但是 303 明确要求客户端应该采用 GET 方法获取资源。</p>
-</li>
-<li>
-<p>注：虽然 HTTP 协议规定 301、302 状态下重定向时不允许把 POST 方法改成 GET 方法，但是大多数浏览器都会在 301、302 和 303 状态下的重定向把 POST 方法改成 GET 方法。</p>
-</li>
-<li>
-<p><strong>304 Not Modified</strong>  ：如果请求报文首部包含一些条件，例如：If-Match，If-Modified-Since，If-None-Match，If-Range，If-Unmodified-Since，如果不满足条件，则服务器会返回 304 状态码。</p>
-</li>
-<li>
-<p><strong>307 Temporary Redirect</strong>  ：临时重定向，与 302 的含义类似，但是 307 要求浏览器不会把重定向请求的 POST 方法改成 GET 方法。</p>
-</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th align="center">状态码</th>
+<th align="center">状态码英文名称</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">301</td>
+<td align="center">Moved Permanently</td>
+<td align="center">永久性重定向</td>
+</tr>
+<tr>
+<td align="center">302</td>
+<td align="center">Found</td>
+<td align="center">临时性重定向</td>
+</tr>
+</tbody>
+</table>
 <h2 id="4xx-客户端错误">4XX 客户端错误</h2>
-<ul>
-<li>
-<p><strong>400 Bad Request</strong>  ：请求报文中存在语法错误。</p>
-</li>
-<li>
-<p><strong>401 Unauthorized</strong>  ：该状态码表示发送的请求需要有认证信息（BASIC 认证、DIGEST 认证）。如果之前已进行过一次请求，则表示用户认证失败。</p>
-</li>
-<li>
-<p><strong>403 Forbidden</strong>  ：请求被拒绝。</p>
-</li>
-<li>
-<p><strong>404 Not Found</strong></p>
-</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th align="center">状态码</th>
+<th align="center">状态码英文名称</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">400</td>
+<td align="center">Bad Request</td>
+<td align="center">请求报文中存在语法错误。</td>
+</tr>
+<tr>
+<td align="center">401</td>
+<td align="center">Unauthorized</td>
+<td align="center">该状态码表示发送的请求需要有认证信息（BASIC 认证、DIGEST 认证）。如果之前已进行过一次请求，则表示用户认证失败。</td>
+</tr>
+<tr>
+<td align="center">403</td>
+<td align="center">Forbidden</td>
+<td align="center">请求被拒绝。</td>
+</tr>
+<tr>
+<td align="center">404</td>
+<td align="center">Not Found</td>
+<td align="center">服务器无法根据客户端的请求找到资源。</td>
+</tr>
+</tbody>
+</table>
 <h2 id="5xx-服务器错误">5XX 服务器错误</h2>
-<ul>
-<li>
-<p><strong>500 Internal Server Error</strong>  ：服务器正在执行请求时发生错误。</p>
-</li>
-<li>
-<p><strong>503 Service Unavailable</strong>  ：服务器暂时处于超负载或正在进行停机维护，现在无法处理请求。</p>
-</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th align="center">状态码</th>
+<th align="center">状态码英文名称</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">500</td>
+<td align="center">Internal Server Error</td>
+<td align="center">服务器正在执行请求时发生错误。</td>
+</tr>
+<tr>
+<td align="center">502</td>
+<td align="center">Service Unavailable</td>
+<td align="center">服务器暂时处于超负载或正在进行停机维护，现在无法处理请求。</td>
+</tr>
+</tbody>
+</table>
 <h1 id="四http-首部">四、HTTP 首部</h1>
 <p>有 4 种类型的首部字段：通用首部字段、请求首部字段、响应首部字段和实体首部字段。</p>
 <p>各种首部字段及其含义如下（不需要全记，仅供查阅）：</p>
@@ -1139,6 +1214,37 @@ Content-Length: 100
 </tr>
 </tbody>
 </table>
+<h1 id="http状态管理cookie与session">HTTP状态管理：Cookie与Session</h1>
+<ul>
+<li>
+<p>Cookie</p>
+<p>HTTP 协议是无状态的，主要是为了让 HTTP 协议尽可能简单，使得它能够处理大量事务。HTTP/1.1 引入 Cookie 来保存状态信息。</p>
+<p>Cookie 是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器之后向同一服务器再次发起请求时被携带上，用于告知服务端两个请求是否来自同一浏览器。由于之后每次请求都会需要携带 Cookie 数据，因此会带来额外的性能开销（尤其是在移动环境下）。</p>
+<p>Cookie 曾一度用于客户端数据的存储，因为当时并没有其它合适的存储办法而作为唯一的存储手段，但现在随着现代浏览器开始支持各种各样的存储方式，Cookie 渐渐被淘汰。新的浏览器 API 已经允许开发者直接将数据存储到本地，如使用 Web storage API（本地存储和会话存储）或 IndexedDB。</p>
+</li>
+<li>
+<p>Session</p>
+<p>除了可以将用户信息通过 Cookie 存储在用户浏览器中，也可以利用 Session 存储在服务器端，存储在服务器端的信息更加安全。</p>
+<p>Session 可以存储在服务器上的文件、数据库或者内存中。也可以将 Session 存储在 Redis 这种内存型数据库中，效率会更高。</p>
+<p>使用 Session 维护用户登录状态的过程如下：</p>
+<ul>
+<li>用户进行登录时，用户提交包含用户名和密码的表单，放入 HTTP 请求报文中；</li>
+<li>服务器验证该用户名和密码，如果正确则把用户信息存储到 Redis 中，它在 Redis 中的 Key 称为 Session ID；</li>
+<li>服务器返回的响应报文的 Set-Cookie 首部字段包含了这个 Session ID，客户端收到响应报文之后将该 Cookie 值存入浏览器中；</li>
+<li>客户端之后对同一个服务器进行请求时会包含该 Cookie 值，服务器收到之后提取出 Session ID，从 Redis 中取出用户信息，继续之前的业务操作。</li>
+</ul>
+<p>应该注意 Session ID 的安全性问题，不能让它被恶意攻击者轻易获取，那么就不能产生一个容易被猜到的 Session ID 值。此外，还需要经常重新生成 Session ID。在对安全性要求极高的场景下，例如转账等操作，除了使用 Session 管理用户状态之外，还需要对用户进行重新验证，比如重新输入密码，或者使用短信验证码等方式。</p>
+</li>
+<li>
+<p>Cookie与Session选择</p>
+<ul>
+<li>Cookie 只能存储 ASCII 码字符串，而 Session 则可以存储任何类型的数据，因此在考虑数据复杂性时首选 Session；</li>
+<li>Cookie 存储在浏览器中，容易被恶意查看。如果非要将一些隐私数据存在 Cookie 中，可以将 Cookie 值进行加密，然后在服务器进行解密；</li>
+<li>对于大型网站，如果用户所有的信息都存储在 Session 中，那么开销是非常大的，因此不建议将所有的用户信息都存储到 Session 中。</li>
+</ul>
+</li>
+</ul>
+<h1 id="http协议之基本认证">HTTP协议之基本认证</h1>
 <h1 id="五具体应用">五、具体应用</h1>
 <h2 id="连接管理">连接管理</h2>
 <!-- raw HTML omitted -->

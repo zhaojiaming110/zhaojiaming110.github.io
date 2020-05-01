@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Beyourself" />
-  <meta name="description" content="Queue List" />
+  <meta name="description" content="list 列表作为一种抽象数据类型，列表对象应支持以下操作接口。 操作接口 功能 适用对象 Size() 报告列表当前的规模（节点总数） 列表 First()、Last()" />
 
   <meta name="keywords" content="Beyourslef, go, golang" />
 
@@ -58,22 +58,22 @@
 
 
 <meta property="og:title" content="数据结构" />
-<meta property="og:description" content="Queue List" />
+<meta property="og:description" content="list 列表作为一种抽象数据类型，列表对象应支持以下操作接口。 操作接口 功能 适用对象 Size() 报告列表当前的规模（节点总数） 列表 First()、Last()" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://beuself.xyz/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" />
 <meta property="article:published_time" content="2020-03-01T22:02:23+08:00" />
 <meta property="article:modified_time" content="2020-03-01T22:02:23+08:00" />
 <meta itemprop="name" content="数据结构">
-<meta itemprop="description" content="Queue List">
+<meta itemprop="description" content="list 列表作为一种抽象数据类型，列表对象应支持以下操作接口。 操作接口 功能 适用对象 Size() 报告列表当前的规模（节点总数） 列表 First()、Last()">
 <meta itemprop="datePublished" content="2020-03-01T22:02:23&#43;08:00" />
 <meta itemprop="dateModified" content="2020-03-01T22:02:23&#43;08:00" />
-<meta itemprop="wordCount" content="2">
+<meta itemprop="wordCount" content="388">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="数据结构"/>
-<meta name="twitter:description" content="Queue List"/>
+<meta name="twitter:description" content="list 列表作为一种抽象数据类型，列表对象应支持以下操作接口。 操作接口 功能 适用对象 Size() 报告列表当前的规模（节点总数） 列表 First()、Last()"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -541,7 +541,7 @@ if (!doNotTrack) {
           2020-03-01
         </time>
         
-        <span class="more-meta"> 2 words </span>
+        <span class="more-meta"> 388 words </span>
           <span class="more-meta"> 1 min read </span>
 
         
@@ -561,17 +561,151 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#listhttpsgithubcomzhaojiaming110go_data_structurestreemasterlist"><a href="https://github.com/zhaojiaming110/go_data_structures/tree/master/list">list</a></a>
+      <ul>
+        <li><a href="#interface">Interface</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      <ul>
-<li><a href="www.baidu.com">Queue</a></li>
-<li><a href="www.baidu.com">List</a></li>
-<li></li>
-</ul>
+      <h2 id="listhttpsgithubcomzhaojiaming110go_data_structurestreemasterlist"><a href="https://github.com/zhaojiaming110/go_data_structures/tree/master/list">list</a></h2>
+<p>列表作为一种抽象数据类型，列表对象应支持以下操作接口。</p>
+<table>
+<thead>
+<tr>
+<th align="left">操作接口</th>
+<th align="left">功能</th>
+<th align="left">适用对象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Size()</td>
+<td align="left">报告列表当前的规模（节点总数）</td>
+<td align="left">列表</td>
+</tr>
+<tr>
+<td align="left">First()、Last()</td>
+<td align="left">返回首、末节点的位置</td>
+<td align="left">列表</td>
+</tr>
+<tr>
+<td align="left">InsertAsFirst(interface{})<!-- raw HTML omitted -->InsertAsLast(values &hellip;interface{})</td>
+<td align="left">将元素当作首、末节点插入</td>
+<td align="left">列表</td>
+</tr>
+<tr>
+<td align="left">InsertBefore(p *node, e interface{}) <!-- raw HTML omitted -->InsertAfter(p *node, e interface{})</td>
+<td align="left">将元素e当作节点p的直接前驱、后继插入</td>
+<td align="left">列表</td>
+</tr>
+<tr>
+<td align="left">Remove(p *node)</td>
+<td align="left">删除节点p</td>
+<td align="left">列表</td>
+</tr>
+<tr>
+<td align="left">Disordered()</td>
+<td align="left">判断所有节点是否已按非降序排列</td>
+<td align="left">列表</td>
+</tr>
+<tr>
+<td align="left">Find(e)</td>
+<td align="left">查找目标元素e，失败时返回nil</td>
+<td align="left">列表</td>
+</tr>
+<tr>
+<td align="left">Deduplicate()</td>
+<td align="left">剔除重复节点</td>
+<td align="left">列表</td>
+</tr>
+<tr>
+<td align="left">Uniquify()</td>
+<td align="left">剔除重复节点</td>
+<td align="left">有序列表</td>
+</tr>
+<tr>
+<td align="left">Sort()</td>
+<td align="left">调整各节点的位置，使之按非降序排列<!-- raw HTML omitted -->支持插入排序、归并排序、选择排序</td>
+<td align="left">列表</td>
+</tr>
+<tr>
+<td align="left">Traverse(visit func(interface{}))</td>
+<td align="left">遍历并统一处理所有节点<!-- raw HTML omitted -->处理方法由函数对象指定</td>
+<td align="left">列表</td>
+</tr>
+<tr>
+<td align="left">Clear()</td>
+<td align="left">删除列表</td>
+<td align="left">列表</td>
+</tr>
+<tr>
+<td align="left">Get()</td>
+<td align="left">根据列表位置，返回目标节点元素</td>
+<td align="left">列表</td>
+</tr>
+<tr>
+<td align="left">Values()</td>
+<td align="left">以切片的形式返回列表元素</td>
+<td align="left">列表</td>
+</tr>
+</tbody>
+</table>
+<h3 id="interface">Interface</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// Interface of List that all lists implements.
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">List</span> <span class="kd">interface</span> <span class="p">{</span>
+	<span class="nf">Size</span><span class="p">()</span> <span class="kt">int</span>
+	<span class="nf">Values</span><span class="p">()</span> <span class="p">[]</span><span class="kd">interface</span><span class="p">{}</span>
+	<span class="nf">First</span><span class="p">()</span> <span class="o">*</span><span class="nx">node</span>
+	<span class="nf">Last</span><span class="p">()</span> <span class="o">*</span><span class="nx">node</span>
+	<span class="nf">Get</span><span class="p">(</span><span class="nx">index</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="kd">interface</span><span class="p">{},</span> <span class="kt">bool</span><span class="p">)</span>
+	<span class="nf">InsertAsFirst</span><span class="p">(</span><span class="kd">interface</span><span class="p">{})</span>
+	<span class="nf">InsertAsLast</span><span class="p">(</span><span class="nx">values</span> <span class="o">...</span><span class="kd">interface</span><span class="p">{})</span>
+	<span class="nf">InsertBefore</span><span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">node</span><span class="p">,</span> <span class="nx">e</span> <span class="kd">interface</span><span class="p">{})</span> <span class="o">*</span><span class="nx">node</span>
+	<span class="nf">InsertAfter</span><span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">node</span><span class="p">,</span> <span class="nx">e</span> <span class="kd">interface</span><span class="p">{})</span>	<span class="o">*</span><span class="nx">node</span>
+	<span class="nf">Remove</span><span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">node</span><span class="p">)</span> <span class="kd">interface</span><span class="p">{}</span>
+	<span class="nf">Clear</span><span class="p">()</span>
+	<span class="nf">Disordered</span><span class="p">()</span> <span class="kt">bool</span>
+	<span class="nf">Sort</span><span class="p">(</span><span class="nx">m</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">p</span> <span class="o">*</span><span class="nx">node</span><span class="p">,</span> <span class="nx">n</span> <span class="kt">int</span><span class="p">)</span>
+	<span class="nf">Find</span><span class="p">(</span><span class="nx">e</span> <span class="kd">interface</span><span class="p">{})</span> <span class="o">*</span><span class="nx">node</span>
+	<span class="nf">Deduplicate</span><span class="p">()</span> <span class="kt">int</span>
+	<span class="nf">Uniquify</span><span class="p">()</span> <span class="kt">int</span>
+	<span class="nf">Traverse</span><span class="p">(</span><span class="nx">visit</span> <span class="kd">func</span><span class="p">(</span><span class="kd">interface</span><span class="p">{}))</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>具体实现请看<a href="https://github.com/zhaojiaming110/go_data_structures/tree/master/list">Github</a>.</p>
 
     </div>
 

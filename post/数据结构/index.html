@@ -61,13 +61,13 @@
 <meta property="og:description" content="list 列表作为一种抽象数据类型，列表对象应支持以下操作接口。 操作接口 功能 适用对象 Size() 报告列表当前的规模（节点总数） 列表 First()、Last()" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://beuself.xyz/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" />
-<meta property="article:published_time" content="2020-03-01T22:02:23+08:00" />
-<meta property="article:modified_time" content="2020-03-01T22:02:23+08:00" />
+<meta property="article:published_time" content="2020-04-07T22:02:23+08:00" />
+<meta property="article:modified_time" content="2020-04-07T22:02:23+08:00" />
 <meta itemprop="name" content="数据结构">
 <meta itemprop="description" content="list 列表作为一种抽象数据类型，列表对象应支持以下操作接口。 操作接口 功能 适用对象 Size() 报告列表当前的规模（节点总数） 列表 First()、Last()">
-<meta itemprop="datePublished" content="2020-03-01T22:02:23&#43;08:00" />
-<meta itemprop="dateModified" content="2020-03-01T22:02:23&#43;08:00" />
-<meta itemprop="wordCount" content="1195">
+<meta itemprop="datePublished" content="2020-04-07T22:02:23&#43;08:00" />
+<meta itemprop="dateModified" content="2020-04-07T22:02:23&#43;08:00" />
+<meta itemprop="wordCount" content="1223">
 
 
 
@@ -537,11 +537,11 @@ if (!doNotTrack) {
       <h1 class="post-title">数据结构</h1>
       
       <div class="post-meta">
-        <time datetime="2020-03-01" class="post-time">
-          2020-03-01
+        <time datetime="2020-04-07" class="post-time">
+          2020-04-07
         </time>
         
-        <span class="more-meta"> 1195 words </span>
+        <span class="more-meta"> 1223 words </span>
           <span class="more-meta"> 3 min read </span>
 
         
@@ -577,6 +577,11 @@ if (!doNotTrack) {
     <li><a href="#queuehttpsgithubcomzhaojiaming110go_data_structurestreemasterqueue"><a href="https://github.com/zhaojiaming110/go_data_structures/tree/master/queue">Queue</a></a>
       <ul>
         <li><a href="#interface-2">Interface</a></li>
+      </ul>
+    </li>
+    <li><a href="#treehttpsgithubcomzhaojiaming110go_data_structurestreemastertreesbinarytree"><a href="https://github.com/zhaojiaming110/go_data_structures/tree/master/trees/binaryTree">Tree</a></a>
+      <ul>
+        <li><a href="#interface-3">Interface</a></li>
       </ul>
     </li>
   </ul>
@@ -861,7 +866,27 @@ if (!doNotTrack) {
 </div>
 </div><p>队列实现也可以使用数组和链表的方式实现。值得注意的是用数组实现限制了列表的长度，且插入是在固定存储单位上的顺序循环插入，同样的删除操作也是在固定存储单位上的顺序循环删除。</p>
 <p>详细实现，请参见<a href="https://github.com/zhaojiaming110/go_data_structures/tree/master/queue">Github</a>.</p>
-
+<h2 id="treehttpsgithubcomzhaojiaming110go_data_structurestreemastertreesbinarytree"><a href="https://github.com/zhaojiaming110/go_data_structures/tree/master/trees/binaryTree">Tree</a></h2>
+<h3 id="interface-3">Interface</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">BinaryTree</span> <span class="kd">interface</span> <span class="p">{</span>
+	<span class="nf">InsertAsRoot</span><span class="p">(</span><span class="nx">data</span> <span class="kd">interface</span><span class="p">{})</span>
+	<span class="nf">InsertAsLC</span><span class="p">(</span><span class="nx">x</span> <span class="o">*</span><span class="nx">binNode</span><span class="p">,</span> <span class="nx">data</span> <span class="kd">interface</span><span class="p">{})</span>
+	<span class="nf">InsertAsRC</span><span class="p">(</span><span class="nx">x</span> <span class="o">*</span><span class="nx">binNode</span><span class="p">,</span> <span class="nx">data</span> <span class="kd">interface</span><span class="p">{})</span>
+	<span class="nf">Traverse</span><span class="p">(</span><span class="nx">model</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">visit</span> <span class="kd">func</span><span class="p">(</span> <span class="kd">interface</span><span class="p">{}))</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     
@@ -874,7 +899,7 @@ if (!doNotTrack) {
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-      2020-03-01
+      2020-04-07
       
     </span>
   </p>
@@ -908,7 +933,7 @@ if (!doNotTrack) {
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/mysql/">
+          <a class="prev" href="/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -918,12 +943,12 @@ if (!doNotTrack) {
 </svg>
 
             </i>
-            <span class="prev-text nav-default">Mysql</span>
+            <span class="prev-text nav-default">设计模式</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
-          <a class="next" href="/post/docker/docker/">
-            <span class="next-text nav-default">Docker</span>
+          <a class="next" href="/post/leetcode/">
+            <span class="next-text nav-default">LeetCode</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

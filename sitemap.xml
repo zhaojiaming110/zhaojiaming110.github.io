@@ -373,6 +373,13 @@
   </url>
   
   <url>
+    <loc>http://beuself.xyz/tags/concurrency-patterns/</loc>
+    <lastmod>2019-10-14T23:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://beuself.xyz/tags/creational-patterns/</loc>
     <lastmod>2019-10-14T23:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -415,6 +422,27 @@
   </url>
   
   <url>
+    <loc>http://beuself.xyz/post/go-paterns/concurrency/pubsub/</loc>
+    <lastmod>2019-10-14T23:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://beuself.xyz/post/go-paterns/concurrency/barrier/</loc>
+    <lastmod>2019-10-14T23:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://beuself.xyz/post/go-paterns/concurrency/workers-pool/</loc>
+    <lastmod>2019-10-14T23:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://beuself.xyz/post/go-paterns/creational/factory-method/</loc>
     <lastmod>2019-10-14T23:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -430,6 +458,20 @@
   
   <url>
     <loc>http://beuself.xyz/post/go-paterns/creational/abstract-factory/</loc>
+    <lastmod>2019-10-14T23:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://beuself.xyz/post/go-paterns/concurrency/future/</loc>
+    <lastmod>2019-10-14T23:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://beuself.xyz/post/go-paterns/concurrency/pipline/</loc>
     <lastmod>2019-10-14T23:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -900,6 +942,12 @@
   <url>
     <loc>http://beuself.xyz/post/go%E6%A0%87%E5%87%86%E5%BA%93%E4%B8%8Ego%E5%90%8D%E5%BA%93/</loc>
     <lastmod>2008-10-10T22:02:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://beuself.xyz/post/go%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

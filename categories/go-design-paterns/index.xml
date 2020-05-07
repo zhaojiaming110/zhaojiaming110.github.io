@@ -30,6 +30,33 @@
     </item>
     
     <item>
+      <title>发布订阅模式- Pub/Sub</title>
+      <link>http://beuself.xyz/post/go-paterns/concurrency/pubsub/</link>
+      <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/go-paterns/concurrency/pubsub/</guid>
+      <description>Pub/Sub模式 发布订阅模式是一种消息通知模式，发布者发送消息，订阅者接收消息。 使用场景 消息队列 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21</description>
+    </item>
+    
+    <item>
+      <title>屏障模式-Barrier</title>
+      <link>http://beuself.xyz/post/go-paterns/concurrency/barrier/</link>
+      <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/go-paterns/concurrency/barrier/</guid>
+      <description>Barrier Barrier屏障模式顾名思义就是一种屏障，用来阻塞直到聚合所有goroutine返回结果。可以使用channel实现。 使用场景 多个网络请</description>
+    </item>
+    
+    <item>
+      <title>工作池模式-workers pool</title>
+      <link>http://beuself.xyz/post/go-paterns/concurrency/workers-pool/</link>
+      <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/go-paterns/concurrency/workers-pool/</guid>
+      <description>Workers Pool模式 在 Go 中 goroutine 已经足够轻量，甚至 net/http server 的处理方式也是 goroutine-per-connection 的，所以比起其他语言来说可能场景稍微少一些。每个 goroutine 的初始内存消耗在 2~8kb，当</description>
+    </item>
+    
+    <item>
       <title>工厂方法-Factory Method</title>
       <link>http://beuself.xyz/post/go-paterns/creational/factory-method/</link>
       <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
@@ -54,6 +81,24 @@
       
       <guid>http://beuself.xyz/post/go-paterns/creational/abstract-factory/</guid>
       <description>描述 抽象工厂模式（Abstract Factory Pattern）是围绕一个超级工厂创建其他工厂。该工厂又被称为其它工厂的工厂。 抽象工厂设计模式是一个新的</description>
+    </item>
+    
+    <item>
+      <title>未来模式-Future</title>
+      <link>http://beuself.xyz/post/go-paterns/concurrency/future/</link>
+      <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/go-paterns/concurrency/future/</guid>
+      <description>Future模式 future即未来，这个模式常用在异步处理也称为Promise模式，采用一种fire-and-forget的方式，是指主gr</description>
+    </item>
+    
+    <item>
+      <title>管道模式-Pipline</title>
+      <link>http://beuself.xyz/post/go-paterns/concurrency/pipline/</link>
+      <pubDate>Mon, 14 Oct 2019 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/go-paterns/concurrency/pipline/</guid>
+      <description>Pipline模式 Pipline本身翻译过来就是管道的意思，注意和Barrier模式不同的是，它是按顺序执行的，类似于流水线。 虽然它是串行模</description>
     </item>
     
   </channel>

@@ -571,7 +571,7 @@ if (!doNotTrack) {
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/go-paterns/creational/factory-method/">工厂方法-Factory Method</a>
+      <a class="post-link" href="/post/go-paterns/concurrency/pubsub/">发布订阅模式- Pub/Sub</a>
     </h1>
     
     <div class="post-meta">
@@ -582,8 +582,8 @@ if (!doNotTrack) {
           <a href="http://beuself.xyz/categories/go-design-paterns/"> Go Design Paterns </a>
           
         </div>
-      <span class="more-meta"> 1629 words </span>
-      <span class="more-meta"> 4 min read </span>
+      <span class="more-meta"> 532 words </span>
+      <span class="more-meta"> 2 min read </span>
       
       
       
@@ -593,10 +593,10 @@ if (!doNotTrack) {
   <div class="post-content">
     
     <div class="post-summary">
-      描述 工厂方法（Factory Method）可能是业内已知第二个好用的设计模式。其目的是使用户从特定目的所需实现的结构知识中抽象出来。例如，从
+      Pub/Sub模式 发布订阅模式是一种消息通知模式，发布者发送消息，订阅者接收消息。 使用场景 消息队列 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21
     </div>
     <div class="read-more">
-      <a href="/post/go-paterns/creational/factory-method/" class="read-more-link">Read more</a>
+      <a href="/post/go-paterns/concurrency/pubsub/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -607,7 +607,7 @@ if (!doNotTrack) {
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/go-paterns/creational/builder/">建造者模式-Builder</a>
+      <a class="post-link" href="/post/go-paterns/concurrency/barrier/">屏障模式-Barrier</a>
     </h1>
     
     <div class="post-meta">
@@ -618,8 +618,8 @@ if (!doNotTrack) {
           <a href="http://beuself.xyz/categories/go-design-paterns/"> Go Design Paterns </a>
           
         </div>
-      <span class="more-meta"> 2720 words </span>
-      <span class="more-meta"> 6 min read </span>
+      <span class="more-meta"> 402 words </span>
+      <span class="more-meta"> 1 min read </span>
       
       
       
@@ -629,10 +629,10 @@ if (!doNotTrack) {
   <div class="post-content">
     
     <div class="post-summary">
-      描述 建造者模式（Builder Pattern）使用多个简单的对象一步一步构建成一个复杂的对象。这种类型的设计模式属于创建型模式，它提供了一种
+      Barrier Barrier屏障模式顾名思义就是一种屏障，用来阻塞直到聚合所有goroutine返回结果。可以使用channel实现。 使用场景 多个网络请
     </div>
     <div class="read-more">
-      <a href="/post/go-paterns/creational/builder/" class="read-more-link">Read more</a>
+      <a href="/post/go-paterns/concurrency/barrier/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -643,7 +643,7 @@ if (!doNotTrack) {
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/go-paterns/creational/abstract-factory/">抽象工厂-Abstract Factory</a>
+      <a class="post-link" href="/post/go-paterns/concurrency/workers-pool/">工作池模式-workers pool</a>
     </h1>
     
     <div class="post-meta">
@@ -654,8 +654,8 @@ if (!doNotTrack) {
           <a href="http://beuself.xyz/categories/go-design-paterns/"> Go Design Paterns </a>
           
         </div>
-      <span class="more-meta"> 1141 words </span>
-      <span class="more-meta"> 3 min read </span>
+      <span class="more-meta"> 378 words </span>
+      <span class="more-meta"> 1 min read </span>
       
       
       
@@ -665,10 +665,10 @@ if (!doNotTrack) {
   <div class="post-content">
     
     <div class="post-summary">
-      描述 抽象工厂模式（Abstract Factory Pattern）是围绕一个超级工厂创建其他工厂。该工厂又被称为其它工厂的工厂。 抽象工厂设计模式是一个新的
+      Workers Pool模式 在 Go 中 goroutine 已经足够轻量，甚至 net/http server 的处理方式也是 goroutine-per-connection 的，所以比起其他语言来说可能场景稍微少一些。每个 goroutine 的初始内存消耗在 2~8kb，当
     </div>
     <div class="read-more">
-      <a href="/post/go-paterns/creational/abstract-factory/" class="read-more-link">Read more</a>
+      <a href="/post/go-paterns/concurrency/workers-pool/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -1301,6 +1301,27 @@ if (!doNotTrack) {
 
       
 
+        
+
+        
+        
+
+          
+          
+          
+
+            
+
+          
+
+        
+        
+
+        
+        
+
+      
+
       
       
       <li><a href="/page/11/">»</a></li>
@@ -1308,7 +1329,7 @@ if (!doNotTrack) {
 
       
       
-      <li><a href="/page/23/">»»</a></li>
+      <li><a href="/page/24/">»»</a></li>
       
 
       </ul>

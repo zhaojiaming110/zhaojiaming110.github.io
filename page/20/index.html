@@ -535,7 +535,7 @@ if (!doNotTrack) {
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/go-basic-knowledge/2019-09-20-%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/">条件语句</a>
+      <a class="post-link" href="/post/go-basic-knowledge/2019-09-22-%E6%89%A9%E5%B1%95%E5%B7%B2%E6%9C%89%E7%B1%BB%E5%9E%8B/">扩展已有类型</a>
     </h1>
     
     <div class="post-meta">
@@ -546,43 +546,7 @@ if (!doNotTrack) {
           <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
           
         </div>
-      <span class="more-meta"> 671 words </span>
-      <span class="more-meta"> 2 min read </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      条件语句if 条件语句不需要使用括号将条件包含起来() 无论语句体内有几条语句，花括号{}都是必须存在的 左花括号{必须与if或者else处于同一
-    </div>
-    <div class="read-more">
-      <a href="/post/go-basic-knowledge/2019-09-20-%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/go-basic-knowledge/2019-09-26-%E6%B5%8B%E8%AF%95/">测试</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2019-09-20" class="post-time">
-        2019-09-20
-      </time>
-      <div class="post-category">
-          <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
-          
-        </div>
-      <span class="more-meta"> 461 words </span>
+      <span class="more-meta"> 130 words </span>
       <span class="more-meta"> 1 min read </span>
       
       
@@ -593,10 +557,10 @@ if (!doNotTrack) {
   <div class="post-content">
     
     <div class="post-summary">
-      传统测试 vs 表格驱动测试 go语言采用表格驱动测试 传统测试： 1 2 3 4 5 6 7 @Test public void testAdd() { assertEquals(3, add(1, 2)); assertEquals(2, add(0, 2)); assertEquals(0, add(0, 0)); assertEquals(0, add(1, -1)); assertEqulas(Integer.MIN_VALUE, add(1, Integer.MAX_VALUE)); } 测试数据和测试逻辑混在一起 出
+      扩充系统类型或者别人的类型 使用组合： 1 2 3 4 5 6 package tree type Node struct { value int Left, Right *Node } 1 2 3 4 package main type myTreeNode struct { node *tree.Node } 定义别名： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
     </div>
     <div class="read-more">
-      <a href="/post/go-basic-knowledge/2019-09-26-%E6%B5%8B%E8%AF%95/" class="read-more-link">Read more</a>
+      <a href="/post/go-basic-knowledge/2019-09-22-%E6%89%A9%E5%B1%95%E5%B7%B2%E6%9C%89%E7%B1%BB%E5%9E%8B/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -607,7 +571,7 @@ if (!doNotTrack) {
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/go-basic-knowledge/%E6%B5%8B%E8%AF%95%E6%96%87%E6%A1%A3/">测试文档</a>
+      <a class="post-link" href="/post/go-basic-knowledge/2019-09-23-%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%80%BC%E7%B1%BB%E5%9E%8B/">接口的值类型</a>
     </h1>
     
     <div class="post-meta">
@@ -618,8 +582,8 @@ if (!doNotTrack) {
           <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
           
         </div>
-      <span class="more-meta"> 1023 words </span>
-      <span class="more-meta"> 3 min read </span>
+      <span class="more-meta"> 143 words </span>
+      <span class="more-meta"> 1 min read </span>
       
       
       
@@ -629,10 +593,10 @@ if (!doNotTrack) {
   <div class="post-content">
     
     <div class="post-summary">
-      并发concurrency 很多人都是冲着Go大肆宣扬的高并发而忍不住跃跃欲试，但其实从源码解析来看，goroutine只是由官方实现的超级“
+      接口变量里有什么？ 实现者的类型和实现者的值。 实现者的类型和指向实现者的指针。 接口变量自带指针。 接口变量同样采用值传递，由于接口变量可以带指针
     </div>
     <div class="read-more">
-      <a href="/post/go-basic-knowledge/%E6%B5%8B%E8%AF%95%E6%96%87%E6%A1%A3/" class="read-more-link">Read more</a>
+      <a href="/post/go-basic-knowledge/2019-09-23-%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%80%BC%E7%B1%BB%E5%9E%8B/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -643,7 +607,7 @@ if (!doNotTrack) {
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/go-basic-knowledge/2019-09-22-%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8C%E6%96%B9%E6%B3%95/">结构体和方法</a>
+      <a class="post-link" href="/post/go-basic-knowledge/2019-09-23-%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%AE%9E%E7%8E%B0/">接口的定义和实现</a>
     </h1>
     
     <div class="post-meta">
@@ -654,8 +618,8 @@ if (!doNotTrack) {
           <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
           
         </div>
-      <span class="more-meta"> 1927 words </span>
-      <span class="more-meta"> 4 min read </span>
+      <span class="more-meta"> 65 words </span>
+      <span class="more-meta"> 1 min read </span>
       
       
       
@@ -665,10 +629,46 @@ if (!doNotTrack) {
   <div class="post-content">
     
     <div class="post-summary">
-      面向对象 Go语言仅支持封装，不支持继承和多态 Go语言没有class，只有struct struct 结构体是一种聚合的数据类型，是由零个或多个任意类型的值
+      接口的定义 1 2 3 4 5 6 7 type Retriver interface { Get(source string) string } func download(r Retriver) string { return r.Get(&#34;www.baidu.com&#34;) } 接口是由使用者定义的。 接口的实现 接口的实现是隐式的。 只要实现接口里的方法。
     </div>
     <div class="read-more">
-      <a href="/post/go-basic-knowledge/2019-09-22-%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8C%E6%96%B9%E6%B3%95/" class="read-more-link">Read more</a>
+      <a href="/post/go-basic-knowledge/2019-09-23-%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%AE%9E%E7%8E%B0/" class="read-more-link">Read more</a>
+    </div>
+    
+  </div>
+</article>
+
+  
+    <article class="post bg-white">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/post/go-basic-knowledge/2019-09-23-%E6%8E%A5%E5%8F%A3%E7%9A%84%E7%BB%84%E5%90%88/">接口的组合</a>
+    </h1>
+    
+    <div class="post-meta">
+      <time datetime="2019-09-20" class="post-time">
+        2019-09-20
+      </time>
+      <div class="post-category">
+          <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
+          
+        </div>
+      <span class="more-meta"> 259 words </span>
+      <span class="more-meta"> 1 min read </span>
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      接口是一个或多个方法签名的集合 只要某个类型拥有了该接口所有方法签名，即算实现了该接口，无需显示声明实现了哪个接口，这称为Structural
+    </div>
+    <div class="read-more">
+      <a href="/post/go-basic-knowledge/2019-09-23-%E6%8E%A5%E5%8F%A3%E7%9A%84%E7%BB%84%E5%90%88/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -955,8 +955,6 @@ if (!doNotTrack) {
 
             
             
-              
-            
 
           
           
@@ -965,12 +963,6 @@ if (!doNotTrack) {
         
 
         
-        
-          <li class="">
-            <a href="/page/11/">
-              11
-            </a>
-          </li>
         
 
       
@@ -1347,6 +1339,37 @@ if (!doNotTrack) {
 
       
 
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/24/">
+              24
+            </a>
+          </li>
+        
+
+      
+
       
       
       <li><a href="/page/21/">»</a></li>
@@ -1354,7 +1377,7 @@ if (!doNotTrack) {
 
       
       
-      <li><a href="/page/23/">»»</a></li>
+      <li><a href="/page/24/">»»</a></li>
       
 
       </ul>

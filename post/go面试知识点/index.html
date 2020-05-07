@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> - Beyourself - a gopher</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Beyourself" />
+  <meta name="description" content="Golang相关 1、说说go语言的main函数 (1)、main函数不能带参数。 (2)、main函数不能定义返回值。 (3)、main函数所在的" />
+
+  <meta name="keywords" content="Beyourslef, go, golang" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.68.3" />
+
+
+<link rel="canonical" href="http://beuself.xyz/post/go%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="Golang相关 1、说说go语言的main函数 (1)、main函数不能带参数。 (2)、main函数不能定义返回值。 (3)、main函数所在的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://beuself.xyz/post/go%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/" />
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="Golang相关 1、说说go语言的main函数 (1)、main函数不能带参数。 (2)、main函数不能定义返回值。 (3)、main函数所在的">
+
+<meta itemprop="wordCount" content="6860">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Golang相关 1、说说go语言的main函数 (1)、main函数不能带参数。 (2)、main函数不能定义返回值。 (3)、main函数所在的"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'true', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css"/>
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Beyourslef</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://beuself.xyz/">首页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://beuself.xyz/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://beuself.xyz/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://beuself.xyz/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://beuself.xyz/about/">简介</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          <div class="mobile-menu-parent">
+            <span class="mobile-submenu-open"></span>
+            <a href="http://beuself.xyz/">
+              语言相关
+            </a>
+          </div>
+          <ul class="mobile-submenu-list">
+            
+              <li>
+                <a href="http://beuself.xyz/post/golang/">Golang</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/go%E6%A0%87%E5%87%86%E5%BA%93%E4%B8%8Ego%E5%90%8D%E5%BA%93/">Golang标准库与Go名库</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+              </li>
+            
+          </ul>
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          <div class="mobile-menu-parent">
+            <span class="mobile-submenu-open"></span>
+            <a href="http://beuself.xyz/">
+              数据结构与算法
+            </a>
+          </div>
+          <ul class="mobile-submenu-list">
+            
+              <li>
+                <a href="http://beuself.xyz/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/leetcode/">LeetCode</a>
+              </li>
+            
+          </ul>
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          <div class="mobile-menu-parent">
+            <span class="mobile-submenu-open"></span>
+            <a href="http://beuself.xyz/">
+              数据库
+            </a>
+          </div>
+          <ul class="mobile-submenu-list">
+            
+              <li>
+                <a href="http://beuself.xyz/post/mysql/">Mysql</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/redis/">Redis</a>
+              </li>
+            
+          </ul>
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          <div class="mobile-menu-parent">
+            <span class="mobile-submenu-open"></span>
+            <a href="http://beuself.xyz/">
+              CS
+            </a>
+          </div>
+          <ul class="mobile-submenu-list">
+            
+              <li>
+                <a href="http://beuself.xyz/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/http/">HTTP</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+              </li>
+            
+          </ul>
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          <div class="mobile-menu-parent">
+            <span class="mobile-submenu-open"></span>
+            <a href="http://beuself.xyz/">
+              互联网
+            </a>
+          </div>
+          <ul class="mobile-submenu-list">
+            
+              <li>
+                <a href="http://beuself.xyz/post/docker/docker/">Docker</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/git/">Git</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Beyourslef
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://beuself.xyz/">首页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://beuself.xyz/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://beuself.xyz/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://beuself.xyz/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://beuself.xyz/about/">简介</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          <a class="menu-item-link menu-parent" href="http://beuself.xyz/">语言相关</a>
+          <ul class="submenu">
+            
+              <li>
+                <a href="http://beuself.xyz/post/golang/">Golang</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/go%E6%A0%87%E5%87%86%E5%BA%93%E4%B8%8Ego%E5%90%8D%E5%BA%93/">Golang标准库与Go名库</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+              </li>
+            
+          </ul>
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          <a class="menu-item-link menu-parent" href="http://beuself.xyz/">数据结构与算法</a>
+          <ul class="submenu">
+            
+              <li>
+                <a href="http://beuself.xyz/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/leetcode/">LeetCode</a>
+              </li>
+            
+          </ul>
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          <a class="menu-item-link menu-parent" href="http://beuself.xyz/">数据库</a>
+          <ul class="submenu">
+            
+              <li>
+                <a href="http://beuself.xyz/post/mysql/">Mysql</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/redis/">Redis</a>
+              </li>
+            
+          </ul>
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          <a class="menu-item-link menu-parent" href="http://beuself.xyz/">CS</a>
+          <ul class="submenu">
+            
+              <li>
+                <a href="http://beuself.xyz/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/http/">HTTP</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+              </li>
+            
+          </ul>
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          <a class="menu-item-link menu-parent" href="http://beuself.xyz/">互联网</a>
+          <ul class="submenu">
+            
+              <li>
+                <a href="http://beuself.xyz/post/docker/docker/">Docker</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
+              </li>
+            
+              <li>
+                <a href="http://beuself.xyz/post/git/">Git</a>
+              </li>
+            
+          </ul>
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+      
+      <div class="post-meta">
+        <time datetime="0001-01-01" class="post-time">
+          0001-01-01
+        </time>
+        
+        <span class="more-meta"> 6860 words </span>
+          <span class="more-meta"> 14 min read </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1说说go语言的main函数">1、说说go语言的main函数</a></li>
+    <li><a href="#2在go语言中new和make的区别">2、在go语言中，new和make的区别？</a></li>
+    <li><a href="#3说说go语言中的switch语句">3、说说go语言中的switch语句？</a></li>
+    <li><a href="#9-说说go语言的同步锁">9、 说说go语言的同步锁？</a></li>
+    <li><a href="#10说说go语言的关于go-vendor"><strong>10、说说go语言的关于go vendor？</strong></a></li>
+    <li><a href="#11说说go语言的channel特性">11、说说go语言的channel特性？</a></li>
+    <li><a href="#14协程线程进程的区别">14、协程，线程，进程的区别？</a></li>
+    <li><a href="#16并发编程概念是什么">16、并发编程概念是什么？</a></li>
+    <li><a href="#23go的struct能不能比较以及go中的什么类型支持比较">23、Go的Struct能不能比较、以及go中的什么类型支持比较？</a></li>
+    <li><a href="#24讲述下go的调度">24、讲述下go的调度</a></li>
+    <li><a href="#25讲述下go-defer">25、讲述下Go defer</a></li>
+    <li><a href="#26当闭包和defer同时出现会发生什么">26、当闭包和defer同时出现，会发生什么？</a></li>
+    <li><a href="#27实现消息队列多生产者多消费者">27、实现消息队列（多生产者，多消费者）</a></li>
+    <li><a href="#28http-get跟head">28、http get跟head</a></li>
+    <li><a href="#29http-401403">29、http 401,403</a></li>
+    <li><a href="#30http-keep-alive">30、http keep-alive</a></li>
+    <li><a href="#31tcp与udp区别udp优点适用场景">31、tcp与udp区别，udp优点，适用场景</a></li>
+    <li><a href="#32孤儿进程僵尸进程">32、孤儿进程，僵尸进程</a></li>
+    <li><a href="#33死锁条件如何避免">33、死锁条件，如何避免</a></li>
+    <li><a href="#34go的反射包怎么找到对应的方法">34、Go的反射包怎么找到对应的方法</a></li>
+    <li><a href="#35go的channel有缓冲和无缓冲">35、Go的channel（有缓冲和无缓冲）</a></li>
+    <li><a href="#36讲一下syncpool">36、讲一下sync.pool</a></li>
+    <li><a href="#37tcp三次握手及四次挥手">37、tcp三次握手及四次挥手</a></li>
+    <li><a href="#38httphttps">38、http，https</a></li>
+    <li><a href="#39go命令go-getgo-toolgo-testgo-vet">39、go命令，go get，go tool，go test，go vet</a></li>
+    <li><a href="#40go的值传递和引用">40、go的值传递和引用</a></li>
+    <li><a href="#41selectepoll">41、select、epoll</a></li>
+    <li><a href="#42go的runtime如何实现">42、go的runtime如何实现</a></li>
+    <li><a href="#43go什么情况下会发生内存泄漏">43、go什么情况下会发生内存泄漏？</a></li>
+    <li><a href="#44用channel实现定时器实际上是两个协程同步">44、用channel实现定时器？（实际上是两个协程同步）</a></li>
+    <li><a href="#45channel的实现">45、channel的实现？</a></li>
+    <li><a href="#46udp的头部">46、udp的头部</a></li>
+    <li><a href="#47怎么理解go的interface">47、怎么理解go的interface</a></li>
+    <li><a href="#48go-map实现为什么map的key是随机的">48、go map实现、为什么map的key是随机的</a></li>
+    <li><a href="#49go-map是并发安全的吗不是怎么实现并发安全">49、go map是并发安全的吗，不是，怎么实现并发安全</a></li>
+    <li><a href="#50syncmap讲一下-syncmap是如何实现的-syncmap锁的粒度如何">50、sync.map讲一下, sync.Map是如何实现的， sync.Map锁的粒度如何</a></li>
+    <li><a href="#51golang-gc介绍">51、golang gc介绍</a></li>
+    <li><a href="#52三色标记法介绍">52、三色标记法介绍</a></li>
+    <li><a href="#53长连接基于tcp怎么实现">53、长连接基于TCP怎么实现</a></li>
+    <li><a href="#54tcp为什么是可靠的传输协议">54、tcp为什么是可靠的传输协议</a></li>
+    <li><a href="#55tcp三次握手发生在accept之前还是之后">55、TCP三次握手发生在accept之前还是之后？</a></li>
+    <li><a href="#56golang-的默认参数传递方式以及哪些是引用传递">56、Golang 的默认参数传递方式以及哪些是引用传递？</a></li>
+    <li><a href="#57golang-的协程间通讯方式有哪些">57、Golang 的协程间通讯方式有哪些？</a></li>
+    <li><a href="#58为什么golang喜欢用chnnel来通信">58、为什么Golang喜欢用chnnel来通信？</a></li>
+    <li><a href="#59go多线程对map的操作">59、go多线程对map的操作</a></li>
+    <li><a href="#60为什么用gogo的并发厉害在哪儿chan好在哪里">60、为什么用Go、Go的并发厉害在哪儿？chan好在哪里？</a></li>
+    <li><a href="#61go线程安全怎么实现的">61、go线程安全怎么实现的</a></li>
+    <li><a href="#62cookies-和session的区别">62、Cookies 和session的区别</a></li>
+    <li><a href="#63go中如何判断发生了goroutine泄漏">63、Go中如何判断发生了goroutine泄漏</a></li>
+    <li><a href="#64-go里面panic知道吗什么时候用怎么用">64、 go里面panic知道吗，什么时候用，怎么用</a></li>
+    <li><a href="#65osi七层模型tcpip四层模型">65、OSI七层模型、TCP\IP四层模型</a></li>
+    <li><a href="#66tcp粘包以及怎么处理">66、tcp粘包、以及怎么处理</a></li>
+    <li><a href="#67rpc相对于传统的api调用的优点">67、RPC相对于传统的api调用的优点</a></li>
+    <li><a href="#68golang中下划线_的用法">68、golang中下划线_的用法</a></li>
+    <li><a href="#69golang中如何实现其它语言中的继承">69、Golang中如何实现其它语言中的继承</a></li>
+    <li><a href="#70go语言的闭包">70、Go语言的闭包</a></li>
+    <li><a href="#71go中的panic和recover">71、Go中的panic和recover</a></li>
+    <li><a href="#72如何自定义error">72、如何自定义error</a></li>
+    <li><a href="#73go接口中的方法中值接受者和指针接受者的区别">73、Go接口中的方法中，值接受者和指针接受者的区别？</a></li>
+    <li><a href="#74synconce">74、Sync.Once</a></li>
+    <li><a href="#75原子操作atomic包">75、原子操作（atomic包）</a></li>
+    <li><a href="#76channel是如何通信的">76、Channel是如何通信的？</a></li>
+    <li><a href="#自我介绍">自我介绍</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h1 id="golang相关">Golang相关</h1>
+<h2 id="1说说go语言的main函数">1、说说go语言的main函数</h2>
+<p>(1)、main函数不能带参数。</p>
+<p>(2)、main函数不能定义返回值。</p>
+<p>(3)、main函数所在的包必须为main包。</p>
+<p>(4)、main函数中可以使用flag包来获取和解析命令行参数</p>
+<h2 id="2在go语言中new和make的区别">2、在go语言中，new和make的区别？</h2>
+<p>new和make都是用来分配内存的，new主要用来分配值类型</p>
+<p>new函数是内建函数，函数定义为</p>
+<p>func new(Type) *Type</p>
+<p>new 的作用是初始化一个指向类型的指针(*Type )，使用new函数来分配空间。传递给new 函数的是一个类型，不是一个值。返回值是 指向这个新分配的零值的指针。</p>
+<p>make函数是内建函数，函数定义为</p>
+<p>func make(t Type, size &hellip;IntegerType) Type</p>
+<p>make 的作用是为 slice，map 或 chan 初始化并返回引用(Type)。 第一个参数是一个类型，第二个参数是长度。</p>
+<p>make(T, args)函数的目的与new(T)不同。它仅仅用于创建 Slice, Map 和 Channel，并且返回类型是 T（不是T*）的一个初始化的（不是零值）的实例。</p>
+<h2 id="3说说go语言中的switch语句">3、说说go语言中的switch语句？</h2>
+<p>单个case中，可以出现多个结果选项。
+//只有在case中明确添加fallthrough关键字，才会继续执行紧跟的下一个case</p>
+<p><strong>4、说说go语言中的for循环？</strong></p>
+<p>for循环支持continue和break来控制循环，但是它提供了一个更高级的break，可以选择中断哪一个循环。</p>
+<p>for循环不支持以逗号为间隔的多个赋值语句，必须使用平行赋值的方式来初始化多个变量 。</p>
+<p><strong>5、go语言中指针运算有哪些？</strong></p>
+<p>(1)、可以通过“&amp;”取指针的地址。</p>
+<p>(2)、可以通过“*”取指针指向的数据。</p>
+<p><strong>6、说说go语言中的协程？</strong></p>
+<p>(1)、协程和线程都可以实现程序的并发执行；</p>
+<p>(2)、通过channel来进行协程间的通信；</p>
+<p>(3)、只需要在函数调用前添加go关键字即可实现go的协程，创建并发任务；</p>
+<p>(4)、关键字go并非执行并发任务，而是创建一个并发任务单元；</p>
+<p><strong>7、go语言中的引用类型包含哪些？</strong></p>
+<p>数组切片、字典(map)、通道（channel）、接口（interface）</p>
+<p><strong>8、说说go语言中的init函数？</strong>
+(1)、一个包中，可以包含多个init函数</p>
+<p>(2)、程序编译时，先执行导入包的init函数，再执行本包内的init函数</p>
+<h2 id="9-说说go语言的同步锁">9、 说说go语言的同步锁？</h2>
+<p>(1) 当一个goroutine获得了Mutex后，其他goroutine就只能乖乖的等待，除非该goroutine释放这个Mutex</p>
+<p>(2) RWMutex在读锁占用的情况下，会阻止写，但不阻止读</p>
+<p>(3) RWMutex在写锁占用情况下，会阻止任何其他goroutine（无论读和写）进来，整个锁相当于由该goroutine独占</p>
+<h2 id="10说说go语言的关于go-vendor"><strong>10、说说go语言的关于go vendor？</strong></h2>
+<p>(1)、基本思路是将引用的外部包的源代码放在当前工程的vendor目录下面
+(2)、编译go代码会优先从vendor目录先寻找依赖包</p>
+<p>(3)、有了vendor目录后，打包当前的工程代码到其他机器的$GOPATH/src下都可以通过编译</p>
+<h2 id="11说说go语言的channel特性">11、说说go语言的channel特性？</h2>
+<p>(1)、给一个 nil channel 发送数据，造成永远阻塞</p>
+<p>(2)、 从一个 nil channel 接收数据，造成永远阻塞</p>
+<p>(3) 、给一个已经关闭的 channel 发送数据，引起 panic</p>
+<p>(4)、从一个已经关闭的 channel 接收数据，如果缓冲区中为空，则返回一个零值</p>
+<p>(5)、无缓冲的channel是同步的，而有缓冲的channel是非同步的</p>
+<p><strong>12、说说go语言的select机制？</strong></p>
+<p>(1)、select是Go中的一个控制结构，类似与switch语句，用于处理异步IO操作。</p>
+<p>(2)、select会监听case语句中的channel的读写操作，当case中channel读写操作为非阻塞状态时，将会触发相应的动作。</p>
+<p>(3)、select中的case语句必须是一个channel操作。</p>
+<p>(4)、如果没有可运行的case语句，且没有default，select将阻塞直到某个case通信可以运行。</p>
+<p>(5)、典型用法有：超时判断、退出、判断channel是否阻塞</p>
+<p><strong>13、说说go语言的goconvey框架？</strong></p>
+<p>(1)、goconvey是一个支持golang的单元测试框架</p>
+<p>(2)、goconvey能够自动监控文件修改并启动测试，并可以将测试结果实时输出到web界面</p>
+<p>(3)、goconvey提供了丰富的断言简化测试用例的编写</p>
+<h2 id="14协程线程进程的区别">14、协程，线程，进程的区别？</h2>
+<p>进程</p>
+<p>进程是具有一定独立功能的程序关于某个数据集合上的一次运行活动,进程是系统进行资源分配和调度的一个独立单位。每个进程都有自己的独立内存空间，不同进程通过进程间通信来通信。由于进程比较重量，占据独立的内存，所以上下文进程间的切换开销（栈、寄存器、虚拟内存、文件句柄等）比较大，但相对比较稳定安全。</p>
+<p>线程</p>
+<p>线程是进程的一个实体,是CPU调度和分派的基本单位,它是比进程更小的能独立运行的基本单位.线程自己基本上不拥有系统资源,只拥有一点在运行中必不可少的资源(如程序计数器,一组寄存器和栈),但是它可与同属一个进程的其他的线程共享进程所拥有的全部资源。线程间通信主要通过共享内存，上下文切换很快，资源开销较少，但相比进程不够稳定容易丢失数据。</p>
+<p>协程</p>
+<p>协程是一种用户态的轻量级线程，协程的调度完全由用户控制。协程拥有自己的寄存器上下文和栈。协程调度切换时，将寄存器上下文和栈保存到其他地方，在切回来的时候，恢复先前保存的寄存器上下文和栈，直接操作栈则基本没有内核切换的开销，可以不加锁的访问全局变量，所以上下文的切换非常快。</p>
+<p><strong>15、 Golang的内存模型，为什么小对象多了会造成gc压力。</strong></p>
+<p>通常小对象过多会导致GC三色法消耗过多的GPU。优化思路是，减少对象分配.</p>
+<h2 id="16并发编程概念是什么">16、并发编程概念是什么？</h2>
+<p>并行是指两个或者多个事件在同一时刻发生；并发是指两个或多个事件在同一时间间隔发生。</p>
+<p>发偏重于多个任务交替执行，而多个任务之间有可能还是串行的。而并行是真正意义上的“同时执行”</p>
+<p>并发编程是指在一台处理器上“同时”处理多个任务。并发是在同一实体上的多个事件。多个事件在同一时间间隔发生。并发编程的目标是充分的利用处理器的每一个核，以达到最高的处理性能。</p>
+<p><strong>17、读写锁或者互斥锁读的时候能写吗?</strong></p>
+<p>Go中读写锁包括读锁和写锁，多个读线程可以同时访问共享数据；写线程必须等待所有读线程都释放锁以后，才能取得锁；同样的，读线程必须等待写线程释放锁后，才能取得锁，也就是说读写锁要确保的是如下互斥关系，可以同时读，但是读-写，写-写都是互斥的。</p>
+<p><strong>18、Log包线程安全吗？</strong></p>
+<p>Golang的标准库提供了log的机制，但是该模块的功能较为简单（看似简单，其实他有他的设计思路）。在输出的位置做了线程安全的保护。</p>
+<p><strong>19、主协程如何等其余协程完再操作？</strong></p>
+<p>使用channel进行通信，context,select。</p>
+<p><strong>20、slice，len，cap，共享，扩容</strong></p>
+<p>append函数，因为slice底层数据结构是，由数组、len、cap组成，所以，在使用append扩容时，会查看数组后面有没有连续内存快，有就在后面添加，没有就重新生成一个大的素组。</p>
+<p><strong>21、map如何顺序读取</strong></p>
+<p><strong>map不能顺序读取，是因为他是无序的</strong>，想要有序读取，首先的解决的问题就是，把ｋｅｙ变为有序，所以可以把key放入切片，对切片进行排序，遍历切片，通过key取值。</p>
+<p><strong>22、context包的用途</strong></p>
+<p>Context通常被译作上下文，它是一个比较抽象的概念，其本质，是【上下上下】存在上下层的传递，上会把内容传递给下。在Go语言中，程序单元也就指的是Goroutine。</p>
+<h2 id="23go的struct能不能比较以及go中的什么类型支持比较">23、Go的Struct能不能比较、以及go中的什么类型支持比较？</h2>
+<ul>
+<li>结构体只能比较是否相等，不能比较大小</li>
+<li>相同类型的结构体才能够比较，结构体是否相同不但与结构体里字段属性类型有关、还与结构体字段的顺序有关。</li>
+<li>如果结构体的所有成员都可以比较，则该结构体可以通过==或!=进行比较是否相等，比较时逐个项进行比较，如果每一项都相等，则两个结构体才相等，否则不相等。</li>
+</ul>
+<p>bool、数值型、字符、指针、数组是可以比较的</p>
+<p>切片、map、函数等是不能比较的。</p>
+<h2 id="24讲述下go的调度">24、讲述下go的调度</h2>
+<p>go调度本质上是把大量的Goroutine分配到少量的线程上去执行，并利用多核并行，实现更强大的并发。</p>
+<p>Go的调度模型也就是GPM模型</p>
+<p>在Go中，线程是运行Goroutine的实体，调度器的功能是把可运行的goroutine分配到工作线称上。</p>
+<p>GPM模型有几个重要的概念：</p>
+<ul>
+<li>全局队列：存放等待运行的Goroutine</li>
+<li>P的本地队列：存放等待运行的Goroutine</li>
+<li>P列表：所有的P列表都在程序启动时创建，创建个数根据环境变量GOMAXPROCS或runtime包中的GOMAXPROCS来设定</li>
+<li>M:指的是线程，线程想要运行任务，就得获取P，从P的本地队列获取G。M有三种状态，休眠状态（没有绑定P）自旋状态（绑定P，正在尝试获取G），运行状态（运行G）</li>
+</ul>
+<h2 id="25讲述下go-defer">25、讲述下Go defer</h2>
+<p>（1）defer特性</p>
+<ul>
+<li>​	关键字defer用于延迟调用</li>
+<li>​	这些调用直到return前才被执行。因此可以用作资源清理</li>
+<li>多个defer语句，按先进后出的方式执行  也就是把defer语句依次压入栈中。</li>
+<li>defer语句中的变量，在defer声明时就决定了。</li>
+</ul>
+<p>（2）defer用途</p>
+<ul>
+<li>关闭文件句柄</li>
+<li>锁资源的释放</li>
+<li>数据库连接的释放</li>
+</ul>
+<h2 id="26当闭包和defer同时出现会发生什么">26、当闭包和defer同时出现，会发生什么？</h2>
+<p>首先闭包函数里的变量是对原值指针的一个拷贝，当defer 和闭包一起出现时，在之后如果原值发生改变</p>
+<p>在return之前defer 语句执行，所有闭包里的变量也会发生改变。</p>
+<p>另外，闭包函数的参数是对当前值得一个拷贝，不是指针。</p>
+<h2 id="27实现消息队列多生产者多消费者">27、实现消息队列（多生产者，多消费者）</h2>
+<h2 id="28http-get跟head">28、http get跟head</h2>
+<h2 id="29http-401403">29、http 401,403</h2>
+<h2 id="30http-keep-alive">30、http keep-alive</h2>
+<h2 id="31tcp与udp区别udp优点适用场景">31、tcp与udp区别，udp优点，适用场景</h2>
+<h2 id="32孤儿进程僵尸进程">32、孤儿进程，僵尸进程</h2>
+<h2 id="33死锁条件如何避免">33、死锁条件，如何避免</h2>
+<h2 id="34go的反射包怎么找到对应的方法">34、Go的反射包怎么找到对应的方法</h2>
+<h2 id="35go的channel有缓冲和无缓冲">35、Go的channel（有缓冲和无缓冲）</h2>
+<h2 id="36讲一下syncpool">36、讲一下sync.pool</h2>
+<h2 id="37tcp三次握手及四次挥手">37、tcp三次握手及四次挥手</h2>
+<h2 id="38httphttps">38、http，https</h2>
+<h2 id="39go命令go-getgo-toolgo-testgo-vet">39、go命令，go get，go tool，go test，go vet</h2>
+<ul>
+<li>Go get 用来下载package</li>
+<li>go test执行测试用例   测试函数、基准函数、示例函数</li>
+<li>go test -cover执行测试用例，并返回测试覆盖率</li>
+<li>go test -cover -coverprofile=c.out 将测试覆盖率信息输出到一个文件</li>
+<li>go tool cover -html=c.out 生成一个测试覆盖率的HTML文档</li>
+</ul>
+<h2 id="40go的值传递和引用">40、go的值传递和引用</h2>
+<p>go语言都是值传递，slice、map、chan这些引用类型只是对指针做了个拷贝</p>
+<h2 id="41selectepoll">41、select、epoll</h2>
+<h2 id="42go的runtime如何实现">42、go的runtime如何实现</h2>
+<h2 id="43go什么情况下会发生内存泄漏">43、go什么情况下会发生内存泄漏？</h2>
+<h2 id="44用channel实现定时器实际上是两个协程同步">44、用channel实现定时器？（实际上是两个协程同步）</h2>
+<h2 id="45channel的实现">45、channel的实现？</h2>
+<h2 id="46udp的头部">46、udp的头部</h2>
+<h2 id="47怎么理解go的interface">47、怎么理解go的interface</h2>
+<h2 id="48go-map实现为什么map的key是随机的">48、go map实现、为什么map的key是随机的</h2>
+<h2 id="49go-map是并发安全的吗不是怎么实现并发安全">49、go map是并发安全的吗，不是，怎么实现并发安全</h2>
+<p>不是并发安全的，Go语言的sync包中提供了一个开箱即用的并发安全版的map-sync.Map.</p>
+<p>开箱即用表示不用像内置的map一样使用make函数初始化就能直接使用</p>
+<h2 id="50syncmap讲一下-syncmap是如何实现的-syncmap锁的粒度如何">50、sync.map讲一下, sync.Map是如何实现的， sync.Map锁的粒度如何</h2>
+<h2 id="51golang-gc介绍">51、golang gc介绍</h2>
+<h2 id="52三色标记法介绍">52、三色标记法介绍</h2>
+<h2 id="53长连接基于tcp怎么实现">53、长连接基于TCP怎么实现</h2>
+<h2 id="54tcp为什么是可靠的传输协议">54、tcp为什么是可靠的传输协议</h2>
+<h2 id="55tcp三次握手发生在accept之前还是之后">55、TCP三次握手发生在accept之前还是之后？</h2>
+<h2 id="56golang-的默认参数传递方式以及哪些是引用传递">56、Golang 的默认参数传递方式以及哪些是引用传递？</h2>
+<ul>
+<li>
+<p>默认采用值传递，且Go 中函数传参仅有值传递一种方式。</p>
+</li>
+<li>
+<p>slice、map、channel 都是引用类型。</p>
+</li>
+<li>
+<p>slice 能够通过函数传参后，修改对应的数组值，因为 slice 内部保存了引用数组的指针，并不是因为引用传递。</p>
+</li>
+<li>
+<p>注意1：无论是值传递，还是引用传递，传递给函数的都是变量的副本，不过，值传递是值的拷贝。引用传递是地址的拷贝，一般来说，地址拷贝更为高效。而值拷贝取决于拷贝的对象大小，对象越大，则性能越低。</p>
+<p>注意2：map、slice、chan、指针、interface默认以引用的方式传递。</p>
+</li>
+</ul>
+<h2 id="57golang-的协程间通讯方式有哪些">57、Golang 的协程间通讯方式有哪些？</h2>
+<ul>
+<li>共享内存和chneel通信</li>
+<li>golang提倡用协程通信而不是用共享内存来通信。</li>
+</ul>
+<h2 id="58为什么golang喜欢用chnnel来通信">58、为什么Golang喜欢用chnnel来通信？</h2>
+<p>虽然goroutine之间可以使用共享内存进行数据交换，但是共享内存在不同的goroutine中容易发生竞态问题。为了保证数据交换的正确性，必须使用互斥量对内存进行加锁，这种做法势必会造成性能问题。</p>
+<p>Go语言的并发模型是CSP，提倡通过通信共享内存而不是通过共享内存来实现通信。</p>
+<h2 id="59go多线程对map的操作">59、go多线程对map的操作</h2>
+<p>使用golang开箱即用的sync.Map并发版的map</p>
+<h2 id="60为什么用gogo的并发厉害在哪儿chan好在哪里">60、为什么用Go、Go的并发厉害在哪儿？chan好在哪里？</h2>
+<h2 id="61go线程安全怎么实现的">61、go线程安全怎么实现的</h2>
+<h2 id="62cookies-和session的区别">62、Cookies 和session的区别</h2>
+<h2 id="63go中如何判断发生了goroutine泄漏">63、Go中如何判断发生了goroutine泄漏</h2>
+<h2 id="64-go里面panic知道吗什么时候用怎么用">64、 go里面panic知道吗，什么时候用，怎么用</h2>
+<h2 id="65osi七层模型tcpip四层模型">65、OSI七层模型、TCP\IP四层模型</h2>
+<h2 id="66tcp粘包以及怎么处理">66、tcp粘包、以及怎么处理</h2>
+<h2 id="67rpc相对于传统的api调用的优点">67、RPC相对于传统的api调用的优点</h2>
+<h2 id="68golang中下划线_的用法">68、golang中下划线_的用法</h2>
+<ul>
+<li>在导入包前加下划线  不导入该包 只执行了该包的init函数</li>
+<li>忽略这个值。作为匿名变量使用</li>
+</ul>
+<h2 id="69golang中如何实现其它语言中的继承">69、Golang中如何实现其它语言中的继承</h2>
+<p>使用嵌套匿名结构体，可以使当前结构体拥有匿名结构体的方法，并且如果两个结构体有一样的方法时，不显示执行时，会屏蔽掉匿名结构体的方法。</p>
+<h2 id="70go语言的闭包">70、Go语言的闭包</h2>
+<p>当闭包函数作为参数返回时，闭包复制的是原对象指针。</p>
+<p>当sync.Once Do方法中的函数有参数时需要用到Do方法。</p>
+<h2 id="71go中的panic和recover">71、Go中的panic和recover</h2>
+<p>panic用于抛出一个panic异常</p>
+<p>然后在defer中通过recover捕获这个异常</p>
+<h2 id="72如何自定义error">72、如何自定义error</h2>
+<p>只要实现error接口，返回就可以了</p>
+<h2 id="73go接口中的方法中值接受者和指针接受者的区别">73、Go接口中的方法中，值接受者和指针接受者的区别？</h2>
+<p>当使用Go接口的方法时，如果实例的方法是值接受者，那接口的实例可以是类型，也可以是类型的指针</p>
+<p>如果实例的方法是指针接受者，那接口的实例必须是类型的指针。</p>
+<h2 id="74synconce">74、Sync.Once</h2>
+<p>Sync包中提供了一个针对只执行一次场景的解决方案-sync.Once</p>
+<p>Sync.Once只有一个Do方法,如果要执行的函数f需要传递参数，就需要搭配闭包来实现。</p>
+<p>sync.Once其实内部包含一个互斥锁和一个布尔值，互斥锁保证布尔值和数据的安全，而布尔值用来记录初始化是否完成。</p>
+<p>这样设计就能保证初始化操作的时候是并发安全的且初始化操作也不会执行多次。</p>
+<p>Sync.Once适应于懒加载：一个资源，当且仅当第一次执行一个操作，该操作执行过程中的其它同类操作都会被阻塞，直到该操作完成。</p>
+<h2 id="75原子操作atomic包">75、原子操作（atomic包）</h2>
+<p>代码中的加锁操作因为涉及内核态的上下文切换会比较耗时、代价比较高。针对基本数据类型我们可以使用原子操作来保证并发安全，因为原子操作是Go语言提供的方法，它在用户态就可以完成，因此性能比锁操作更好。</p>
+<p>除了某些特殊的底层应用，使用通道或sync包的函数、类型实现更好。</p>
+<h2 id="76channel是如何通信的">76、Channel是如何通信的？</h2>
+<p>首先channel是一个引用类型，channel底层是一个hchan的结构体，这个结构体里有一个ring buffer、sendq发送阻塞双向链表、recvq接收阻塞双向链表。closed标志位，lock互斥锁。</p>
+<p>当goroutine向channel发送数据时</p>
+<ul>
+<li>先对channel上锁</li>
+<li>如果buffer存满了，就将groutine里的一些信息包装成sudog结构体，然后加入sendq链表中去，将channel解锁，此时的groutine将发生阻塞，直到被唤醒</li>
+<li>如果buffer没存满，就将值直接拷贝到buffer中去</li>
+</ul>
+<p>当groutine从channel接收数据时</p>
+<ul>
+<li>先对channel上锁</li>
+<li>如果buffer为空，就将groutine里的一些信息包装成sudog结构体，然后加入recvq链表中去，将channel解锁，此时groutin将发生阻塞，直到被唤醒</li>
+<li>如果buffer有值，就将值拷贝到groutine中去</li>
+<li>释放锁</li>
+</ul>
+<p>当执行close(chan)时</p>
+<ul>
+<li>先对channel上锁</li>
+<li>将closed标志位置为1</li>
+<li>将sendq、recvq中阻塞的groutine唤醒</li>
+<li>对channel进行解锁</li>
+</ul>
+<h2 id="自我介绍">自我介绍</h2>
+<p>面试官，您好
+我叫赵佳明，16年本科毕业，上份工作任职于北京文思海辉有限公司，岗位为后台开发工程师，工作内容主要是银行互联网项目开发，已经上线的项目有杭州银行开放银行项目，美团闪付，京东闪付登。有完整的项目从需求分析，开发，自测，联条测试，上线，生产运维的经验。
+目前已离职，离职期间曾系统学习了golang及其框架，曾用go-micro搭建过一套简易的开放银行微服务系统，其中实现的功能主要有同异步服务，定时器任务，链路追踪，日志持久化等。
+现在想要应聘一份和golang有关的后台开发岗位。
+Fastdfs</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Beyourself</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      0001-01-01
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="https://tva1.sinaimg.cn/large/006y8mN6ly1g92kccissoj30u00u0gmg.jpg">
+        <span>Wechat</span>
+      </label>
+    
+  </div>
+</div>
+
+    <footer class="post-footer">
+      
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/go%E6%A0%87%E5%87%86%E5%BA%93%E4%B8%8Ego%E5%90%8D%E5%BA%93/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Golang标准库与Go名库</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+
+
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "zhaojiaming110/comments-myblog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="https://github.com/zhaojiaming110/" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://www.zhihu.com/people/zhao-jia-ming-95-85/activities" rel="me noopener" class="iconfont"
+      title="zhihu"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M351.791182 562.469462l192.945407 0c0-45.367257-21.3871-71.939449-21.3871-71.939449L355.897709 490.530013c3.977591-82.182744 7.541767-187.659007 8.816806-226.835262l159.282726 0c0 0-0.86367-67.402109-18.578124-67.402109s-279.979646 0-279.979646 0 16.850783-88.141456 39.318494-127.053698c0 0-83.60514-4.510734-112.121614 106.962104S81.344656 355.077018 76.80834 367.390461c-4.536316 12.313443 24.62791 5.832845 36.941354 0 12.313443-5.832845 68.050885-25.924439 84.252893-103.69571l86.570681 0c1.165546 49.28652 4.596691 200.335724 3.515057 226.835262L109.86113 490.530013c-25.275663 18.147312-33.701566 71.939449-33.701566 71.939449L279.868105 562.469462c-8.497535 56.255235-23.417339 128.763642-44.275389 167.210279-33.05279 60.921511-50.55235 116.65793-169.802314 212.576513 0 0-19.442818 14.257725 40.829917 9.073656 60.273758-5.185093 117.305683-20.739347 156.840094-99.807147 20.553105-41.107233 41.805128-93.250824 58.386782-146.138358l-0.055259 0.185218 167.855986 193.263655c0 0 22.035876-51.847855 5.832845-108.880803L371.045711 650.610918l-42.1244 31.157627-0.045025 0.151449c11.69946-41.020252 20.11206-81.5749 22.726607-116.858498C351.665315 564.212152 351.72876 563.345412 351.791182 562.469462z"></path>
+  <path d="M584.918753 182.033893l0 668.840094 70.318532 0 28.807093 80.512708 121.875768-80.512708 153.600307 0L959.520453 182.033893 584.918753 182.033893zM887.150192 778.934538l-79.837326 0-99.578949 65.782216-23.537066-65.782216-24.855084 0L659.341766 256.673847l227.807403 0L887.149169 778.934538z"></path>
+</svg>
+
+    </a>
+
+
+<a href="http://beuself.xyz/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2020
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Beyourself
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+
+  
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"
+integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" 
+crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"
+integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe"
+crossorigin="anonymous"
+onload="renderMathInElement(document.body,{delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false}]});"></script>
+
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

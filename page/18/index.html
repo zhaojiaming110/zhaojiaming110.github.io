@@ -535,7 +535,7 @@ if (!doNotTrack) {
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/go-basic-knowledge/2019-09-20-%E5%B8%B8%E9%87%8F%E4%B8%8E%E6%9E%9A%E4%B8%BE/">常量与枚举</a>
+      <a class="post-link" href="/post/go-basic-knowledge/2019-09-21-%E5%88%87%E7%89%87/">切片</a>
     </h1>
     
     <div class="post-meta">
@@ -546,8 +546,8 @@ if (!doNotTrack) {
           <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
           
         </div>
-      <span class="more-meta"> 301 words </span>
-      <span class="more-meta"> 1 min read </span>
+      <span class="more-meta"> 948 words </span>
+      <span class="more-meta"> 2 min read </span>
       
       
       
@@ -557,10 +557,10 @@ if (!doNotTrack) {
   <div class="post-content">
     
     <div class="post-summary">
-      1.常量的定义 常量的值在编译时就已经确定 常量的定义格式与变量基本相同 等号右侧必须是常量或常量表达式 常量表达式中的函数必须是内置函数 2.常量的
+      1 2 3 4 5 6 7 func main() { arr := [...]int{0, 1, 2, 3, 4, 5, 6, 7} fmt.Println(&#34;arr[2:6] = &#34;, arr[2:6]) fmt.Println(&#34;arr[:6] = &#34;, arr[:6]) fmt.Println(&#34;arr[2:] = &#34;, arr[2:]) fmt.Println(&#34;arr[:] = &#34;, arr[:]) } 运行结果 1 2 3 4 arr[2:6] = [2 3 4 5] arr[:6] = [0 1 2 3 4 5] arr[2:] = [2 3 4 5 6 7] arr[:] = [0
     </div>
     <div class="read-more">
-      <a href="/post/go-basic-knowledge/2019-09-20-%E5%B8%B8%E9%87%8F%E4%B8%8E%E6%9E%9A%E4%B8%BE/" class="read-more-link">Read more</a>
+      <a href="/post/go-basic-knowledge/2019-09-21-%E5%88%87%E7%89%87/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -571,7 +571,7 @@ if (!doNotTrack) {
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/go-basic-knowledge/2019-09-21-%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5/">循环语句</a>
+      <a class="post-link" href="/post/go-basic-knowledge/2019-09-22-%E5%8C%85%E5%92%8C%E5%B0%81%E8%A3%85/">包和封装</a>
     </h1>
     
     <div class="post-meta">
@@ -582,7 +582,7 @@ if (!doNotTrack) {
           <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
           
         </div>
-      <span class="more-meta"> 331 words </span>
+      <span class="more-meta"> 96 words </span>
       <span class="more-meta"> 1 min read </span>
       
       
@@ -593,10 +593,10 @@ if (!doNotTrack) {
   <div class="post-content">
     
     <div class="post-summary">
-      1 2 3 4 sum := 0 for i := 1; i &lt;= 100; i++ { sum += i } 使用循环语句时需要注意以下几点： 左花括号{必须与for处于同一行。 Go语言中的for循环与C语言一样
+      封装 名字一般使用CamelCase 首字母大写：public 首字母小写：private 包 每个目录只能有一个包。 main包包含可执行入口。 为结构
     </div>
     <div class="read-more">
-      <a href="/post/go-basic-knowledge/2019-09-21-%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5/" class="read-more-link">Read more</a>
+      <a href="/post/go-basic-knowledge/2019-09-22-%E5%8C%85%E5%92%8C%E5%B0%81%E8%A3%85/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -607,7 +607,7 @@ if (!doNotTrack) {
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/go-basic-knowledge/2019-09-26-%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/">性能调优</a>
+      <a class="post-link" href="/post/go-basic-knowledge/2019-09-20-%E5%8F%98%E9%87%8F/">变量</a>
     </h1>
     
     <div class="post-meta">
@@ -618,8 +618,8 @@ if (!doNotTrack) {
           <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
           
         </div>
-      <span class="more-meta"> 0 words </span>
-      <span class="more-meta"> 0 min read </span>
+      <span class="more-meta"> 1323 words </span>
+      <span class="more-meta"> 3 min read </span>
       
       
       
@@ -629,10 +629,10 @@ if (!doNotTrack) {
   <div class="post-content">
     
     <div class="post-summary">
-      
+      1.单个变量的声明与赋值 变量的声明格式：var &lt;变量名称&gt; &lt;变量类型&gt; 变量的赋值格式：&lt;变量名称&gt; = &l
     </div>
     <div class="read-more">
-      <a href="/post/go-basic-knowledge/2019-09-26-%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/" class="read-more-link">Read more</a>
+      <a href="/post/go-basic-knowledge/2019-09-20-%E5%8F%98%E9%87%8F/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -643,7 +643,7 @@ if (!doNotTrack) {
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/go-basic-knowledge/2019-09-22-%E6%89%A9%E5%B1%95%E5%B7%B2%E6%9C%89%E7%B1%BB%E5%9E%8B/">扩展已有类型</a>
+      <a class="post-link" href="/post/go-basic-knowledge/2019-09-21-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/">字符和字符串处理</a>
     </h1>
     
     <div class="post-meta">
@@ -654,8 +654,8 @@ if (!doNotTrack) {
           <a href="http://beuself.xyz/categories/go%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> Go基础学习笔记 </a>
           
         </div>
-      <span class="more-meta"> 130 words </span>
-      <span class="more-meta"> 1 min read </span>
+      <span class="more-meta"> 1949 words </span>
+      <span class="more-meta"> 4 min read </span>
       
       
       
@@ -665,10 +665,10 @@ if (!doNotTrack) {
   <div class="post-content">
     
     <div class="post-summary">
-      扩充系统类型或者别人的类型 使用组合： 1 2 3 4 5 6 package tree type Node struct { value int Left, Right *Node } 1 2 3 4 package main type myTreeNode struct { node *tree.Node } 定义别名： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+      ASCII ASCII是基于拉丁字母的一套电脑编码系统，主要用于显示英文字母和其它西欧语言。 标准ASCII码也叫基础ASCII码，使用7位二进制数（剩
     </div>
     <div class="read-more">
-      <a href="/post/go-basic-knowledge/2019-09-22-%E6%89%A9%E5%B1%95%E5%B7%B2%E6%9C%89%E7%B1%BB%E5%9E%8B/" class="read-more-link">Read more</a>
+      <a href="/post/go-basic-knowledge/2019-09-21-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -955,8 +955,6 @@ if (!doNotTrack) {
 
             
             
-              
-            
 
           
           
@@ -965,12 +963,6 @@ if (!doNotTrack) {
         
 
         
-        
-          <li class="">
-            <a href="/page/11/">
-              11
-            </a>
-          </li>
         
 
       
@@ -1347,6 +1339,37 @@ if (!doNotTrack) {
 
       
 
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/24/">
+              24
+            </a>
+          </li>
+        
+
+      
+
       
       
       <li><a href="/page/19/">»</a></li>
@@ -1354,7 +1377,7 @@ if (!doNotTrack) {
 
       
       
-      <li><a href="/page/23/">»»</a></li>
+      <li><a href="/page/24/">»»</a></li>
       
 
       </ul>

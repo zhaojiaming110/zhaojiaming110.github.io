@@ -35,7 +35,7 @@
       <pubDate>Wed, 10 Jan 2018 23:01:23 +0800</pubDate>
       
       <guid>http://beuself.xyz/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</guid>
-      <description>微服务学习</description>
+      <description>OpenBank微服务 此项目是由Go-micro加其它开源框架实现的一套微服务框架，其项目背景来自于我曾经做过的开放银行系统。 此项目纯属是为</description>
     </item>
     
   </channel>

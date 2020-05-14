@@ -926,7 +926,21 @@
   </url>
   
   <url>
+    <loc>http://beuself.xyz/categories/interview/</loc>
+    <lastmod>2001-10-14T23:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://beuself.xyz/post/go%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
+    <lastmod>2001-10-14T23:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://beuself.xyz/post/%E9%9D%A2%E8%AF%95%E9%97%AE%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

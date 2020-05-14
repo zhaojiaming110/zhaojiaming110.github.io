@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>interview on Beyourself - a gopher</title>
+    <link>http://beuself.xyz/categories/interview/</link>
+    <description>Recent content in interview on Beyourself - a gopher</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 14 Oct 2001 23:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="http://beuself.xyz/categories/interview/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>面试</title>
+      <link>http://beuself.xyz/post/go%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/</link>
+      <pubDate>Sun, 14 Oct 2001 23:01:23 +0800</pubDate>
+      
+      <guid>http://beuself.xyz/post/go%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
+      <description>Golang相关 [TOC] 1、说说go语言的main函数 (1)、main函数不能带参数。 (2)、main函数不能定义返回值。 (3)、main函数所在</description>
+    </item>
+    
+  </channel>
+</rss>

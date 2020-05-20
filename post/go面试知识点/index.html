@@ -67,7 +67,7 @@
 <meta itemprop="description" content="Golang相关 [TOC] 1、说说go语言的main函数 (1)、main函数不能带参数。 (2)、main函数不能定义返回值。 (3)、main函数所在">
 <meta itemprop="datePublished" content="2001-10-14T23:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2001-10-14T23:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="23081">
+<meta itemprop="wordCount" content="23990">
 
 
 
@@ -520,8 +520,8 @@ if (!doNotTrack) {
             <a href="http://beuself.xyz/categories/interview/"> interview </a>
             
           </div>
-        <span class="more-meta"> 23081 words </span>
-          <span class="more-meta"> 47 min read </span>
+        <span class="more-meta"> 23990 words </span>
+          <span class="more-meta"> 48 min read </span>
 
         
         
@@ -612,6 +612,14 @@ if (!doNotTrack) {
     <li><a href="#91go中的面向对象">91、go中的面向对象</a></li>
     <li><a href="#92linux中的网络命令">92、Linux中的网络命令</a></li>
     <li><a href="#93说说什么是浅拷贝什么是深拷贝">93、说说什么是浅拷贝、什么是深拷贝？</a></li>
+    <li><a href="#94关于字符串连接的几种方式">94、关于字符串连接的几种方式？</a></li>
+    <li><a href="#95匿名返回参数和具名返回参数">95、匿名返回参数和具名返回参数</a></li>
+    <li><a href="#96go语言中的赋值及map中的value">96、Go语言中的赋值及map中的value</a></li>
+    <li><a href="#97使用短变量声明定义的变量的作用域">97、使用<code>:=</code>短变量声明定义的变量的作用域</a></li>
+    <li><a href="#98channel的关闭">98、channel的关闭</a></li>
+    <li><a href="#99go语言中的自增自减">99、Go语言中的自增自减</a></li>
+    <li><a href="#100方法值">100、方法值</a></li>
+    <li><a href="#101锁失效">101、锁失效</a></li>
     <li><a href="#自我介绍">自我介绍</a></li>
   </ul>
 
@@ -1022,6 +1030,10 @@ if (!doNotTrack) {
 <li>
 <p>堆区：用于动态内存分配，Go中的GC机制会提供了堆区的垃圾回收</p>
 </li>
+<li>
+<p>在Go中，变量的内存分配位置依旧归Go编译器管，Go编译器会根据变量的大小及其”escape analysis“的结果来决定变量的存储位置，故能准确返回本地变量的地址。</p>
+<p>在go build或go run时，加入-m参数，能准确分析程序的变量分配位置</p>
+</li>
 </ul>
 <h2 id="53长连接基于tcp怎么实现">53、长连接基于TCP怎么实现</h2>
 <h2 id="54tcp为什么是可靠的传输协议">54、tcp为什么是可靠的传输协议</h2>
@@ -1260,6 +1272,121 @@ if (!doNotTrack) {
 <li>浅拷贝：只是增加了一个指针指向已存在的内存地址，</li>
 <li>深拷贝：是增加了一个指针并且申请了一个新的内存，使这个增加的指针指向这个新的内存，</li>
 </ul>
+<h2 id="94关于字符串连接的几种方式">94、关于字符串连接的几种方式？</h2>
+<ul>
+<li><code>str := &quot;abc&quot; + &quot;123&quot;</code></li>
+<li><code>fmt.Sprintf(&quot;abc%d&quot;, 123)</code></li>
+<li><code>Strings.Join(a []string, sep string)</code>seq字符串用来分割切片a，并返回一个新的字符串</li>
+</ul>
+<h2 id="95匿名返回参数和具名返回参数">95、匿名返回参数和具名返回参数</h2>
+<ul>
+<li>
+<p>匿名返回参数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">increaseA</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">i</span> <span class="kt">int</span>
+    <span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">i</span><span class="o">++</span>
+    <span class="p">}()</span>
+    <span class="k">return</span> <span class="nx">i</span>	<span class="c1">// 相当于return 0
+</span><span class="c1"></span>    <span class="c1">// i := 0
+</span><span class="c1"></span>    <span class="c1">// return 0	返回参数匿名  在此处就对i进行求值
+</span><span class="c1"></span>    <span class="c1">// defer func() {
+</span><span class="c1"></span>    <span class="c1">//		i++	//1
+</span><span class="c1"></span>    <span class="c1">// }
+</span><span class="c1"></span><span class="p">}</span>
+  
+<span class="kd">func</span> <span class="nf">f2</span><span class="p">()</span> <span class="p">(</span><span class="nx">r</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">t</span> <span class="o">:=</span> <span class="mi">5</span>
+    <span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">t</span> <span class="p">=</span> <span class="nx">t</span> <span class="o">+</span> <span class="mi">5</span>
+    <span class="p">}()</span>
+  <span class="k">return</span> <span class="nx">t</span>	<span class="c1">// 相当于 r = t; return r
+</span><span class="c1"></span><span class="p">}</span>	<span class="c1">// 5
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>具名返回参数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">increaseB</span><span class="p">()</span> <span class="p">(</span><span class="nx">r</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">r</span><span class="o">++</span>	<span class="c1">// 闭包函数的变量是对指向变量r的指针的一个拷贝
+</span><span class="c1"></span>    <span class="p">}()</span>
+    <span class="k">return</span> <span class="nx">r</span>	<span class="c1">// 此处还是return r;r的值后来被defer语句中的r++改变了
+</span><span class="c1"></span>    <span class="c1">// r := 0
+</span><span class="c1"></span>    <span class="c1">// return r	返回参数是具名， 在此处还不对r进行求值
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="96go语言中的赋值及map中的value">96、Go语言中的赋值及map中的value</h2>
+<p>​	go语言中对于类似X=Y的赋值操作，必须知道X的地址，才能够将Y的值赋给X。</p>
+<p>​	go中的map中value本身是不可寻址的。</p>
+<p>​	go中的常量不同于变量在运行期间分配内存，常量通常会被编译器在预处理阶段直接展开，作为指令数据使用，所以常量无法寻址。</p>
+<h2 id="97使用短变量声明定义的变量的作用域">97、使用<code>:=</code>短变量声明定义的变量的作用域</h2>
+<p>对于使用:=定义的变量，如果新变量与同名已定义的变量不在同一个作用域中，那么 Go 会新定义这个变量。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="nx">p</span> <span class="o">*</span><span class="kt">int</span> <span class="c1">//全局变量
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">p</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">foo</span><span class="p">()</span> <span class="c1">//在main函数内部p会覆盖全局变量
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>不能使用短变量声明设置结构体字段值。</p>
+<h2 id="98channel的关闭">98、channel的关闭</h2>
+<p>有方向的channel是不可以被关闭的</p>
+<h2 id="99go语言中的自增自减">99、Go语言中的自增自减</h2>
+<ul>
+<li>自增、自减不是运算符，只能作为独立语句，而不是表达式</li>
+<li>不像其它语言，Go语言不支持++i和&ndash;i操作</li>
+</ul>
+<h2 id="100方法值">100、方法值</h2>
+<p>当指针值赋值给变量或者作为函数参数传递时，会立即计算并复制该方法执行所需的接受者对象，与其绑定，以便在稍后执行时，能隐式地传递接受者。</p>
+<h2 id="101锁失效">101、锁失效</h2>
+<p>锁失效。将 Mutex 作为匿名字段时，相关的方法必须使用指针接收者，否则会导致锁机制失效。</p>
 <h2 id="自我介绍">自我介绍</h2>
 <p>面试官，您好
 我叫赵佳明，16年本科毕业，上份工作任职于北京文思海辉有限公司，岗位为后台开发工程师，工作内容主要是银行互联网项目开发，已经上线的项目有杭州银行开放银行项目，美团闪付，京东闪付登。有完整的项目从需求分析，开发，自测，联条测试，上线，生产运维的经验。
